@@ -3,6 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Menuo su IT</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
@@ -10,12 +12,10 @@
         This is my OSOM header
     </header>
 
-        <br>
-        <br>
 
     <main>
         <div>
-            <table border="1">
+            <table border="1" class="my-table">
                 <thead>
                     <tr>
                         <th>header 1</th>
@@ -39,28 +39,26 @@
             </table>
         </div>
 
-        <br>
-        <br>
-        <br>
-
         <div>
-            <form>
-                <input type="text">
-                <input type="text">
-                <input type="date">
-                <input type="email">
-
-                <br>
-                <br>
+            <form id="my-form">
+                <div>
+                    <label for="my-text">Text input</label>
+                    <input id="my-text" type="text">
+                </div>
+                <div>
+                    <label for="my-date">Date input</label>
+                    <input id="my-date" type="text">
+                </div>
+                <div>
+                    <label for="my-email">Email input</label>
+                    <input id="my-email" type="text">
+                </div>
 
                 <input type="submit" value="Submit">
             </form>
         </div>
     </main>
 
-        <br>
-        <br>
-        <br>
 
     <footer>
         Menuo su IT @2015
