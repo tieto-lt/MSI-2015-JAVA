@@ -5,17 +5,16 @@
     .module('app.common')
     .factory('UsersFactory', UsersFactory);
 
-  function UsersFactory() {
-    var data = [{
-      name: 'Marius',
-      email: 'm@m.lt'
-    }, {
-      name: 'Rimvis',
-      email: 'r@r.lt'
-    }, {
-      name: 'Saulukas',
-      email: 's@s.lt'
-    }];
+  UsersFactory.$inject = ['$http'];
+
+  function UsersFactory($http) {
+    var data = [];
+
+    $http
+      .get('users.json')
+      .then(function(response) {
+        angular.extend(data, response.data.users);
+      });
 
     return {
       getUsers: getUsers,
