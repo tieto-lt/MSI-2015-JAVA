@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="MSI-app">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Menuo su IT</title>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 <body>
 
-    <header>
-        This is my OSOM header
-    </header>
-
+    <data-ng-include src="'app/header/header.tmpl.html'"></data-ng-include>
 
     <main>
         <div>
@@ -70,5 +67,9 @@
     </footer>
 
     <script src="javascript.js"></script>
+    <!--vendor stuff-->
+    <script src="vendor/angular/angular.min.js"></script>
+    <!--our own stuff-->
+    <script src="app/app.module.js"></script>
 </body>
 </html>
