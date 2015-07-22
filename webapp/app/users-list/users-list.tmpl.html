@@ -9,7 +9,7 @@
         </thead>
         <tbody>
         <tr data-ng-repeat="user in vm.users">
-            <td>{{user.name}}</td>
+            <td>{{user.name | uppercase | msiAwesome}}</td>
             <td data-ng-bind="user.email"></td>
         </tr>
         </tbody>
