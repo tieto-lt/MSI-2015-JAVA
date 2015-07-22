@@ -5,19 +5,13 @@
     .module('app.usersList')
     .controller('UsersListController', UsersListController);
 
-  function UsersListController() {
+  UsersListController.$inject = ['UsersFactory'];
+
+  function UsersListController(UsersFactory) {
     var vm = this;
 
-    vm.users = [{
-      name: 'Marius',
-      email: 'm@m.lt'
-    }, {
-      name: 'Rimvis',
-      email: 'r@r.lt'
-    }, {
-      name: 'Saulukas',
-      email: 's@s.lt'
-    }];
+    vm.users = UsersFactory.getUsers();
+
   }
 
 })();

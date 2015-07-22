@@ -4,7 +4,10 @@
   angular
     .module('MSI-app', [
       'app.usersList',
-      'app.registration'
+      'app.registration',
+
+      /*commons*/
+      'app.common'
     ]);
 
 })(window.angular);

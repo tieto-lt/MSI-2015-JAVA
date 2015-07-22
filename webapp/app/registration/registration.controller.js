@@ -5,7 +5,9 @@
     .module('app.registration')
     .controller('RegistrationController', RegistrationController);
 
-  function RegistrationController() {
+  RegistrationController.$inject = ['UsersFactory'];
+
+  function RegistrationController(UsersFactory) {
     var vm = this;
 
     vm.user = {
@@ -18,7 +20,7 @@
     //////////////////////////////////
 
     function submit() {
-      alert(JSON.stringify(vm.user));
+      UsersFactory.addUser(vm.user);
     }
   }
 
