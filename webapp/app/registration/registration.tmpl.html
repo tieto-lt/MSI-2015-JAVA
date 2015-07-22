@@ -1,0 +1,17 @@
+<form id="my-form"
+      name="myForm"
+      data-ng-controller="RegistrationController as vm"
+      data-ng-submit="vm.submit()">
+    <div>
+        <label for="my-text">Name</label>
+        <input id="my-text" type="text" data-ng-model="vm.user.name">
+    </div>
+    <div>
+        <label for="my-date">E- mail</label>
+        <input id="my-date" type="email" data-ng-model="vm.user.email">
+    </div>
+
+    <input type="submit" value="Submit">
+    
+    <span data-ng-if="myForm.$submitted">GREAT SUCCESS!!!!!!!!!!!!!</span>
+</form>

@@ -2,6 +2,9 @@
   'use strict';
 
   angular
-    .module('MSI-app', []);
+    .module('MSI-app', [
+      'app.usersList',
+      'app.registration'
+    ]);
 
 })(window.angular);

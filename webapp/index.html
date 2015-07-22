@@ -13,51 +13,11 @@
 
     <main>
         <div>
-            <table border="1" class="my-table">
-                <thead>
-                    <tr>
-                        <th>header 1</th>
-                        <th>header 2</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>column 11</td>
-                        <td>column 12</td>
-                    </tr>
-                    <tr>
-                        <td>column 21</td>
-                        <td>column 22</td>
-                    </tr>
-                    <tr>
-                        <td>column 31</td>
-                        <td>column 32</td>
-                    </tr>
-                </tbody>
-            </table>
+            <data-ng-include src="'app/users-list/users-list.tmpl.html'"></data-ng-include>
         </div>
 
         <div>
-            <form id="my-form">
-                <div>
-                    <label for="my-text">Text input</label>
-                    <input id="my-text" type="text">
-                </div>
-                <div>
-                    <label for="my-date">Date input</label>
-                    <input id="my-date" type="text">
-                </div>
-                <div>
-                    <label for="my-email">Email input</label>
-                    <input id="my-email" type="text">
-                </div>
-
-                <span id="hide-me">Hide me</span>
-
-                <button type="button" onclick="hideElement()">Click me</button>
-
-                <input type="submit" value="Submit">
-            </form>
+            <data-ng-include src="'app/registration/registration.tmpl.html'"></data-ng-include>
         </div>
     </main>
 
@@ -71,5 +31,10 @@
     <script src="vendor/angular/angular.min.js"></script>
     <!--our own stuff-->
     <script src="app/app.module.js"></script>
+    <script src="app/users-list/users-list.module.js"></script>
+    <script src="app/users-list/users-list.controller.js"></script>
+    <script src="app/registration/registration.module.js"></script>
+    <script src="app/registration/registration.controller.js"></script>
+
 </body>
 </html>
