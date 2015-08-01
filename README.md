@@ -5,7 +5,7 @@
 
 1. Single Java file Application.java adds Spring Boot support
 
-2. Two more to start application (mvn jetty:run and Deploy still work):
+2. Two more ways to start application ("mvn jetty:run" and deploy to server still work):
 
    mvn spring-boot:run
 
