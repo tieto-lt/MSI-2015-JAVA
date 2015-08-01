@@ -1,9 +1,19 @@
 # MSI-2015-JAVA
 
-10-boot branch
+10-boot
+======================
 
-1. Using spring boot embedded tomcat to start web application
+1. Single Java file Application.java adds Spring Boot support
 
-    mvn spring-boot:run
+2. Four ways to start application:
 
-2. Annotations and classpath scan
+  mvn jetty:run
+  
+  mvn spring-boot:run
+  
+  mvn clean install
+  java -jar target/msi2015.war
+  
+  deploy to web server
+
+3. @Annotations and classpath scan
