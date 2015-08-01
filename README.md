@@ -5,3 +5,5 @@
 1. Using spring boot embedded tomcat to start web application
 
     mvn spring-boot:run
+
+2. Annotations and classpath scan
