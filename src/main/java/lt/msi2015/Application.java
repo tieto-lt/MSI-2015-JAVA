@@ -1,4 +1,4 @@
-package main.java.lt.msi2015;
+package lt.msi2015;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
