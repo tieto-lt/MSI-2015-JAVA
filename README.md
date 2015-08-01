@@ -1,9 +1,8 @@
 # MSI-2015-JAVA
 
-10-boot branch
+11-rest branch
 
-1. Using spring boot embedded tomcat to start web application
+1. @RestController with @RequestParam
 
-    mvn spring-boot:run
 
-2. Annotations and classpath scan
+2. Single Responsibility Principle - controllers separate from application

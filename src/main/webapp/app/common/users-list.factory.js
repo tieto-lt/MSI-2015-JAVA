@@ -11,7 +11,7 @@
     var data = [];
 
     $http
-      .get('users.json')
+      .get('users')
       .then(function(response) {
         angular.extend(data, response.data.users);
       });
