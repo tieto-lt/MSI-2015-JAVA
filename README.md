@@ -1,5 +1,7 @@
 # MSI-2015-JAVA
 
-8-ajax branch
+10-boot branch
 
-1. Loading initial set of users from file
+1. Using spring boot embedded tomcat to start web application
+
+    mvn spring-boot:run
