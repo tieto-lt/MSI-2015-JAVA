@@ -3,21 +3,25 @@
 9-java branch
 =============
 
-1. IDE - Integrated Development Environment:
+1. Start web application by running:
+
+   mvn jetty:run
+
+2. IDE - Integrated Development Environment:
    - Eclipse: STS - Sprint Tool Suite
    - NetBeans
    - IntelliJ IDEA
 
-2. Directory structure for Java Maven projects without Java classes
+3. Directory structure for Java Maven projects without Java classes
    - pom.xml
    - src vs. target
    - src/main/webapp
 
-3. Servlet containers: tomcat, jetty, GlassFish, JBoss, Pivotal TC Server
+4. Servlet containers: tomcat, jetty, GlassFish, JBoss, Pivotal TC Server
 
-   mvn jetty:run
+   Second way to start application: deploy to Pivotal TC Server.
 
-4. Maven build lifecycle:
+5. Maven build lifecycle and Web-Archive (msi2015.war):
 
    mvn clean install
 
