@@ -1,33 +1,24 @@
 package lt.msi2015;
 
+import java.util.Arrays;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UsersRest {
-	
+
+	static final UserList USER_LIST = new UserList(Arrays.asList(
+            new User("Agnė", "a@a.lt"),
+			new User("Marius", "m@m.lt"),
+			new User("Onutė", "o@o.lt"),
+			new User("Rimvis", "r@r.lt"),
+			new User("saulukas", "s@s.lt")
+			));
+
 	@RequestMapping("/users")
-    String users() {
-        return "{"
-                + "  \"users\": ["
-                + "    {"
-                + "      \"name\": \"Marius\","
-                + "      \"email\": \"m@m.lt\""
-                + "    },"
-                + "    {"
-                + "      \"name\": \"Rimvis\","
-                + "      \"email\": \"r@r.lt\""
-                + "    },"
-                + "    {"
-                + "      \"name\": \"saulukas\","
-                + "      \"email\": \"s@s.lt\""
-                + "    },"
-                + "    {"
-                + "      \"name\": \"Agnė\","
-                + "      \"email\": \"a@a.lt\""
-                + "    }"
-                + "  ]"
-                + "}";
-    }
+	UserList users() {
+		return USER_LIST;
+	}
 
 }

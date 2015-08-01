@@ -1,8 +1,7 @@
 # MSI-2015-JAVA
 
-11-rest branch
+12-json branch
 
-1. @RestController with @RequestParam
+1. User and UserList DTOs - Data Transfer Objects 
 
-
-2. Single Responsibility Principle - controllers separate from application
+2. Mapping: DTO -> JSON
