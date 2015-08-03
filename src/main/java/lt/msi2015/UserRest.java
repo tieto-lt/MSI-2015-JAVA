@@ -18,7 +18,7 @@ public class UserRest {
 	
     @RequestMapping("/user/list")
     List<User> users() {
-        return repo.fetchAll();
+        return repo.findAll();
     }
 
 	@RequestMapping(value= "/user/save", method = RequestMethod.POST)
