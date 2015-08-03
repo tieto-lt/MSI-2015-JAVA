@@ -7,4 +7,4 @@
 
 2. Mapping: DTO -> JSON
 
-3. Debugging with mvn-debug 
+3. Debugging Java code
