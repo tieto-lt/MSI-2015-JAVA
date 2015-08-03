@@ -7,6 +7,8 @@
 
          mvn jetty:run
 
-Coloborators:
+Collaborators:
 Augustas
+vincas
 marius
+Mykolas
