@@ -11,9 +11,9 @@
     var data = [];
 
     $http
-      .get('users')
+      .get('user/list')
       .then(function(response) {
-        angular.extend(data, response.data.users);
+        angular.extend(data, response.data);
       });
 
     return {
@@ -26,7 +26,11 @@
     }
 
     function addUser(user) {
-      data.push(user);
+    	$http
+    	  .post('user/save', user)
+          .then(function(response) {
+        	  data.push(response.data);
+          });
     }
   }
 

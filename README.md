@@ -1,10 +1,10 @@
 # MSI-2015-JAVA
 
-12-json
+13-post
 ====================
 
-1. User and UserList DTOs - Data Transfer Objects 
+1. Changing data with HTTP POST request 
 
-2. Mapping: DTO -> JSON
+2. Layering application into: API and Persistence
 
-3. Debugging Java code
+3. Single responsibility principle
