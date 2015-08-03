@@ -2,7 +2,7 @@ package lt.msi2015;
 
 import java.util.List;
 
-public class UserList {
+public class UserList extends Dto {
 
 	public List<User> users;
 

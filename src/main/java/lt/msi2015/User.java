@@ -1,6 +1,6 @@
 package lt.msi2015;
 
-public class User {
+public class User extends Dto {
 
 	public String name;
 	public String email;
