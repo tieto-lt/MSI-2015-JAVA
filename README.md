@@ -1,16 +1,11 @@
 # MSI-2015-JAVA
 
-9-java branch
+14-db
+====================
 
-   1. maven project structure
-   2. java servlet container
+1. Using MySQL database for persistence 
 
-         mvn jetty:run
+2. Recreating database on startup and filling from data.sql
 
+3. Using Sprig Data JPA query/change database 
 
-
-Collaborators:
-Augustas
-vincas
-Marius
-Mykolas

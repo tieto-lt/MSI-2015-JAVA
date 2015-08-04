@@ -1,0 +1,31 @@
+header {
+    background: ghostwhite;
+    padding: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+main > div {
+    display: inline-block;
+    width: 400px;
+}
+
+.my-table {
+    width: 100%;
+}
+
+#my-form {
+    width: 100%;
+}
+
+#my-form > div {
+    display: block;
+    margin-bottom: 5px;
+}
+
+footer {
+    background: palevioletred;
+    padding: 20px;
+    margin-top: 20px;
+}
