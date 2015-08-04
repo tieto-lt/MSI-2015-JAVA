@@ -1,4 +1,4 @@
-package lt.msi2015;
+package lt.msi2015.util;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

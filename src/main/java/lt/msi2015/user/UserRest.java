@@ -1,4 +1,4 @@
-package lt.msi2015;
+package lt.msi2015.user;
 
 import java.util.List;
 
