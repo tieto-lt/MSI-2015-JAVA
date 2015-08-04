@@ -1,6 +1,5 @@
 package lt.msi2015;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +14,16 @@ public class UserRest {
 
 	@Autowired
 	UserRepository repo;
-	
-    @RequestMapping("/user/list")
-    List<User> users() {
-        return repo.findAll();
-    }
 
-	@RequestMapping(value= "/user/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/user/list", method = RequestMethod.GET)
+	List<User> users() {
+		return repo.findAll();
+	}
+
+	@RequestMapping(value = "/user/save", method = RequestMethod.POST)
 	@ResponseBody
-    User save(@RequestBody User user) {
-        return repo.save(user);
-    }
+	User save(@RequestBody User user) {
+		return repo.save(user);
+	}
 
-    
 }
