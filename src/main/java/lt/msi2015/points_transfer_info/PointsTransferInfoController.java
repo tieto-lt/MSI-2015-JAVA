@@ -16,7 +16,7 @@ public class PointsTransferInfoController {
 	@Autowired
 	PointsTransferInfoRepository repo;
 	
-	@RequestMapping(value = "/points/send", method = RequestMethod.GET)
+	@RequestMapping(value = "/points/send", method = RequestMethod.POST)
 	PointsTransferInfo save(
 		@RequestParam String from,
 		@RequestParam String to,
