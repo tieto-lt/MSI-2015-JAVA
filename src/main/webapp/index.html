@@ -13,7 +13,12 @@
 
     <main>
         <div>
+
             <data-ng-include src="'app/points-transfer-info/points-transfer-info.tmpl.html'"></data-ng-include>
+		</div>
+		<div>
+        	<data-ng-include src="'app/leaderboard/leaderboard.tmpl.html'"></data-ng-include>
+
         </div>
     </main>
 
@@ -32,6 +37,9 @@
 
     <script src="app/registration/registration.module.js"></script>
     <script src="app/registration/registration.controller.js"></script>
+    
+    <script src="app/leaderboard/leaderboard.module.js"></script>
+    <script src="app/leaderboard/leaderboard.controller.js"></script>
 
     <script src="app/common/common.module.js"></script>
     <script src="app/common/users-list.factory.js"></script>

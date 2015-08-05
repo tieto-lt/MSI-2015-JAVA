@@ -43,6 +43,16 @@ main > div {
     margin-bottom: 5px;
 }
 
+#leaderboard-table {
+	margin: auto;
+	width: 80%;
+}
+
+#leaderboard-table, td {
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
 footer {
     background: palevioletred;
     padding: 20px;
