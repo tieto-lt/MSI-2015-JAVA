@@ -3,7 +3,7 @@
 
   angular
     .module('MSI-app', [
-      'app.usersList',
+      'app.pointsTransferInfo',
       'app.registration',
 
       /*commons*/

@@ -2,7 +2,7 @@
 <html data-ng-app="MSI-app">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Mėnuo su IT 2015</title>
+    <title>Karma points</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
@@ -13,17 +13,13 @@
 
     <main>
         <div>
-            <data-ng-include src="'app/users-list/users-list.tmpl.html'"></data-ng-include>
-        </div>
-
-        <div>
-            <data-ng-include src="'app/registration/registration.tmpl.html'"></data-ng-include>
+            <data-ng-include src="'app/points-transfer-info/points-transfer-info.tmpl.html'"></data-ng-include>
         </div>
     </main>
 
 
     <footer>
-        Mėnuo su IT @2015
+        Tieto KARMA
     </footer>
 
     <script src="javascript.js"></script>
@@ -32,9 +28,7 @@
     <!--our own stuff-->
     <script src="app/app.module.js"></script>
 
-    <script src="app/users-list/users-list.module.js"></script>
-    <script src="app/users-list/users-list.controller.js"></script>
-    <script src="app/users-list/users-list.filter.js"></script>
+    <script src="app/points-transfer-info/points-transfer-info.module.js"></script>
 
     <script src="app/registration/registration.module.js"></script>
     <script src="app/registration/registration.controller.js"></script>

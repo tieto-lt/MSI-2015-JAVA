@@ -6,13 +6,32 @@ header {
     margin-bottom: 20px;
 }
 
+.points-form-input {
+	text-align: right;
+}
+.points-form-submit {
+	text-align: right;
+}
+.points-form-main {
+	width: 100%;
+	text-align: center;
+}
+
+.points-form-container {
+	width: 57%;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
 main > div {
     display: inline-block;
-    width: 400px;
+    width: 50%;
 }
 
 .my-table {
     width: 100%;
+    border: none;
 }
 
 #my-form {
