@@ -1,27 +1,30 @@
 	<div class="points-form-main">
 		<div class="points-form-container" data-ng-controller="PointsTransferInfoController as vm"
       data-ng-submit="vm.submit()">
+      <h4>Send your karma points</h4>
 			<form name="pointsForm" id="points-form" novalidate>
-				<legend>Send your karma points</legend>
 				<span ng-show="pointsForm.$invalid" style="color:red">Wrong information</span>
 				<div class="points-form-input">
-					<label>From:</label>
+					<label for="from">From:</label>
 					<input name="fromInput" type="text" id="from" 
 							data-ng-model="vm.transferInfo.from"
 							required>
 				</div>
+				<div></div>
 				<div class="points-form-input">
-					<label>To:</label>
+					<label for="to">To:</label>
 					<input name="toInput" type="text" id="to" 
 						data-ng-model="vm.transferInfo.to"
 						required>
 				</div>
+				<div></div>
 				<div class="points-form-input">
-					<label>Score:</label>
+					<label for="points">Score:</label>
 					<input name="pointsInput" type="text" id="points"
 						data-ng-model="vm.transferInfo.points"
 						required>
 				</div>
+				<div></div>
 				<div class="points-form-submit">
 					<input type="submit" value="Award!" ng-disabled="pointsForm.$invalid">
 				</div>

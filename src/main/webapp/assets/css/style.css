@@ -16,9 +16,11 @@ header > span {
 }
 .points-form-input {
 	text-align: right;
+	margin: 10px;
 }
 .points-form-submit {
 	text-align: right;
+	margin: 10px;
 }
 .points-form-main {
 	width: 100%;
