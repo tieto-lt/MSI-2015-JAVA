@@ -5,6 +5,7 @@
     .module('MSI-app', [
       'app.usersList',
       'app.registration',
+      'app.leaderboard',
 
       /*commons*/
       'app.common'

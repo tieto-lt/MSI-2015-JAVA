@@ -8,7 +8,7 @@ header {
 
 main > div {
     display: inline-block;
-    width: 400px;
+    width: 50%;
 }
 
 .my-table {
@@ -22,6 +22,16 @@ main > div {
 #my-form > div {
     display: block;
     margin-bottom: 5px;
+}
+
+#leaderboard-table {
+	margin: auto;
+	width: 80%;
+}
+
+#leaderboard-table, td {
+	border-collapse: collapse;
+	border: 1px solid black;
 }
 
 footer {
