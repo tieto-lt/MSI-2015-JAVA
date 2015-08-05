@@ -3,9 +3,17 @@ header {
     padding: 20px;
     font-size: 26px;
     font-weight: bold;
+    text-align: center;
     margin-bottom: 20px;
 }
 
+header > span {
+	display: block;
+}
+
+.header-low {
+	font-size: 16px;
+}
 .points-form-input {
 	text-align: right;
 }
@@ -24,9 +32,18 @@ header {
 	text-align: center;
 }
 
-main > div {
-    display: inline-block;
-    width: 50%;
+.main-container {
+	vertical-align: top;
+    text-align: center;
+    margin: 0px auto;
+    width: 100%;
+}
+
+.main-container > div {
+	vertical-align: top;
+	display: inline-block;
+    margin: 0px auto;
+    width: 49%;
 }
 
 .my-table {
@@ -51,6 +68,7 @@ main > div {
 #leaderboard-table, td {
 	border-collapse: collapse;
 	border: 1px solid black;
+	text-align: left;
 }
 
 footer {
