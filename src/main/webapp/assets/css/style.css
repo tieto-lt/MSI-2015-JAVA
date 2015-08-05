@@ -45,11 +45,18 @@ input.ng-invalid {
     width: 100%;
 }
 
-.main-container > div {
+.main-container-left {
 	vertical-align: top;
 	display: inline-block;
     margin: 0px auto;
-    width: 49%;
+    width: 66%;
+}
+
+.main-container-right {
+	vertical-align: top;
+	display: inline-block;
+    margin: 0px auto;
+    width: 32%;
 }
 
 #leaderboard-table {
