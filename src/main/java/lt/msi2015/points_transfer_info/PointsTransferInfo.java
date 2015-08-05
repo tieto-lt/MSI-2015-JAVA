@@ -11,10 +11,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
-import lt.msi2015.util.Dto;
-
 @Entity
-public class PointsTransferInfo extends Dto {
+public class PointsTransferInfo {
 	
 	@Id
 	@GeneratedValue
@@ -40,6 +38,13 @@ public class PointsTransferInfo extends Dto {
 
 	public PointsTransferInfo() {
 		//for JSON
+	}
+	
+	public PointsTransferInfo(String from, String to, int points) {
+		this.fromUser = from;
+		this.toUser = to;
+		this.points = points;
+		this.dateCreated = new Date();
 	}
 
 	public PointsTransferInfo(String from, String to, int points, Date dateCreated) {

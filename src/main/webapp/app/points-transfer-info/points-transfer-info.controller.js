@@ -11,8 +11,8 @@
 		var vm = this;
 		
 		vm.transferInfo = {
-	      from: 'Firstname Lastname',
-	      to: 'Firstname Lastname',
+	      fromUser: 'Firstname Lastname',
+	      toUser: 'Firstname Lastname',
 	      points: 100 
 	    };
 
