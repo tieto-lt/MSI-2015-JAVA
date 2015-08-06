@@ -3,6 +3,7 @@
 
   angular
     .module('MSI-app', [
+      'ngMaterial',
       'app.pointsTransferInfo',
       'app.registration',
       'app.leaderboard',
