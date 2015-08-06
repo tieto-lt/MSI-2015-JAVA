@@ -13,7 +13,7 @@
 		vm.transferInfo = {
 	      fromUser: '',
 	      toUser: '',
-	      points: '' 
+	      points: ''
 	    };
 
 	    vm.submit = submit;
@@ -27,8 +27,10 @@
 	    	PointsTransferFactory
 	    		.sendPoints(vm.transferInfo)
 	    		.then(function() {
-	    			vm.successMessage = 'Transfer was successful';
-
+	    			vm.successMessage = 'Transfer was successful';	    			
+	    			vm.transferInfo.toUser = '';
+	    			vm.transferInfo.points = '';	    			
+	    			vm.pointsForm.$setPristine();	
 	    		}, function() {
 	    			vm.errorMessage = 'Transfer failed';
 	    		})
