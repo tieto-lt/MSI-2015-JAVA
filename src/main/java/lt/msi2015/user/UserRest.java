@@ -14,7 +14,8 @@ public class UserRest {
 
 	@Autowired
 	UserRepository repo;
-
+	
+	//FROM SKELETON
 	@RequestMapping(value = "/user/list", method = RequestMethod.GET)
 	List<User> users() {
 		return repo.findAll();
@@ -22,8 +23,8 @@ public class UserRest {
 
 	@RequestMapping(value = "/user/save", method = RequestMethod.POST)
 	@ResponseBody
-	User save(@RequestBody User user) {
-		return repo.save(user);
+	User save(@RequestBody UserDto info) {
+		return repo.save(new User(info.email, info.firstName, info.lastName, info.password));
 	}
 
 }

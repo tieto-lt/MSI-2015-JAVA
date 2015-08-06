@@ -46,14 +46,14 @@ public class User extends Dto {
 		// for mapping JSON -> Java
 	}
 
-	public User(Long id, String email, String firstName,
-				String lastName, String password, Date dateCreated) {
+	public User(String email, String firstName,
+				String lastName, String password) {
 		this.id = id;
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
-		this.dateCreated = dateCreated;
+		this.dateCreated = new Date();
 	}
 
 	
