@@ -7,7 +7,7 @@
 				<label for="from">From:</label>
 				<input name="fromInput" type="text" id="from" 
 						data-ng-model="vm.transferInfo.fromUser"
-						placeholder="max. 30" ng-maxlength="30" required>
+						placeholder="max. 30" ng-maxlength="500" required>
 			</div>
 			<div ng-messages="vm.pointsForm.fromInput.$error" ng-if="vm.pointsForm.fromInput.$dirty">
 				<div class="error" ng-message="maxlength">Too many symbols</div>
@@ -46,8 +46,10 @@
 				<div class="error" ng-message="required">Field is required</div>
 			</div>
 			<div class="response-block">
-				<div class="success-block" ng-if="vm.successMessage">{{vm.successMessage}}</div>
-				<div class="error-block" ng-if="vm.errorMessage">{{vm.errorMessage}}</div>
+				<div class="success-block" ng-if="vm.successMessage &&
+						vm.pointsForm.$pristine">{{vm.successMessage}}</div>
+				<div class="error-block" ng-if="vm.errorMessage &&
+						vm.pointsForm.$pristine">{{vm.errorMessage}}</div>
 			</div>
 			<div class="points-form-submit">
 				<input type="submit" value="Give!" ng-disabled="vm.pointsForm.$invalid">

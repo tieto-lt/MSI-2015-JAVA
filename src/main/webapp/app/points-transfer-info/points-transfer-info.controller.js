@@ -35,6 +35,10 @@
 	    			vm.pointsForm.$setPristine();	
 	    		}, function() {
 	    			vm.errorMessage = 'Transfer failed';
+	    			vm.transferInfo.toUser = '';
+	    			vm.transferInfo.points = '';
+	    			vm.transferInfo.comment = '';
+	    			vm.pointsForm.$setPristine();
 	    		})
 	    		
 	    }
