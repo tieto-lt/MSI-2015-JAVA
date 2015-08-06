@@ -35,13 +35,13 @@
 				<div class="error" ng-message="number">Numbers only</div>
 			</div>
 			<div class="points-form-input">
-				<label for="comment">Comment:</label>
-				<textarea name="comment" id="comment" rows="8" cols="25"
+				<label id="comment-label" for="comment">Comment:</label>
+				<textarea name="comment" id="comment" rows="8" cols="31"
 						placeholder="Comment your friend!" data-ng-model="vm.transferInfo.comment"
 						ng-trim="false" maxlength="160" required>
 				</textarea>
-				<span>{{160 - vm.transferInfo.comment.length}}</span>
 			</div>
+			<div align="right">characters left: {{160 - vm.transferInfo.comment.length}}</div>
 			<div ng-messages="vm.pointsForm.comment.$error" ng-if="vm.pointsForm.comment.$dirty">
 				<div class="error" ng-message="required">Field is required</div>
 			</div>
