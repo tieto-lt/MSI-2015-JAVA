@@ -12,6 +12,10 @@
 
     vm.leaders = LeaderboardFactory.leaders();
     //////////////////////////////////
+    
+    vm.updateLeaders = function() {
+    	vm.leaders = LeaderboardFactory.leaders();
+    }
   }
   
 
