@@ -6,27 +6,28 @@
 		      data-ng-controller="RegistrationController as vm"
 		      data-ng-submit="vm.submit()" novalidate>
 		    <div class="registration-form-input">
-		        <input id="email" name="email"
+		        <input id="email" name="email" data-ng-model="vm.user.email"
 		        	type="email" placeholder="Email" required>
 		    </div>  
 		      
 		    <div class="registration-form-input">
-		        <input id="first-name" name="firstName"
+		        <input id="first-name" name="firstName" data-ng-model="vm.user.firstName"
 		        	type="text" placeholder="First Name" required>
 		    </div>
 		    
 		    <div class="registration-form-input">
-		        <input id="last-name" name=lastName"
+		        <input id="last-name" name=lastName" data-ng-model="vm.user.lastName"
 		        	type="text" placeholder="Last Name" required>
 		    </div>
 		    
 		    <div class="registration-form-input">
-		        <input id="password" name="password"
+		        <input id="password" name="password" data-ng-model="vm.user.password"
 		        	type="password" placeholder="Password" required>
 		    </div>
 		    
 		    <div class="registration-form-input">
 		        <input id="confirm-password" name="confirmPassword"
+		        	data-ng-model="vm.user.passwordConfirm"
 		        	type="password" placeholder="Confirm" required>
 		    </div>
 		

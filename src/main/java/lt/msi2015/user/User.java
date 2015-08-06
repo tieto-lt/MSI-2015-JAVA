@@ -48,7 +48,6 @@ public class User extends Dto {
 
 	public User(String email, String firstName,
 				String lastName, String password) {
-		this.id = id;
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;

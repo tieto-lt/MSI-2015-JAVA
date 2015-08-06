@@ -11,8 +11,11 @@
     var vm = this;
 
     vm.user = {
-      name: 'Marius',
-      email: ''
+    	email: '',
+    	firstName: '',
+     	lastName: '',
+     	password: '',
+     	passwordConfirm: ''
     };
 
     vm.submit = submit;
