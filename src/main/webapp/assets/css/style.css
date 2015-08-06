@@ -34,8 +34,12 @@ header > span {
 	text-align: center;
 }
 
-input.ng-invalid {
+input.ng-invalid.ng-dirty {
 	box-shadow: 0px 0px 7px red;
+}
+
+.error {
+	color: red;
 }
 
 .main-container {
