@@ -28,6 +28,7 @@
 	    		.sendPoints(vm.transferInfo)
 	    		.then(function() {
 	    			vm.successMessage = 'Transfer was successful';
+	    			
 
 	    		}, function() {
 	    			vm.errorMessage = 'Transfer failed';
