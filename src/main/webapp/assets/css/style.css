@@ -16,9 +16,11 @@ header > span {
 }
 .points-form-input {
 	text-align: right;
+	margin: 10px;
 }
 .points-form-submit {
 	text-align: right;
+	margin: 10px;
 }
 .points-form-main {
 	width: 100%;
@@ -32,8 +34,12 @@ header > span {
 	text-align: center;
 }
 
-input.ng-invalid {
+input.ng-invalid.ng-dirty {
 	box-shadow: 0px 0px 7px red;
+}
+
+.error {
+	color: red;
 }
 
 .main-container {
@@ -43,11 +49,18 @@ input.ng-invalid {
     width: 100%;
 }
 
-.main-container > div {
+.main-container-left {
 	vertical-align: top;
 	display: inline-block;
     margin: 0px auto;
-    width: 49%;
+    width: 66%;
+}
+
+.main-container-right {
+	vertical-align: top;
+	display: inline-block;
+    margin: 0px auto;
+    width: 32%;
 }
 
 #leaderboard-table {

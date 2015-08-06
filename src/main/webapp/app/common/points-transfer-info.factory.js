@@ -8,9 +8,6 @@
 	PointsTransferFactory.$inject = ['$http'];
 	
 	function PointsTransferFactory($http) {
-		var data = [];
-		
-		//TODO nereikia nieko inicializuot tam data??
 		
 		return {
 			sendPoints: sendPoints
@@ -21,10 +18,7 @@
 	     */
 	    function sendPoints(transferInfo) {
 	    	$http
-	    	  .post('points/send', transferInfo)
-	          .then(function(response) {
-	        	  data.push(response.data);
-	          });
+	    	  .post('points/send', transferInfo);
 	    }
 	}
 	
