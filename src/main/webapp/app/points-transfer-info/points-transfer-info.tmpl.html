@@ -7,7 +7,7 @@
 				<label for="from">From:</label>
 				<input name="fromInput" type="text" id="from" 
 						data-ng-model="vm.transferInfo.fromUser"
-						placeholder="max. 30" ng-maxlength="500" required>
+						placeholder="max. 30" ng-maxlength="30" required>
 			</div>
 			<div ng-messages="vm.pointsForm.fromInput.$error" ng-if="vm.pointsForm.fromInput.$dirty">
 				<div class="error" ng-message="maxlength">Too many symbols</div>
