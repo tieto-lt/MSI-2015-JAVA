@@ -40,6 +40,17 @@ input.ng-invalid.ng-dirty {
 
 .error {
 	color: red;
+	text-align: right;
+}
+
+.success-block {
+	color: green;
+	text-align: right;
+}
+
+.error-block {
+	color: red;
+	text-align: right;
 }
 
 .main-container {

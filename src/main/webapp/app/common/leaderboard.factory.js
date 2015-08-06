@@ -22,9 +22,13 @@
 		    
 		    return data;
 	    }
+<<<<<<< HEAD
 	    
 
 	    
+=======
+
+>>>>>>> e95c50ff5f175051f74066ca1aa3fbb6ae1397bc
 	    return {
 	    	leaders: leaders
 	    }

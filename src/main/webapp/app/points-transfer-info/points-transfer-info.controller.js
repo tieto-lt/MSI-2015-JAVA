@@ -22,7 +22,17 @@
 	     * Function to execute when points transfer form is submitted
 	     */
 	    function submit() {
-	    	PointsTransferFactory.sendPoints(vm.transferInfo)
+	    	vm.successMessage = '';
+	    	vm.errorMessage = '';
+	    	PointsTransferFactory
+	    		.sendPoints(vm.transferInfo)
+	    		.then(function() {
+	    			vm.successMessage = 'Transfer was successful';
+	    			
+	    		}, function() {
+	    			vm.errorMessage = 'Transfer failed';
+	    		})
+	    		
 	    }
 	}
 	

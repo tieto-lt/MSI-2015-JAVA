@@ -7,12 +7,11 @@
 				<label for="from">From:</label>
 				<input name="fromInput" type="text" id="from" 
 						data-ng-model="vm.transferInfo.fromUser"
-						placeholder="max. 30" ng-maxlength="30" required>
+						placeholder="max. 30" ng-maxlength="500" required>
 			</div>
-			<div ng-messages="pointsForm.fromInput.$error">
+			<div ng-messages="pointsForm.fromInput.$error" ng-if="pointsForm.fromInput.$dirty">
 				<div class="error" ng-message="maxlength">Too many symbols</div>
-				<div class="error" ng-show="pointsForm.fromInput.$error.required &&
-						pointsForm.fromInput.$dirty">Field is required</div>
+				<div class="error" ng-message="required">Field is required</div>
 			</div>
 			<div ng-show="pointsForm.fromInput.$error.required "></div>
 			<div class="points-form-input">
@@ -21,10 +20,9 @@
 					data-ng-model="vm.transferInfo.toUser"
 					placeholder="max. 30" ng-maxlength="30" required>
 			</div>
-			<div ng-messages="pointsForm.toInput.$error">
+			<div ng-messages="pointsForm.toInput.$error" ng-if="pointsForm.toInput.$dirty">
 				<div class="error" ng-message="maxlength">Too many symbols</div>
-				<div class="error" ng-show="pointsForm.toInput.$error.required &&
-						pointsForm.toInput.$dirty">Field is required</div>
+				<div class="error" ng-message="required">Field is required</div>
 			</div>
 			<div class="points-form-input">
 				<label for="points">Points:</label>
@@ -32,8 +30,10 @@
 					data-ng-model="vm.transferInfo.points"
 					placeholder="1-100" required>
 			</div>
-			<div ng-messages="pointsForm.pointsInput.$error">
+			<div ng-messages="pointsForm.pointsInput.$error" ng-if="pointsForm.pointsInput.$dirty">
 				<div class="error" ng-message="min, max">Only between 1 and 100</div>
+				<div class="error" ng-message="required">Field is required</div>
+				<div class="error" ng-message="number">Numbers only</div>
 			</div>
 			<div class="points-form-input">
 				<label for="comment">Comment:</label>
@@ -41,9 +41,14 @@
 						placeholder="Comment your friend!"></textarea>
 			</div>
 			<div></div>
-			<div class="points-form-submit">
-				<input type="submit" value="Award!" ng-disabled="pointsForm.$invalid">
+			<div class="response-block">
+				<div class="success-block" ng-if="vm.successMessage">{{vm.successMessage}}</div>
+				<div class="error-block" ng-if="vm.errorMessage">{{vm.errorMessage}}</div>
 			</div>
+			<div class="points-form-submit">
+				<input type="submit" value="Give!" ng-disabled="pointsForm.$invalid">
+			</div>
+				
 		</form>
 	</div>
 </div>
