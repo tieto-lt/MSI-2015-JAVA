@@ -9,7 +9,7 @@
 
   function RegistrationController(UsersFactory) {
     var vm = this;
-
+    
     vm.user = {
     	email: '',
     	firstName: '',
