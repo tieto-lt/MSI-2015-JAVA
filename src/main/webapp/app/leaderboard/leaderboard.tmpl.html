@@ -1,6 +1,7 @@
 <div data-ng-controller="LeaderboardController as vm" >
 	<h4 align="center">Leaders of the month</h4>
-	<table id="leaderboard-table">
+	<div ng-if="!vm.leaders.length">No karma people yet.</div>
+	<table id="leaderboard-table" ng-if="vm.leaders.length">
 		<thead>
 			<tr>
 				<td>Nr.</td>
@@ -9,36 +10,11 @@
 			</tr>	
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>Vardenis Pavardenis</td>
-				<td>3000</td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>Antras Antrukas</td>
-				<td>2000</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>abc def</td>
-				<td>500</td>
-			</tr>
-			<tr>
-				<td>4</td>
-				<td>kk cc</td>
-				<td>300</td>
-			</tr>
-			<tr>
-				<td>5</td>
-				<td>sssss zzzzz</td>
-				<td>1000</td>
-			</tr>
-			  <tr ng-repeat="leader in vm.leaders">
-			    <td>{{ leader.position }}</td>
-			    <td>{{ leader.name }}</td>
-			    <td>{{ leader.points }}</td>
-			  </tr>
+		  <tr ng-repeat="leader in vm.leaders | orderBy : '-points'">
+		    <td>{{ $index + 1 }}</td>
+		    <td>{{ leader.name }}</td>
+		    <td>{{ leader.points }}</td>
+		  </tr>
 		</tbody>
 	</table>
 </div>

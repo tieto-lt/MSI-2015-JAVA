@@ -7,17 +7,19 @@ public class PointsTransferInfoDto extends Dto {
 	public String fromUser;
 	public String toUser;
 	public Integer points;
+	public String comment;
 	
 	public PointsTransferInfoDto() {
 		super();
 	}
 	
 	
-	public PointsTransferInfoDto(String fromUser, String toUser, Integer points) {
+	public PointsTransferInfoDto(String fromUser, String toUser, Integer points, String comment) {
 		super();
 		this.fromUser = fromUser;
 		this.toUser = toUser;
 		this.points = points;
+		this.comment = comment;
 	}
 
 }

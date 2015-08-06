@@ -12,7 +12,6 @@
 
     vm.leaders = LeaderboardFactory.leaders();
     //////////////////////////////////
-
   }
   
 
