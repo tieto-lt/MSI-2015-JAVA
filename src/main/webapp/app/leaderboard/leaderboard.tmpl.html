@@ -1,4 +1,4 @@
-<div>
+<div data-ng-controller="LeaderboardController as vm" >
 	<h4 align="center">Leaders of the month</h4>
 	<table id="leaderboard-table">
 		<thead>
@@ -34,6 +34,11 @@
 				<td>sssss zzzzz</td>
 				<td>1000</td>
 			</tr>
+			  <tr ng-repeat="leader in vm.leaders">
+			    <td>{{ leader.position }}</td>
+			    <td>{{ leader.name }}</td>
+			    <td>{{ leader.points }}</td>
+			  </tr>
 		</tbody>
 	</table>
 </div>

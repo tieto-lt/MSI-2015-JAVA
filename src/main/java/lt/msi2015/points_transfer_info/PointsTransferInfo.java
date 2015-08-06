@@ -30,7 +30,9 @@ public class PointsTransferInfo {
 	@Min(1)
 	@NotNull
 	public Integer points;
-
+	
+	@Size(max=160)
+	public String comment;
 	
 	@NotNull
 	@Past
@@ -40,17 +42,19 @@ public class PointsTransferInfo {
 		//for JSON
 	}
 	
-	public PointsTransferInfo(String from, String to, int points) {
+	public PointsTransferInfo(String from, String to, int points, String comment) {
 		this.fromUser = from;
 		this.toUser = to;
 		this.points = points;
+		this.comment = comment;
 		this.dateCreated = new Date();
 	}
 
-	public PointsTransferInfo(String from, String to, int points, Date dateCreated) {
+	public PointsTransferInfo(String from, String to, int points, String comment, Date dateCreated) {
 		this.fromUser = from;
 		this.toUser = to;
 		this.points = points;
+		this.comment = comment;
 		this.dateCreated = dateCreated;
 	}
 	

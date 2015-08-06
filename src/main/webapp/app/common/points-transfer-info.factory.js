@@ -21,4 +21,5 @@
 	    	  .post('points/send', transferInfo);
 	    }
 	}
+	
 })();
