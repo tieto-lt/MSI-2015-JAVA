@@ -21,7 +21,12 @@ public class PointsTransferInfoRest {
 	PointsTransferInfo save(
 		@RequestBody PointsTransferInfoDto info
 	) {
-		return repo.save(new PointsTransferInfo(info.fromUser, info.toUser, info.points, info.comment));
+		return repo.save(new PointsTransferInfo(
+			info.fromUser,
+			info.toUser,
+			info.points,
+			info.comment)
+		);
 	}
 	
 }

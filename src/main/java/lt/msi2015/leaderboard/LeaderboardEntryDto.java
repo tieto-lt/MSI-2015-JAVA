@@ -8,7 +8,7 @@ public class LeaderboardEntryDto extends Dto {
 	public long points;
 	
 	public LeaderboardEntryDto() {
-		super();
+		
 	}
 	
 	public LeaderboardEntryDto(String name, long points) {
