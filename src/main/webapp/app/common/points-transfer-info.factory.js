@@ -17,7 +17,7 @@
 	     * Sends a POST request to 'points/send' route in server
 	     */
 	    function sendPoints(transferInfo) {
-	    	$http
+	    	return $http
 	    	  .post('points/send', transferInfo);
 	    }
 	}
