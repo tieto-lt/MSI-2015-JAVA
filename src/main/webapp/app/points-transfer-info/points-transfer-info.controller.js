@@ -13,7 +13,8 @@
 		vm.transferInfo = {
 	      fromUser: '',
 	      toUser: '',
-	      points: '' 
+	      points: '',
+	      comment: ''
 	    };
 
 	    vm.submit = submit;

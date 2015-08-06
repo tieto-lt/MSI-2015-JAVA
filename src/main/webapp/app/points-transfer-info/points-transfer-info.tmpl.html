@@ -36,11 +36,11 @@
 			</div>
 			<div class="points-form-input">
 				<label for="comment">Comment:</label>
-				<textarea name="comment" id="comment" rows="8" cols="25"\
-						placeholder="Comment your friend!" ng-trim="false"
-						ng-model="commentModel" maxlength="160" required>
+				<textarea name="comment" id="comment" rows="8" cols="25"
+						placeholder="Comment your friend!" data-ng-model="vm.transferInfo.comment"
+						ng-trim="false" maxlength="160" required>
 				</textarea>
-				<span>{{160 - commentModel.length}}</span>
+				<span>{{160 - vm.transferInfo.comment.length}}</span>
 			</div>
 			<div ng-messages="pointsForm.comment.$error" ng-if="pointsForm.comment.$dirty">
 				<div class="error" ng-message="required">Field is required</div>

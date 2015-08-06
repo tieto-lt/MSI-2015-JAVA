@@ -1,17 +1,37 @@
-<form id="my-form"
-      name="myForm"
-      data-ng-controller="RegistrationController as vm"
-      data-ng-submit="vm.submit()">
-    <div>
-        <label for="my-text">Name</label>
-        <input id="my-text" type="text" data-ng-model="vm.user.name">
-    </div>
-    <div>
-        <label for="my-date">E- mail</label>
-        <input id="my-date" type="email" data-ng-model="vm.user.email">
-    </div>
+<div id="registration-form-main">
+	<div id="registration-form-container">
+		<h4>Sign up</h4>
+		<form id="registration-form"
+		      name="registrationForm"
+		      data-ng-controller="RegistrationController as vm"
+		      data-ng-submit="vm.submit()" novalidate>
+		    <div class="registration-form-input">
+		        <input id="email" name="email"
+		        	type="email" placeholder="Email" required>
+		    </div>  
+		      
+		    <div class="registration-form-input">
+		        <input id="first-name" name="firstName"
+		        	type="text" placeholder="First Name" required>
+		    </div>
+		    
+		    <div class="registration-form-input">
+		        <input id="last-name" name=lastName"
+		        	type="text" placeholder="Last Name" required>
+		    </div>
+		    
+		    <div class="registration-form-input">
+		        <input id="password" name="password"
+		        	type="password" placeholder="Password" required>
+		    </div>
+		    
+		    <div class="registration-form-input">
+		        <input id="confirm-password" name="confirmPassword"
+		        	type="password" placeholder="Confirm" required>
+		    </div>
+		
+		    <input type="submit" value="Submit">
+		</form>
+	</div>
+</div>
 
-    <input type="submit" value="Submit">
-
-    <span data-ng-if="myForm.$submitted">GREAT SUCCESS!!!!!!!!!!!!!</span>
-</form>
