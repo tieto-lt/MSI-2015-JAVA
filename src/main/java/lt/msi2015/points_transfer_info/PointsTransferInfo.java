@@ -36,7 +36,7 @@ public class PointsTransferInfo {
 	
 	@NotNull
 	@Past
-	Date dateCreated;
+	public Date dateCreated;
 
 	public PointsTransferInfo() {
 		//for JSON
@@ -50,12 +50,4 @@ public class PointsTransferInfo {
 		this.dateCreated = new Date();
 	}
 
-	public PointsTransferInfo(String from, String to, int points, String comment, Date dateCreated) {
-		this.fromUser = from;
-		this.toUser = to;
-		this.points = points;
-		this.comment = comment;
-		this.dateCreated = dateCreated;
-	}
-	
 }
