@@ -49,9 +49,7 @@ public class LeaderboardService {
 			
 		}
 		
-		ArrayList<LeaderboardEntryDto> leaders = getTopFive(map.values());
-		
-		return leaders;// getTopFive(map.values());
+		return getTopFive(map.values());
 	}
 	
 	
@@ -83,14 +81,15 @@ public class LeaderboardService {
 				long points2 = o2.points;
 				
 				if (points1 == points2)
-	    			return 0;
+	    			return o1.name.compareTo(o2.name);
 	    		else if (points1 < points2)
 	    			return 1;
 	    		else
 	    			return -1;
 			}
 		});
-		return new ArrayList<LeaderboardEntryDto>(entries.subList(0, 5));
+		
+		return new ArrayList<LeaderboardEntryDto>(entries.subList(0, 5 > entries.size() ? entries.size() : 5));
 	}
 
 }

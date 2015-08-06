@@ -1,11 +1,14 @@
 header {
-    background: ghostwhite;
-    padding: 20px;
+    background: #62B3E5;
+    padding: 50px;
     font-size: 26px;
     font-weight: bold;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 20px;
 }
+
+/*  154, 202, 235 */
 
 header > span {
 	display: block;
@@ -15,7 +18,7 @@ header > span {
 	font-size: 16px;
 }
 .points-form-input {
-	text-align: right;
+	text-align: left;
 	margin: 10px;
 }
 .points-form-submit {
@@ -32,14 +35,6 @@ header > span {
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
-}
-
-input.ng-invalid.ng-dirty {
-	box-shadow: 0px 0px 7px red;
-}
-
-textarea.ng-invalid.ng-dirty {
-	box-shadow: 0px 0px 7px red;
 }
 
 #comment {
@@ -93,7 +88,7 @@ textarea.ng-invalid.ng-dirty {
 
 #leaderboard-table, td {
 	border-collapse: collapse;
-	border: 1px solid black;
+	border: 0px solid black;
 	text-align: left;
 }
 
@@ -103,6 +98,6 @@ footer {
     margin-top: 20px;
 }
 
-/* .registration-form-container {
+#registration-form {
 	display: none;
-} */
+} 
