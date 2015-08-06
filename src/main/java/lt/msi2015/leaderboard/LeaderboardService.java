@@ -90,7 +90,8 @@ public class LeaderboardService {
 	    			return -1;
 			}
 		});
-		return new ArrayList<LeaderboardEntryDto>(entries.subList(0, 5));
+		
+		return new ArrayList<LeaderboardEntryDto>(entries.subList(0, 5 > entries.size() ? entries.size() : 5));
 	}
 
 }
