@@ -38,6 +38,10 @@ input.ng-invalid.ng-dirty {
 	box-shadow: 0px 0px 7px red;
 }
 
+textarea.ng-invalid.ng-dirty {
+	box-shadow: 0px 0px 7px red;
+}
+
 .error {
 	color: red;
 	text-align: right;
