@@ -2,14 +2,14 @@
 	<div class="points-form-container" data-ng-controller="PointsTransferInfoController as vm"
      data-ng-submit="vm.submit()">
      <h4>Send your karma points</h4>
-		<form name="pointsForm" id="points-form" novalidate>
+		<form name="vm.pointsForm" id="points-form" novalidate>
 			<div class="points-form-input">
 				<label for="from">From:</label>
 				<input name="fromInput" type="text" id="from" 
 						data-ng-model="vm.transferInfo.fromUser"
 						placeholder="max. 30" ng-maxlength="30" required>
 			</div>
-			<div ng-messages="pointsForm.fromInput.$error" ng-if="pointsForm.fromInput.$dirty">
+			<div ng-messages="vm.pointsForm.fromInput.$error" ng-if="vm.pointsForm.fromInput.$dirty">
 				<div class="error" ng-message="maxlength">Too many symbols</div>
 				<div class="error" ng-message="required">Field is required</div>
 			</div>
@@ -19,7 +19,7 @@
 					data-ng-model="vm.transferInfo.toUser"
 					placeholder="max. 30" ng-maxlength="30" required>
 			</div>
-			<div ng-messages="pointsForm.toInput.$error" ng-if="pointsForm.toInput.$dirty">
+			<div ng-messages="vm.pointsForm.toInput.$error" ng-if="vm.pointsForm.toInput.$dirty">
 				<div class="error" ng-message="maxlength">Too many symbols</div>
 				<div class="error" ng-message="required">Field is required</div>
 			</div>
@@ -29,28 +29,30 @@
 					data-ng-model="vm.transferInfo.points"
 					placeholder="1-100" required>
 			</div>
-			<div ng-messages="pointsForm.pointsInput.$error" ng-if="pointsForm.pointsInput.$dirty">
+			<div ng-messages="vm.pointsForm.pointsInput.$error" ng-if="vm.pointsForm.pointsInput.$dirty">
 				<div class="error" ng-message="min, max">Only between 1 and 100</div>
 				<div class="error" ng-message="required">Field is required</div>
 				<div class="error" ng-message="number">Numbers only</div>
 			</div>
 			<div class="points-form-input">
-				<label for="comment">Comment:</label>
-				<textarea name="comment" id="comment" rows="8" cols="25"
+				<label id="comment-label" for="comment">Comment:</label>
+				<textarea name="comment" id="comment" rows="8" cols="31"
 						placeholder="Comment your friend!" data-ng-model="vm.transferInfo.comment"
 						ng-trim="false" maxlength="160" required>
 				</textarea>
-				<span>{{160 - vm.transferInfo.comment.length}}</span>
 			</div>
-			<div ng-messages="pointsForm.comment.$error" ng-if="pointsForm.comment.$dirty">
+			<div align="right">characters left: {{160 - vm.transferInfo.comment.length}}</div>
+			<div ng-messages="vm.pointsForm.comment.$error" ng-if="vm.pointsForm.comment.$dirty">
 				<div class="error" ng-message="required">Field is required</div>
 			</div>
 			<div class="response-block">
-				<div class="success-block" ng-if="vm.successMessage">{{vm.successMessage}}</div>
-				<div class="error-block" ng-if="vm.errorMessage">{{vm.errorMessage}}</div>
+				<div class="success-block" ng-if="vm.successMessage &&
+						vm.pointsForm.$pristine">{{vm.successMessage}}</div>
+				<div class="error-block" ng-if="vm.errorMessage &&
+						vm.pointsForm.$pristine">{{vm.errorMessage}}</div>
 			</div>
 			<div class="points-form-submit">
-				<input type="submit" value="Give!" ng-disabled="pointsForm.$invalid">
+				<input type="submit" value="Give!" ng-disabled="vm.pointsForm.$invalid">
 			</div>
 				
 		</form>
