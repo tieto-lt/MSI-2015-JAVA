@@ -1,5 +1,3 @@
-insert into user(name, email) values ('Agnė', 'agne@oho.lt');
-insert into user(name, email) values ('Marius', 'marius@oho.lt');
-insert into user(name, email) values ('Natalija', 'natalija@oho.lt');
-insert into user(name, email) values ('Rimvis', 'rimvydas@oho.lt');
-insert into user(name, email) values ('Justė', 'juste@nugi.lt');			
+insert into user(email, first_name, last_name, password, date_created) values ('agne@oho.lt', 'Agnė', 'Jegova', 'slaptazodis13', '2015.05.05');	
+insert into user(email, first_name, last_name, password, date_created) values ('mar@oho.lt', 'Marius', 'Alchimavicius', 'kckckck', '2015.02.06');	
+insert into user(email, first_name, last_name, password, date_created) values ('var@oho.lt', 'Var', 'Gar', 'papapa', '2013.06.13');	
