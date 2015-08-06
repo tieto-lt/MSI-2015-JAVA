@@ -1,7 +1,11 @@
 package lt.msi2015.leaderboard;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -45,7 +49,9 @@ public class LeaderboardService {
 			
 		}
 		
-		return new ArrayList<LeaderboardEntryDto>(map.values());
+		ArrayList<LeaderboardEntryDto> leaders = getTopFive(map.values());
+		
+		return leaders;// getTopFive(map.values());
 	}
 	
 	
@@ -65,6 +71,26 @@ public class LeaderboardService {
 			map.put(key, new LeaderboardEntryDto(key, info.points));
 		else
 			map.get(key).points += info.points;
+	}
+	
+	private ArrayList<LeaderboardEntryDto> getTopFive(Collection<LeaderboardEntryDto> collection) {
+		ArrayList<LeaderboardEntryDto> entries = new ArrayList<LeaderboardEntryDto>(collection);
+		entries.sort(new Comparator<LeaderboardEntryDto>() {
+
+			@Override
+			public int compare(LeaderboardEntryDto o1, LeaderboardEntryDto o2) {
+				long points1 = o1.points;
+				long points2 = o2.points;
+				
+				if (points1 == points2)
+	    			return 0;
+	    		else if (points1 < points2)
+	    			return 1;
+	    		else
+	    			return -1;
+			}
+		});
+		return new ArrayList<LeaderboardEntryDto>(entries.subList(0, 5));
 	}
 
 }
