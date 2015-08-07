@@ -51,6 +51,7 @@ body {
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
+	padding-bottom:150px;
 }
 
 #comment {
@@ -64,6 +65,21 @@ body {
 .error {
 	color: red;
 	text-align: right;
+	font-size: 12px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+}
+
+md-input-container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 2px 2px 5px;
 }
 
 .success-block {
@@ -128,9 +144,15 @@ body {
 /* -----FOOTER----- */
 
 footer {
-    background: palevioletred;
-    padding: 20px;
-    margin-top: 20px;
+	margin-top:"1px";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    background: #62B3E5;
+    color: #ffffff;
+    text-align: right;
+    padding: 50px;
 }
 
 #registration-form {
@@ -153,3 +175,8 @@ md-input-container.md-default-theme .md-input {
 /* md-input-container.md-default-theme.md-input-invalid .md-input { */
 /*     border-color: rgba(0,0,0, 0.12); */
 /* } */
+
+#container {
+   min-height:100%;
+   position:relative;
+}
