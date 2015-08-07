@@ -1,14 +1,11 @@
 package lt.msi2015.leaderboard;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -30,15 +27,10 @@ public class LeaderboardService {
 	List<LeaderboardEntryDto> getLeaderboardEntries() {
 
 		Map<String, LeaderboardEntryDto> groupedLeaders = new HashMap<>();
-		Iterator<PointsTransferInfo> i = pointTransfers.findAll().iterator();
 		
-		while (i.hasNext()) {
-			PointsTransferInfo historyEntry = i.next();
-
-			if (historyEntry.dateCreated.after(getMonthBefore())) {
-				addToGroupedLeaders(groupedLeaders, historyEntry);
-			}
-			
+		for (PointsTransferInfo historyEntry : pointTransfers.findAll()) {
+			if (historyEntry.dateCreated.after(getMonthBefore()))
+				addToGroupedLeaders(groupedLeaders, historyEntry);			
 		}
 		
 		return getTopFive(groupedLeaders.values());
@@ -70,7 +62,7 @@ public class LeaderboardService {
 	
 	/**
 	 * Compares by points Z->A, if equal by name A->Z.
-	 *
+	 * 
 	 */
 	private class LeadersComparator implements Comparator<LeaderboardEntryDto> {
 
