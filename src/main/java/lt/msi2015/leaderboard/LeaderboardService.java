@@ -17,8 +17,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lt.msi2015.points_transfer_info.PointsTransferInfo;
-import lt.msi2015.points_transfer_info.PointsTransferInfoRepository;
+import lt.msi2015.pointsTransferInfo.PointsTransferInfo;
+import lt.msi2015.pointsTransferInfo.PointsTransferInfoRepository;
 
 @Service
 public class LeaderboardService {
@@ -28,43 +28,33 @@ public class LeaderboardService {
 	
 	@Transactional
 	List<LeaderboardEntryDto> getLeaderboardEntries() {
-		
-		Iterable<PointsTransferInfo> transfers = pointTransfers.findAll();
-		
-		Map<String, LeaderboardEntryDto> map = new HashMap<String, LeaderboardEntryDto>();
-		
-		Iterator<PointsTransferInfo> i = transfers.iterator();
-		
-		Date monthBefore = oneMonthBefore();
-		
+
+		Map<String, LeaderboardEntryDto> groupedLeaders = new HashMap<>();
+		Iterator<PointsTransferInfo> i = pointTransfers.findAll().iterator();
 		
 		while (i.hasNext()) {
-			PointsTransferInfo info = i.next();
-			
-			String key = info.toUser;
-			
-			if (info.dateCreated.after(monthBefore)) {
-				addToResponse(map, info, key);
+			PointsTransferInfo historyEntry = i.next();
+
+			if (historyEntry.dateCreated.after(getMonthBefore())) {
+				addToGroupedLeaders(groupedLeaders, historyEntry);
 			}
 			
 		}
 		
-		return getTopFive(map.values());
+		return getTopFive(groupedLeaders.values());
 	}
 	
-	
-	
-	private Date oneMonthBefore(){
+	private Date getMonthBefore() {
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.MONTH, -1);
 		return cal.getTime();
 	}
 	
-	private void addToResponse(
+	private void addToGroupedLeaders(
 		Map<String, LeaderboardEntryDto> map,
-		PointsTransferInfo info,
-		String key
-	){
+		PointsTransferInfo info
+	) {
+		String key = info.toUser;
 		if (map.get(key) == null)
 			map.put(key, new LeaderboardEntryDto(key, info.points));
 		else
@@ -72,24 +62,34 @@ public class LeaderboardService {
 	}
 	
 	private ArrayList<LeaderboardEntryDto> getTopFive(Collection<LeaderboardEntryDto> collection) {
-		ArrayList<LeaderboardEntryDto> entries = new ArrayList<LeaderboardEntryDto>(collection);
-		entries.sort(new Comparator<LeaderboardEntryDto>() {
-
-			@Override
-			public int compare(LeaderboardEntryDto o1, LeaderboardEntryDto o2) {
-				long points1 = o1.points;
-				long points2 = o2.points;
-				
-				if (points1 == points2)
-	    			return o1.name.compareTo(o2.name);
-	    		else if (points1 < points2)
-	    			return 1;
-	    		else
-	    			return -1;
-			}
-		});
+		ArrayList<LeaderboardEntryDto> entries = new ArrayList<>(collection);
+		entries.sort(new LeadersComparator());
 		
-		return new ArrayList<LeaderboardEntryDto>(entries.subList(0, 5 > entries.size() ? entries.size() : 5));
+		return getSublistOfFive(entries);
+	}
+	
+	/**
+	 * Compares by points Z->A, if equal by name A->Z.
+	 *
+	 */
+	private class LeadersComparator implements Comparator<LeaderboardEntryDto> {
+
+		@Override
+		public int compare(LeaderboardEntryDto o1, LeaderboardEntryDto o2) {
+			long points1 = o1.points;
+			long points2 = o2.points;
+			
+			if (points1 == points2)
+    			return o1.name.compareTo(o2.name);
+    		else if (points1 < points2)
+    			return 1;
+    		else
+    			return -1;
+		}
+	}
+	
+	private ArrayList<LeaderboardEntryDto> getSublistOfFive(ArrayList<LeaderboardEntryDto> entries) {
+		return new ArrayList<>(entries.subList(0, 5 > entries.size() ? entries.size() : 5));
 	}
 
 }

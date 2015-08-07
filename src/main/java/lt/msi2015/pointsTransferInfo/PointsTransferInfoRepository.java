@@ -1,4 +1,4 @@
-package lt.msi2015.points_transfer_info;
+package lt.msi2015.pointsTransferInfo;
 
 import org.springframework.data.repository.CrudRepository;
 
