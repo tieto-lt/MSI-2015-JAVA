@@ -106,7 +106,7 @@ body {
 }
 
 #leaderboard-table thead {
-	color: #c1c1c1;
+	color: #7b7b7b;
 }
 
 #leaderboard-table, td {
@@ -122,6 +122,8 @@ body {
 	padding-top: 12px;
 }
 
+
+
 /* -----LEADERBOARD----- */
 /* -----FOOTER----- */
 
@@ -134,6 +136,15 @@ footer {
 #registration-form {
 	display: none;
 } 
+
+button.md-default-theme.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab {
+    color: rgba(255,255,255,0.87);
+    background-color: #9acaeb !important;
+}
+
+button.md-default-theme.md-raised[disabled], .md-button.md-default-theme.md-fab[disabled] {
+    background-color: rgba(0,0,0,0.12) !important;
+}
 
 /* md-input-container.md-default-theme.md-input-invalid .md-input { */
 /*     border-color: rgba(0,0,0, 0.12); */
