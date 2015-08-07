@@ -64,6 +64,21 @@ body {
 .error {
 	color: red;
 	text-align: right;
+	font-size: 12px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+}
+
+md-input-container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 2px 2px 5px;
 }
 
 .success-block {
