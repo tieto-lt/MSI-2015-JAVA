@@ -146,6 +146,10 @@ button.md-default-theme.md-raised[disabled], .md-button.md-default-theme.md-fab[
     background-color: rgba(0,0,0,0.12) !important;
 }
 
+md-input-container.md-default-theme .md-input {
+	border-color: #A3A3A3;
+}
+
 /* md-input-container.md-default-theme.md-input-invalid .md-input { */
 /*     border-color: rgba(0,0,0, 0.12); */
 /* } */
