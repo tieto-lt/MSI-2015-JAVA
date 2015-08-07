@@ -33,6 +33,7 @@
 	    			vm.transferInfo.points = '';
 	    			vm.transferInfo.comment = '';
 	    			vm.pointsForm.$setPristine();
+	    			vm.pointsForm.$setUntouched();
 	    			LeaderboardFactory.leaders();
 	    		}, function() {
 	    			vm.errorMessage = 'Transfer failed';
