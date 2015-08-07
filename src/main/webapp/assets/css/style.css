@@ -98,6 +98,6 @@ footer {
     margin-top: 20px;
 }
 
-#registration-form-main {
-	display: block;
-}
+#registration-form {
+	display: none;
+} 
