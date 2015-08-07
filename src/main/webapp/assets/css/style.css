@@ -125,14 +125,19 @@ md-input-container {
 
 #leaderboard-table thead {
 	color: #7b7b7b;
+	text-align: center;
 }
 
-#leaderboard-table, td {
+#leaderboard-table tbody td {
 	padding-bottom: 7px;
 	padding-top: 7px;
 	border-collapse: collapse;
 	border-bottom: solid 1px #d2d2d2;
 	text-align: left;
+}
+
+.leaderboard-table-points {
+	text-align: center !important;
 }
 
 .reload-leaders-button {
@@ -168,6 +173,10 @@ button.md-default-theme.md-primary.md-raised, .md-button.md-default-theme.md-pri
 
 button.md-default-theme.md-raised[disabled], .md-button.md-default-theme.md-fab[disabled] {
     background-color: rgba(0,0,0,0.12) !important;
+}
+
+md-input-container.md-default-theme .md-input {
+	border-color: #A3A3A3;
 }
 
 /* md-input-container.md-default-theme.md-input-invalid .md-input { */
