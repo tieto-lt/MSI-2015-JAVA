@@ -47,6 +47,7 @@ header > span {
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
+	padding-bottom:150px;
 }
 
 #comment {
@@ -105,9 +106,15 @@ header > span {
 }
 
 footer {
-    background: palevioletred;
-    padding: 20px;
-    margin-top: 20px;
+	margin-top:"1px";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    background: #62B3E5;
+    color: #ffffff;
+    text-align: right;
+    padding: 50px;
 }
 
 #registration-form {
@@ -117,3 +124,8 @@ footer {
 /* md-input-container.md-default-theme.md-input-invalid .md-input { */
 /*     border-color: rgba(0,0,0, 0.12); */
 /* } */
+
+#container {
+   min-height:100%;
+   position:relative;
+}
