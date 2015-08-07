@@ -17,8 +17,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lt.msi2015.points_transfer_info.PointsTransferInfo;
-import lt.msi2015.points_transfer_info.PointsTransferInfoRepository;
+import lt.msi2015.pointsTransferInfo.PointsTransferInfo;
+import lt.msi2015.pointsTransferInfo.PointsTransferInfoRepository;
 
 @Service
 public class LeaderboardService {
