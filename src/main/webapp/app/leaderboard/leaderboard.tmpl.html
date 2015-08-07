@@ -4,9 +4,9 @@
 	<table id="leaderboard-table" ng-if="vm.leaders.length">
 		<thead>
 			<tr>
-				<td>Nr.</td>
-				<td>Name</td>
-				<td>Points</td>
+				<td>POS</td>
+				<td>NAME</td>
+				<td>POINTS</td>
 			</tr>	
 		</thead>
 		<tbody>
@@ -17,5 +17,5 @@
 		  </tr>
 		</tbody>
 	</table>
-	<div><button id="reload-leaders" ng-click="vm.updateLeaders()">Reload leaders</button></div>
+	<div class="reload-leaders-button"><md-button class="md-raised md-primary" id="reload-leaders" ng-click="vm.updateLeaders()">Reload leaders</button></div>
 </div>
