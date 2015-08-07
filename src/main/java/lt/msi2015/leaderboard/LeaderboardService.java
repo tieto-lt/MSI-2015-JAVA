@@ -30,15 +30,10 @@ public class LeaderboardService {
 	List<LeaderboardEntryDto> getLeaderboardEntries() {
 
 		Map<String, LeaderboardEntryDto> groupedLeaders = new HashMap<>();
-		Iterator<PointsTransferInfo> i = pointTransfers.findAll().iterator();
 		
-		while (i.hasNext()) {
-			PointsTransferInfo historyEntry = i.next();
-
-			if (historyEntry.dateCreated.after(getMonthBefore())) {
-				addToGroupedLeaders(groupedLeaders, historyEntry);
-			}
-			
+		for (PointsTransferInfo historyEntry : pointTransfers.findAll()) {
+			if (historyEntry.dateCreated.after(getMonthBefore()))
+				addToGroupedLeaders(groupedLeaders, historyEntry);			
 		}
 		
 		return getTopFive(groupedLeaders.values());
@@ -70,7 +65,7 @@ public class LeaderboardService {
 	
 	/**
 	 * Compares by points Z->A, if equal by name A->Z.
-	 *
+	 * 
 	 */
 	private class LeadersComparator implements Comparator<LeaderboardEntryDto> {
 
