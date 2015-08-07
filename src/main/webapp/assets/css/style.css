@@ -8,10 +8,12 @@ header {
     margin-bottom: 20px;
 }
 
-
-
 header > span {
 	display: block;
+}
+
+body {
+	color: #333;
 }
 
 .header-low {
@@ -87,16 +89,33 @@ header > span {
     width: 32%;
 }
 
+/* -----LEADERBOARD----- */
+
 #leaderboard-table {
+
 	margin: auto;
-	width: 80%;
+	width: 70%;
+}
+
+#leaderboard-table thead {
+	color: #c1c1c1;
 }
 
 #leaderboard-table, td {
+	padding-bottom: 7px;
+	padding-top: 7px;
 	border-collapse: collapse;
-	border: 0px solid black;
+	border-bottom: solid 1px #d2d2d2;
 	text-align: left;
 }
+
+.reload-leaders-button {
+	padding-bottom: 12px;
+	padding-top: 12px;
+}
+
+/* -----LEADERBOARD----- */
+/* -----FOOTER----- */
 
 footer {
     background: palevioletred;
