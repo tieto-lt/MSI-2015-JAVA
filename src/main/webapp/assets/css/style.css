@@ -122,14 +122,19 @@ md-input-container {
 
 #leaderboard-table thead {
 	color: #7b7b7b;
+	text-align: center;
 }
 
-#leaderboard-table, td {
+#leaderboard-table tbody td {
 	padding-bottom: 7px;
 	padding-top: 7px;
 	border-collapse: collapse;
 	border-bottom: solid 1px #d2d2d2;
 	text-align: left;
+}
+
+.leaderboard-table-points {
+	text-align: center !important;
 }
 
 .reload-leaders-button {

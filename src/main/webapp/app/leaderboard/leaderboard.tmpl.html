@@ -11,9 +11,9 @@
 		</thead>
 		<tbody>
 		  <tr ng-repeat="leader in vm.leaders | orderBy:['-points', 'name']">
-		    <td>{{ $index + 1 }}</td>
+		    <td class="leaderboard-table-points">{{ $index + 1 }}</td>
 		    <td>{{ leader.name }}</td>
-		    <td>{{ leader.points }}</td>
+		    <td class="leaderboard-table-points">{{ leader.points }}</td>
 		  </tr>
 		</tbody>
 	</table>
