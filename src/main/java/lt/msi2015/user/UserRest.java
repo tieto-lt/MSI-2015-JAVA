@@ -29,7 +29,7 @@ public class UserRest {
 		List<UserAutocompleteDto> namesList = new ArrayList<> ();
 
 		for (User u: userList) {
-			namesList.add(new UserAutocompleteDto(u.id, u.firstName, u.lastName));
+			namesList.add(new UserAutocompleteDto(u.getId(), u.getFirstName(), u.getLastName()));
 		}
 		
 		return namesList;

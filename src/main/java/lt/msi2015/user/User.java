@@ -2,7 +2,6 @@ package lt.msi2015.user;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,40 +10,42 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
-import org.springframework.beans.factory.annotation.Value;
 
 import lt.msi2015.util.Dto;
 
 @Entity
 public class User extends Dto {
 
+	/**
+	 * 
+	 */
 	@Id
 	@GeneratedValue
-	public Long id;
-	
+	private Long id;
+
 	@NotNull
 	@Size(min=1, max=50)
 	@Email
-	public String email;
+	private String email;
 	
 	@NotNull
 	@Size(min=1, max=15)
-	public String firstName;
+	private String firstName;
 	
 	@NotNull
 	@Size(min=1, max=15)
-	public String lastName;
+	private String lastName;
 	
 	@NotNull
 	@Size(min=5)
-	public String password;
+	private String password;
 	
 	@NotNull
 	@Past
-	public Date dateCreated;
+	private Date dateCreated;
 	
 	@NotNull
-	public Boolean isAdmin;
+	private Boolean isAdmin;
 
 	/*
 	 * For mapping JSON -> Java
@@ -74,4 +75,63 @@ public class User extends Dto {
 		this(email, firstName, lastName, password);
 		this.isAdmin = isAdmin;
 	}	
+	
+	/*
+	 * Getters and setters
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Date getDateCreated() {
+		return dateCreated;
+	}
+
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+
+	public Boolean getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
 }
