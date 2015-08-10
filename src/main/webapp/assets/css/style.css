@@ -27,6 +27,22 @@ body {
 .header-low {
 	font-size: 16px;
 }
+
+.points-form-bottom {
+	display: inline-block;
+}
+
+.response-block {
+	width: 59%;
+}
+
+.points-form-submit {
+	width: 100%;
+	text-align: right;
+	align: right;
+	margin: 10px;
+}
+
 .points-form-input  {
 	text-align: left;
 	color: #000;
@@ -37,10 +53,6 @@ body {
 	color: #000 !important;
 }
 
-.points-form-submit {
-	text-align: right;
-	margin: 10px;
-}
 .points-form-main {
 	width: 100%;
 	text-align: center;
