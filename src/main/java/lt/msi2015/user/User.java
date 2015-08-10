@@ -41,6 +41,8 @@ public class User extends Dto {
 	@NotNull
 	@Past
 	public Date dateCreated;
+	
+	public Role role = Role.USER;
 
 	public User() {
 		// for mapping JSON -> Java

@@ -9,6 +9,7 @@ public class UserDto extends Dto {
 	public String lastName;
 	public String password;
 	public String passwordConfirm;
+	private Role role = Role.USER;
 	
 	public UserDto() {
 		super();
