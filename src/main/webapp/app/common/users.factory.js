@@ -24,7 +24,7 @@
 		var data = [];
 			
     	$http
-	      .get('user/fullnames')
+	      .get('user/getAllUsersFullnames')
 	      .then(function(response) {
 	        angular.extend(data, response.data);
 	    });

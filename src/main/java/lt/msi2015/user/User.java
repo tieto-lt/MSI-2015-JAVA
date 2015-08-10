@@ -2,15 +2,16 @@ package lt.msi2015.user;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.springframework.beans.factory.annotation.Value;
 
 import lt.msi2015.util.Dto;
 
@@ -41,19 +42,36 @@ public class User extends Dto {
 	@NotNull
 	@Past
 	public Date dateCreated;
+	
+	@NotNull
+	public Boolean isAdmin;
 
+	/*
+	 * For mapping JSON -> Java
+	 */
 	public User() {
-		// for mapping JSON -> Java
+		
 	}
 
+	/*
+	 * If creating ordinary user
+	 */
 	public User(String email, String firstName,
 				String lastName, String password) {
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
+		this.isAdmin = false;
 		this.dateCreated = new Date();
 	}
 
-	
+	/*
+	 * If creating admin user
+	 */
+	public User(String email, String firstName,
+			String lastName, String password, Boolean isAdmin) {
+		this(email, firstName, lastName, password);
+		this.isAdmin = isAdmin;
+	}	
 }
