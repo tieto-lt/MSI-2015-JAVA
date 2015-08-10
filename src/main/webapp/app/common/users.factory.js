@@ -10,13 +10,28 @@
   function UsersFactory($http) {
 
     return {
-    	addUser: addUser
+    	addUser: addUser,
+    	getUsers: getUsers
     };
 
     function addUser(user) {
     	$http
     	  .post('user/save', user);
     }
+    
+    function getUsers() {
+    	
+		var data = [];
+			
+    	$http
+	      .get('user/fullnames')
+	      .then(function(response) {
+	        angular.extend(data, response.data);
+	    });
+		   
+    	return data;
+    }
+    
   }
 
 })();
