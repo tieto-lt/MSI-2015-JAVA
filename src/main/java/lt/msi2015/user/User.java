@@ -44,8 +44,10 @@ public class User extends Dto {
 	@Past
 	private Date dateCreated;
 	
-	@NotNull
-	private Boolean isAdmin;
+//	@NotNull
+//	private Boolean isAdmin;
+
+	public Role role = Role.USER;
 
 	/*
 	 * For mapping JSON -> Java
@@ -63,14 +65,13 @@ public class User extends Dto {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
-		this.isAdmin = false;
 		this.dateCreated = new Date();
 	}
 
 	/*
 	 * If creating admin user
 	 */
-	public User(String email, String firstName,
+	/*public User(String email, String firstName,
 			String lastName, String password, Boolean isAdmin) {
 		this(email, firstName, lastName, password);
 		this.isAdmin = isAdmin;
@@ -127,11 +128,11 @@ public class User extends Dto {
 		this.dateCreated = dateCreated;
 	}
 
-	public Boolean getIsAdmin() {
-		return isAdmin;
-	}
-
-	public void setIsAdmin(Boolean isAdmin) {
-		this.isAdmin = isAdmin;
-	}
+//	public Boolean getIsAdmin() {
+//		return isAdmin;
+//	}
+//
+//	public void setIsAdmin(Boolean isAdmin) {
+//		this.isAdmin = isAdmin;
+//	}	
 }
