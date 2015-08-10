@@ -1,6 +1,6 @@
 header {
     background: #62B3E5;
-    padding: 69px;
+    padding: 40px;
     font-size: 26px;
     font-weight: bold;
     color: #ffffff;
@@ -10,8 +10,10 @@ header {
 
 #logo-image {
 	position: absolute;
-	top: 0px;
-	left: 0px;
+	top: 41px;
+	right: 0px;
+	height: 90px;
+	width: 90px;]
 }
 
 /*  154, 202, 235 */
@@ -169,7 +171,7 @@ footer {
     background: #62B3E5;
     color: #ffffff;
     text-align: right;
-    padding: 50px;
+    padding: 20px;
 }
 
 #registration-form {
