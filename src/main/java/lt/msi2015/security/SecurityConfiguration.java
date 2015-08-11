@@ -1,22 +1,28 @@
 package lt.msi2015.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
+@EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
-	UserDetailsService userService = new UserDetailsService();
+	@Autowired
+    private UserDetailsService userDetailsService;
 	
 	@Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService);
+        auth
+        	.userDetailsService(userDetailsService);
     }
 	
   @Override
@@ -25,10 +31,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	  http
       .csrf().disable()
       .authorizeRequests()
-        .antMatchers(HttpMethod.POST, "/points/**").authenticated()
+//        .antMatchers(HttpMethod.POST, "/points/**").fullyAuthenticated()
 //        .antMatchers(HttpMethod.PUT, "/api/**").authenticated()
 //        .antMatchers(HttpMethod.DELETE, "/api/**").authenticated()
-        .anyRequest().permitAll()
+        .anyRequest().fullyAuthenticated()
         .and()
       .httpBasic().and()
       .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

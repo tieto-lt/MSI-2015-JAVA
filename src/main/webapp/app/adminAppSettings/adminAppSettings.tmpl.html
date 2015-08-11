@@ -34,6 +34,12 @@
 			<div class="error" ng-message="required">Field is required</div>
 			<div class="error" ng-message="pattern">Integers only</div>
 		</div>
-		<input type="submit" value="Save" ng-click="vm.save()" ng-disabled="vm.settingsForm.$invalid">
+		<div class="response-block">
+			<div class="success-block" ng-if="vm.successMessage &&
+					vm.settingsForm.$pristine">Success</div>
+			<div class="error-block" ng-if="vm.errorMessage &&
+					vm.settingsForm.$pristine">Error</div>
+		</div>
+		<md-button class="md-raised md-primary" type="submit" value="Save" ng-click="vm.save()" ng-disabled="vm.settingsForm.$invalid">Save</md-button>
 	</form>
 </div>

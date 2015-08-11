@@ -199,3 +199,23 @@ md-input-container.md-default-theme .md-input {
    min-height:100%;
    position:relative;
 }
+
+.md-autocomplete-suggestions.md-default-theme li:hover, .md-autocomplete-suggestions.md-default-theme li.selected{
+	background-color: #CBE2E2;
+}
+
+md-input-container label:not(.md-no-float) {
+	order: 0;
+}
+
+md-autocomplete{
+	box-shadow: 0px 0px 0px #888888;	
+}
+
+md-input-container.md-default-theme .md-input{
+	width: 500px;
+}
+
+md-autocomplete button{
+	top: 5px;
+}

@@ -1,8 +1,10 @@
 <div class="points-form-main">
 	<div class="points-form-container" data-ng-controller="PointsTransferInfoController as vm"
      data-ng-submit="vm.submit()">
-     <h4>Send your karma points</h4>
+     <h4>Send your karma points </h4>
 		<form name="vm.pointsForm" id="points-form" novalidate>
+		
+		
 			<div class="points-form-input">
 				<md-input-container>
 					<label>From:</label>
@@ -11,36 +13,56 @@
 						placeholder="max. 30" ng-maxlength="30" required>
 				</md-input-container>
 			</div>
+			
 			<div ng-messages="vm.pointsForm.fromInput.$error" ng-if="vm.pointsForm.fromInput.$dirty">
 				<div class="error" ng-message="maxlength">Too many symbols</div>
 				<div class="error" ng-message="required">Field is required</div>
 			</div>
+			
+			
+			
 			<div class="points-form-input">
-				<md-input-container>
-					<label>To:</label>
-					<input name="toInput" type="text" id="to" 
-						data-ng-model="vm.transferInfo.toUser"
-						placeholder="max. 30" ng-maxlength="30" required>
-				</md-input-container>
+					<md-autocomplete
+					md-input-name="toInput" type="text" id="to"
+					data-ng-model="vm.transferInfo.toUser"
+					md-input-maxlength="30" required
+					md-selected-item="vm.selectedItem"
+					md-search-text-change="vm.searchTextChange(vm.searchText)"
+					md-search-text="vm.searchText"
+					md-items="user in vm.fillteredList(vm.searchText)"
+					md-item-text="user.firstName + ' ' + user.lastName"
+					md-min-length="3"
+					md-floating-label="To">
+						<md-item-template>
+							<span>{{user.firstName}} {{user.lastName}}</span>
+						</md-item-template>
+					</md-autocomplete>
 			</div>
+			
 			<div ng-messages="vm.pointsForm.toInput.$error" ng-if="vm.pointsForm.toInput.$dirty">
 				<div class="error" ng-message="maxlength">Too many symbols</div>
 				<div class="error" ng-message="required">Field is required</div>
 			</div>
+			
+			
 			<div class="points-form-input">
 				<md-input-container>
 					<label for="points">Points:</label>
 					<input name="pointsInput" type="number" id="points" min="1" max="100"
 						data-ng-model="vm.transferInfo.points"
-						placeholder="1-100" required pattern="/^\d+$/">
+						placeholder="1-100" required ng-pattern="/^\d+$/">
 				</md-input-container>
 			</div>
+			
 			<div ng-messages="vm.pointsForm.pointsInput.$error" ng-if="vm.pointsForm.pointsInput.$dirty">
 				<div class="error" ng-message="min, max">Only between 1 and 100</div>
 				<div class="error" ng-message="required">Field is required</div>
 				<div class="error" ng-message="number">Numbers only</div>
 				<div class="error" ng-message="pattern">Integers only</div>
 			</div>
+			
+			
+			
 			<div class="points-form-input">
 			<md-input-container flex>
 				<label id="comment-label" for="comment">Comment:</label>

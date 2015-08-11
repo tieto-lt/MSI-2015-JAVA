@@ -127,6 +127,10 @@ public class User extends Dto {
 	public void setDateCreated(Date dateCreated) {
 		this.dateCreated = dateCreated;
 	}
+	
+	public Role getRole() {
+		return role;
+	}
 
 //	public Boolean getIsAdmin() {
 //		return isAdmin;
