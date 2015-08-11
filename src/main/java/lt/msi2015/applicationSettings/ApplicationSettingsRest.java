@@ -19,7 +19,7 @@ public class ApplicationSettingsRest {
 	@Autowired
 	ApplicationSettingsRepository repository;
 	
-	@RequestMapping(value = "applicationSettings/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/applicationSettings/save", method = RequestMethod.POST)
 	ResponseEntity<String> saveApplicationSettings(@RequestBody List<ApplicationSetting> settings) {
 		if (!applicationSettingsService.save(settings))
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

@@ -41,10 +41,10 @@
 				ng-if="vm.transferInfo.monthlyLimit
 				< vm.transferInfo.oneTimePointsLimit">One time limit can't be more than monthly limit!</div>
 		<div class="response-block">
-			<div class="success-block" ng-if="vm.successMessage &&
-					vm.settingsForm.$pristine">Success</div>
-			<div class="error-block" ng-if="vm.errorMessage &&
-					vm.settingsForm.$pristine">Error</div>
+				<div class="success-block" ng-if="vm.successMessage &&
+						vm.pointsForm.$pristine">{{vm.successMessage}}</div>
+				<div class="error-block" ng-if="vm.errorMessage &&
+						vm.pointsForm.$pristine">{{vm.errorMessage}}</div>
 		</div>
 		<md-button class="md-raised md-primary" 
 					type="submit" 

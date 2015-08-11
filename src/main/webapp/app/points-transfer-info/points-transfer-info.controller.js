@@ -48,8 +48,7 @@
 	    			vm.transferInfo.points = '';
 	    			vm.transferInfo.comment = '';
 	    			vm.pointsForm.$setPristine();
-	    		})
-	    		
+	    		})	    		
 	    }
 	    
 	    function getOneTimeLimit() {
