@@ -32,7 +32,7 @@
 					<label for="points">Points:</label>
 					<input name="pointsInput" type="number" id="points" min="1" max="100"
 						data-ng-model="vm.transferInfo.points"
-						placeholder="1-100" required ng-pattern="/^\d+$/">
+						placeholder="1-100" required pattern="/^\d+$/">
 				</md-input-container>
 			</div>
 			<div ng-messages="vm.pointsForm.pointsInput.$error" ng-if="vm.pointsForm.pointsInput.$dirty">
