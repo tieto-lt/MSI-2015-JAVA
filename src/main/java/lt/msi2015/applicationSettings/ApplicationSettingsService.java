@@ -17,7 +17,7 @@ public class ApplicationSettingsService {
 	
 	@Transactional
 	boolean save(List<ApplicationSetting> settings) {
-		Map<ApplicationSettingsEnum, Integer> settingsMap = addSettingsToMap(settings);
+		Map<ApplicationSettingsEnum, Integer> settingsMap = convertSettingsToMap(settings);
 		
 		if (settingsMap.get(ApplicationSettingsEnum.ONE_TIME_LIMIT) > 
 			settingsMap.get(ApplicationSettingsEnum.MONTHLY_LIMIT))
@@ -26,7 +26,7 @@ public class ApplicationSettingsService {
 		return saveSettings(settings);
 	}
 	
-	private Map<ApplicationSettingsEnum, Integer> addSettingsToMap(List<ApplicationSetting> settings) {
+	public Map<ApplicationSettingsEnum, Integer> convertSettingsToMap(List<ApplicationSetting> settings) {
 		Map<ApplicationSettingsEnum, Integer> settingsMap = new HashMap<>();
 		for (ApplicationSetting setting : settings)
 			settingsMap.put(ApplicationSettingsEnum.valueOf(setting.getProperty().toUpperCase()), setting.getValue());

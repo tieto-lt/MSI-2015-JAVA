@@ -1,7 +1,10 @@
 package lt.msi2015.applicationSettings;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
-public interface ApplicationSettingsRepository extends CrudRepository<ApplicationSetting, String> {
-	
+import org.springframework.data.repository.Repository;
+
+public interface ApplicationSettingsRepository extends Repository<ApplicationSetting, String> {
+	ApplicationSetting save(ApplicationSetting setting);
+	List<ApplicationSetting> findAll();
 }

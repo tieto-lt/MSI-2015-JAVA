@@ -1,13 +1,10 @@
 package lt.msi2015.applicationSettings;
 
 public enum ApplicationSettingsEnum {
-	ONE_TIME_LIMIT("one_time_limit"), MONTHLY_LIMIT("monthly_limit");
+	ONE_TIME_LIMIT("ONE_TIME_LIMIT"), MONTHLY_LIMIT("MONTHLY_LIMIT");
 
 	private final String setting;
 
-	/**
-	 * @param text
-	 */
 	private ApplicationSettingsEnum(final String setting) {
 		this.setting = setting;
 	}
@@ -17,4 +14,3 @@ public enum ApplicationSettingsEnum {
 		return setting;
 	}
 }
-//[{"property":"one_time_limit","value":"100"},{"property":"monthly_limit","value":"200"}]

@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -25,8 +24,7 @@ public class PointsTransferInfo {
 	@NotNull
 	@Size(min=1, max=30)
 	public String toUser;
-	
-	@Max(100)
+
 	@Min(1)
 	@NotNull
 	public Integer points;
