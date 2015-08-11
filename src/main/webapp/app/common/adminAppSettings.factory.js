@@ -13,7 +13,8 @@
 		
 		return {
 			getApplicationSettings: getApplicationSettings,
-			getOneTimeLimit: getOneTimeLimit
+			getOneTimeLimit: getOneTimeLimit,
+			saveSettings: saveSettings
 	    };
 
 	    function getApplicationSettings() {
@@ -25,13 +26,26 @@
 	    	return getApplicationSettings().then(function (response) {
 	    		var oneTimeLimit = 'test';
 	    		angular.forEach(response.data, function(setting) {
-		    		
 		    		if (setting['property'] === 'one_time_limit')
 		    			oneTimeLimit = setting['value'];
 		    	});
 	    		
 	    		return oneTimeLimit;
 	    	});
+	    }
+	    
+	    function saveSettings(transferInfo) {
+	    	var transferObject = [
+	    	    {
+	    	    	property:'MONTHLY_LIMIT',
+	    	    	value: transferInfo.monthlyLimit
+	    	    },
+	    	    {
+	    	    	property:'ONE_TIME_LIMIT',
+	    	    	value: transferInfo.oneTimePointsLimit
+	    	    }]
+		    return $http
+		    	.post('/applicationSettings/save', transferObject);
 	    }
 	}
 	
