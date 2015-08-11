@@ -37,7 +37,7 @@
 	    			vm.errorMessage = 'Transfer failed';
 	    			vm.transferInfo.monthlyLimit = '';
 	    			vm.transferInfo.oneTimePointsLimit = '';
-	    			vm.pointsForm.$setPristine();
+	    			vm.settingsForm.$setPristine();
 	    		})
 		}
 	}
