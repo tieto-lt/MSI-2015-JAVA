@@ -5,9 +5,9 @@
 		.module('app.pointsTransferInfo')
 		.controller('PointsTransferInfoController', PointsTransferInfoController);
 	
-	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory', 'ApplicationSettingsFactory', 'UsersFactory'];
+	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory', 'AdminAppSettingsFactory', 'UsersFactory'];
 	
-	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory, ApplicationSettingsFactory, UsersFactory) {
+	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory, AdminAppSettingsFactory, UsersFactory) {
 
 		var vm = this;
 		
@@ -53,7 +53,7 @@
 	    }
 	    
 	    function getOneTimeLimit() {
-	    	ApplicationSettingsFactory.getOneTimeLimit().then(function (response) {
+	    	AdminAppSettingsFactory.getOneTimeLimit().then(function (response) {
     			vm.oneTimeLimit = response;
 	    	});
 	    }
