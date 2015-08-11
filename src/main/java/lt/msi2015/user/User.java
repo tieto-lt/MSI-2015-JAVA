@@ -2,6 +2,7 @@ package lt.msi2015.user;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -44,6 +45,14 @@ public class User extends Dto {
 	@Past
 	private Date dateCreated;
 	
+	@NotNull
+	@Column(columnDefinition = "int default 0")
+	private Integer pointsToGive;
+	
+	@NotNull
+	@Column(columnDefinition = "int default 0")
+	private Integer userPoints;
+	
 //	@NotNull
 //	private Boolean isAdmin;
 
@@ -60,12 +69,15 @@ public class User extends Dto {
 	 * If creating ordinary user
 	 */
 	public User(String email, String firstName,
-				String lastName, String password) {
+				String lastName, String password,
+				Integer userPoints, Integer pointsToGive) {
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
 		this.dateCreated = new Date();
+		this.userPoints = userPoints;
+		this.pointsToGive = pointsToGive;
 	}
 
 	/*
