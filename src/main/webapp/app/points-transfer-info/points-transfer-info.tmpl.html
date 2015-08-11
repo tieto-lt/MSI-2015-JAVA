@@ -32,7 +32,8 @@
 					md-items="user in vm.fillteredList(vm.searchText)"
 					md-item-text="user.firstName + ' ' + user.lastName"
 					md-min-length="3"
-					md-floating-label="To">
+					md-floating-label="To"
+					md-no-cache="true">
 						<md-item-template>
 							<span>{{user.firstName}} {{user.lastName}}</span>
 						</md-item-template>
@@ -44,6 +45,9 @@
 				<div class="error" ng-message="required">Field is required</div>
 			</div>
 			
+			<div ng-if="vm.pointsForm.toInput.$dirty">
+				<div class="error" ng-if="vm.data.length == 0 && vm.searchText.length > 2">No such user</div>
+			</div>
 			
 			<div class="points-form-input">
 				<md-input-container>

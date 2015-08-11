@@ -22,11 +22,6 @@ public class UserDetailsService implements org.springframework.security.core.use
 	@Transactional
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		
-		System.out.println("In loadUserByUsername");
-		System.out.println("email: " + email);
-		
-		System.out.println("in 1");		
-		
 		User user = userRepository.findByEmail(email);
 		
 //		Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
@@ -35,21 +30,11 @@ public class UserDetailsService implements org.springframework.security.core.use
 //	    		new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
 //	            authorities);
 //	    return userDetails;
-		System.out.println("in 2");	
 		
-		System.out.println("user: " + user);
-		System.out.println("role: " + user.getRole());
-	   
 		Role role = user.getRole();
-		
-		System.out.println("in 3");		
 
 		String roleString = role.name();
-		
-		System.out.println("in 4");		
-		
-		
-		System.out.println("After loadUserByUsername");		
+			
 		return new org.springframework.security.core.userdetails.User(email,
                 user.getPassword(),
                 AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_" + roleString));
