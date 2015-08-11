@@ -16,11 +16,19 @@ public class ApplicationSettingsRest {
 	@Autowired
 	private ApplicationSettingsService applicationSettingsService;
 	
-	@RequestMapping(value = "admin/applicationSettings/save", method = RequestMethod.POST)
+	@Autowired
+	ApplicationSettingsRepository repository;
+	
+	@RequestMapping(value = "applicationSettings/save", method = RequestMethod.POST)
 	ResponseEntity<String> saveApplicationSettings(@RequestBody List<ApplicationSetting> settings) {
 		if (!applicationSettingsService.save(settings))
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/applicationSettings", method = RequestMethod.GET)
+	List<ApplicationSetting> getApplicationSettings() {
+		return repository.findAll();
 	}
 }
