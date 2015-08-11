@@ -3,11 +3,11 @@
 	
 	angular
 		.module('app.common')
-		.factory('ApplicationSettingsFactory', ApplicationSettingsFactory);
+		.factory('AdminAppSettingsFactory', AdminAppSettingsFactory);
 	
-	ApplicationSettingsFactory.$inject = ['$http'];
+	AdminAppSettingsFactory.$inject = ['$http'];
 	
-	function ApplicationSettingsFactory($http) {
+	function AdminAppSettingsFactory($http) {
 		
 		var data = [];
 		

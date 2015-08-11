@@ -8,6 +8,7 @@
 	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory', 'ApplicationSettingsFactory', 'UsersFactory'];
 	
 	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory, ApplicationSettingsFactory, UsersFactory) {
+
 		var vm = this;
 		
 		vm.transferInfo = {
@@ -51,7 +52,6 @@
 	    		
 	    }
 	    
-
 	    function getOneTimeLimit() {
 	    	ApplicationSettingsFactory.getOneTimeLimit().then(function (response) {
     			vm.oneTimeLimit = response;

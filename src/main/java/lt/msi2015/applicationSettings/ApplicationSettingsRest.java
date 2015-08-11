@@ -23,7 +23,6 @@ public class ApplicationSettingsRest {
 	ResponseEntity<String> saveApplicationSettings(@RequestBody List<ApplicationSetting> settings) {
 		if (!applicationSettingsService.save(settings))
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	

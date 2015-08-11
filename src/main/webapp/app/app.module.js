@@ -7,6 +7,7 @@
       'app.pointsTransferInfo',
       'app.registration',
       'app.leaderboard',
+      'app.adminAppSettings',
       
       /*angular ngMessages*/
       'ngMessages',
