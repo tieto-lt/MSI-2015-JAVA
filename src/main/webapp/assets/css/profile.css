@@ -1,0 +1,116 @@
+header.profile-header {
+    padding: 0;
+}
+
+header.profile-header div.container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding-top: 20px;
+    position: relative;
+    height: 120px;
+    text-align: center;
+}
+
+header.profile-header div.header-object {
+    position: absolute;
+    bottom: 0;
+    font-style: normal;
+    font-size: 20px;
+}
+
+header.profile-header div.left-side {
+    width: 50%;
+}
+
+header.profile-header div.navigation {
+    background-color: #2196f3;
+    height: 50px;
+}
+
+header.profile-header div.profile-info {
+    width: 30%;
+    height: 120px;
+    background-color: #1e88e5;
+    left: 50%;
+    border: 1px solid black;
+    border-bottom: 0;
+    box-sizing: border-box;
+}
+
+header.profile-header div.logout {
+    width: 20%;
+    left: 80%;
+}
+
+header.profile-header div.navigation ul {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+header.profile-header div.navigation li {
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    height: 100%;
+    width: 50%;
+    vertical-align: middle;
+}
+
+header.profile-header div.logout li {
+    width: 100%;
+}
+
+header.profile-header div.navigation li.current {
+    border-bottom: 3px solid #f44336;
+}
+
+header.profile-header div.navigation a.link li {
+    color: #e3f2fd;
+    padding:12px;
+}
+
+header.profile-header div.navigation a.link:hover li {
+    border-bottom: 3px solid #0d47a1;
+    background-color: #1e88e5;
+    color: white;
+}
+
+header.profile-header div.container h3 {
+    margin: 0 0 20px 0;
+    text-align: left;
+    font-size: 32px;
+}
+
+header.profile-header div.profile-info div.profile-info-container {
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+}
+
+header.profile-header div.profile-info div.profile-info-container div.info {
+    text-align: left;
+    margin: 5px 0;
+}
+
+header.profile-header div.profile-info div.profile-info-container div.info-container {
+    height: 80%;
+    float: left;
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+header.profile-header div.profile-info div.profile-info-container img.profile-image {
+    height: 80px;
+    width: 80px;
+    float: left;
+    margin: 20px;
+}
+
+header.profile-header div.profile-info div.profile-info-container span.points {
+    color: #cddc39;
+}
+
