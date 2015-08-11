@@ -19,17 +19,12 @@
     	  .post('user/save', user);
     }
     
-    function getUsers() {
+    
+	function getUsers() {
     	
-		var data = [];
-			
-    	$http
-	      .get('user/getAllUsersFullnames')
-	      .then(function(response) {
-	        angular.extend(data, response.data);
-	    });
-		   
-    	return data;
+    	return $http
+	      .get('user/getAllUsersFullnames');
+    	
     }
     
   }
