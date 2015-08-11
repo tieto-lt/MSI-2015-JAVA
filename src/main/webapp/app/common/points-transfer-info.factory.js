@@ -17,8 +17,14 @@
 	     * Sends a POST request to 'points/send' route in server
 	     */
 	    function sendPoints(transferInfo) {
+	    	var transfer = {
+    			fromUser: transferInfo.fromUser,
+    			toUser: transferInfo.toUser.firstName + " " + transferInfo.toUser.lastName,
+    			points: transferInfo.points,
+    			comment: transferInfo.comment
+	    	}
 	    	return $http
-	    	  .post('points/send', transferInfo);
+	    	  .post('points/send', transfer);
 	    }
 	}
 	
