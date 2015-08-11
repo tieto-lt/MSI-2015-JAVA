@@ -1,4 +1,4 @@
-
+<div ng-controller="AdminAppSettingsController as vm">
 <div class="admin-application-settings-container" style="width: 50%">
 	
 	<form name="vm.settingsForm" novalidate>
@@ -42,4 +42,5 @@
 		</div>
 		<md-button class="md-raised md-primary" type="submit" value="Save" ng-click="vm.save()" ng-disabled="vm.settingsForm.$invalid">Save</md-button>
 	</form>
+</div>
 </div>

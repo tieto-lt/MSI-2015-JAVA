@@ -52,15 +52,11 @@
 	    		
 	    }
 	    
-<<<<<<< HEAD
-=======
-
 	    function getOneTimeLimit() {
 	    	ApplicationSettingsFactory.getOneTimeLimit().then(function (response) {
     			vm.oneTimeLimit = response;
 	    	});
 	    }
->>>>>>> df3ef46ad52e3597099ed4faee45a06a265324c5
 	    
 	    function fillteredList(searchText) {
 	    	searchText = angular.lowercase(searchText);	
