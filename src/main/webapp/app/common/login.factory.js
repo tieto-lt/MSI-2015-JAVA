@@ -14,8 +14,12 @@
 	  };
 	  
 	  function login(credentials) {
+		  var headers = credentials ? {authorization : "Basic "
+		        + btoa(credentials.email + ":" + credentials.password)
+		    } : {};
+		  
 	    	$http
-	    	  .post('login', credentials);
+	    	  .get('login', {headers : headers});
 	    }
 	    
   

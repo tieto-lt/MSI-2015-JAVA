@@ -1,5 +1,6 @@
 package lt.msi2015.user;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,11 +51,16 @@ public class UserRest {
 	      return name;
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	@ResponseBody
-	String login() {
-		
-		return null;
-	}
+//	@RequestMapping(value = "/login", method = RequestMethod.GET)
+//	@ResponseBody
+//	String login() {
+//		System.out.println("In Login");
+//		return null;
+//	}
+	@RequestMapping("/login")
+	  public Principal login(Principal user) {
+		System.out.println("in login");
+	    return user;
+	  }
 
 }
