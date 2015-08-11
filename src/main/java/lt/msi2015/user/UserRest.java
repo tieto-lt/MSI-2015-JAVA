@@ -45,8 +45,8 @@ public class UserRest {
 	      //String name = user.getEmail(); //get logged in username
 		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	      String name = auth.getName(); //get logged in username
-	      /*System.out.println(auth.toString());
-	      System.out.println(auth.getDetails().toString());*/
+	      System.out.println(auth.toString());
+	      System.out.println(auth.getDetails().toString());
 	      return name;
 	}
 
