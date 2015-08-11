@@ -39,16 +39,20 @@ public class UserRest {
 	}
 	
 	@RequestMapping(value = "/user/getCurrentUser", method = RequestMethod.GET)
-	@ResponseBody
-	String getCurrentUser() {
+	public @ResponseBody LoggedUserDto getCurrentUser() {
 		
 		 //String user = (String)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	      //String name = user.getEmail(); //get logged in username
 		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	      String name = auth.getName(); //get logged in username
-	      System.out.println(auth.toString());
-	      System.out.println(auth.getDetails().toString());
-	      return name;
+		 org.springframework.security.core.userdetails.User userSpring = 
+				 (org.springframework.security.core.userdetails.User) auth.getPrincipal(); //get logged in username
+	    
+	     String email = userSpring.getUsername();
+	     User user = repo.findByEmail(email);
+	     LoggedUserDto loggedUser = new LoggedUserDto(user.getFirstName(), user.getLastName(), 
+	    		 			user.getEmail(), user.getRole());
+	     
+	     return loggedUser;
 	}
 	
 //	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -59,8 +63,7 @@ public class UserRest {
 //	}
 	@RequestMapping("/login")
 	  public Principal login(Principal user) {
-		System.out.println("in login");
-	    return user;
+		return user;
 	  }
 
 }
