@@ -35,7 +35,10 @@ body {
 }
 
 .response-block {
-	width: 59%;
+    text-align: center;
+    display: inline-flex;
+    vertical-align: middle;
+    width: 100%;
 }
 
 .points-form-submit {

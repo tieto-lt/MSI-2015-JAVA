@@ -22,7 +22,7 @@
 		 * Send new monthly, one time limits to server
 		 */
 		function save() {
-			vm.actionMessage = '';
+			vm.successMessage = '';
 	    	vm.errorMessage = '';
 	    	
 	    	AdminAppSettingsFactory
