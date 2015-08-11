@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import lt.msi2015.util.Dto;
 
 @Entity
-public class ApplicationSettings extends Dto {
+public class ApplicationSetting extends Dto {
 
 	/**
 	 * 
@@ -23,11 +23,11 @@ public class ApplicationSettings extends Dto {
 	/*
 	 * For mapping JSON -> Java
 	 */
-	public ApplicationSettings() {
+	public ApplicationSetting() {
 		
 	}
 
-	public ApplicationSettings(String property, Integer value) {
+	public ApplicationSetting(String property, Integer value) {
 		this.property = property;
 		this.value = value;
 	}
