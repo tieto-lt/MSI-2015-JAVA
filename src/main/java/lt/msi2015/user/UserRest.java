@@ -49,5 +49,12 @@ public class UserRest {
 	      System.out.println(auth.getDetails().toString());
 	      return name;
 	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@ResponseBody
+	String login() {
+		
+		return null;
+	}
 
 }

@@ -31,12 +31,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	  http
       .csrf().disable()
       .authorizeRequests()
+      .antMatchers(HttpMethod.POST, "/login/**").fullyAuthenticated()
+//        .antMatchers(HttpMethod.PUT, "/api/**").authenticated()
+//        .antMatchers(HttpMethod.DELETE, "/api/**").authenticated()
+ 
+        .and()
+      .httpBasic().and()
+      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	  
+	  //THIS WORKS
+	  /*http
+      .csrf().disable()
+      .authorizeRequests()
 //        .antMatchers(HttpMethod.POST, "/points/**").fullyAuthenticated()
 //        .antMatchers(HttpMethod.PUT, "/api/**").authenticated()
 //        .antMatchers(HttpMethod.DELETE, "/api/**").authenticated()
         .anyRequest().fullyAuthenticated()
         .and()
       .httpBasic().and()
-      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);*/
   }
 }
