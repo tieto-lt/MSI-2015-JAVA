@@ -1,14 +1,9 @@
 package lt.msi2015.security;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
@@ -26,22 +21,20 @@ public class UserDetailsService implements org.springframework.security.core.use
 	@Transactional
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		
-
-		//User user = repo.findByEmail(email); // userDAO == null
-		
 		User user = userRepository.findByEmail(email);
 		
-		Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-	    authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-	    org.springframework.security.core.userdetails.User userDetails = 
-	    		new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
-	            authorities);
-	    return userDetails;
+//		Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+//	    authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+//	    org.springframework.security.core.userdetails.User userDetails = 
+//	    		new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
+//	            authorities);
+//	    return userDetails;
 	   
 		
-		/*return new org.springframework.security.core.userdetails.User(email,
+		
+		return new org.springframework.security.core.userdetails.User(email,
                 user.getPassword(),
-                AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));*/
+                AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
 				
 		/*if (user == null)
 			System.out.println("No such email");*/

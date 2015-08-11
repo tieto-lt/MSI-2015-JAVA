@@ -25,21 +25,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         	.userDetailsService(userDetailsService);
     }
 	
-	/*@Override
-    public UserDetailsService userDetailsServiceBean() {
-        return new UserDetailsServiceImpl();
-    }*/
-	
   @Override
   protected void configure(HttpSecurity http) throws Exception {
 	  
 	  http
       .csrf().disable()
       .authorizeRequests()
-        .antMatchers(HttpMethod.POST, "/points/**").fullyAuthenticated()
+//        .antMatchers(HttpMethod.POST, "/points/**").fullyAuthenticated()
 //        .antMatchers(HttpMethod.PUT, "/api/**").authenticated()
 //        .antMatchers(HttpMethod.DELETE, "/api/**").authenticated()
-        .anyRequest().permitAll()
+        .anyRequest().fullyAuthenticated()
         .and()
       .httpBasic().and()
       .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
