@@ -22,26 +22,21 @@
 			
 			
 			<div class="points-form-input">
-				<md-input-container>
-					<label>To:</label>
-<!-- 					<input name="toInput" type="text" id="to" 
-						data-ng-model="vm.transferInfo.toUser"
-						placeholder="max. 30" ng-maxlength="30" required> -->
 					<md-autocomplete
-					name="toInput" type="text" id="to"
+					md-input-name="toInput" type="text" id="to"
 					data-ng-model="vm.transferInfo.toUser"
-					ng-maxlength="30" required
+					md-input-maxlength="30" required
 					md-selected-item="vm.selectedItem"
 					md-search-text-change="vm.searchTextChange(vm.searchText)"
 					md-search-text="vm.searchText"
 					md-items="user in vm.fillteredList(vm.searchText)"
 					md-item-text="user.firstName + ' ' + user.lastName"
-					md-min-length="1">
+					md-min-length="3"
+					md-floating-label="To">
 						<md-item-template>
 							<span>{{user.firstName}} {{user.lastName}}</span>
 						</md-item-template>
 					</md-autocomplete>
-				</md-input-container>
 			</div>
 			
 			<div ng-messages="vm.pointsForm.toInput.$error" ng-if="vm.pointsForm.toInput.$dirty">
