@@ -1,6 +1,5 @@
 package lt.msi2015.applicationSettings;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
