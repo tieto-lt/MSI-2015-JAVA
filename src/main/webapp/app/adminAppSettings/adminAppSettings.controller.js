@@ -23,6 +23,14 @@
 				
 			}
 		}
+	
+		function checkInputs() {
+			if (vm.transferInfo.monthlyLimit < vm.transferInfo.oneTimePointsLimit) {
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
 	}
-
 })(window.angular);
