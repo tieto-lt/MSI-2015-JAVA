@@ -8,6 +8,7 @@
       'app.registration',
       'app.leaderboard',
       'app.login',
+      'app.adminAppSettings',
       
       /*angular ngMessages*/
       'ngMessages',
