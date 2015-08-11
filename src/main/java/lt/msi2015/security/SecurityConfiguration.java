@@ -1,19 +1,19 @@
 package lt.msi2015.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
@@ -28,7 +28,36 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
 	  
+//	  http
+//      .csrf().disable()
+//      .authorizeRequests()
+//      .antMatchers(HttpMethod.POST, "/login/**").fullyAuthenticated()
+////        .antMatchers(HttpMethod.PUT, "/api/**").authenticated()
+////        .antMatchers(HttpMethod.DELETE, "/api/**").authenticated()
+// 
+//        .and()
+//      .httpBasic().and()
+//      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	  
+//	  http
+//      .csrf().disable()
+//      .authorizeRequests()
+//      .antMatchers(HttpMethod.POST, "/login/**").fullyAuthenticated()
+////        .antMatchers(HttpMethod.PUT, "/api/**").authenticated()
+////        .antMatchers(HttpMethod.DELETE, "/api/**").authenticated()
+// 
+//        .and()
+//      .httpBasic().and()
+//      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	  http
+      .httpBasic()
+    .and()
+      .authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/login/**").authenticated()
+        .anyRequest().permitAll();
+	  
+	  //THIS WORKS
+	  /*http
       .csrf().disable()
       .authorizeRequests()
 //        .antMatchers(HttpMethod.POST, "/points/**").fullyAuthenticated()
@@ -37,6 +66,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .anyRequest().fullyAuthenticated()
         .and()
       .httpBasic().and()
-      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);*/
   }
 }
