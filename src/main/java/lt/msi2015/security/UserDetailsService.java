@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
+import lt.msi2015.user.Role;
 import lt.msi2015.user.User;
 import lt.msi2015.user.UserRepository;
 
@@ -30,11 +31,13 @@ public class UserDetailsService implements org.springframework.security.core.use
 //	            authorities);
 //	    return userDetails;
 	   
-		
-		
+		Role role = user.getRole();
+
+		String roleString = role.name();
+				
 		return new org.springframework.security.core.userdetails.User(email,
                 user.getPassword(),
-                AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
+                AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_" + roleString));
 				
 		/*if (user == null)
 			System.out.println("No such email");*/

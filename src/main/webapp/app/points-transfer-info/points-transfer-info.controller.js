@@ -5,9 +5,9 @@
 		.module('app.pointsTransferInfo')
 		.controller('PointsTransferInfoController', PointsTransferInfoController);
 	
-	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory', 'ApplicationSettingsFactory'];
+	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory', 'ApplicationSettingsFactory', 'UsersFactory'];
 	
-	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory, ApplicationSettingsFactory) {
+	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory, ApplicationSettingsFactory, UsersFactory) {
 		var vm = this;
 		
 		vm.transferInfo = {
@@ -23,6 +23,7 @@
 	
 
 	    vm.submit = submit;
+	    vm.fillteredList = fillteredList;
 
 	    /**
 	     * Function to execute when points transfer form is submitted
@@ -50,12 +51,31 @@
 	    		
 	    }
 	    
+
 	    function getOneTimeLimit() {
 	    	ApplicationSettingsFactory.getOneTimeLimit().then(function (response) {
     			vm.oneTimeLimit = response;
 	    	});
 	    }
-
+	    
+	    function fillteredList(searchText) {
+	    	searchText = angular.lowercase(searchText);	
+	    	
+	    	return UsersFactory.getUsers().then(function(response) {
+	    		var data = [];
+	    		var user;
+	    		for (var i=0; i< response.data.length; i++) {
+	    			user = response.data[i];
+	    			var fullName = user.firstName + " " + user.lastName;
+		    		if ((angular.lowercase(user.firstName).indexOf(searchText) == 0) || 
+		    			(angular.lowercase(user.lastName).indexOf(searchText) == 0) ||
+		    			(angular.lowercase(fullName).indexOf(searchText) == 0)
+		    			){
+		    			data.push(user)
+		    		}
+		    	}
+	    		return data;
+	    	})
+	    }
 	}
-	
 })();
