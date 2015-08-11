@@ -3,28 +3,36 @@
 	
 	angular
 		.module('app.common')
-		.factory('AdminAppSettingsFactory', AdminAppSettingsFactory);
+		.factory('ApplicationSettingsFactory', ApplicationSettingsFactory);
 	
-	AdminAppSettingsFactory.$inject = ['$http'];
+	ApplicationSettingsFactory.$inject = ['$http'];
 	
-	function AdminAppSettingsFactory($http) {
+	function ApplicationSettingsFactory($http) {
 		
-//		var data = [];
+		var data = [];
 		
-//	    function leaders(){
-	    	
-//	    	$http
-//		      .get('leaderboard')
-//		      .then(function(response) {
-//		        angular.extend(data, response.data);
-//		    });
-//		    
-//		    return data;
-//	    }
-//	    return {
-//	    	leaders: leaders
-//	    }
-		return ""
+		return {
+			getApplicationSettings: getApplicationSettings,
+			getOneTimeLimit: getOneTimeLimit
+	    };
+
+	    function getApplicationSettings() {
+	    	return $http
+	    	  .get('applicationSettings');
+	    }
+	    
+	    function getOneTimeLimit() {
+	    	return getApplicationSettings().then(function (response) {
+	    		var oneTimeLimit = 'test';
+	    		angular.forEach(response.data, function(setting) {
+		    		
+		    		if (setting['property'] === 'one_time_limit')
+		    			oneTimeLimit = setting['value'];
+		    	});
+	    		
+	    		return oneTimeLimit;
+	    	});
+	    }
 	}
 	
 })();
