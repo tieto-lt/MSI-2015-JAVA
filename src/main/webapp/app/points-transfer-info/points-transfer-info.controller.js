@@ -5,9 +5,9 @@
 		.module('app.pointsTransferInfo')
 		.controller('PointsTransferInfoController', PointsTransferInfoController);
 	
-	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory','UsersFactory'];
+	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory', 'ApplicationSettingsFactory', 'UsersFactory'];
 	
-	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory, UsersFactory) {
+	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory, ApplicationSettingsFactory, UsersFactory) {
 		var vm = this;
 		
 		vm.transferInfo = {
@@ -16,6 +16,11 @@
 	      points: '',
 	      comment: ''
 	    };
+		
+		vm.oneTimeLimit = 0;
+			
+		getOneTimeLimit();
+	
 
 	    vm.submit = submit;
 	    vm.fillteredList = fillteredList;
@@ -46,6 +51,12 @@
 	    		
 	    }
 	    
+
+	    function getOneTimeLimit() {
+	    	ApplicationSettingsFactory.getOneTimeLimit().then(function (response) {
+    			vm.oneTimeLimit = response;
+	    	});
+	    }
 	    
 	    function fillteredList(searchText) {
 	    	searchText = angular.lowercase(searchText);	
@@ -67,5 +78,4 @@
 	    	})
 	    }
 	}
-	
 })();
