@@ -1,0 +1,45 @@
+#logo-image-admin {
+	position: absolute;
+	top: 22px;
+	right: 0px;
+	height: 90px;
+	width: 90px;
+}
+
+.admin-container-left {
+	width: 20%;
+	display: inline-block;
+	float: left;
+	height: 100%;
+	overflow: auto;
+	position: fixed;
+	border-right: 1px solid black;
+}
+
+.admin-container-main {
+	width: 80%;
+	display: inline-block;
+	float: right;
+}
+
+.admin-header {
+	margin: 0;
+	background-color: #6cc04a;
+	text-align: left;
+}
+
+.admin-navigation-button-container {
+	width: 80%;
+	height: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	text-align: center;
+	border-bottom: 2px solid blue;
+	font-size: 22px;
+	padding-top:10px;
+}
+
+.admin-navigation-button {
+	text-decoration: none;
+}

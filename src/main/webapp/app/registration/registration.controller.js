@@ -25,14 +25,18 @@
     function submit() {
       UsersFactory
       	.addUser(vm.user)
-      	.then(LoginFactory.login({email: vm.user.email, password: vm.user.password}))
-      	.then(function(response) {
-			  console.log(response.data.role);
-			  if(response.data.role == 'ADMIN'){
-				  $state.go('adminPage');
-			  } else {
-				  $state.go('userPage'); 
-			  } 
+      	//.then(LoginFactory.login({email: vm.user.email, password: vm.user.password}))
+      	.then(function() {
+      		var response =
+      			LoginFactory.login({email: vm.user.email, password: vm.user.password})
+      				.then(function(response) {
+      					console.log(response.data.role);
+      				  if(response.data.role == 'ADMIN'){
+      					  $state.go('adminPage');
+      				  } else {
+      					  $state.go('userPage'); 
+      				  } 
+      				});
 		  });
     }
   }
