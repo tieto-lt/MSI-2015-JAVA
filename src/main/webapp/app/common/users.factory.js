@@ -23,7 +23,7 @@
 	function getUsers() {
     	
     	return $http
-	      .get('user/getAllUsersFullnames');
+	      .get('api/user/getAllUsersFullnames');
     	
     }
     

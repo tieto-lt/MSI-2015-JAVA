@@ -19,9 +19,8 @@
 		    } : {};
 		  
 	    	$http
-	    	  .get('login', {headers : headers});
+	    	  .post('login', {headers : headers});
 	    }
-	    
   
   }
   
