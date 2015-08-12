@@ -10,10 +10,7 @@ public class UserService {
 	
 	@Autowired
 	UserRepository repo;
-	
-	public User findById(Long id){
-		return repo.findById(id);
-	}
+
 	
 	public LoggedUserDto getCurrentUser() {
 		

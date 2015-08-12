@@ -37,7 +37,9 @@ public class PointsTransferInfoService {
 		if (isPointsBelowLimit(settingsMap, info.points))
 			return false;
 		
-		pointsCalculations(info);
+		if(transferIsValid(info.points)){
+			pointsCalculations(info);
+		}
 		
 		return pointsRepo.save(
 			new PointsTransferInfo(
@@ -54,12 +56,17 @@ public class PointsTransferInfoService {
 	}
 	
 	private void pointsCalculations(PointsTransferInfoDto info){
-		User addToUser = userService.findById(info.toUserID);
+		User addToUser = userRepo.findById(info.toUserID);
 		addToUser.userPoints += info.points;
 		userRepo.save(addToUser);
 		
-		User subFromUser = userService.findById(userService.getCurrentUser().getId());
+		User subFromUser = userRepo.findById(userService.getCurrentUser().getId());
 		subFromUser.pointsToGive -= info.points;
 		userRepo.save(subFromUser);
+	}
+	
+	private boolean transferIsValid(int points){
+		User fromUser = userRepo.findById(userService.getCurrentUser().getId());
+		return fromUser.pointsToGive <= points;
 	}
 }
