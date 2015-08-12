@@ -14,7 +14,10 @@
       'ngMessages',
 
       /*commons*/
-      'app.common'
+      'app.common',
+      
+      /*ui-router*/
+      'ui.router'
     ]);
 
 })(window.angular);
