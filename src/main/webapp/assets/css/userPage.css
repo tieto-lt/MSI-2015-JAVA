@@ -1,0 +1,63 @@
+
+/*POINTS-TRANSFER-INFO*/
+
+.points-transfer-info-container {
+	vertical-align: top;
+	display: inline-block;
+    margin: 0px auto;
+    width: 66%;
+}
+
+.points-form-bottom {
+	display: inline-block;
+}
+
+.points-form-submit {
+	width: 100%;
+	text-align: right;
+	align: right;
+	margin: 10px;
+}
+
+.points-form-input  {
+	text-align: left;
+	color: #000;
+}
+
+.points-form-input label {
+	text-align: left;
+	color: #000 !important;
+}
+
+.points-form-main {
+	width: 100%;
+	text-align: left;
+}
+
+.points-form-container {
+	width: 35%;
+	margin-right: auto;
+	margin-left: 12px;
+	text-align: center;
+	padding-bottom:150px;
+}
+
+/* LEADERBOARD */
+
+.leaderboard-container {
+	vertical-align: top;
+	display: inline-block;
+    margin: 0px auto;
+    width: 32%;
+}
+
+.reload-leaders-button {
+	text-align: center;
+	padding-bottom: 12px;
+	padding-top: 12px;
+}
+
+#leaderboard-table {
+	margin: auto;
+	width: 100%;
+}

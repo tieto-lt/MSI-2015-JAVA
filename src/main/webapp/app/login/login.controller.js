@@ -12,8 +12,8 @@
 	  var vm = this;
 	  
 	  vm.credentials = {
-		 email: 'user1@oho.lt',
-		 password: 'password1'
+		 email: 'user2@oho.lt',
+		 password: 'password2'
 	  };
 	  
 	  vm.submit = submit;
