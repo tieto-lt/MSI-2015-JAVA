@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
 import lt.msi2015.applicationSettings.ApplicationSettingsRepository;
 import lt.msi2015.applicationSettings.ApplicationSettingsService;
+import lt.msi2015.user.UserService;
 
 @Service
 public class PointsTransferInfoService {
 	
 	@Autowired
-	private PointsTransferInfoRepository repository;
+	UserService userService;
+	
+	@Autowired
+	private PointsTransferInfoRepository pointsRepo;
 	
 	@Autowired
 	private ApplicationSettingsService settingsService;
@@ -28,10 +32,12 @@ public class PointsTransferInfoService {
 		if (isPointsBelowLimit(settingsMap, info.points))
 			return false;
 		
-		return repository.save(
+		System.out.println("fromUserId: " + userService.getCurrentUser().getId());
+		System.out.println("toUserId: " + info.toUserID);
+		return pointsRepo.save(
 			new PointsTransferInfo(
-				info.fromUser,
-				info.toUser,
+				userService.getCurrentUser().getId(),
+				info.toUserID,
 				info.points,
 				info.comment)
 			) != null;

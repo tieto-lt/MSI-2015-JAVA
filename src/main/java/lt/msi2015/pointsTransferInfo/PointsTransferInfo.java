@@ -18,12 +18,10 @@ public class PointsTransferInfo {
 	public Long id;
 	
 	@NotNull
-	@Size(min=1, max=30)
-	public String fromUser;
+	public Long fromUserID;
 	
 	@NotNull
-	@Size(min=1, max=30)
-	public String toUser;
+	public Long toUserID;
 
 	@Min(1)
 	@NotNull
@@ -40,9 +38,9 @@ public class PointsTransferInfo {
 		//for JSON
 	}
 	
-	public PointsTransferInfo(String from, String to, int points, String comment) {
-		this.fromUser = from;
-		this.toUser = to;
+	public PointsTransferInfo(Long fromUserID, Long toUserID, Integer points, String comment) {
+		this.fromUserID = toUserID;
+		this.toUserID = toUserID;
 		this.points = points;
 		this.comment = comment;
 		this.dateCreated = new Date();

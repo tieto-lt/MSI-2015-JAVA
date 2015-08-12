@@ -10,14 +10,15 @@
 							name="monthlyLimit" 
 							placeholder="1000" 
 							data-ng-model="vm.transferInfo.monthlyLimit"
-							min="1"
+							min="1" max="9999"
 							required
 							ng-pattern="/^\d+$/">
 				</md-input-container>
 			</div>
 			<div ng-messages="vm.settingsForm.monthlyLimit.$error" ng-if="vm.settingsForm.monthlyLimit.$dirty">
-				<div class="error" ng-message="min">One time limit can't be less than or equal to 0</div>
+				<div class="error" ng-message="min, max">Only between 1 and 9999</div>
 				<div class="error" ng-message="required">Field is required</div>
+				<div class="error" ng-message="number">Numbers only</div>
 				<div class="error" ng-message="pattern">Integers only</div>
 			</div>
 			<div class="settings-one-time-limit-input">
@@ -27,14 +28,15 @@
 							name="oneTimeLimit" 
 							placeholder="100" 
 							data-ng-model="vm.transferInfo.oneTimePointsLimit"
-							min="1"
+							min="1" max="9999"
 							required
 							ng-pattern="/^\d+$/">
 				</md-input-container>
 			</div>
 			<div ng-messages="vm.settingsForm.oneTimeLimit.$error" ng-if="vm.settingsForm.oneTimeLimit.$dirty">
-				<div class="error" ng-message="min">One time limit can't be less than or equal to 0</div>
+				<div class="error" ng-message="min, max">Only between 1 and 9999</div>
 				<div class="error" ng-message="required">Field is required</div>
+				<div class="error" ng-message="number">Numbers only</div>
 				<div class="error" ng-message="pattern">Integers only</div>
 			</div>
 			<div class="error" 

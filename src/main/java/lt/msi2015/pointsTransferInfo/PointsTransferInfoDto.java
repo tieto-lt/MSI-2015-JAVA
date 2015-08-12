@@ -4,22 +4,19 @@ import lt.msi2015.util.Dto;
 
 public class PointsTransferInfoDto extends Dto {
 
-	public String fromUser;
-	public String toUser;
+	public Long toUserID;
 	public Integer points;
 	public String comment;
 	
 	public PointsTransferInfoDto() {
 		super();
 	}
-	
-	
-	public PointsTransferInfoDto(String fromUser, String toUser, Integer points, String comment) {
+
+	public PointsTransferInfoDto(Long toUserID, Integer points, String comment) {
 		super();
-		this.fromUser = fromUser;
-		this.toUser = toUser;
+		this.toUserID = toUserID;
 		this.points = points;
 		this.comment = comment;
 	}
-
+	
 }
