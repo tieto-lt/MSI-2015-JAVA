@@ -1,57 +1,64 @@
 <div ng-controller="AdminAppSettingsController as vm">
-<div class="admin-application-settings-container" style="width: 50%">
+	<div class="admin-application-settings-container" style="width: 50%">
 	
-	<form name="vm.settingsForm" novalidate>
+		<form name="vm.settingsForm" novalidate>
 	
-		<div class="settings-month-limit-input">
-			<md-input-container>
-			<label for="monthly-limit">Monthly limit</label>
-				<input type="number"
-						name="monthlyLimit" 
-						placeholder="1000" 
-						data-ng-model="vm.transferInfo.monthlyLimit"
-						min="1"
-						required
-						ng-pattern="/^\d+$/">
-			</md-input-container>
-		</div>
-		<div ng-messages="vm.settingsForm.monthlyLimit.$error" ng-if="vm.settingsForm.monthlyLimit.$dirty">
-			<div class="error" ng-message="min">One time limit can't be less than or equal to 0</div>
-			<div class="error" ng-message="required">Field is required</div>
-			<div class="error" ng-message="pattern">Integers only</div>
-		</div>
-		<div class="settings-one-time-limit-input">
-			<md-input-container>
-				<label for="one-time-limit">Max points to give</label>
-				<input type="number" 
-						name="oneTimeLimit" 
-						placeholder="100" 
-						data-ng-model="vm.transferInfo.oneTimePointsLimit"
-						min="1"
-						required
-						ng-pattern="/^\d+$/">
-			</md-input-container>
-		</div>
-		<div ng-messages="vm.settingsForm.oneTimeLimit.$error" ng-if="vm.settingsForm.oneTimeLimit.$dirty">
-			<div class="error" ng-message="min">One time limit can't be less than or equal to 0</div>
-			<div class="error" ng-message="required">Field is required</div>
-			<div class="error" ng-message="pattern">Integers only</div>
-		</div>
-		<div class="error" 
-				ng-if="vm.transferInfo.monthlyLimit
-				< vm.transferInfo.oneTimePointsLimit">One time limit can't be more than monthly limit!</div>
-		<div class="response-block">
-				<div class="success-block" ng-if="vm.successMessage &&
-						vm.pointsForm.$pristine">{{vm.successMessage}}</div>
-				<div class="error-block" ng-if="vm.errorMessage &&
-						vm.pointsForm.$pristine">{{vm.errorMessage}}</div>
-		</div>
-		<md-button class="md-raised md-primary" 
-					type="submit" 
-					value="Save" 
-					ng-click="vm.save()" 
-					ng-disabled="vm.settingsForm.$invalid || vm.transferInfo.monthlyLimit < 
-					vm.transferInfo.oneTimePointsLimit">Save</md-button>
-	</form>
-</div>
+			<div class="settings-month-limit-input">
+				<md-input-container>
+				<label for="monthly-limit">Monthly limit</label>
+					<input type="number"
+							name="monthlyLimit" 
+							placeholder="1000" 
+							data-ng-model="vm.transferInfo.monthlyLimit"
+							min="1" max="9999"
+							required
+							ng-pattern="/^\d+$/">
+				</md-input-container>
+			</div>
+			<div ng-messages="vm.settingsForm.monthlyLimit.$error" ng-if="vm.settingsForm.monthlyLimit.$dirty">
+				<div class="error" ng-message="min, max">Only between 1 and 9999</div>
+				<div class="error" ng-message="required">Field is required</div>
+				<div class="error" ng-message="number">Numbers only</div>
+				<div class="error" ng-message="pattern">Integers only</div>
+			</div>
+			<div class="settings-one-time-limit-input">
+				<md-input-container>
+					<label for="one-time-limit">Max points to give</label>
+					<input type="number" 
+							name="oneTimeLimit" 
+							placeholder="100" 
+							data-ng-model="vm.transferInfo.oneTimePointsLimit"
+							min="1" max="9999"
+							required
+							ng-pattern="/^\d+$/">
+				</md-input-container>
+			</div>
+			<div ng-messages="vm.settingsForm.oneTimeLimit.$error" ng-if="vm.settingsForm.oneTimeLimit.$dirty">
+				<div class="error" ng-message="min, max">Only between 1 and 9999</div>
+				<div class="error" ng-message="required">Field is required</div>
+				<div class="error" ng-message="number">Numbers only</div>
+				<div class="error" ng-message="pattern">Integers only</div>
+			</div>
+			<div class="error" 
+					ng-if="vm.transferInfo.monthlyLimit
+					< vm.transferInfo.oneTimePointsLimit">One time limit can't be more than monthly limit!</div>
+			<div class="response-block">
+				<div>
+					<div class="success-block" ng-if="vm.successMessage &&
+							vm.settingsForm.$pristine">{{vm.successMessage}}</div>
+					<div class="error-block" ng-if="vm.errorMessage &&
+							vm.settingsForm.$pristine">{{vm.errorMessage}}</div>
+				</div>
+				<div>
+					<md-button class="md-raised md-primary" 
+								type="submit" 
+								value="Save" 
+								ng-click="vm.save()" 
+								ng-disabled="vm.settingsForm.$invalid 
+											|| vm.transferInfo.monthlyLimit 
+											< vm.transferInfo.oneTimePointsLimit">Save</md-button>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>

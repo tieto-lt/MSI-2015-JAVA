@@ -22,7 +22,7 @@
 		 * Send new monthly, one time limits to server
 		 */
 		function save() {
-			vm.actionMessage = '';
+			vm.successMessage = '';
 	    	vm.errorMessage = '';
 	    	
 	    	AdminAppSettingsFactory
@@ -37,7 +37,7 @@
 	    			vm.errorMessage = 'Transfer failed';
 	    			vm.transferInfo.monthlyLimit = '';
 	    			vm.transferInfo.oneTimePointsLimit = '';
-	    			vm.pointsForm.$setPristine();
+	    			vm.settingsForm.$setPristine();
 	    		})
 		}
 	}

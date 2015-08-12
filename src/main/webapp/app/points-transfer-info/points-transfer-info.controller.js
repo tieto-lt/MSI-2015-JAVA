@@ -18,6 +18,8 @@
 	      comment: ''
 	    };
 		
+		vm.data = [];
+		
 		vm.oneTimeLimit = 0;
 			
 		getOneTimeLimit();
@@ -59,9 +61,8 @@
 	    
 	    function fillteredList(searchText) {
 	    	searchText = angular.lowercase(searchText);	
-	    	
 	    	return UsersFactory.getUsers().then(function(response) {
-	    		var data = [];
+	    		vm.data.length = 0;
 	    		var user;
 	    		for (var i=0; i< response.data.length; i++) {
 	    			user = response.data[i];
@@ -70,10 +71,11 @@
 		    			(angular.lowercase(user.lastName).indexOf(searchText) == 0) ||
 		    			(angular.lowercase(fullName).indexOf(searchText) == 0)
 		    			){
-		    			data.push(user)
+		    			vm.data.push(user)
 		    		}
 		    	}
-	    		return data;
+	    		
+	    		return vm.data;
 	    	})
 	    }
 	}
