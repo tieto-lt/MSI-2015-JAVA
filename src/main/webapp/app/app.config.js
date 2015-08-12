@@ -26,7 +26,6 @@
 		    	url: "/registration",
 		    	templateUrl: "registrationPage.tmpl.html"
 		    })
-<<<<<<< HEAD
 		    .state('adminPage', {
 		    	url: "/admin",
 		    	templateUrl: "adminPage.tmpl.html"
@@ -38,11 +37,6 @@
 		    .state('eshopPage', {
 		    	url: "/eshop",
 		    	templateUrl: "eshopPage.tmpl.html"
-=======
-		    .state('userpage', {
-		    	url: "/userpage",
-		    	templateUrl: "userPage.tmpl.html"
->>>>>>> aaefbab012eb6a526b4464931cc7df289fd67b4a
 		    });
 		});
 

@@ -20,6 +20,10 @@ public class UserService {
 		 //String user = (String)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	      //String name = user.getEmail(); //get logged in username
 		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		 
+		 if (auth.getPrincipal() instanceof String) //Anonymous
+			 System.out.println(auth.getPrincipal());
+		 
 		 org.springframework.security.core.userdetails.User userSpring = 
 				 (org.springframework.security.core.userdetails.User) auth.getPrincipal(); //get logged in username
 		 

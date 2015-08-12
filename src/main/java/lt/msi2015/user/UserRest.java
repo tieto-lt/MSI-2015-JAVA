@@ -52,7 +52,7 @@ public class UserRest {
 //		return null;
 //	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public LoggedUserDto login() {
 		return service.getCurrentUser();
 	}
