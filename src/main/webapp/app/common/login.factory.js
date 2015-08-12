@@ -19,7 +19,7 @@
 		    } : {};
 		  
 	    	$http
-	    	  .post('login', {headers : headers});
+	    	  .get('login', {headers : headers});
 	    }
   
   }

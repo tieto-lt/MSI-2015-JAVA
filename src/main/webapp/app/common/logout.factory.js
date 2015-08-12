@@ -14,9 +14,7 @@
 	  };
 	  
 	  function logout() {
-		  $http.post('api/logout', {}).success(function(response) {
-		    console.log(response);
-		  });
+		  $http.post('api/logout', {});
 	  }
   
   }

@@ -51,7 +51,7 @@ public class UserRest {
 //		System.out.println("In Login");
 //		return null;
 //	}
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	  public Principal login(Principal user) {
 		return user;
 	  }
