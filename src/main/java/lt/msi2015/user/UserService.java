@@ -19,7 +19,7 @@ public class UserService {
 		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		 org.springframework.security.core.userdetails.User userSpring = 
 				 (org.springframework.security.core.userdetails.User) auth.getPrincipal(); //get logged in username
-	    
+		 
 	     String email = userSpring.getUsername();
 	     User user = repo.findByEmail(email);
 	     LoggedUserDto loggedUser = new LoggedUserDto(user.getId(), user.getFirstName(), user.getLastName(), 

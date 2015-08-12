@@ -52,8 +52,8 @@ public class UserRest {
 //		return null;
 //	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	  public Principal login(Principal user) {
-		return user;
-	  }
+	public LoggedUserDto login() {
+		return service.getCurrentUser();
+	}
 
 }

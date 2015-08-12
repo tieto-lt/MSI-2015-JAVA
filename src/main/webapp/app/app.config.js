@@ -8,6 +8,10 @@
 	  $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 
   	})
+  	
+  	/*
+  	 * UI-router
+  	 */  	
   	.config(function($stateProvider, $urlRouterProvider) {
 
   		$urlRouterProvider.otherwise("/login");
@@ -21,6 +25,18 @@
 		    .state('registration', {
 		    	url: "/registration",
 		    	templateUrl: "registrationPage.tmpl.html"
+		    })
+		    .state('adminPage', {
+		    	url: "/admin",
+		    	templateUrl: "adminPage.tmpl.html"
+		    })
+		    .state('userPage', {
+		    	url: "/user",
+		    	templateUrl: "userPage.tmpl.html"
+		    })
+		    .state('eshopPage', {
+		    	url: "/eshop",
+		    	templateUrl: "eshopPage.tmpl.html"
 		    });
 		});
 
