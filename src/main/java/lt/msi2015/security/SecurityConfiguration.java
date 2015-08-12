@@ -11,6 +11,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 @Configuration
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
@@ -50,12 +53,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //      .httpBasic().and()
 //      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	  http
-	  .csrf().disable()
+	  //.csrf().disable()
       .httpBasic()
     .and()
       .authorizeRequests()
         .antMatchers(HttpMethod.GET, "/login/**").authenticated()
-        .anyRequest().permitAll();
+        .anyRequest().permitAll().and()
+       .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
+       .csrf().csrfTokenRepository(csrfTokenRepository());
 	  
 	  //THIS WORKS
 	  /*http
@@ -68,5 +73,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and()
       .httpBasic().and()
       .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);*/
+  }
+  
+  private CsrfTokenRepository csrfTokenRepository() {
+	HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+	repository.setHeaderName("X-XSRF-TOKEN");
+	return repository;
   }
 }
