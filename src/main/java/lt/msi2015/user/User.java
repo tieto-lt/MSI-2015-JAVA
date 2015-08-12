@@ -69,13 +69,14 @@ public class User extends Dto {
 	 * If creating ordinary user
 	 */
 	public User(String email, String firstName,
-				String lastName, String password) {
+				String lastName, String password, Integer pointsToGive ) {
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
+		this.pointsToGive = pointsToGive;
 		this.dateCreated = new Date();
-		this.pointsToGive = 0;
+		this.pointsToGive = pointsToGive;
 		this.userPoints = 0;
 	}
 

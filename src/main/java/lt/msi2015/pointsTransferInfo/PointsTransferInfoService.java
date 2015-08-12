@@ -31,10 +31,8 @@ public class PointsTransferInfoService {
 	private ApplicationSettingsRepository settingsRepository;
 	
 	boolean save(PointsTransferInfoDto info) {
-		Map<ApplicationSettingsEnum, Integer> settingsMap = 
-				settingsService.convertSettingsToMap(settingsRepository.findAll());
 		
-		if (isPointsBelowLimit(settingsMap, info.points))
+		if (isPointsAboveLimit(info.points))
 			return false;
 		
 		if(transferIsValid(info.points)){
@@ -50,7 +48,9 @@ public class PointsTransferInfoService {
 			) != null;
 	}
 	
-	private boolean isPointsBelowLimit(Map<ApplicationSettingsEnum, Integer> settingsMap, int points) {
+	private boolean isPointsAboveLimit( int points) {
+		Map<ApplicationSettingsEnum, Integer> settingsMap = 
+				settingsService.convertSettingsToMap(settingsRepository.findAll());
 		return settingsMap.get(ApplicationSettingsEnum.ONE_TIME_LIMIT) != null &&
 			   points > settingsMap.get(ApplicationSettingsEnum.ONE_TIME_LIMIT);
 	}

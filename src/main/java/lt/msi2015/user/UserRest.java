@@ -1,6 +1,5 @@
 package lt.msi2015.user;
 
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
+import lt.msi2015.applicationSettings.ApplicationSettingsService;
+
 @RestController
 public class UserRest {
 
@@ -20,10 +22,23 @@ public class UserRest {
 	@Autowired
 	UserRepository repo;
 	
+	@Autowired
+	ApplicationSettingsService appSettingsService;
+	
 	@RequestMapping(value = "/user/save", method = RequestMethod.POST)
 	@ResponseBody
 	User save(@RequestBody UserDto info) {
-		return repo.save(new User(info.email, info.firstName, info.lastName, info.password));
+		
+		int monthlyLimit = appSettingsService.getSetting(ApplicationSettingsEnum.MONTHLY_LIMIT).getValue();
+		
+		return repo.save(new User(
+			info.email,
+			info.firstName,
+			info.lastName,
+			info.password,
+			monthlyLimit
+			)
+		);
 	}
 	
 	@RequestMapping(value = "/api/user/getAllUsersFullnames", method = RequestMethod.GET)
@@ -56,4 +71,5 @@ public class UserRest {
 	public LoggedUserDto login() {
 		return service.getCurrentUser();
 	}
+	
 }

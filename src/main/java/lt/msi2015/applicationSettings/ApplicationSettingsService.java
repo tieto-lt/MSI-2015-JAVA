@@ -33,6 +33,10 @@ public class ApplicationSettingsService {
 		return settingsMap;
 	}
 	
+	public ApplicationSetting getSetting(ApplicationSettingsEnum appEnum){
+		return repository.findByProperty(appEnum.toString());
+	}
+	
 	private boolean saveSettings(List<ApplicationSetting> settings) {
 		boolean result = true;
 		
@@ -43,4 +47,5 @@ public class ApplicationSettingsService {
 		
 		return result;
 	}
+
 }
