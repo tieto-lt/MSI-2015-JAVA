@@ -9,13 +9,17 @@ import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
 import lt.msi2015.applicationSettings.ApplicationSettingsRepository;
 import lt.msi2015.applicationSettings.ApplicationSettingsService;
 import lt.msi2015.user.User;
+import lt.msi2015.user.UserRepository;
 import lt.msi2015.user.UserService;
 
 @Service
 public class PointsTransferInfoService {
 	
 	@Autowired
-	UserService userService;
+	private UserService userService;
+	
+	@Autowired
+	private UserRepository userRepo;
 	
 	@Autowired
 	private PointsTransferInfoRepository pointsRepo;
@@ -34,6 +38,10 @@ public class PointsTransferInfoService {
 			return false;
 		
 		pointsCalculations(info);
+
+		System.out.println(userService.getCurrentUser().getId());
+
+		System.out.println(info.toUserID);
 		
 		return pointsRepo.save(
 			new PointsTransferInfo(
@@ -52,8 +60,10 @@ public class PointsTransferInfoService {
 	private void pointsCalculations(PointsTransferInfoDto info){
 		User addToUser = userService.findById(info.toUserID);
 		addToUser.userPoints += info.points;
+		userRepo.save(addToUser);
 		
 		User subFromUser = userService.findById(userService.getCurrentUser().getId());
-		addToUser.userPoints -= info.points;
+		subFromUser.pointsToGive -= info.points;
+		userRepo.save(subFromUser);
 	}
 }

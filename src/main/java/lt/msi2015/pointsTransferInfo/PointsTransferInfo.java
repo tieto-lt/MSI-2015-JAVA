@@ -39,7 +39,7 @@ public class PointsTransferInfo {
 	}
 	
 	public PointsTransferInfo(Long fromUserID, Long toUserID, Integer points, String comment) {
-		this.fromUserID = toUserID;
+		this.fromUserID = fromUserID;
 		this.toUserID = toUserID;
 		this.points = points;
 		this.comment = comment;
