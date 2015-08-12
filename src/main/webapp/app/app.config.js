@@ -12,9 +12,13 @@
   	/*
   	 * UI-router
   	 */  	
-  	.config(function($stateProvider, $urlRouterProvider) {
+  	.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
 
   		$urlRouterProvider.otherwise("/login");
+  		$locationProvider.html5Mode({
+  		  enabled: true,
+  		  requireBase: false
+  		});
 
 		$stateProvider
 			.state('login', {
@@ -34,6 +38,6 @@
 		    	url: "/user",
 		    	templateUrl: "userPage.tmpl.html"
 		    });
-		});
+	});
 
 })(window.angular);

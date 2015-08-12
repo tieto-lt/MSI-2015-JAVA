@@ -20,7 +20,7 @@ public class UserRest {
 	@Autowired
 	UserRepository repo;
 	
-	@RequestMapping(value = "/api/user/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/user/save", method = RequestMethod.POST)
 	@ResponseBody
 	User save(@RequestBody UserDto info) {
 		return repo.save(new User(info.email, info.firstName, info.lastName, info.password));
