@@ -30,45 +30,11 @@ body {
 	font-size: 16px;
 }
 
-.points-form-bottom {
-	display: inline-block;
-}
-
 .response-block {
     text-align: center;
     display: inline-flex;
     vertical-align: middle;
     width: 100%;
-}
-
-.points-form-submit {
-	width: 100%;
-	text-align: right;
-	align: right;
-	margin: 10px;
-}
-
-.points-form-input  {
-	text-align: left;
-	color: #000;
-}
-
-.points-form-input label {
-	text-align: left;
-	color: #000 !important;
-}
-
-.points-form-main {
-	width: 100%;
-	text-align: center;
-}
-
-.points-form-container {
-	width: 57%;
-	margin-right: auto;
-	margin-left: auto;
-	text-align: center;
-	padding-bottom:150px;
 }
 
 #comment {
@@ -116,27 +82,7 @@ md-input-container {
     width: 100%;
 }
 
-.main-container-left {
-	vertical-align: top;
-	display: inline-block;
-    margin: 0px auto;
-    width: 66%;
-}
-
-.main-container-right {
-	vertical-align: top;
-	display: inline-block;
-    margin: 0px auto;
-    width: 32%;
-}
-
 /* -----LEADERBOARD----- */
-
-#leaderboard-table {
-
-	margin: auto;
-	width: 70%;
-}
 
 #leaderboard-table thead {
 	color: #7b7b7b;
@@ -155,10 +101,7 @@ md-input-container {
 	text-align: center !important;
 }
 
-.reload-leaders-button {
-	padding-bottom: 12px;
-	padding-top: 12px;
-}
+
 
 
 
@@ -213,7 +156,7 @@ md-autocomplete{
 }
 
 md-input-container.md-default-theme .md-input{
-	width: 500px;
+	width: 300px;
 }
 
 md-autocomplete button{
