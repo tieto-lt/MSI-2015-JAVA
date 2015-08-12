@@ -20,9 +20,11 @@
             </div>
         </div>
         <div class="logout header-object navigation">
-                <ul>
-                    <a class="link" href="#" ><li>Logout</li></a>
+        	<div data-ng-controller="LogoutController as vm">
+        		<ul>
+                    <a class="link" href="#" ng-click="vm.logout()" ><li>Logout</li></a>
                 </ul>
+        	</div>
         </div>
     </div>
 </header>

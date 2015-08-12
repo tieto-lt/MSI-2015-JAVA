@@ -19,7 +19,7 @@
 
 	    function getApplicationSettings() {
 	    	return $http
-	    	  .get('applicationSettings');
+	    	  .get('api/applicationSettings');
 	    }
 	    
 	    function getOneTimeLimit() {
@@ -45,7 +45,7 @@
 	    	    	value: transferInfo.oneTimePointsLimit
 	    	    }]
 		    return $http
-		    	.post('/applicationSettings/save', transferObject);
+		    	.post('api/applicationSettings/save', transferObject);
 	    }
 	}
 	

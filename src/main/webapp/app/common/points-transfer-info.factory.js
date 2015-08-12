@@ -23,7 +23,7 @@
     			comment: transferInfo.comment
 	    	}
 	    	return $http
-	    	  .post('points/send', transfer);
+	    	  .post('api/points/send', transfer);
 	    }
 	}
 	

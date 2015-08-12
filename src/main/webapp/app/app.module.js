@@ -9,6 +9,7 @@
       'app.leaderboard',
       'app.login',
       'app.adminAppSettings',
+      'app.logout',
       
       /*angular ngMessages*/
       'ngMessages',

@@ -13,7 +13,7 @@ public class LeaderboardRest {
 	@Autowired
 	LeaderboardService leaderboardService;
 	
-	@RequestMapping(value = "/leaderboard", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/leaderboard", method = RequestMethod.GET)
 	List<LeaderboardEntryDto> leaderboard() {
 		return leaderboardService.getLeaderboardEntries();
 	}

@@ -14,7 +14,7 @@
 	    function leaders(){
 	    	
 	    	$http
-		      .get('leaderboard')
+		      .get('api/leaderboard')
 		      .then(function(response) {
 		        angular.extend(data, response.data);
 		    });

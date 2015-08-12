@@ -15,7 +15,7 @@ public class PointsTransferInfoRest {
 	@Autowired
 	PointsTransferInfoService service;
 	
-	@RequestMapping(value = "/points/send", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/points/send", method = RequestMethod.POST)
 	ResponseEntity<PointsTransferInfo> save(@RequestBody PointsTransferInfoDto info) {
 		System.out.println("xxx");
 		if (!service.save(info))
