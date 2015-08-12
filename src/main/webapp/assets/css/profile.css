@@ -25,17 +25,13 @@ header.profile-header div.left-side {
 }
 
 header.profile-header div.navigation {
-    background-color: #2196f3;
     height: 50px;
 }
 
 header.profile-header div.profile-info {
     width: 30%;
     height: 120px;
-    background-color: #1e88e5;
     left: 50%;
-    border: 1px solid black;
-    border-bottom: 0;
     box-sizing: border-box;
 }
 

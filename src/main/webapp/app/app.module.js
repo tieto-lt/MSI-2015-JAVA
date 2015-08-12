@@ -10,6 +10,7 @@
       'app.login',
       'app.adminAppSettings',
       'app.logout',
+      'app.profileHeader',
       
       /*angular ngMessages*/
       'ngMessages',
