@@ -37,6 +37,10 @@
 		    .state('userPage', {
 		    	url: "/user",
 		    	templateUrl: "userPage.tmpl.html"
+		    })
+			.state('logout', {
+		    	url: "/logout",
+		    	templateUrl: "loginPage.tmpl.html"
 		    });
 	});
 
