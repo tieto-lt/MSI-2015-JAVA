@@ -8,13 +8,18 @@ import org.springframework.stereotype.Service;
 import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
 import lt.msi2015.applicationSettings.ApplicationSettingsRepository;
 import lt.msi2015.applicationSettings.ApplicationSettingsService;
+import lt.msi2015.user.User;
+import lt.msi2015.user.UserRepository;
 import lt.msi2015.user.UserService;
 
 @Service
 public class PointsTransferInfoService {
 	
 	@Autowired
-	UserService userService;
+	private UserService userService;
+	
+	@Autowired
+	private UserRepository userRepo;
 	
 	@Autowired
 	private PointsTransferInfoRepository pointsRepo;
@@ -32,8 +37,12 @@ public class PointsTransferInfoService {
 		if (isPointsBelowLimit(settingsMap, info.points))
 			return false;
 		
-		System.out.println("fromUserId: " + userService.getCurrentUser().getId());
-		System.out.println("toUserId: " + info.toUserID);
+		pointsCalculations(info);
+
+		System.out.println(userService.getCurrentUser().getId());
+
+		System.out.println(info.toUserID);
+		
 		return pointsRepo.save(
 			new PointsTransferInfo(
 				userService.getCurrentUser().getId(),
@@ -46,5 +55,15 @@ public class PointsTransferInfoService {
 	private boolean isPointsBelowLimit(Map<ApplicationSettingsEnum, Integer> settingsMap, int points) {
 		return settingsMap.get(ApplicationSettingsEnum.ONE_TIME_LIMIT) != null &&
 			   points > settingsMap.get(ApplicationSettingsEnum.ONE_TIME_LIMIT);
+	}
+	
+	private void pointsCalculations(PointsTransferInfoDto info){
+		User addToUser = userService.findById(info.toUserID);
+		addToUser.userPoints += info.points;
+		userRepo.save(addToUser);
+		
+		User subFromUser = userService.findById(userService.getCurrentUser().getId());
+		subFromUser.pointsToGive -= info.points;
+		userRepo.save(subFromUser);
 	}
 }
