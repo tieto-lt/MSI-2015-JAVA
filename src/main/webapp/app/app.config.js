@@ -33,10 +33,6 @@
 		    .state('userPage', {
 		    	url: "/user",
 		    	templateUrl: "userPage.tmpl.html"
-		    })
-		    .state('eshopPage', {
-		    	url: "/eshop",
-		    	templateUrl: "eshopPage.tmpl.html"
 		    });
 		});
 
