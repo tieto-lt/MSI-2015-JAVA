@@ -12,9 +12,9 @@
         <div class="profile-info header-object">
             <div class="profile-info-container">
                 <img class="profile-image" src="./assets/images/profile_picture_placeholder.png"/>
-                <div class="info-container" data-ng-model="vm.profileInfo.firstName">
+                <div class="info-container" data-ng-model="vm.profileInfo">
                     <div class="info">{{vm.profileInfo.firstName}}</div>
-                    <div class="info">Pavardenis</div>
+                    <div class="info">{{vm.profileInfo.lastName}}</div>
                     <div class="info">You have: <span class="points">80p</span></div>
                 </div>
             </div>
