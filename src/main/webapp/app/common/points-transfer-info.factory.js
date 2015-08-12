@@ -18,8 +18,7 @@
 	     */
 	    function sendPoints(transferInfo) {
 	    	var transfer = {
-    			fromUser: transferInfo.fromUser,
-    			toUser: transferInfo.toUser.firstName + " " + transferInfo.toUser.lastName,
+    			toUserID: transferInfo.toUser.id,
     			points: transferInfo.points,
     			comment: transferInfo.comment
 	    	}

@@ -13,9 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import lt.msi2015.pointsTransferInfo.PointsTransferInfoService;
+
 @RestController
 public class UserRest {
 
+	@Autowired
+	UserService service;
+	
 	@Autowired
 	UserRepository repo;
 	
@@ -41,18 +46,7 @@ public class UserRest {
 	@RequestMapping(value = "/user/getCurrentUser", method = RequestMethod.GET)
 	public @ResponseBody LoggedUserDto getCurrentUser() {
 		
-		 //String user = (String)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	      //String name = user.getEmail(); //get logged in username
-		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		 org.springframework.security.core.userdetails.User userSpring = 
-				 (org.springframework.security.core.userdetails.User) auth.getPrincipal(); //get logged in username
-	    
-	     String email = userSpring.getUsername();
-	     User user = repo.findByEmail(email);
-	     LoggedUserDto loggedUser = new LoggedUserDto(user.getFirstName(), user.getLastName(), 
-	    		 			user.getEmail(), user.getRole());
-	     
-	     return loggedUser;
+		return service.getCurrentUser();
 	}
 	
 //	@RequestMapping(value = "/login", method = RequestMethod.GET)

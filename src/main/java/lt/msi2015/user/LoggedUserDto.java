@@ -4,6 +4,7 @@ import lt.msi2015.util.Dto;
 
 public class LoggedUserDto extends Dto {
 	
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -13,12 +14,13 @@ public class LoggedUserDto extends Dto {
 		super();
 	}
 	
-	public LoggedUserDto(String firstName, String lastName, String email, Role role) {
+	public LoggedUserDto(Long id,String firstName, String lastName, String email, Role role) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.role = role;
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -36,9 +38,11 @@ public class LoggedUserDto extends Dto {
 	public Role getRole() {
 		return role;
 	}
-	
-	
-	
-	
+
+	public Long getId() {
+		return id;
+	}
+
+
 	
 }
