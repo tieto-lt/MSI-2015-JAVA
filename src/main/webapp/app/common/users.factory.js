@@ -15,7 +15,7 @@
     };
 
     function addUser(user) {
-    	$http
+    	return $http
     	  .post('user/save', user);
     }
     
