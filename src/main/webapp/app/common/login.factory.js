@@ -18,8 +18,8 @@
 		        + btoa(credentials.email + ":" + credentials.password)
 		    } : {};
 		  
-	    	$http
-	    	  .get('login', {headers : headers});
+    	  return $http.post('login', {headers : headers});
+
 	    }
   
   }
