@@ -9,21 +9,19 @@
 
   	})
   	.config(function($stateProvider, $urlRouterProvider) {
-  //
-  // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/login");
-  //
-  // Now set up the states
-  $stateProvider
-    .state('login', {
-    	url: "/login",
-        templateUrl: "loginPage.tmpl.html"
-      
-    })
-    .state('state2', {
-      url: "/app/profile_header",
-      templateUrl: "app/profile_header/profile_header.tmpl.html"
-    });
-});
+
+  		$urlRouterProvider.otherwise("/login");
+
+		$stateProvider
+			.state('login', {
+		    	url: "/login",
+		        templateUrl: "loginPage.tmpl.html"
+		      
+		    })
+		    .state('registration', {
+		    	url: "/registration",
+		    	templateUrl: "registrationPage.tmpl.html"
+		    });
+		});
 
 })(window.angular);
