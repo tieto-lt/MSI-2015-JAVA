@@ -38,10 +38,6 @@ public class PointsTransferInfoService {
 			return false;
 		
 		pointsCalculations(info);
-
-		System.out.println(userService.getCurrentUser().getId());
-
-		System.out.println(info.toUserID);
 		
 		return pointsRepo.save(
 			new PointsTransferInfo(
