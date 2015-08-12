@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
 import lt.msi2015.applicationSettings.ApplicationSettingsRepository;
 import lt.msi2015.applicationSettings.ApplicationSettingsService;
+import lt.msi2015.user.User;
 import lt.msi2015.user.UserService;
 
 @Service
@@ -32,8 +33,8 @@ public class PointsTransferInfoService {
 		if (isPointsBelowLimit(settingsMap, info.points))
 			return false;
 		
-		System.out.println("fromUserId: " + userService.getCurrentUser().getId());
-		System.out.println("toUserId: " + info.toUserID);
+		pointsCalculations(info);
+		
 		return pointsRepo.save(
 			new PointsTransferInfo(
 				userService.getCurrentUser().getId(),
@@ -46,5 +47,13 @@ public class PointsTransferInfoService {
 	private boolean isPointsBelowLimit(Map<ApplicationSettingsEnum, Integer> settingsMap, int points) {
 		return settingsMap.get(ApplicationSettingsEnum.ONE_TIME_LIMIT) != null &&
 			   points > settingsMap.get(ApplicationSettingsEnum.ONE_TIME_LIMIT);
+	}
+	
+	private void pointsCalculations(PointsTransferInfoDto info){
+		User addToUser = userService.findById(info.toUserID);
+		addToUser.userPoints += info.points;
+		
+		User subFromUser = userService.findById(userService.getCurrentUser().getId());
+		addToUser.userPoints -= info.points;
 	}
 }

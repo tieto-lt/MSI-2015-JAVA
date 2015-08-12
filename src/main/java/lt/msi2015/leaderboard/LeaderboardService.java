@@ -55,7 +55,7 @@ public class LeaderboardService {
 	) {
 		Long key = info.toUserID;
 		if (map.get(key) == null)
-			map.put(key, new LeaderboardEntryDto(key, userRepo.findById(key).getFirstName(), info.points));
+			map.put(key, new LeaderboardEntryDto(key, userRepo.findById(key).getFirstName() + " " + userRepo.findById(key).getLastName(), info.points));
 		else
 			map.get(key).points += info.points;
 	}

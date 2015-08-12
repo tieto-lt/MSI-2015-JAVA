@@ -21,6 +21,10 @@
 		    .state('registration', {
 		    	url: "/registration",
 		    	templateUrl: "registrationPage.tmpl.html"
+		    })
+		    .state('userpage', {
+		    	url: "/userpage",
+		    	templateUrl: "userPage.tmpl.html"
 		    });
 		});
 

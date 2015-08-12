@@ -47,11 +47,11 @@ public class User extends Dto {
 	
 	@NotNull
 	@Column(columnDefinition = "int default 0")
-	private Integer pointsToGive;
+	public Integer pointsToGive;
 	
 	@NotNull
 	@Column(columnDefinition = "int default 0")
-	private Integer userPoints;
+	public Integer userPoints;
 	
 //	@NotNull
 //	private Boolean isAdmin;
