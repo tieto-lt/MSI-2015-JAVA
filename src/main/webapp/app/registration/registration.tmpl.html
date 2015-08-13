@@ -1,5 +1,5 @@
 <div class="registration-form-container">
-	<h1>Join Karma Points</h1>
+	<h1 class="registration-title">Join Karma Points</h1>
 	<form name="vm.registrationForm" id="registration-form" data-ng-submit="vm.register()"
 		data-ng-controller="RegistrationController as vm" novalidate>
 			
@@ -83,7 +83,7 @@
 		</div>
 		<div class="registration-bottom-container">
 			<div class="error" ng-if="vm.error && vm.registrationForm.$pristine">{{vm.error}}</div>
-			<md-button  class="md-raised md-primary" ng-disabled="vm.registrationForm.$invalid ||
+			<md-button class="md-raised" ng-disabled="vm.registrationForm.$invalid ||
 				(vm.user.passwordConfirm != vm.user.password)">Sign up</md-button>
 		</div>
 				
