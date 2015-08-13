@@ -13,33 +13,80 @@
 	height: 100%;
 	overflow: auto;
 	position: fixed;
-	border-right: 1px solid black;
-}
-
-.admin-container-main {
-	width: 80%;
-	display: inline-block;
-	float: right;
+	border-right: 1px solid #0065a0;
 }
 
 .admin-header {
 	margin: 0;
-	background-color: #6cc04a;
+	background-color: #9acaeb;
 	text-align: left;
 }
 
 .admin-navigation-button-container {
 	width: 80%;
-	height: 40px;
+	min-height: 40px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 20px;
+	margin-bottom: 60px;
 	text-align: center;
-	border-bottom: 2px solid blue;
-	font-size: 22px;
-	padding-top:10px;
+	border-bottom: 1px solid black;
+	font-size: 16px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: table;
+	vertical-align: bottom;
 }
 
 .admin-navigation-button {
+	color: black;
 	text-decoration: none;
 }
+
+.admin-navigation-selected {
+	color: #d75f00;
+}
+
+.admin-navigation-selected div.admin-navigation-button-container {
+	border-color: #d75f00;
+}
+
+.admin-container-main-container {
+	width: 80%;
+	display: inline-block;
+	float: right;
+}
+
+ .admin-container-main {
+ 	padding: 20px 40px 0 40px;
+ }
+ 
+ .admin-navigation-header {
+ 	height: 50px;
+ 	margin-bottom: 30px; 
+ 	text-align: center;
+ 	width: 90%;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	display: table;
+ }
+ 
+ .admin-image {
+ 	float: left;
+ 	width: 40px;
+ 	height: 40px;
+ 	margin-left: 5px;
+ 	margin-top: 10px;
+ }
+ 
+ .logout-container {
+ 	float: right;
+ 	width: 100px;
+ 	margin-right: 70px;
+ 	font-size: 20px;
+ 	margin-top: 10px;
+ }
+ 
+ a.admin-header-link {
+ 	color: white;
+ 	text-decoration: none;
+ }

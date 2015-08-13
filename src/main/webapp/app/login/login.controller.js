@@ -23,7 +23,7 @@
 		  LoginFactory.login(vm.credentials).then(function(response) {
 			  console.log(response.data.role);
 			  if(response.data.role == 'ADMIN'){
-				  $state.go('adminPage');
+				  $state.go('adminPage.applicationSettings');
 			  } else {
 				  $state.go('userPage');
 				  ProfileHeaderFactory.getProfileInfo();
