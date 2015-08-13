@@ -1,6 +1,9 @@
 <header class="admin-header">
 	<img id="logo-image-admin" src="assets/images/Tieto_logo_right.png">
-	<span>Karma Points</span>
+	<div class="karma-logo-container">
+		<img id="karma-logo" src="assets/images/karma_logo.png"/>
+		<h3>Karma Points</h3>
+	</div>
 	<div class="logout-container" data-ng-controller="LogoutController as vm">
 		<a class="admin-header-link" ui-sref="logout" ng-click="vm.logout()" >Logout</a>
 	</div>
