@@ -1,15 +1,26 @@
 package lt.msi2015.user;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import lt.msi2015.applicationSettings.ApplicationSetting;
+import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
+import lt.msi2015.applicationSettings.ApplicationSettingsRepository;
 
 @Service
 public class UserService {
 	
 	@Autowired
 	UserRepository repo;
+	
+	@Autowired
+	ApplicationSettingsRepository appSettingsRepo;
 
 	
 	public LoggedUserDto getCurrentUser() {
@@ -30,5 +41,21 @@ public class UserService {
 	    		 			user.getEmail(), user.getRole());
 	     
 	     return loggedUser;
+	}
+	
+	@Scheduled(cron = "0 * * * * MON-FRI")
+	public void resetUserPointsToGiveEachMonth() {
+		System.out.println("Ivyko: " + new Date());
+	
+		final ApplicationSetting monthlyLimit = 
+				appSettingsRepo.findByProperty(ApplicationSettingsEnum.MONTHLY_LIMIT.toString());
+		
+		List<User> userList = repo.findAll();
+		
+		for (User u: userList) {
+			u.setPointsToGive(monthlyLimit.getValue());
+			System.out.println(u.getPointsToGive());
+			repo.save(u);
+		}
 	}
 }
