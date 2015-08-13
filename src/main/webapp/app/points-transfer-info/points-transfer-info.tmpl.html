@@ -45,9 +45,12 @@
 				<div class="error" ng-message="maxlength">Too many symbols</div>
 				<div class="error" ng-message="required">Field is required</div>
 			</div>
+			<div ng-if="vm.transferInfo.toUser.id == vm.profileInfo.id" class="error">
+				Can't send to yourself
+			</div>
 			
 			<div ng-if="vm.pointsForm.toInput.$dirty">
-				<div class="error" ng-if="vm.data.length == 0 && vm.searchText.length > 2">No such user</div>
+				<div class="error" ng-if="vm.data.length == 0 && vm.searchText.length > 0">No such user</div>
 			</div>
 			
 			<div class="points-form-input">
