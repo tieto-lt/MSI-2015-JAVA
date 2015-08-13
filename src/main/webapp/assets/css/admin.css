@@ -1,6 +1,6 @@
 #logo-image-admin {
 	position: absolute;
-	top: 22px;
+	top: 45px;
 	right: 0px;
 	height: 90px;
 	width: 90px;
@@ -16,10 +16,19 @@
 	border-right: 1px solid #0065a0;
 }
 
-.admin-header {
-	margin: 0;
-	background-color: #9acaeb;
+header.admin-header  {
+    background-color: #62B3E5;
+    padding: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    height: 115px;
+    color: #ffffff;
 	text-align: left;
+}
+
+.admin-header h3 {
+    display: inline-block;
+    font-size: 26px;
 }
 
 .admin-navigation-button-container {
@@ -79,11 +88,16 @@
  }
  
  .logout-container {
- 	float: right;
  	width: 100px;
- 	margin-right: 70px;
  	font-size: 20px;
  	margin-top: 10px;
+ 	vertical-align: bottom;
+ 	display: inline-block;
+ }
+ 
+ .karma-logo-container {
+ 	width: 85%;
+ 	display: inline-block;
  }
  
  a.admin-header-link {
