@@ -36,7 +36,7 @@ public class User extends Dto {
 	@NotNull
 	@Size(min=1, max=15)
 	private String lastName;
-	
+
 	@NotNull
 	@Size(min=5)
 	private String password;
@@ -142,6 +142,22 @@ public class User extends Dto {
 	
 	public Role getRole() {
 		return role;
+	}
+	
+	public Integer getPointsToGive() {
+		return pointsToGive;
+	}
+
+	public void setPointsToGive(Integer pointsToGive) {
+		this.pointsToGive = pointsToGive;
+	}
+
+	public Integer getUserPoints() {
+		return userPoints;
+	}
+
+	public void setUserPoints(Integer userPoints) {
+		this.userPoints = userPoints;
 	}
 
 //	public Boolean getIsAdmin() {
