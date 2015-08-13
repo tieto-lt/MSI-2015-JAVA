@@ -1,16 +1,16 @@
-.login-container {
-    width: 300px;
+.login-form-container {
+    width: 400px;
     height: 200px;
     float:right;
-    margin-right: 200px;
-    margin-top: 200px;
-    
+    margin-right: 120px;
+    margin-top: 140px;
 }
+
+
 
 .login-buttons {
 	text-align: center;
 }
-
 
 #superContainer {
     position: absolute;
@@ -22,4 +22,9 @@
 	background-image: url("../images/login_background_woman.jpg");
 	background-repeat: no-repeat;
 	background-size: 100%;
+}
+
+.login-messge {
+	padding-bottom: 20px;
+	font-size: 30px;
 }

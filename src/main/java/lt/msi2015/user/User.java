@@ -25,16 +25,16 @@ public class User extends Dto {
 	private Long id;
 
 	@NotNull
-	@Size(min=1, max=50)
+	@Size(min=1, max=70)
 	@Email
 	private String email;
 	
 	@NotNull
-	@Size(min=1, max=15)
+	@Size(min=1, max=20)
 	private String firstName;
 	
 	@NotNull
-	@Size(min=1, max=15)
+	@Size(min=1, max=30)
 	private String lastName;
 
 	@NotNull

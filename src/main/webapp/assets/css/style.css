@@ -1,31 +1,44 @@
-header {
+header.login-header {
     background: #62B3E5;
-    padding: 40px;
+    padding: 10px 20px;
     font-size: 26px;
     font-weight: bold;
+    height: 115px;
     color: #ffffff;
-    text-align: center;
+/*     text-align: center; */
 }
 
 #logo-image {
-    position: absolute;
-    right: 20px;
-    top: 9px;
+/*     position: absolute; */
+/*     right: 20px; */
+/*     top: 9px; */
     height: 100px;
     width: 100px;
+    vertical-align: middle;
+    float:right;
+}
+
+.app-header-info {
+	vertical-align: middle;
+	padding-lefT: 10px;
 }
 
 #karma-logo {
-    position: absolute;
-    left: 20px;
-    top: 9px;
-    height: 100px;
+/*     position: absolute; */
+/*     left: 20px; */
+/*     top: 9px; */
+    height: 115px;
+    vertical-align: middle;
 }
 
 /*  154, 202, 235 */
-
-header > span {
+header.login-header span {
 	display: block;
+	height: 100%;
+}
+
+header.login-header > * {
+	display: inline-block;
 }
 
 body {
@@ -164,9 +177,9 @@ md-autocomplete{
 	box-shadow: 0px 0px 0px #888888;	
 }
 
-md-input-container.md-default-theme .md-input{
-	width: 300px;
-}
+/* md-input-container.md-default-theme .md-input{ */
+/* 	width: 300px; */
+/* } */
 
 md-autocomplete button{
 	top: 5px;
@@ -178,7 +191,7 @@ md-input-container .md-input {
   
 }
 header .title {
-	margin-bottom:15px;
+	margin-bottom:10px;
 	font-size: 35px;
 }
 
@@ -191,4 +204,9 @@ a.md-button.md-raised,
 a.md-button.md-raised:hover,
 .md-button.md-raised:hover {
 	background-color: #ffbe85 !important;
+}
+
+header.login-header > span {
+	text-align: left;
+	margin-left: 120px;
 }
