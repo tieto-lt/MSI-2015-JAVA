@@ -1,18 +1,25 @@
 <div class="login-container" data-ng-controller="LoginController as vm">
+	<img src="http://cdn2-b.examiner.com/sites/default/files/styles/image_content_width/hash/08/df/08dfdc7cda643581d957abb4538e93b7.jpg?itok=EPLVIxlZ">
 	<form name="login-form" data-ng-submit="vm.submit()">
 	
 		<div class="login-email-input" >
-				<input type="text" id="email" name="emailInput" placeholder="Email"
+			<md-input-container>
+				<label for="email">E-mail</label>
+				<input type="text" id="login-form-email" name="emailInput" placeholder="Email"
 					data-ng-model="vm.credentials.email">
+			</md-input-container>
 		</div>
 		
 		
 		<div class="login-email-input">
-				<input type="password" id="password" name="passwordInput" placeholder="Password"
+			<md-input-container>
+				<label for="password">Password</label>
+				<input type="password" id="login-form-password" name="passwordInput" placeholder="Password"
 					data-ng-model="vm.credentials.password">
+			</md-input-container>
 		</div>
 		
-		<input type="submit" value="Log in">
+		<md-button class="md-raised md-primary" type="submit">Log in</md-button>
 		<a ui-sref="registration">Register</a>
 	</form>
 </div>
