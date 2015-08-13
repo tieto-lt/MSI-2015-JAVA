@@ -32,7 +32,14 @@
 		    })
 		    .state('adminPage', {
 		    	url: "/admin",
-		    	templateUrl: "adminPage.tmpl.html"
+		    	templateUrl: "adminPage.tmpl.html",
+		    	resolve: {
+		            security: ['$q', 'ProfileHeaderFactory',  function($q, ProfileHeaderFactory){
+		                if(!ProfileHeaderFactory.isAdminUser()){
+		                   return $q.reject("Not Authorized");
+		                }
+		            }]
+		         }
 		    })
 		    .state('adminPage.applicationSettings', {
 		    	url: "/applicationSettings",
@@ -50,8 +57,8 @@
 		    	url: "/user",
 		    	templateUrl: "userPage.tmpl.html",
 		    	resolve: {
-		            security: ['$q, ProfileHeaderFactory',  function($q, ProfileHeaderFactory){
-		                if(ProfileHeaderFactory.getUserData().length == 0){
+		            security: ['$q', 'ProfileHeaderFactory',  function($q, ProfileHeaderFactory){
+		                if(!ProfileHeaderFactory.isLoggedInUser()){
 		                   return $q.reject("Not Authorized");
 		                }
 		            }]

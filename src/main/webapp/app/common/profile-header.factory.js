@@ -9,26 +9,39 @@
 	
 	function ProfileHeaderFactory($http) {
 		
-		var data = [];
+		var data = {};
 		
 	    function getProfileInfo(){
+		    return data;
+	    }
+	    
+	    function loadUserInfo(){
 	    	
-	    	$http
+	    	return $http
 		      .get('/api/user/getCurrentUser')
 		      .then(function(response) {
 		        angular.extend(data, response.data);
 		    });
-		    
-		    return data;
 	    }
 	    
-	    function getUserData() {
-	    	return data;
+	    function clearUserInformation() {
+	    	data = {};
+	    }
+	    
+	    function isLoggedInUser() {
+	    	return !!data.role;
+	    }
+	    
+	    function isAdminUser() {
+	    	return data.role == 'ADMIN';
 	    }
 	    
 	    return {
 	    	getProfileInfo: getProfileInfo,
-	    	getUserData: getUserData
+	    	loadUserInfo: loadUserInfo,
+	    	isLoggedInUser: isLoggedInUser,
+	    	isAdminUser: isAdminUser,
+	    	clearUserInformation: clearUserInformation
 	    }
 	}
 	

@@ -23,6 +23,8 @@
 		
 		vm.data = [];
 		
+		ProfileHeaderFactory.loadUserInfo();
+		
 		vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
 		
 		vm.oneTimeLimit = 0;
@@ -50,7 +52,7 @@
 	    			vm.pointsForm.$setPristine();
 	    			vm.pointsForm.$setUntouched();
 	    			LeaderboardFactory.leaders();
-	    			ProfileHeaderFactory.getProfileInfo();
+	    			ProfileHeaderFactory.loadUserInfo();
 	    		}, function() {
 	    			vm.errorMessage = 'Transfer failed';
 	    			vm.transferInfo.toUser = '';

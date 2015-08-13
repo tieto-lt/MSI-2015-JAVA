@@ -25,12 +25,14 @@
 		  vm.passwordError = '';
 		  vm.emailError = '';
 		  LoginFactory.login(vm.credentials).then(function(response) {
-			  if(response.data.role == 'ADMIN'){
-				  $state.go('adminPage.applicationSettings');
-			  } else {
-				  $state.go('userPage');
-				  ProfileHeaderFactory.getProfileInfo();
-			  } 
+			  ProfileHeaderFactory.loadUserInfo().then(function() {
+				  if(response.data.role == 'ADMIN'){
+					  $state.go('adminPage.applicationSettings');
+				  } else {
+					  $state.go('userPage');
+					  
+				  } 
+			  });
 		  }, function(response) {
 			  vm.error="Incorrect details";
 			  vm.loginForm.$setPristine();
