@@ -5,15 +5,13 @@
 			
 		<md-input-container>
 			<label for="email">Email</label>
-			<input name="emailInput" type="text" id="email" 
+			<input name="emailInput" type="email" id="email" 
 					data-ng-model="vm.user.email"
-					placeholder="Email" ng-maxlength="30"
-					ng-pattern = "/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i"
-					required>
+					placeholder="Email" ng-maxlength="70" required>
 		</md-input-container>
 		<div ng-messages="vm.registrationForm.emailInput.$error" ng-if="vm.registrationForm.emailInput.$dirty">
 			<div class="error" ng-message="maxlength">Too many symbols</div>
-			<div class="error" ng-message="pattern">Invalid email</div>
+			<div class="error" ng-message="email">Invalid email</div>
 			<div class="error" ng-message="required">Field is required</div>
 		</div>
 		
@@ -22,11 +20,13 @@
 			<label for="firstName">First Name</label>
 			<input name="firstNameInput" type="text" id="firstName" 
 				data-ng-model="vm.user.firstName"
-				placeholder="First name" ng-maxlength="20" required>
+				placeholder="First name" ng-maxlength="20" required
+				ng-pattern="/^[a-zA-Z]*$/">
 		</md-input-container>
 		<div ng-messages="vm.registrationForm.firstNameInput.$error" ng-if="vm.registrationForm.firstNameInput.$dirty">
 			<div class="error" ng-message="maxlength">Too many symbols</div>
 			<div class="error" ng-message="required">Field is required</div>
+			<div class="error" ng-message="pattern">Letters only</div>
 		</div>
 		
 		
@@ -34,11 +34,13 @@
 			<label for="lastName">Last Name</label>
 			<input name="lastNameInput" type="text" id="lastName" 
 				data-ng-model="vm.user.lastName"
-				placeholder="Last name" ng-maxlength="30" required>
+				placeholder="Last name" ng-maxlength="30" required
+				ng-pattern="/^[a-zA-Z]*$/">
 		</md-input-container>
 		<div ng-messages="vm.registrationForm.lastNameInput.$error" ng-if="vm.registrationForm.lastNameInput.$dirty">
 			<div class="error" ng-message="maxlength">Too many symbols</div>
 			<div class="error" ng-message="required">Field is required</div>
+			<div class="error" ng-message="pattern">Letters only</div>
 		</div>
 		
 		
@@ -49,7 +51,7 @@
 				placeholder="Password"
 				ng-maxlength="15"
 				ng-minlength="5"
-				ng-pattern = "/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/"
+				ng-pattern = "/^(?=.*[0-9])(?=.*[a-zA-Z0-9])([a-zA-Z0-9]+)$/"
 				required>
 		</md-input-container>
 		
