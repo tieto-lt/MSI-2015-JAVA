@@ -1,5 +1,5 @@
 <h1>Join Karma Points</h1>
-<form name="vm.registrationForm" id="registration-form" data-ng-submit="vm.submit()"
+<form name="vm.registrationForm" id="registration-form" data-ng-submit="vm.register()"
 	data-ng-controller="RegistrationController as vm" novalidate>
 		
 	<div class="registration-form-input">
@@ -77,7 +77,10 @@
 	     ng-if="vm.registrationForm.passwordConfirmationInput.$dirty">
 		<div class="error" ng-message="required">Field is required</div>
 	</div>
-	<input type="submit" value="Submit" ng-disabled="vm.registrationForm.$invalid"></input>
+	<div class="registration-bottom-container">
+		<div class="error" ng-if="vm.error">{{vm.error}}</div>
+		<input type="submit" value="Submit" ng-disabled="vm.registrationForm.$invalid"></input>
+	</div>
 				
 </form>
 
