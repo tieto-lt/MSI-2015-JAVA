@@ -11,6 +11,7 @@
 			<div ng-messages="vm.loginForm.emailInput.$error" ng-if="vm.loginForm.emailInput.$dirty">
 				<div class="error" ng-message="required">Field is required</div>
 			</div>
+			<div class="error" ng-if="vm.emailError && vm.loginForm.$pristine">{{vm.emailError}}</div>
 		</div>
 		
 		
@@ -23,9 +24,8 @@
 			<div ng-messages="vm.loginForm.passwordInput.$error" ng-if="vm.loginForm.passwordInput.$dirty">
 				<div class="error" ng-message="required">Field is required</div>
 			</div>
+			<div class="error" ng-if="vm.passwordError && vm.loginForm.$pristine">{{vm.passwordError}}</div>
 		</div>
-		
-		<div class="error" ng-if="vm.error && vm.loginForm.$pristine">{{vm.error}}</div>
 		
 		<div class="login-buttons">
 			<md-button class="md-raised" ng-click="vm.submit()"

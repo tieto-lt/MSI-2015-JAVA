@@ -21,8 +21,14 @@
 		    
 		    return data;
 	    }
+	    
+	    function getUserData() {
+	    	return data;
+	    }
+	    
 	    return {
-	    	getProfileInfo: getProfileInfo
+	    	getProfileInfo: getProfileInfo,
+	    	getUserData: getUserData
 	    }
 	}
 	

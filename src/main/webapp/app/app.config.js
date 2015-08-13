@@ -48,7 +48,14 @@
 		    })
 		    .state('userPage', {
 		    	url: "/user",
-		    	templateUrl: "userPage.tmpl.html"
+		    	templateUrl: "userPage.tmpl.html",
+		    	resolve: {
+		            security: ['$q, ProfileHeaderFactory',  function($q, ProfileHeaderFactory){
+		                if(ProfileHeaderFactory.getUserData().length == 0){
+		                   return $q.reject("Not Authorized");
+		                }
+		            }]
+		         }
 		    })
 		    .state('shopItems', {
 		    	url: "/shopItems",
