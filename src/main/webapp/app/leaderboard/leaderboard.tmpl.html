@@ -1,6 +1,6 @@
 <div data-ng-controller="LeaderboardController as vm" >
 	<h4 align="center">Leaders of the month</h4>
-	<div ng-if="!vm.leaders.length">Keep calm and wait for karma...</div>
+	<div ng-if="!vm.leaders.length"><center>Keep calm and wait for karma...</center></div>
 	<table id="leaderboard-table" ng-if="vm.leaders.length">
 		<thead>
 			<tr>
@@ -17,5 +17,5 @@
 		  </tr>
 		</tbody>
 	</table>
-	<div class="reload-leaders-button"><md-button class="md-raised md-primary" id="reload-leaders" ng-click="vm.updateLeaders()">Reload leaders</button></div>
+	<div class="reload-leaders-button"><md-button class="md-raised" id="reload-leaders" ng-click="vm.updateLeaders()">Reload leaders</button></div>
 </div>

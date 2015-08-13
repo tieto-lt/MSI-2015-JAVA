@@ -1,109 +1,92 @@
 header.profile-header {
-    padding: 0;
+    background: #62B3E5;
+    padding: 10px 10px 0 10px;s
+    font-size: 26px;
+    font-weight: bold;
+    height: 115px;
+    color: #ffffff;
 }
 
-header.profile-header div.container {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    padding-top: 20px;
-    position: relative;
-    height: 120px;
+
+.profile-header .left-side,
+.profile-header .navigation,
+.profile-header .profile-info {
+	width: 30%;
+	display: inline-block;
+	vertical-align: middle;
+/* 	height: 100px; */
+}
+
+.profile-header .navigation {
+	vertical-align: bottom;
+}
+
+.profile-header .logout {
+	width: 8%;
+	display: inline-block;
+	vertical-align: bottom;
+	padding-bottom: 10px;
+}
+
+.profile-header .logout:hover {
+	color: #ffbe85;
+}
+
+.profile-header .navigation li {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 40px;
+/*     width: 50%; */
+    vertical-align: bottom;
+    width: 100px;
+    background-color: #9acaeb;
     text-align: center;
+	padding: 10px 0;
+	border-left: 1px solid #C4C4C4;
+	border-top: 1px solid #C4C4C4;
+	border-right: 1px solid #C4C4C4;
+	
 }
 
-header.profile-header div.header-object {
-    position: absolute;
-    bottom: 0;
-    font-style: normal;
-    font-size: 20px;
+.profile-header .navigation li.current {
+	background-color: white;
+	color: black;
+	border-left: 1px solid #CFCFD1;
+	border-top: 1px solid #CFCFD1;
+	border-right: 1px solid #CFCFD1;
 }
 
-header.profile-header div.left-side {
-    width: 50%;
+.profile-header .navigation a {
+    display: inline-block;
 }
 
-header.profile-header div.navigation {
-    height: 50px;
+.profile-header .navigation a:hover {
+    display: inline-block;
 }
 
-header.profile-header div.profile-info {
-    width: 30%;
-    height: 120px;
-    left: 50%;
-    box-sizing: border-box;
-}
-
-header.profile-header div.logout {
-    width: 20%;
-    left: 80%;
-}
-
-header.profile-header div.navigation ul {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-}
-
-header.profile-header div.navigation li {
-    display: block;
-    box-sizing: border-box;
-    float: left;
-    height: 100%;
-    width: 50%;
-    vertical-align: middle;
-}
-
-header.profile-header div.logout li {
-    width: 100%;
-}
-
-
-header.profile-header div.navigation a.link li {
-    color: #e3f2fd;
-    padding:12px;
-}
-
-header.profile-header div.navigation a.link:hover li {
-    border-bottom: 3px solid #0d47a1;
-    background-color: #1e88e5;
-    color: white;
-}
-
-header.profile-header div.container h3 {
-    margin: 0 0 20px 0;
-    text-align: left;
-    font-size: 32px;
-}
-
-header.profile-header div.profile-info div.profile-info-container {
-    height: 100%;
-    width: 100%;
-    vertical-align: middle;
-}
-
-header.profile-header div.profile-info div.profile-info-container div.info {
+.profile-header .profile-info .profile-info-container .info {
     text-align: left;
     margin: 5px 0;
 }
 
-header.profile-header div.profile-info div.profile-info-container div.info-container {
+.profile-header .profile-info .profile-info-container .info-container {
     height: 80%;
-    float: left;
-    margin-left: 10px;
     font-size: 16px;
-    margin-top: 20px;
+	display: inline-block;
 }
 
-header.profile-header div.profile-info div.profile-info-container img.profile-image {
-    height: 80px;
-    width: 80px;
-    float: left;
-    margin: 20px;
+.profile-header .profile-info .profile-info-container .profile-image {
+    height: 60px;
+    width: 60px;
+    display: inline-block;
 }
 
-header.profile-header div.profile-info div.profile-info-container span.points {
-    color: #cddc39;
+.left-side h3 {
+	display: inline-block;
+	font-size: 26px;
 }
 
+.navigation ul {
+	margin: 0;
+	padding: 0;	
+}
