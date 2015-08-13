@@ -1,13 +1,16 @@
-<div class="login-container" data-ng-controller="LoginController as vm">
+<div class="login-container">
 <!-- 	<img src="http://cdn2-b.examiner.com/sites/default/files/styles/image_content_width/hash/08/df/08dfdc7cda643581d957abb4538e93b7.jpg?itok=EPLVIxlZ"> -->
-	<form name="login-form">
+	<form name="vm.loginForm" data-ng-controller="LoginController as vm" novalidate>
 	
 		<div class="login-email-input" >
 			<md-input-container>
 				<label for="email">E-mail</label>
 				<input type="text" id="login-form-email" name="emailInput" placeholder="Email"
-					data-ng-model="vm.credentials.email">
+					data-ng-model="vm.credentials.email" required>
 			</md-input-container>
+			<div ng-messages="vm.loginForm.emailInput.$error" ng-if="vm.loginForm.emailInput.$dirty">
+				<div class="error" ng-message="required">Field is required</div>
+			</div>
 		</div>
 		
 		
@@ -15,13 +18,17 @@
 			<md-input-container>
 				<label for="password">Password</label>
 				<input type="password" id="login-form-password" name="passwordInput" placeholder="Password"
-					data-ng-model="vm.credentials.password">
+					data-ng-model="vm.credentials.password" required>
 			</md-input-container>
+			<div ng-messages="vm.loginForm.passwordInput.$error" ng-if="vm.loginForm.passwordInput.$dirty">
+				<div class="error" ng-message="required">Field is required</div>
+			</div>
 		</div>
 		
 		<div class="login-buttons">
-			<md-button class="md-raised " ng-click="vm.submit()">Log in</md-button>
-			<md-button class="md-raised " ng-click="vm.moveToRegisterPage()">Register</md-button>
+			<md-button class="md-raised" ng-click="vm.submit()"
+				ng-disabled="vm.loginForm.$invalid">Log in</md-button>
+			<md-button class="md-raised" ng-click="vm.moveToRegisterPage()">Register</md-button>
 		</div>
 		
 	</form>
