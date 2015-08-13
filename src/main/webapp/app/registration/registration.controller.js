@@ -24,13 +24,13 @@
 
     function register() {
     	vm.error = '';
-    	vm.registrationForm.$setPristine;
+    	vm.registrationForm.$setPristine();
 	    UsersFactory
 	      	.addUser(vm.user)
 	      	.then(function success() {
 	      		loginUser();
 			}, function error() {
-	      		vm.error = "Such user already exists";
+	      		vm.error = "Email is already taken";
 			});
     }
     

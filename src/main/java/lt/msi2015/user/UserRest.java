@@ -32,7 +32,7 @@ public class UserRest {
 	@ResponseBody
 	ResponseEntity<User> save(@RequestBody UserDto info) {
 		
-		if(userService.userExists()) {
+		if(userService.userExists(info)) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 		

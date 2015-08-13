@@ -44,8 +44,13 @@ public class UserService {
 	     return loggedUser;
 	}
 
-	public boolean userExists() {
-		return true;
+	public boolean userExists(UserDto info) {
+
+		User user = repo.findByEmail(info.email);
+		if(user != null) {
+			return true;
+		}
+		return false;
 	}
 	
 	

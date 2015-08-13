@@ -78,7 +78,7 @@
 		<div class="error" ng-message="required">Field is required</div>
 	</div>
 	<div class="registration-bottom-container">
-		<div class="error" ng-if="vm.error">{{vm.error}}</div>
+		<div class="error" ng-if="vm.error && vm.registrationForm.$pristine">{{vm.error}}</div>
 		<input type="submit" value="Submit" ng-disabled="vm.registrationForm.$invalid"></input>
 	</div>
 				
