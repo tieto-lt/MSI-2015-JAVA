@@ -50,6 +50,10 @@
 		    	url: "/user",
 		    	templateUrl: "userPage.tmpl.html"
 		    })
+		    .state('shopItems', {
+		    	url: "/shopItems",
+		    	templateUrl: "shopItems.tmpl.html"
+		    })
 			.state('logout', {
 		    	url: "/logout",
 		    	templateUrl: "loginPage.tmpl.html"
