@@ -9,12 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
 import lt.msi2015.applicationSettings.ApplicationSettingsService;
-import lt.msi2015.pointsTransferInfo.PointsTransferInfo;
 
 @RestController
 public class UserRest {
@@ -79,6 +79,11 @@ public class UserRest {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public LoggedUserDto login() {
 		return userService.getCurrentUser();
+	}
+	
+	@RequestMapping(value = "/email/check", method = RequestMethod.GET)
+	public boolean emailExists(@RequestParam(value="email") String email) {
+		return userService.emailExists(email);
 	}
 	
 }

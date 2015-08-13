@@ -10,7 +10,8 @@
   function LoginFactory($http) {
 	  
 	  return {
-	    	login: login
+	    	login: login,
+	    	emailExists: emailExists
 	  };
 	  
 	  function login(credentials) {
@@ -19,9 +20,14 @@
 		    } : {};
 		  
     	  return $http.get('login', {headers : headers}).then();
-
-	    }
-  
+	  }
+	  
+	  function emailExists(email) {
+		  return $http({
+			    url: 'email/check', 
+			    method: "GET",
+			    params: {email: email}
+			 });
+	  }
   }
-  
-  })();
+})();

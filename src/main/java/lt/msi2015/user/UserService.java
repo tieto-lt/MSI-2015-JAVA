@@ -53,6 +53,15 @@ public class UserService {
 		return false;
 	}
 	
+	public boolean emailExists(String email) {
+		System.out.println(email);
+		User user = repo.findByEmail(email);
+		if(user != null) {
+			return true;
+		}
+		return false;
+	}
+	
 	
 	/*
 	 * Quartz monthly points_to_give reset to application_settings value
