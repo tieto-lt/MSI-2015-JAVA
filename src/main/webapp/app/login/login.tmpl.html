@@ -25,6 +25,8 @@
 			</div>
 		</div>
 		
+		<div class="error" ng-if="vm.error && vm.loginForm.$pristine">{{vm.error}}</div>
+		
 		<div class="login-buttons">
 			<md-button class="md-raised" ng-click="vm.submit()"
 				ng-disabled="vm.loginForm.$invalid">Log in</md-button>
