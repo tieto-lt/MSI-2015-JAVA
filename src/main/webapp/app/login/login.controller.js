@@ -5,10 +5,10 @@
   	.module('app.login')
   	.controller('LoginController', LoginController);
   
-  LoginController.$inject = ['LoginFactory', '$state'];
+  LoginController.$inject = ['LoginFactory', '$state', 'ProfileHeaderFactory'];
   
   
-  function LoginController(LoginFactory, $state) {
+  function LoginController(LoginFactory, $state, ProfileHeaderFactory) {
 	  var vm = this;
 	  
 	  vm.credentials = {
@@ -24,7 +24,8 @@
 			  if(response.data.role == 'ADMIN'){
 				  $state.go('adminPage');
 			  } else {
-				  $state.go('userPage'); 
+				  $state.go('userPage');
+				  ProfileHeaderFactory.getProfileInfo();
 			  } 
 		  });
 	  }

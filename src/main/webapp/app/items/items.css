@@ -1,0 +1,11 @@
+.list
+{
+    overflow: hidden; /* just clearing floats */
+}
+
+.shop-list-item
+{
+    width: 25%; /* 4 items per row */
+    float: left;
+    background-color: green;
+}

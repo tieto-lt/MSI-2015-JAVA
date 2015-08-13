@@ -1,4 +1,4 @@
-<header class="profile-header">
+<header class="profile-header" data-ng-controller="ProfileHeaderController as vm">
     <div class="container">
         <div class="left-side header-object">
             <h3>Karma points</h3>
@@ -12,9 +12,9 @@
         <div class="profile-info header-object">
             <div class="profile-info-container">
                 <img class="profile-image" src="./assets/images/profile_picture_placeholder.png"/>
-                <div class="info-container">
-                    <div class="info">Vardenis</div>
-                    <div class="info">Pavardenis</div>
+                <div class="info-container" data-ng-model="vm.profileInfo">
+                    <div class="info">{{vm.profileInfo.firstName}}</div>
+                    <div class="info">{{vm.profileInfo.lastName}}</div>
                     <div class="info">You have: <span class="points">80p</span></div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
         	<div data-ng-controller="LogoutController as vm">
         		<ul>
                     <a class="link" ui-sref="logout" 
-                    	href="#" ng-click="vm.logout()" ><li>Logout</li></a>
+                    	ng-click="vm.logout()" ><li>Logout</li></a>
                 </ul>
         	</div>
         </div>
