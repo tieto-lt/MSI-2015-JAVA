@@ -5,13 +5,15 @@
 			
 		<md-input-container>
 			<label for="email">Email</label>
-			<input name="emailInput" type="email" id="email" 
+			<input name="emailInput" type="text" id="email" 
 					data-ng-model="vm.user.email"
-					placeholder="Email" ng-maxlength="70" required>
+					placeholder="Email" ng-maxlength="70"
+					ng-pattern = "/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i"
+					required>
 		</md-input-container>
 		<div ng-messages="vm.registrationForm.emailInput.$error" ng-if="vm.registrationForm.emailInput.$dirty">
 			<div class="error" ng-message="maxlength">Too many symbols</div>
-			<div class="error" ng-message="email">Invalid email</div>
+			<div class="error" ng-message="pattern">Invalid email</div>
 			<div class="error" ng-message="required">Field is required</div>
 		</div>
 		
