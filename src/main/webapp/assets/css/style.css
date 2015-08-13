@@ -8,11 +8,18 @@ header {
 }
 
 #logo-image {
-	position: absolute;
-	top: 41px;
-	right: 0px;
-	height: 90px;
-	width: 90px;]
+    position: absolute;
+    right: 20px;
+    top: 9px;
+    height: 100px;
+    width: 100px;
+}
+
+#karma-logo {
+    position: absolute;
+    left: 20px;
+    top: 9px;
+    height: 100px;
 }
 
 /*  154, 202, 235 */
@@ -170,3 +177,9 @@ md-input-container .md-input {
     border-color: rgba(0, 0, 0, 1) !important;
   
 }
+
+header .title {
+	margin-bottom:15px;
+	font-size: 35px;
+}
+
