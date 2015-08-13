@@ -5,9 +5,9 @@
     .module('app.registration')
     .controller('RegistrationController', RegistrationController);
 
-  RegistrationController.$inject = ['UsersFactory', 'LoginFactory', '$state'];
+  RegistrationController.$inject = ['UsersFactory', 'LoginFactory', '$state', 'ProfileHeaderFactory'];
 
-  function RegistrationController(UsersFactory, LoginFactory, $state) {
+  function RegistrationController(UsersFactory, LoginFactory, $state, ProfileHeaderFactory) {
     var vm = this;
     
     vm.user = {
@@ -38,12 +38,13 @@
   		LoginFactory
   			.login({email: vm.user.email, password: vm.user.password})
   			.then(function(response) {
-				console.log(response.data.role);
+				ProfileHeaderFactory.loadUserInfo().then(function() {
 				  if(response.data.role == 'ADMIN'){
 					  $state.go('adminPage');
 				  } else {
 					  $state.go('userPage'); 
-				  } 
+				  }
+				});
 			});
     }
   }
