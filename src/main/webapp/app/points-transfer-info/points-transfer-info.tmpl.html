@@ -94,7 +94,9 @@
 						vm.pointsForm.$pristine">{{vm.errorMessage}}</div>
 			</div>
 			<div class="points-form-submit">
-				<md-button class="md-raised" type="submit" value="Give!" ng-disabled="vm.pointsForm.$invalid || vm.transferInfo.points > vm.profileInfo.pointsToGive">Give!</md-button>
+				<md-button class="md-raised" type="submit" value="Give!" ng-disabled="vm.pointsForm.$invalid || 
+				vm.transferInfo.points > vm.profileInfo.pointsToGive || 
+				vm.transferInfo.toUser.id == vm.profileInfo.id">Give!</md-button>
 			</div>
 		</form>
 	</div>
