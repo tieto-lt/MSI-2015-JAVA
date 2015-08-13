@@ -177,9 +177,17 @@ md-input-container .md-input {
     border-color: rgba(0, 0, 0, 1) !important;
   
 }
-
 header .title {
 	margin-bottom:10px;
 	font-size: 35px;
 }
 
+a.md-button.md-raised,
+.md-button.md-raised {
+	background-color: #f78d2d !important;
+}
+
+a.md-button.md-raised:hover,
+.md-button.md-raised:hover {
+	background-color: #ffbe85 !important;
+}
