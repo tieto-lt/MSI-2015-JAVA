@@ -6,11 +6,11 @@
   	.controller('LoginController', LoginController);
   
   LoginController.$inject = ['LoginFactory', '$state', 
-                             'ProfileHeaderFactory', 'CurrentUserController'];
+                             'ProfileHeaderFactory'];
   
   
   function LoginController(LoginFactory, $state, 
-		  ProfileHeaderFactory, CurrentUserController) {
+		  ProfileHeaderFactory) {
 	  var vm = this;
 	  
 	  vm.credentials = {

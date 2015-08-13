@@ -49,6 +49,13 @@
 		    .state('userPage', {
 		    	url: "/user",
 		    	templateUrl: "userPage.tmpl.html"
+//		    	resolve: {
+//		            security: ['$q', function($q){
+//		                if(/*****/){
+//		                   return $q.reject("Not Authorized");
+//		                }
+//		            }]
+//		         }
 		    })
 			.state('logout', {
 		    	url: "/logout",

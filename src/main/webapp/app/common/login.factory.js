@@ -21,7 +21,6 @@
     	  return $http.get('login', {headers : headers}).then();
 
 	    }
-  
-  }
+    }
   
   })();

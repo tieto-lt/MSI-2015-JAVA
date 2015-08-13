@@ -21,6 +21,7 @@
 		    
 		    return data;
 	    }
+	    
 	    return {
 	    	getProfileInfo: getProfileInfo
 	    }
