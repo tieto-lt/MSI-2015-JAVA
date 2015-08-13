@@ -1,86 +1,86 @@
-<h1>Join Karma Points</h1>
-<form name="vm.registrationForm" id="registration-form" data-ng-submit="vm.register()"
-	data-ng-controller="RegistrationController as vm" novalidate>
+<div class="registration-form-container">
+	<h1>Join Karma Points</h1>
+	<form name="vm.registrationForm" id="registration-form" data-ng-submit="vm.register()"
+		data-ng-controller="RegistrationController as vm" novalidate>
+			
+		<md-input-container>
+			<label for="email">Email</label>
+			<input name="emailInput" type="text" id="email" 
+					data-ng-model="vm.user.email"
+					placeholder="Email" ng-maxlength="30"
+					ng-pattern = "/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i"
+					required>
+		</md-input-container>
+		<div ng-messages="vm.registrationForm.emailInput.$error" ng-if="vm.registrationForm.emailInput.$dirty">
+			<div class="error" ng-message="maxlength">Too many symbols</div>
+			<div class="error" ng-message="pattern">Invalid email</div>
+			<div class="error" ng-message="required">Field is required</div>
+		</div>
 		
-	<div class="registration-form-input">
-		<input name="emailInput" type="text" id="email" 
-				data-ng-model="vm.user.email"
-				placeholder="Email" ng-maxlength="30"
-				ng-pattern = "/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i"
+		
+		<md-input-container>
+			<label for="firstName">First Name</label>
+			<input name="firstNameInput" type="text" id="firstName" 
+				data-ng-model="vm.user.firstName"
+				placeholder="First name" ng-maxlength="20" required>
+		</md-input-container>
+		<div ng-messages="vm.registrationForm.firstNameInput.$error" ng-if="vm.registrationForm.firstNameInput.$dirty">
+			<div class="error" ng-message="maxlength">Too many symbols</div>
+			<div class="error" ng-message="required">Field is required</div>
+		</div>
+		
+		
+		 <md-input-container>
+			<label for="lastName">Last Name</label>
+			<input name="lastNameInput" type="text" id="lastName" 
+				data-ng-model="vm.user.lastName"
+				placeholder="Last name" ng-maxlength="30" required>
+		</md-input-container>
+		<div ng-messages="vm.registrationForm.lastNameInput.$error" ng-if="vm.registrationForm.lastNameInput.$dirty">
+			<div class="error" ng-message="maxlength">Too many symbols</div>
+			<div class="error" ng-message="required">Field is required</div>
+		</div>
+		
+		
+		 <md-input-container>
+			<label for="password">Password</label>
+			<input name="passwordInput" type="password" id="password" 
+				data-ng-model="vm.user.password"
+				placeholder="Password"
+				ng-maxlength="15"
+				ng-minlength="5"
+				ng-pattern = "/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/"
 				required>
-	</div>
-	<div ng-messages="vm.registrationForm.emailInput.$error" ng-if="vm.registrationForm.emailInput.$dirty">
-		<div class="error" ng-message="maxlength">Too many symbols</div>
-		<div class="error" ng-message="pattern">Invalid email</div>
-		<div class="error" ng-message="required">Field is required</div>
-	</div>
-	
-	
-	
-	
-	<div class="registration-form-input">
-		<input name="firstNameInput" type="text" id="firstName" 
-			data-ng-model="vm.user.firstName"
-			placeholder="First name" ng-maxlength="20" required>
-	</div>
-	<div ng-messages="vm.registrationForm.firstNameInput.$error" ng-if="vm.registrationForm.firstNameInput.$dirty">
-		<div class="error" ng-message="maxlength">Too many symbols</div>
-		<div class="error" ng-message="required">Field is required</div>
-	</div>
-	
-	
-	
-	
-	
-	 <div class="registration-form-input">
-		<input name="lastNameInput" type="text" id="lastName" 
-			data-ng-model="vm.user.lastName"
-			placeholder="Last name" ng-maxlength="30" required>
-	</div>
-	<div ng-messages="vm.registrationForm.lastNameInput.$error" ng-if="vm.registrationForm.lastNameInput.$dirty">
-		<div class="error" ng-message="maxlength">Too many symbols</div>
-		<div class="error" ng-message="required">Field is required</div>
-	</div>
-	
-	
-	
-	
-	 <div class="registration-form-input">
-		<input name="passwordInput" type="password" id="password" 
-			data-ng-model="vm.user.password"
-			placeholder="Password"
-			ng-maxlength="15"
-			ng-minlength="5"
-			ng-pattern = "/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/"
-			required>
-	</div>
-	<div ng-messages="vm.registrationForm.passwordInput.$error" ng-if="vm.registrationForm.passwordInput.$dirty">
-		<div class="error" ng-message="maxlength">Too many symbols</div>
-		<div class="error" ng-message="minlength">Too few symbols</div>
-		<div class="error" ng-message="pattern">Should contain atleast 1 number</div>
-		<div class="error" ng-message="required">Field is required</div>
-	</div>
-	
-	
-	
-	
-	<div class="registration-form-input">
-		<input name="passwordConfirmationInput" type="password" id="passwordConfirmation" 
-			data-ng-model="vm.user.passwordConfirm"
-			placeholder="Password confirmation" required>
-	</div>
-	
- 	<div class="error"
-		ng-show="(vm.user.passwordConfirm != vm.user.password) && vm.registrationForm.passwordConfirmationInput.$dirty"
-	>Confirmation doesn't match</div> 
-	<div ng-messages="vm.registrationForm.passwordConfirmationInput.$error"
-	     ng-if="vm.registrationForm.passwordConfirmationInput.$dirty">
-		<div class="error" ng-message="required">Field is required</div>
-	</div>
-	<div class="registration-bottom-container">
-		<div class="error" ng-if="vm.error && vm.registrationForm.$pristine">{{vm.error}}</div>
-		<input type="submit" value="Submit" ng-disabled="vm.registrationForm.$invalid"></input>
-	</div>
+		</md-input-container>
+		
+		
+		<div ng-messages="vm.registrationForm.passwordInput.$error" ng-if="vm.registrationForm.passwordInput.$dirty">
+			<div class="error" ng-message="maxlength">Too many symbols</div>
+			<div class="error" ng-message="minlength">Too few symbols</div>
+			<div class="error" ng-message="pattern">Should contain atleast 1 number</div>
+			<div class="error" ng-message="required">Field is required</div>
+		</div>
+		
+		
+		<md-input-container>
+			<label for="passwordConfirmation">Confirm Password</label>
+			<input name="passwordConfirmationInput" type="password" id="passwordConfirmation" 
+				data-ng-model="vm.user.passwordConfirm"
+				placeholder="Password confirmation" required>
+		</md-input-container>
+		
+		
+	 	<div class="error"
+			ng-show="(vm.user.passwordConfirm != vm.user.password) && vm.registrationForm.passwordConfirmationInput.$dirty"
+		>Confirmation doesn't match</div> 
+		<div ng-messages="vm.registrationForm.passwordConfirmationInput.$error"
+		     ng-if="vm.registrationForm.passwordConfirmationInput.$dirty">
+			<div class="error" ng-message="required">Field is required</div>
+		</div>
+		<div class="registration-bottom-container">
+			<div class="error" ng-if="vm.error && vm.registrationForm.$pristine">{{vm.error}}</div>
+			<md-button  class="md-raised md-primary" ng-disabled="vm.registrationForm.$invalid">Sign up</md-button>
+		</div>
 				
-</form>
-
+	</form>
+</div>
