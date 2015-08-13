@@ -43,7 +43,7 @@
 	    		.sendPoints(vm.transferInfo)
 	    		.then(function() {
 	    			vm.successMessage = 'Transfer was successful';	    			
-	    			vm.transferInfo.toUser = '';
+	    			/*vm.transferInfo.toUser = '';*/
 	    			vm.transferInfo.points = '';
 	    			vm.transferInfo.comment = '';
 	    			vm.pointsForm.$setPristine();
