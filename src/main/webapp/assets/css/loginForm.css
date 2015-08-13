@@ -2,8 +2,24 @@
     width: 300px;
     height: 200px;
     float:right;
+    margin-right: 200px;
+    margin-top: 200px;
+    
 }
 
 .login-buttons {
 	text-align: center;
+}
+
+
+#superContainer {
+    position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin-top:131px;
+	background-image: url("../images/login_background_woman.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
