@@ -7,9 +7,7 @@ import org.springframework.data.repository.Repository;
 public interface UserRepository extends Repository<User, Long> {
 
     List<User> findAll();
-    
-//    List<User> saveAll(List<User> updatedUsers);
-    
+ 
     /*Optional<User> findOneByEmail(String email);*/
     User findByEmail(String email);
     

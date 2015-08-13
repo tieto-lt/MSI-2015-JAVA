@@ -143,7 +143,7 @@ public class User extends Dto {
 	public Role getRole() {
 		return role;
 	}
-	
+
 	public Integer getPointsToGive() {
 		return pointsToGive;
 	}
