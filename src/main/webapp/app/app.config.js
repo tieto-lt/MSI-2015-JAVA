@@ -34,6 +34,18 @@
 		    	url: "/admin",
 		    	templateUrl: "adminPage.tmpl.html"
 		    })
+		    .state('adminPage.applicationSettings', {
+		    	url: "/applicationSettings",
+		    	templateUrl: "app/adminAppSettings/adminAppSettings.tmpl.html"
+		    })
+		    .state('adminPage.shopSettings', {
+		    	url: "/shopSettings",
+		    	templateUrl: "app/adminShopSettings/adminShopSettings.tmpl.html"
+		    })
+		    .state('adminPage.valueGroupsSettings', {
+		    	url: "/valueGroupsSettings",
+		    	templateUrl: "app/adminValueGroupsSettings/adminValueGroupsSettings.tmpl.html"
+		    })
 		    .state('userPage', {
 		    	url: "/user",
 		    	templateUrl: "userPage.tmpl.html"

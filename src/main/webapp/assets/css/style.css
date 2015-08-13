@@ -5,7 +5,6 @@ header {
     font-weight: bold;
     color: #ffffff;
     text-align: center;
-    margin-bottom: 20px;
 }
 
 #logo-image {
@@ -77,7 +76,6 @@ md-input-container {
 
 .main-container {
 	vertical-align: top;
-    text-align: center;
     margin: 0px auto;
     width: 100%;
 }
@@ -132,6 +130,10 @@ button.md-default-theme.md-raised[disabled], .md-button.md-default-theme.md-fab[
 
 md-input-container.md-default-theme .md-input {
 	border-color: #A3A3A3;
+}
+
+.md-button.md-primary.md-raised{
+	background-color: #9acaeb !important;
 }
 
 /* md-input-container.md-default-theme.md-input-invalid .md-input { */

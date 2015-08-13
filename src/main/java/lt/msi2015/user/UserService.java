@@ -38,7 +38,8 @@ public class UserService {
 	     String email = userSpring.getUsername();
 	     User user = repo.findByEmail(email);
 	     LoggedUserDto loggedUser = new LoggedUserDto(user.getId(), user.getFirstName(), user.getLastName(), 
-	    		 			user.getEmail(), user.getRole());
+	    		 			user.getEmail(), user.getRole(), user.getPointsToGive(),
+	    		 			user.getUserPoints());
 	     
 	     return loggedUser;
 	}

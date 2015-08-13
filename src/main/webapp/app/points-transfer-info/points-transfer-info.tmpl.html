@@ -2,6 +2,7 @@
 	<div class="points-form-container" data-ng-controller="PointsTransferInfoController as vm"
      data-ng-submit="vm.submit()">
      <h4>Send your karma points </h4>
+     	<span>You can give:</span><span data-ng-model="vm.profileInfo">{{vm.profileInfo.pointsToGive}}</span>
 		<form name="vm.pointsForm" id="points-form" novalidate>
 		
 		
@@ -31,7 +32,7 @@
 					md-search-text="vm.searchText"
 					md-items="user in vm.fillteredList(vm.searchText)"
 					md-item-text="user.firstName + ' ' + user.lastName"
-					md-min-length="3"
+					md-min-length="1"
 					md-floating-label="To"
 					md-no-cache="true">
 						<md-item-template>
@@ -44,9 +45,12 @@
 				<div class="error" ng-message="maxlength">Too many symbols</div>
 				<div class="error" ng-message="required">Field is required</div>
 			</div>
+			<div ng-if="vm.transferInfo.toUser.id == vm.profileInfo.id" class="error">
+				Can't send to yourself
+			</div>
 			
 			<div ng-if="vm.pointsForm.toInput.$dirty">
-				<div class="error" ng-if="vm.data.length == 0 && vm.searchText.length > 2">No such user</div>
+				<div class="error" ng-if="vm.data.length == 0 && vm.searchText.length > 0">No such user</div>
 			</div>
 			
 			<div class="points-form-input">
@@ -63,6 +67,8 @@
 				<div class="error" ng-message="number">Numbers only</div>
 				<div class="error" ng-message="pattern">Integers only</div>
 			</div>
+			
+			<div class="error" ng-show="vm.transferInfo.points > vm.profileInfo.pointsToGive">Not enough points</div>
 			
 			
 			
@@ -88,7 +94,7 @@
 						vm.pointsForm.$pristine">{{vm.errorMessage}}</div>
 			</div>
 			<div class="points-form-submit">
-				<md-button class="md-raised md-primary" type="submit" value="Give!" ng-disabled="vm.pointsForm.$invalid">Give!</md-button>
+				<md-button class="md-raised md-primary" type="submit" value="Give!" ng-disabled="vm.pointsForm.$invalid || vm.transferInfo.points > vm.profileInfo.pointsToGive">Give!</md-button>
 			</div>
 		</form>
 	</div>
