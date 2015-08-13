@@ -30,7 +30,8 @@
 				  ProfileHeaderFactory.getProfileInfo();
 			  } 
 		  }, function(response) {
-			  vm.error = '';
+			  vm.error="Incorrect details";
+			  vm.loginForm.$setPristine();
 		  });
 	  }
 	  

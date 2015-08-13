@@ -210,3 +210,7 @@ header.login-header > span {
 	text-align: left;
 	margin-left: 120px;
 }
+
+#points-form .success-block {
+	margin-top: 15px;
+}
