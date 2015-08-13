@@ -5,9 +5,12 @@
 		.module('app.pointsTransferInfo')
 		.controller('PointsTransferInfoController', PointsTransferInfoController);
 	
-	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory', 'AdminAppSettingsFactory', 'UsersFactory'];
+	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory',
+	                                        'AdminAppSettingsFactory', 'UsersFactory',
+	                                        'ProfileHeaderFactory'];
 	
-	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory, AdminAppSettingsFactory, UsersFactory) {
+	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory,
+				AdminAppSettingsFactory, UsersFactory, ProfileHeaderFactory) {
 
 		var vm = this;
 		
@@ -19,6 +22,8 @@
 	    };
 		
 		vm.data = [];
+		
+		vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
 		
 		vm.oneTimeLimit = 0;
 			
@@ -44,6 +49,7 @@
 	    			vm.pointsForm.$setPristine();
 	    			vm.pointsForm.$setUntouched();
 	    			LeaderboardFactory.leaders();
+	    			ProfileHeaderFactory.getProfileInfo();
 	    		}, function() {
 	    			vm.errorMessage = 'Transfer failed';
 	    			vm.transferInfo.toUser = '';

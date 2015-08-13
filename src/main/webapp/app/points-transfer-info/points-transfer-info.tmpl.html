@@ -2,6 +2,7 @@
 	<div class="points-form-container" data-ng-controller="PointsTransferInfoController as vm"
      data-ng-submit="vm.submit()">
      <h4>Send your karma points </h4>
+     	<span>You can give:</span><span data-ng-model="vm.profileInfo">{{vm.profileInfo.pointsToGive}}</span>
 		<form name="vm.pointsForm" id="points-form" novalidate>
 		
 		

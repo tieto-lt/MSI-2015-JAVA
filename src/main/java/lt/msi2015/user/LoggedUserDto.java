@@ -1,8 +1,5 @@
 package lt.msi2015.user;
 
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
-
 import lt.msi2015.util.Dto;
 
 public class LoggedUserDto extends Dto {
