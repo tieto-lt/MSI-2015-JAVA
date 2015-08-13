@@ -19,7 +19,7 @@ header {
     position: absolute;
     left: 20px;
     top: 9px;
-    height: 100px;
+    height: 115px;
 }
 
 /*  154, 202, 235 */
@@ -179,7 +179,7 @@ md-input-container .md-input {
 }
 
 header .title {
-	margin-bottom:15px;
+	margin-bottom:10px;
 	font-size: 35px;
 }
 
