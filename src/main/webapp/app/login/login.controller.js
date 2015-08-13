@@ -5,10 +5,12 @@
   	.module('app.login')
   	.controller('LoginController', LoginController);
   
-  LoginController.$inject = ['LoginFactory', '$state', 'ProfileHeaderFactory'];
+  LoginController.$inject = ['LoginFactory', '$state', 
+                             'ProfileHeaderFactory'];
   
   
-  function LoginController(LoginFactory, $state, ProfileHeaderFactory) {
+  function LoginController(LoginFactory, $state, 
+		  ProfileHeaderFactory) {
 	  var vm = this;
 	  
 	  vm.credentials = {

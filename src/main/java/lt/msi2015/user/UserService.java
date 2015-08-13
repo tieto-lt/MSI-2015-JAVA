@@ -54,7 +54,6 @@ public class UserService {
 	}
 	
 	public boolean emailExists(String email) {
-		System.out.println(email);
 		User user = repo.findByEmail(email);
 		if(user != null) {
 			return true;

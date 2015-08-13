@@ -44,6 +44,7 @@
 	    		.then(function() {
 	    			vm.successMessage = 'Transfer was successful';	    			
 	    			/*vm.transferInfo.toUser = '';*/
+	    			vm.searchText = '';
 	    			vm.transferInfo.points = '';
 	    			vm.transferInfo.comment = '';
 	    			vm.pointsForm.$setPristine();
