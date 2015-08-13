@@ -74,7 +74,6 @@ public class User extends Dto {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
-		this.pointsToGive = pointsToGive;
 		this.dateCreated = new Date();
 		this.pointsToGive = pointsToGive;
 		this.userPoints = 0;
