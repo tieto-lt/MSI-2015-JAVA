@@ -17,6 +17,7 @@
 	  };
 	  
 	  vm.submit = submit;
+	  vm.moveToRegisterPage = moveToRegisterPage;
 	  
 	  function submit() {
 		  LoginFactory.login(vm.credentials).then(function(response) {
@@ -28,6 +29,10 @@
 				  ProfileHeaderFactory.getProfileInfo();
 			  } 
 		  });
+	  }
+	  
+	  function moveToRegisterPage() {
+		  $state.go('registration');
 	  }
 	  
 	  
