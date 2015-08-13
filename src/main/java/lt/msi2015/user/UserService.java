@@ -44,6 +44,10 @@ public class UserService {
 	     return loggedUser;
 	}
 	
+	
+	/*
+	 * Quartz monthly points_to_give reset to application_settings value
+	 */
 	@Scheduled(cron = "0 * * * * MON-FRI")
 	public void resetUserPointsToGiveEachMonth() {
 		System.out.println("Ivyko: " + new Date());
