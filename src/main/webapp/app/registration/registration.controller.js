@@ -25,12 +25,19 @@
     function register() {
     	vm.error = '';
     	vm.registrationForm.$setPristine();
+    	if(vm.registerClicked) {
+    		return;
+    	}
+    	vm.registerClicked = true;
+    	
 	    UsersFactory
 	      	.addUser(vm.user)
 	      	.then(function success() {
 	      		loginUser();
+	      		vm.registerClicked = false;
 			}, function error() {
 	      		vm.error = "Email is already taken";
+	      		vm.registerClicked = false;
 			});
     }
     
