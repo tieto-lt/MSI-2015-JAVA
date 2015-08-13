@@ -15,10 +15,10 @@
   	.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
 
   		$urlRouterProvider.otherwise("/login");
-  		$locationProvider.html5Mode({
-  		  enabled: true,
-  		  requireBase: false
-  		});
+//  		$locationProvider.html5Mode({
+//  		  enabled: true,
+//  		  requireBase: false
+//  		});
 
 		$stateProvider
 			.state('login', {
