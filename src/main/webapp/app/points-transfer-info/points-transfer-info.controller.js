@@ -41,6 +41,12 @@
 	    function submit() {
 	    	vm.successMessage = '';
 	    	vm.errorMessage = '';
+	    	
+	    	if(vm.submitClicked) {
+	    		return;
+	    	}
+	    	vm.submitClicked = true;
+	    	
 	    	PointsTransferFactory
 	    		.sendPoints(vm.transferInfo)
 	    		.then(function() {
@@ -53,12 +59,14 @@
 	    			vm.pointsForm.$setUntouched();
 	    			LeaderboardFactory.leaders();
 	    			ProfileHeaderFactory.loadUserInfo();
+	    			vm.submitClicked = false;
 	    		}, function() {
 	    			vm.errorMessage = 'Transfer failed';
 	    			vm.transferInfo.toUser = '';
 	    			vm.transferInfo.points = '';
 	    			vm.transferInfo.comment = '';
 	    			vm.pointsForm.$setPristine();
+	    			vm.submitClicked = false;
 	    		})	    		
 	    }
 	    
