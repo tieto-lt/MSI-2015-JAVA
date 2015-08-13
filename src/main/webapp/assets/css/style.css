@@ -185,6 +185,7 @@ header .title {
 a.md-button.md-raised,
 .md-button.md-raised {
 	background-color: #f78d2d !important;
+	color: white;
 }
 
 a.md-button.md-raised:hover,
