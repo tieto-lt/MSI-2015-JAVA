@@ -5,10 +5,10 @@
   	.module('app.logout')
   	.controller('LogoutController', LogoutController);
   
-  LogoutController.$inject = ['LogoutFactory', '$state'];
+  LogoutController.$inject = ['LogoutFactory', '$state', 'ProfileHeaderFactory'];
   
   
-  function LogoutController(LogoutFactory, $state) {
+  function LogoutController(LogoutFactory, $state, ProfileHeaderFactory) {
 	  var vm = this;
 	  
 	  vm.logout = logout;
@@ -16,6 +16,7 @@
 	  function logout() {
 		  LogoutFactory.logout();
 		  $state.go('login');
+		  ProfileHeaderFactory.clearUserInformation();
 	  }
 	  
 	  
