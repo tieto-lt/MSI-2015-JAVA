@@ -117,4 +117,5 @@ header.admin-header  {
  a.admin-header-link {
  	color: white;
  	text-decoration: none;
+ 	cursor: pointer;
  }
