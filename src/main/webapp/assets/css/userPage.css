@@ -42,6 +42,10 @@
     margin-top: -2px;
 }
 
+.one-time-limit {
+	font-size: 11px;
+}
+
 .form-logo-image {
 	width: 20px;
     display: inline-block;
