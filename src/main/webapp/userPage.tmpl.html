@@ -1,15 +1,5 @@
 <div class="user-page-container">
 	<data-ng-include src="'app/profile-header/profile-header.tmpl.html'"></data-ng-include>
-	<div class="points-transfer-info-container">
-		<div class="points-transfer-info-main-container">
-			<data-ng-include src="'app/points-transfer-info/points-transfer-info.tmpl.html'">
-			</data-ng-include>
-		</div>
-	</div>
-
-	<div class="leaderboard-container">
-		<div class="leaderboard-main-container">
-			<data-ng-include src="'app/leaderboard/leaderboard.tmpl.html'"></data-ng-include>
-		</div>
-	</div>
+	
+	<div ui-view></div>
 </div>

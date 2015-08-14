@@ -20,7 +20,7 @@
 //  		  requireBase: false
 //  		});
 
-		$stateProvider
+		$stateProvider    
 			.state('login', {
 		    	url: "/login",
 		        templateUrl: "loginPage.tmpl.html"
@@ -39,7 +39,7 @@
 		                	return ProfileHeaderFactory.loadUserInfo().then(function() {
 		                		if(!ProfileHeaderFactory.isAdminUser()){
 		 		                   return $q.reject("Not Authorized");
-		 		                }
+		 		                }    
 		                	}, function error() {
 	 		                   return $q.reject("Not Authorized");
 		                	})
@@ -81,17 +81,22 @@
 	 		                   return $q.reject("Not Authorized");
 	 		                }
 		                }
-		            }]
-		         }
+		            }]        
+		         }    
 		    })
-		    .state('shopItems', {
-		    	url: "/shopItems",
-		    	templateUrl: "shopItems.tmpl.html"
+		    .state('userPage.shop', {
+		    	url: "/userShop",
+		    	templateUrl: "app/userShop/userShop.tmpl.html"
+		    })
+		    .state('userPage.home', {
+		    	url: "/userHome",
+		    	templateUrl: "app/userHome/userHome.tmpl.html"
 		    })
 			.state('logout', {
 		    	url: "/logout",
 		    	templateUrl: "loginPage.tmpl.html"
 		    });
+			
 	});
 
 })(window.angular);

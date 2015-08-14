@@ -47,9 +47,9 @@
   			.then(function(response) {
 				ProfileHeaderFactory.loadUserInfo().then(function() {
 				  if(response.data.role == 'ADMIN'){
-					  $state.go('adminPage');
+					  $state.go('adminPage.applicationSettings');
 				  } else {
-					  $state.go('userPage'); 
+					  $state.go('userPage.home'); 
 				  }
 				});
 			});

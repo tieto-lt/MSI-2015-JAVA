@@ -13,10 +13,12 @@
     vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
     //////////////////////////////////
     
-    vm.shopItems = shopItems;
+    vm.changePage = changePage;
+	vm.currentPage = $state.current.name;
     
-    function shopItems() {
-		  $state.go('shopItems');
+    function changePage(state) {
+    	 vm.currentPage = state;
+		 $state.go(state);
 	  }
     
     vm.getProfileInfo = function() {

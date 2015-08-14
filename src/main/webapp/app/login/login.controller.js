@@ -29,7 +29,7 @@
 				  if(response.data.role == 'ADMIN'){
 					  $state.go('adminPage.applicationSettings');
 				  } else {
-					  $state.go('userPage');
+					  $state.go('userPage.home');
 					  
 				  } 
 			  });
