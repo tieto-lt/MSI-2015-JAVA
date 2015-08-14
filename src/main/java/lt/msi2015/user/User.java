@@ -8,9 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.Email;
 
 import lt.msi2015.util.Dto;
 
@@ -26,7 +25,7 @@ public class User extends Dto {
 
 	@NotNull
 	@Size(min=1, max=70)
-	@Email
+	@Pattern(regexp ="^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$")
 	private String email;
 	
 	@NotNull
