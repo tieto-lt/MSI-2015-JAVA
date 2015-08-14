@@ -13,43 +13,54 @@ import javax.validation.constraints.Size;
 import lt.msi2015.util.Dto;
 
 @Entity
-public class ShopItemEntity extends Dto {
+public class ShopItem extends Dto {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	public Long id;
 	
 	@NotNull
 	@Size(max=30)
-	private String name;
+	public String name;
 	
 	@NotNull
 	@Size(max=300)
-	private String description;
+	public String description;
 	
 	@Lob
 	@NotNull
 	@Column(columnDefinition = "LONGBLOB", length=2097152)
-	private byte[] image;
+	public byte[] image;
 	
 	@NotNull
 	@Min(0)
 	@Max(99)
-	private Integer quantity;
+	public Integer quantity;
 	
 	@NotNull
 	@Min(1)
 	@Max(9999)
-	private Integer value;
-
-
-	public ShopItemEntity(String name, String description, byte[] image, Integer quantity, Integer value) {
+	public Integer value;
+	
+	public ShopItem() {
 		super();
+	}
+
+
+	public ShopItem(String name, String description, byte[] image, Integer quantity, Integer value) {
 		this.name = name;
 		this.description = description;
 		this.image = image;
 		this.quantity = quantity;
 		this.value = value;
 	}
+
+
+	@Override
+	public String toString() {
+		return this.name;
+	}
+	
+	
 	
 }
