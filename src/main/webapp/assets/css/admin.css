@@ -31,6 +31,14 @@ header.admin-header  {
     font-size: 26px;
 }
 
+.admin-h3 {
+	font-weight: normal;
+}
+
+.admin-application-settings-container > h2 {
+    font-weight: normal;
+}
+
 .admin-navigation-button-container {
 	width: 80%;
 	min-height: 40px;
@@ -85,6 +93,12 @@ header.admin-header  {
  	height: 40px;
  	margin-left: 5px;
  	margin-top: 10px;
+ }
+ 
+ .image-padding {
+ 	padding-right: 30px;
+ 	width: 55px;
+ 	height: 55px;
  }
  
  .logout-container {
