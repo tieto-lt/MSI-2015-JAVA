@@ -36,10 +36,12 @@
 		    	resolve: {
 		            security: ['$q', 'ProfileHeaderFactory',  function($q, ProfileHeaderFactory){
 		                if(!ProfileHeaderFactory.getProfileInfo().role) {
-		                	ProfileHeaderFactory.loadUserInfo().then(function() {
+		                	return ProfileHeaderFactory.loadUserInfo().then(function() {
 		                		if(!ProfileHeaderFactory.isAdminUser()){
 		 		                   return $q.reject("Not Authorized");
 		 		                }
+		                	}, function error() {
+	 		                   return $q.reject("Not Authorized");
 		                	})
 		                } else {
 		                	if(!ProfileHeaderFactory.isAdminUser()){
@@ -67,10 +69,12 @@
 		    	resolve: {
 		            security: ['$q', 'ProfileHeaderFactory',  function($q, ProfileHeaderFactory){
 		                if(!ProfileHeaderFactory.getProfileInfo().role) {
-		                	ProfileHeaderFactory.loadUserInfo().then(function() {
+		                	return ProfileHeaderFactory.loadUserInfo().then(function success() {
 		                		if(!ProfileHeaderFactory.isLoggedInUser()){
 		 		                   return $q.reject("Not Authorized");
 		 		                }
+		                	}, function error() {
+	 		                   return $q.reject("Not Authorized");
 		                	})
 		                } else {
 		                	if(!ProfileHeaderFactory.isLoggedInUser()){
