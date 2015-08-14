@@ -23,7 +23,7 @@
 			<input name="firstNameInput" type="text" id="firstName" 
 				data-ng-model="vm.user.firstName"
 				placeholder="First name" ng-maxlength="20" required
-				ng-pattern="/^[a-žA-Ž]*$/">
+				ng-pattern="/^[a-žA-Ž-. ]*$/">
 		</md-input-container>
 		<div ng-messages="vm.registrationForm.firstNameInput.$error" ng-if="vm.registrationForm.firstNameInput.$dirty">
 			<div class="error" ng-message="maxlength">Too many symbols</div>
@@ -37,7 +37,7 @@
 			<input name="lastNameInput" type="text" id="lastName" 
 				data-ng-model="vm.user.lastName"
 				placeholder="Last name" ng-maxlength="30" required
-				ng-pattern="/^[a-žA-Ž]*$/">
+				ng-pattern="/^[a-žA-Ž-. ]*$/">
 		</md-input-container>
 		<div ng-messages="vm.registrationForm.lastNameInput.$error" ng-if="vm.registrationForm.lastNameInput.$dirty">
 			<div class="error" ng-message="maxlength">Too many symbols</div>
