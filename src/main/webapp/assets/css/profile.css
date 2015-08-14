@@ -26,6 +26,7 @@ header.profile-header {
 	display: inline-block;
 	vertical-align: bottom;
 	padding-bottom: 10px;
+	cursor: default;
 }
 
 .profile-header .logout:hover {
@@ -58,6 +59,7 @@ header.profile-header {
 
 .profile-header .navigation a {
     display: inline-block;
+    cursor: default;
 }
 
 .profile-header .navigation a:hover {
