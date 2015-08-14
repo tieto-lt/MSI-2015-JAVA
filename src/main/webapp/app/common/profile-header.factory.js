@@ -29,7 +29,7 @@
 	    }
 	    
 	    function isLoggedInUser() {
-	    	return !!data.role;
+	    	return data.role == 'USER';
 	    }
 	    
 	    function isAdminUser() {
