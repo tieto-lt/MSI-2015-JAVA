@@ -2,7 +2,8 @@
 	<div class="points-form-container" data-ng-controller="PointsTransferInfoController as vm"
      data-ng-submit="vm.submit()">
      <h4>Send your karma points </h4>
-     	<span data-ng-model="vm.profileInfo">You can give: {{vm.profileInfo.pointsToGive}} ({{vm.oneTimeLimit}} at a time)</span>
+     	<span data-ng-model="vm.profileInfo">
+     		You can give: {{vm.profileInfo.pointsToGive}} (max {{vm.oneTimeLimit}} at a time)</span>
 		<form name="vm.pointsForm" id="points-form" novalidate>
 		
 		
