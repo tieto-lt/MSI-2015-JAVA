@@ -53,15 +53,7 @@ public class UserRest {
 	
 	@RequestMapping(value = "/api/user/getAllUsersFullnames", method = RequestMethod.GET)
 	public List<UserAutocompleteDto> users() {
-		List<User> userList = repo.findAll();
-		
-		List<UserAutocompleteDto> namesList = new ArrayList<> ();
-
-		for (User u: userList) {
-			namesList.add(new UserAutocompleteDto(u.getId(), u.getFirstName(), u.getLastName()));
-		}
-		
-		return namesList;
+		return userService.getUsersOnly();
 	}
 	
 	@RequestMapping(value = "/api/user/getCurrentUser", method = RequestMethod.GET)

@@ -1,5 +1,6 @@
 package lt.msi2015.user;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -80,4 +81,18 @@ public class UserService {
 			repo.save(u);
 		}
 	}
+	
+	public List<UserAutocompleteDto> getUsersOnly() {
+		
+		List<User> userList = repo.findAll();
+		List<UserAutocompleteDto> namesList = new ArrayList<> ();
+
+		for (User u: userList) {
+			if(u.getRole().name() == "USER") {
+				namesList.add(new UserAutocompleteDto(u.getId(), u.getFirstName(), u.getLastName()));
+			}
+		}
+		return namesList;
+	}
+	
 }
