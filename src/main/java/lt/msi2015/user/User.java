@@ -42,7 +42,6 @@ public class User extends Dto {
 	private String password;
 	
 	@NotNull
-	@Past
 	private Date dateCreated;
 	
 	@NotNull
