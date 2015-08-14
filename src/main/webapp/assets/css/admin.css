@@ -26,12 +26,12 @@ header.admin-header  {
 	text-align: left;
 }
 
-.admin-header > h3 {
+.admin-header h3 {
     display: inline-block;
     font-size: 26px;
 }
 
-.adminH3 {
+.admin-h3 {
 	font-weight: normal;
 }
 
