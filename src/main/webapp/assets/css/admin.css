@@ -26,9 +26,17 @@ header.admin-header  {
 	text-align: left;
 }
 
-.admin-header h3 {
+.admin-header > h3 {
     display: inline-block;
     font-size: 26px;
+}
+
+.adminH3 {
+	font-weight: normal;
+}
+
+.admin-application-settings-container > h2 {
+    font-weight: normal;
 }
 
 .admin-navigation-button-container {
@@ -85,6 +93,12 @@ header.admin-header  {
  	height: 40px;
  	margin-left: 5px;
  	margin-top: 10px;
+ }
+ 
+ .image-padding {
+ 	padding-right: 30px;
+ 	width: 55px;
+ 	height: 55px;
  }
  
  .logout-container {
