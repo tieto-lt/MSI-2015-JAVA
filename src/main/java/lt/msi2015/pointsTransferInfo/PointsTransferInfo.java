@@ -31,7 +31,6 @@ public class PointsTransferInfo {
 	public String comment;
 	
 	@NotNull
-	@Past
 	public Date dateCreated;
 
 	public PointsTransferInfo() {
