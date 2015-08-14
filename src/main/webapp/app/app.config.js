@@ -35,8 +35,16 @@
 		    	templateUrl: "adminPage.tmpl.html",
 		    	resolve: {
 		            security: ['$q', 'ProfileHeaderFactory',  function($q, ProfileHeaderFactory){
-		                if(!ProfileHeaderFactory.isAdminUser()){
-		                   return $q.reject("Not Authorized");
+		                if(!ProfileHeaderFactory.getProfileInfo().role) {
+		                	ProfileHeaderFactory.loadUserInfo().then(function() {
+		                		if(!ProfileHeaderFactory.isAdminUser()){
+		 		                   return $q.reject("Not Authorized");
+		 		                }
+		                	})
+		                } else {
+		                	if(!ProfileHeaderFactory.isAdminUser()){
+	 		                   return $q.reject("Not Authorized");
+	 		                }
 		                }
 		            }]
 		         }
@@ -58,8 +66,16 @@
 		    	templateUrl: "userPage.tmpl.html",
 		    	resolve: {
 		            security: ['$q', 'ProfileHeaderFactory',  function($q, ProfileHeaderFactory){
-		                if(!ProfileHeaderFactory.isLoggedInUser()){
-		                   return $q.reject("Not Authorized");
+		                if(!ProfileHeaderFactory.getProfileInfo().role) {
+		                	ProfileHeaderFactory.loadUserInfo().then(function() {
+		                		if(!ProfileHeaderFactory.isLoggedInUser()){
+		 		                   return $q.reject("Not Authorized");
+		 		                }
+		                	})
+		                } else {
+		                	if(!ProfileHeaderFactory.isLoggedInUser()){
+	 		                   return $q.reject("Not Authorized");
+	 		                }
 		                }
 		            }]
 		         }
