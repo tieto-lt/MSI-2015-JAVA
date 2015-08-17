@@ -12,6 +12,8 @@
       'app.logout',
       'app.profileHeader',
       'app.navigation',
+      'app.adminShop',
+      'app.adminShopAddItem',
       
       /*angular ngMessages*/
       'ngMessages',
