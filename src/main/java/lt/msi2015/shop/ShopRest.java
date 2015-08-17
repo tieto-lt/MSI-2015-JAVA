@@ -37,7 +37,7 @@ public class ShopRest {
 		return items;
 	}
 	
-	@RequestMapping(value = "/api/shop/addItem", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/shop/addItem", method = RequestMethod.POST)
 	ResponseEntity<?> addNewItem(@RequestBody NewShopItemDto item) {
 		if (!shopService.save(new ShopItem(item))) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
