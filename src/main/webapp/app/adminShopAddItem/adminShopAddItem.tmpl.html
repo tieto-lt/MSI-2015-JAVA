@@ -1,7 +1,7 @@
 <div ng-controller="AdminShopAddItemController as vm">
 	<div class="add-item-container">
 		<h1>Add item to tieto shop</h1>
-		<form class="add-item-form" name="vm.addItemFrom" novalidate>
+		<form class="add-item-form" name="vm.addItemForm" novalidate>
 			<div>
 				<md-input-container>
 					<label for="add-item-name">Name</label>
@@ -9,8 +9,8 @@
 						name="addItemNameInput" required ng-maxlength="30">
 				</md-input-container>
 			</div>
-			<div ng-messages="vm.addItemFrom.addItemNameInput.$error" 
-					ng-if="vm.addItemFrom.addItemNameInput.$dirty">
+			<div ng-messages="vm.addItemForm.addItemNameInput.$error" 
+					ng-if="vm.addItemForm.addItemNameInput.$dirty">
 				<div ng-message="required" class="error">Field is required</div>
 				<div ng-message="maxlength" class="error">Too many symbols</div>
 			</div>
@@ -18,20 +18,41 @@
 				<md-input-container>
 					<label for="add-item-price">Price</label>
 					<input type="number" id="add-item-price" ng-model="vm.transferInfo.price"
-						name="addItemPriceInput" required min="1" max="9999">
+						name="addItemPriceInput" required min="1" max="9999" ng-pattern="/^\d+$/">
 				</md-input-container>
+			</div>
+			<div ng-messages="vm.addItemForm.addItemPriceInput.$error" 
+					ng-if="vm.addItemForm.addItemPriceInput.$dirty">
+				<div class="error" ng-message="required">Field is required</div>
+				<div class="error" ng-message="min, max">Only between 1 and 9999</div>
+				<div class="error" ng-message="number">Numbers only</div>
+				<div class="error" ng-message="pattern">Integers only</div>
 			</div>
 			<div>
 				<md-input-container>
 					<label for="add-item-amount">Amount</label>
-					<input type="text" id="add-item-amount" ng-model="vm.transferInfo.amount">
+					<input type="number" id="add-item-amount" ng-model="vm.transferInfo.amount"
+						name="addItemAmountInput" required min="1" max="99" ng-pattern="/^\d+$/">
 				</md-input-container>
+			</div>
+			<div ng-messages="vm.addItemForm.addItemAmountInput.$error" 
+					ng-if="vm.addItemForm.addItemAmountInput.$dirty">
+				<div class="error" ng-message="required">Field is required</div>
+				<div class="error" ng-message="min, max">Only between 1 and 99</div>
+				<div class="error" ng-message="number">Numbers only</div>
+				<div class="error" ng-message="pattern">Integers only</div>
 			</div>
 			<div>
 				<md-input-container>
 					<label for="add-item-description">Description</label>
-					<input type="text" id="add-item-description" ng-model="vm.transferInfo.description">
+					<textarea type="text" id="add-item-description" ng-model="vm.transferInfo.description"
+						name="addItemDescriptionInput" required ng-maxlength="300"></textarea>
 				</md-input-container>
+			</div>
+			<div ng-messages="vm.addItemForm.addItemDescriptionInput.$error" 
+					ng-if="vm.addItemForm.addItemDescriptionInput.$dirty">
+				<div class="error" ng-message="required">Field is required</div>
+				<div class="error" ng-message="maxlength">Too many symbols</div>
 			</div>
 			<div class="add-item-photo-container">
 				<label for="add-item-photo">Photo</label>
@@ -39,7 +60,7 @@
 					ng-model="vm.transferInfo.photo">
 			</div>
 			<div>
-				<input type="submit" value="Add an item">
+				<input type="submit" value="Add an item" ng-disabled="vm.addItemForm.$invalid">
 			</div>
 		</form>
 	</div>
