@@ -33,6 +33,10 @@ public class ShopItem extends Dto {
 	private byte[] image;
 	
 	@NotNull
+	@Size(max=10)
+	private String imageContentType;
+	
+	@NotNull
 	@Min(0)
 	@Max(99)
 	private Integer quantity;
@@ -47,12 +51,13 @@ public class ShopItem extends Dto {
 	}
 
 
-	public ShopItem(String name, String description, byte[] image, Integer quantity, Integer value) {
+	public ShopItem(String name, String description, byte[] image, String imageContentType, Integer quantity, Integer value) {
 		this.name = name;
 		this.description = description;
 		this.image = image;
 		this.quantity = quantity;
 		this.value = value;
+		this.imageContentType = imageContentType;
 	}
 	
 	public ShopItem(NewShopItemDto newShopItemDto) {
@@ -61,6 +66,7 @@ public class ShopItem extends Dto {
 		this.image = newShopItemDto.image;
 		this.quantity = newShopItemDto.quantity;
 		this.value = newShopItemDto.value;
+		this.imageContentType = newShopItemDto.imageContentType;
 	}
 
 	/*
@@ -129,5 +135,17 @@ public class ShopItem extends Dto {
 
 	public void setValue(Integer value) {
 		this.value = value;
+	}
+
+
+	public String getImageContentType() {
+		return imageContentType;
+	}
+
+
+	public void setImageContentType(String imageContentType) {
+		this.imageContentType = imageContentType;
 	}	
+	
+	
 }

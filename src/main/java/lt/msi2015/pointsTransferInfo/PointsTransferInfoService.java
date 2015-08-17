@@ -2,6 +2,8 @@ package lt.msi2015.pointsTransferInfo;
 
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +32,7 @@ public class PointsTransferInfoService {
 	@Autowired
 	private ApplicationSettingsRepository settingsRepository;
 	
+	@Transactional
 	boolean save(PointsTransferInfoDto info) {
 		
 		if (isPointsAboveLimit(info.points))
@@ -50,6 +53,7 @@ public class PointsTransferInfoService {
 			) != null;
 	}
 	
+	@Transactional
 	private boolean isPointsAboveLimit( int points) {
 		Map<ApplicationSettingsEnum, Integer> settingsMap = 
 				settingsService.convertSettingsToMap(settingsRepository.findAll());

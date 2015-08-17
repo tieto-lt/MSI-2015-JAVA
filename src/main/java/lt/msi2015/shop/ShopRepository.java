@@ -7,4 +7,5 @@ import org.springframework.data.repository.Repository;
 public interface ShopRepository extends Repository<ShopItem, Long> {
 	List<ShopItem> findAll();
 	ShopItem save(ShopItem item);
+	ShopItem findById(Long id);
 }
