@@ -5,7 +5,7 @@
     .module('app.navigation')
     .controller('NavigationController', NavigationController);
 
-  ProfileHeaderController.$inject = ['$state'];
+  NavigationController.$inject = ['$state'];
 
   function NavigationController($state) {
     var vm = this;
