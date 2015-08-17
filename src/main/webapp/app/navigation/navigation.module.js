@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('app.adminNavigation', []);
+    .module('app.navigation', []);
 
 })(window.angular);

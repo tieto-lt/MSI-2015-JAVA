@@ -5,21 +5,12 @@
     .module('app.profileHeader')
     .controller('ProfileHeaderController', ProfileHeaderController);
 
-  ProfileHeaderController.$inject = ['ProfileHeaderFactory', '$state'];
+  ProfileHeaderController.$inject = ['ProfileHeaderFactory'];
 
-  function ProfileHeaderController(ProfileHeaderFactory, $state) {
+  function ProfileHeaderController(ProfileHeaderFactory) {
     var vm = this;
 
     vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
-    //////////////////////////////////
-    
-    vm.changePage = changePage;
-	vm.currentPage = $state.current.name;
-    
-    function changePage(state) {
-    	 vm.currentPage = state;
-		 $state.go(state);
-	  }
     
     vm.getProfileInfo = function() {
     	vm.profileInfo = ProfileHeaderFactory.getProfileInfo();

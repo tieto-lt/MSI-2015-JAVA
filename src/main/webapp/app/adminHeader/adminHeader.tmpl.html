@@ -1,0 +1,16 @@
+<header class="admin-header">
+	<img id="logo-image" src="assets/images/Tieto_logo_right.png">
+	<div class="karma-logo-container">
+		<img id="karma-logo" src="assets/images/karma_logo.png"/>
+		<h3>Karma Points</h3>
+	</div>
+	<div class="navigation" data-ng-controller="NavigationController as vm">
+        <ul>
+            <li ng-class="{'current' : vm.currentPage == 'adminPage.applicationSettings'}"><a ng-click="vm.changePage('adminPage.applicationSettings')">Home</a></li>
+            <li ng-class="{'current' : vm.currentPage == 'adminPage.shop'}"><a ng-click="vm.changePage('adminPage.shop')">Tieto Shop</a></li>
+        </ul>
+    </div>
+	<div class="logout" data-ng-controller="LogoutController as vm">
+		<a ng-click="vm.logout()" >Logout</a>
+	</div>
+</header>

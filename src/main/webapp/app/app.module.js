@@ -11,7 +11,7 @@
       'app.adminAppSettings',
       'app.logout',
       'app.profileHeader',
-      'app.adminNavigation',
+      'app.navigation',
       'app.adminShop',
       'app.adminShopAddItem',
       
