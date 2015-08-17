@@ -63,6 +63,14 @@
 		    	url: "/valueGroupsSettings",
 		    	templateUrl: "app/adminValueGroupsSettings/adminValueGroupsSettings.tmpl.html"
 		    })
+		    .state('adminPage.shop', {
+		    	url: "/adminShop",
+		    	templateUrl: "app/adminShop/adminShop.tmpl.html"
+		    })
+		    .state('adminPage.addItem', {
+		    	url: "/addItem",
+		    	templateUrl: "app/adminShopAddItem/adminShopAddItem.tmpl.html"
+		    })
 		    .state('userPage', {
 		    	url: "/user",
 		    	templateUrl: "userPage.tmpl.html",

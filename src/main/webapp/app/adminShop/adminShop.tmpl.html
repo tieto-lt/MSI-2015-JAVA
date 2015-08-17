@@ -1,3 +1,5 @@
-<div class="admin-shop-container">
-
+<div class="admin-shop-container" ng-controller="AdminShopController as vm">
+	<input type="submit" value="Add new item" ng-click="vm.changePage('adminPage.shop')">
+		
+	<div ui-view></div>
 </div>

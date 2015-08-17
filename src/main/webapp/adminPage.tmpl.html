@@ -1,16 +1,5 @@
-<header class="admin-header">
-	<img id="logo-image-admin" src="assets/images/Tieto_logo_right.png">
-	<div class="karma-logo-container">
-		<img id="karma-logo" src="assets/images/karma_logo.png"/>
-		<h3>Karma Points</h3>
-	</div>
-	<div class="logout-container" data-ng-controller="LogoutController as vm">
-		<a class="admin-header-link" ng-click="vm.logout()" >Logout</a>
-	</div>
-</header>
-
-
 <div class="admin-container">
+	<data-ng-include src="'app/admin-header/admin-header.tmpl.html'"></data-ng-include>
 	<data-ng-include src="'app/adminNavigation/adminNavigation.tmpl.html'"></data-ng-include>
 	<div class="admin-container-main-container">
 		<div class="admin-container-main">
