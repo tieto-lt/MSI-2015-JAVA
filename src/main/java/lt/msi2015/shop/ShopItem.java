@@ -54,6 +54,14 @@ public class ShopItem extends Dto {
 		this.quantity = quantity;
 		this.value = value;
 	}
+	
+	public ShopItem(NewShopItemDto newShopItemDto) {
+		this.name = newShopItemDto.name;
+		this.description = newShopItemDto.description;
+		this.image = newShopItemDto.image;
+		this.quantity = newShopItemDto.quantity;
+		this.value = newShopItemDto.value;
+	}
 
 	/*
 	 * GettersAnd setters
