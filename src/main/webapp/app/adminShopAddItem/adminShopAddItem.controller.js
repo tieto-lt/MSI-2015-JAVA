@@ -4,7 +4,7 @@
 	angular.module('app.adminShopAddItem').controller(
 			'AdminShopAddItemController', AdminShopAddItemController);
 
-	AdminShopAddItemController.$inject = [ 'AdminShopAddItemFactory' ];
+	AdminShopAddItemController.$inject = [ 'ShopItemFactory' ];
 
 	function AdminShopAddItemController(AdminShopAddItemFactory) {
 		var vm = this;
@@ -17,6 +17,7 @@
 			photo: ''
 		};
 
+//		function
 //		vm.save = save;
 
 		/*

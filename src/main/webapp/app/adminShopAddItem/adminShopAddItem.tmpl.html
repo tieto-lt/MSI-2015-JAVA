@@ -28,7 +28,8 @@
 			</div>
 			<div>
 				<label for="add-item-photo">Photo</label>
-				<input type="file" id="add-item-photo" accept=".gif, .jpg, .png" ng-model="vm.transferInfo.photo">
+				<input type="file" id="add-item-photo" accept=".gif, .jpg, .png" ngf-select="vm.selectPhoto()">
+				{{ vm.transferInfo.photo }}
 			</div>
 			<div>
 				<input type="submit" value="Add an item">
