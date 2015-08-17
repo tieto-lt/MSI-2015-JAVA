@@ -1,14 +1,14 @@
-<header class="profile-header" data-ng-controller="NavigationController as vm">
+<header class="profile-header" data-ng-controller="ProfileHeaderController as vm">
         <div class="left-side">
         	<img id="karma-logo" src="assets/images/karma_logo.png"/>
             <h3>Karma points</h3>
         </div>
-        <div class="navigation">
-                <ul>
-                    <li ng-class="{'current' : vm.currentPage == 'userPage.home'}"><a ng-click="vm.changePage('userPage.home')">Home</a></li>
-                    <li ng-class="{'current' : vm.currentPage == 'userPage.shop'}"><a ng-click="vm.changePage('userPage.shop')">Tieto Shop</a></li>
-                </ul>
-            </div>
+        <div class="navigation" data-ng-controller="NavigationController as nm">
+            <ul>
+                <li ng-class="{'current' : nm.currentPage == 'userPage.home'}"><a ng-click="nm.changePage('userPage.home')">Home</a></li>
+                <li ng-class="{'current' : nm.currentPage == 'userPage.shop'}"><a ng-click="nm.changePage('userPage.shop')">Tieto Shop</a></li>
+            </ul>
+        </div>
         <div class="profile-info">
             <div class="profile-info-container">
                 <img class="profile-image" src="./assets/images/profile_picture_placeholder.png"/>
