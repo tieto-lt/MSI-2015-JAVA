@@ -1,17 +1,24 @@
 <div ng-controller="AdminShopAddItemController as vm">
 	<div class="add-item-container">
 		<h1>Add item to tieto shop</h1>
-		<form class="add-item-form">
+		<form class="add-item-form" name="vm.addItemFrom" novalidate>
 			<div>
 				<md-input-container>
 					<label for="add-item-name">Name</label>
-					<input type="text" id="add-item-name" ng-model="vm.transferInfo.name">
+					<input type="text" id="add-item-name" ng-model="vm.transferInfo.name"
+						name="addItemNameInput" required ng-maxlength="30">
 				</md-input-container>
+			</div>
+			<div ng-messages="vm.addItemFrom.addItemNameInput.$error" 
+					ng-if="vm.addItemFrom.addItemNameInput.$dirty">
+				<div ng-message="required" class="error">Field is required</div>
+				<div ng-message="maxlength" class="error">Too many symbols</div>
 			</div>
 			<div>
 				<md-input-container>
 					<label for="add-item-price">Price</label>
-					<input type="text" id="add-item-price" ng-model="vm.transferInfo.price">
+					<input type="number" id="add-item-price" ng-model="vm.transferInfo.price"
+						name="addItemPriceInput" required min="1" max="9999">
 				</md-input-container>
 			</div>
 			<div>
@@ -26,9 +33,10 @@
 					<input type="text" id="add-item-description" ng-model="vm.transferInfo.description">
 				</md-input-container>
 			</div>
-			<div>
+			<div class="add-item-photo-container">
 				<label for="add-item-photo">Photo</label>
-				<input type="file" id="add-item-photo" accept=".gif, .jpg, .png" ng-model="vm.transferInfo.photo">
+				<input type="file" id="add-item-photo" accept=".gif, .jpg, .png"
+					ng-model="vm.transferInfo.photo">
 			</div>
 			<div>
 				<input type="submit" value="Add an item">
