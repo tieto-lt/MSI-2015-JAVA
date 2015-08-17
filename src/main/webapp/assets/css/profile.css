@@ -13,8 +13,11 @@ header.profile-header {
 .profile-header .profile-info {
 	width: 30%;
 	display: inline-block;
-	vertical-align: middle;
-/* 	height: 100px; */
+}
+
+.profile-header .profile-info {
+	vertical-align: bottom;
+	padding-bottom: 10px;
 }
 
 .profile-header .navigation {
@@ -44,12 +47,13 @@ header.profile-header {
 
 .profile-header .navigation li.current {
 	color: orange;
-	border-bottom: 1px solid black;
+	border-bottom: 2px solid orange;
 }
 
 .profile-header .navigation a {
     display: inline-block;
     cursor: pointer;
+    outline:0;
 }
 
 .profile-header .navigation a:hover {
