@@ -5,5 +5,6 @@ import java.util.List;
 import org.springframework.data.repository.Repository;
 
 public interface ShopRepository extends Repository<ShopItem, Long> {
-	public List<ShopItem> findAll();
+	List<ShopItem> findAll();
+	ShopItem save(ShopItem item);
 }
