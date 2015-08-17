@@ -3,7 +3,7 @@ header.profile-header {
     padding: 10px 10px 0 10px;s
     font-size: 26px;
     font-weight: bold;
-    height: 115px;
+    height: 125px;
     color: #ffffff;
 }
 
@@ -36,25 +36,15 @@ header.profile-header {
 .profile-header .navigation li {
     box-sizing: border-box;
     display: inline-block;
-    height: 40px;
-/*     width: 50%; */
     vertical-align: bottom;
     width: 100px;
-    background-color: #9acaeb;
     text-align: center;
-	padding: 10px 0;
-	border-left: 1px solid #C4C4C4;
-	border-top: 1px solid #C4C4C4;
-	border-right: 1px solid #C4C4C4;
-	
+	padding-bottom: 10px;
 }
 
 .profile-header .navigation li.current {
-	background-color: white;
-	color: black;
-	border-left: 1px solid #CFCFD1;
-	border-top: 1px solid #CFCFD1;
-	border-right: 1px solid #CFCFD1;
+	color: orange;
+	border-bottom: 1px solid black;
 }
 
 .profile-header .navigation a {
