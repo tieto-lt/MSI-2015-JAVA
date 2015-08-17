@@ -20,6 +20,8 @@
 					name: transferInfo.name,
 					description: transferInfo.description,
 					image: transferInfo.image,
+					imageType: transferInfo.imageType,
+					imageName: transferInfo.imageName,
 					quantity: transferInfo.amount,
 					value: transferInfo.price
 	    	}

@@ -6,7 +6,7 @@
 
 	AdminShopAddItemController.$inject = [ 'ShopItemFactory' ];
 
-	function AdminShopAddItemController(AdminShopAddItemFactory) {
+	function AdminShopAddItemController(ShopItemFactory) {
 		var vm = this;
 
 		vm.transferInfo = {
@@ -14,10 +14,33 @@
 			price : 400,
 			amount: 20,
 			description: 'Whooohooo',
-			photo: ''
+			image: '',
+			imageName: '',
+			imageType: ''
 		};
+		
+		vm.submit = submit;
 
-//		function
+		function submit() {
+			var f = document.getElementById('add-item-photo').files[0];
+			var r = new FileReader();
+			
+			vm.imageName = f.name;
+			vm.imageType = f.type;
+			
+			r.onload = function(e) {
+				vm.transferInfo.image = e.target.result;
+				// send you binary data via $http or $resource or do anything
+				// else with it
+				ShopItemFactory.addNewShopItem(vm.transferInfo).then(function() {
+					
+				})
+				
+				
+			}
+			r.readAsDataURL(f);
+			//r.readAsBinaryString(f);
+		}
 //		vm.save = save;
 
 		/*

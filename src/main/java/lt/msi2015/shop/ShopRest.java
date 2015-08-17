@@ -31,7 +31,10 @@ public class ShopRest {
 									shopItem.getDescription(), 
 									shopItem.getImage(), 
 									shopItem.getQuantity(), 
-									shopItem.getValue()));
+									shopItem.getValue(),
+									shopItem.getImageType(),
+									shopItem.getImageName())
+					);
 		}
 		
 		return items;
@@ -39,6 +42,8 @@ public class ShopRest {
 	
 	@RequestMapping(value = "/api/shop/addItem", method = RequestMethod.POST)
 	ResponseEntity<?> addNewItem(@RequestBody NewShopItemDto item) {
+		System.out.println(item);
+		System.out.println(item.image);
 		if (!shopService.save(new ShopItem(item))) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
