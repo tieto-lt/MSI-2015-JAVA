@@ -18,8 +18,12 @@ public class ShopRest {
 	List<ShopItemDto> getShopItems() {
 		List<ShopItemDto> items = new ArrayList<>();
 		for (ShopItem shopItem : repository.findAll()) {
-			items.add(new ShopItemDto(shopItem.id, shopItem.name, 
-					shopItem.description, shopItem.image, shopItem.quantity, shopItem.value));
+			items.add(new ShopItemDto(shopItem.getId(), 
+									shopItem.getName(), 
+									shopItem.getDescription(), 
+									shopItem.getImage(), 
+									shopItem.getQuantity(), 
+									shopItem.getValue()));
 		}
 		
 		return items;

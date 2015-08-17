@@ -14,6 +14,7 @@
 		return {
 			getApplicationSettings: getApplicationSettings,
 			getOneTimeLimit: getOneTimeLimit,
+			getMonthlyLimit: getMonthlyLimit,
 			saveSettings: saveSettings
 	    };
 
@@ -31,6 +32,18 @@
 		    	});
 	    		
 	    		return oneTimeLimit;
+	    	});
+	    }
+	    
+	    function getMonthlyLimit() {
+	    	return getApplicationSettings().then(function(response) {
+	    		var monthlyLimit = 'test';
+	    		angular.forEach(response.data, function(setting) {
+	    			if (setting['property'] === 'monthly_limit')
+	    				monthlyLimit = setting['value'];
+	    		});
+	    		
+	    		return monthlyLimit;
 	    	});
 	    }
 	    
