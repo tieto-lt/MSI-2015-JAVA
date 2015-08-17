@@ -4,9 +4,9 @@
 	angular.module('app.adminShopAddItem').controller(
 			'AdminShopAddItemController', AdminShopAddItemController);
 
-	AdminAppSettingsController.$inject = [ 'AdminShopAddItemFactory' ];
+	AdminShopAddItemController.$inject = [ 'AdminShopAddItemFactory' ];
 
-	function AdminAppSettingsController(AdminShopAddItemFactory) {
+	function AdminShopAddItemController(AdminShopAddItemFactory) {
 		var vm = this;
 
 		vm.transferInfo = {
@@ -17,30 +17,30 @@
 			photo: ''
 		};
 
-		vm.save = save;
+//		vm.save = save;
 
 		/*
 		 * Send new monthly, one time limits to server
 		 */
-		function save() {
-			vm.successMessage = '';
-			vm.errorMessage = '';
-
-			AdminAppSettingsFactory.saveSettings(vm.transferInfo).then(
-					function() {
-						vm.successMessage = 'Transfer was successful';
-						vm.transferInfo.monthlyLimit = '';
-						vm.transferInfo.oneTimePointsLimit = '';
-						vm.settingsForm.$setPristine();
-						vm.settingsForm.$setUntouched();
-						getKarmaLimits();
-					}, function() {
-						vm.errorMessage = 'Transfer failed';
-						vm.transferInfo.monthlyLimit = '';
-						vm.transferInfo.oneTimePointsLimit = '';
-						vm.settingsForm.$setPristine();
-						getKarmaLimits();
-					})
-		}
+//		function save() {
+//			vm.successMessage = '';
+//			vm.errorMessage = '';
+//
+//			AdminAppSettingsFactory.saveSettings(vm.transferInfo).then(
+//					function() {
+//						vm.successMessage = 'Transfer was successful';
+//						vm.transferInfo.monthlyLimit = '';
+//						vm.transferInfo.oneTimePointsLimit = '';
+//						vm.settingsForm.$setPristine();
+//						vm.settingsForm.$setUntouched();
+//						getKarmaLimits();
+//					}, function() {
+//						vm.errorMessage = 'Transfer failed';
+//						vm.transferInfo.monthlyLimit = '';
+//						vm.transferInfo.oneTimePointsLimit = '';
+//						vm.settingsForm.$setPristine();
+//						getKarmaLimits();
+//					})
+//		}
 	}
 })(window.angular);
