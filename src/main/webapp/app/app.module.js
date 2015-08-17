@@ -13,6 +13,7 @@
       'app.profileHeader',
       'app.adminNavigation',
       'app.adminShop',
+      'app.adminShopAddItem',
       
       /*angular ngMessages*/
       'ngMessages',
