@@ -1,8 +1,9 @@
 (function(angular) {
 	'use strict';
 
-	angular.module('app.adminShop').controller(
-			'AdminShopController', AdminShopController);
+	angular
+		.module('app.adminShop')
+		.controller('AdminShopController', AdminShopController);
 
 	AdminShopController.$inject = ['$state'];
 
