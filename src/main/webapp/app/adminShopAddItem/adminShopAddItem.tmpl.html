@@ -56,12 +56,18 @@
 			</div>
 			<div class="add-item-photo-container">
 				<label for="add-item-photo">Photo</label>
-				<input type="file" id="add-item-photo" accept=".gif, .jpg, .png">
-
+				<input name="addItemPhoto" type="file" check-file-size="" id="add-item-photo"
+						ng-model="addItemPhoto" required valid-file accept=".gif, .jpg, .png">
+				<div class="error" ng-if="vm.fileSizeError">{{vm.fileSizeError}}</div>
+				<!-- <div class="error" ng-if="vm.addItemForm.addItemPhoto.$invalid">Field is required</div> -->
+				
+				<!--  -->
 			</div>
+			
 			<div>
 				<img src="{{vm.transferInfo.image}}">
-				<input type="submit" value="Add an item" ng-click="vm.submit()" ng-disabled="vm.addItemForm.$invalid">
+				<input type="submit" value="Add an item" ng-click="vm.submit()" 
+				ng-disabled="vm.addItemForm.$invalid || vm.fileSizeError">
 			</div>
 		</form>
 	</div>
