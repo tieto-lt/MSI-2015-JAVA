@@ -1,4 +1,4 @@
-<div class="shop-item-container">
+<div class="shop-item-container" data-ng-controller="ShopItemController as vm">
 	
 	<div class="shop-item-container-intro">
 		<div class="shop-item-container-title">
@@ -8,16 +8,7 @@
 			Karma has no menu. You get served what you deserve.
 		</div>
 	</div>
-	<div class="shop-items">
-		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
-		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
-		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
-		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
-		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
-		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
-		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
-		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
-		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
+	<div class="shop-items" ng-repeat="item in vm.shopItems">
+		<shop-item item="item" type="'shop-item'"></shop-item>
 	</div>
-	
 </div>

@@ -2,7 +2,7 @@
 	'use strict';
 	
 	angular
-		.module('app.shopItem')
+		.module('app.common')
 		.factory('ShopItemFactory', ShopItemFactory);
 	
 	ShopItemFactory.$inject = ['$http'];

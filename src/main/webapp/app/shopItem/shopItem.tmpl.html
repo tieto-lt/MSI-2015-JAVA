@@ -1,16 +1,21 @@
-<div>
+<div class="{{vm.type}}">
 	<div class="shop-item-image">
 		<img alt="sketis" src="assets/images/sketis.jpg">
 	</div>
 	<div class="shop-item-title">
-		Sketis
+		{{vm.item.name}}
 	</div>
 	<div class="shop-item-price">
 		<div class="shop-item-price-value">
-			100
+			{{vm.item.value}}
 		</div>
 		<div class="shop-item-price-logo">
 			<img alt="sketis" src="assets/images/karma_logo.png">
 		</div>
+	</div>
+	<div class="shop-item-edit" data-ng-if="vm.type === 'admin-shop-item'">
+		<md-button class="shop-item-edit-button md-raised" >
+			Edit
+		</md-button>
 	</div>
 </div>
