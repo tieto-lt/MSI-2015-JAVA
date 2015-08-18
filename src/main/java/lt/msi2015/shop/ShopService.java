@@ -13,7 +13,7 @@ public class ShopService {
 	
 	@Transactional
 	boolean save(ShopItem item) {
-		if (isImageValid(item.getImageContentType()))
+		if (isImageValid(item.getImageType()))
 			return shopRepository.save(item) != null;
 		return false;
 	}
@@ -22,12 +22,12 @@ public class ShopService {
 	ShopItemDto getShopItem(Long id) {
 		ShopItem item = shopRepository.findById(id);
 		return new ShopItemDto(item.getId(), item.getName(), item.getDescription(),
-				item.getImage(), item.getImageContentType(), item.getQuantity(), item.getValue());
+				item.getImage(), item.getQuantity(), item.getValue(), item.getImageName(), item.getImageType());
 	}
 	
 	@Transactional
 	boolean updateShopItem(ShopItemDto itemEdited) {
-		if (!isImageValid(itemEdited.imageContentType))
+		if (!isImageValid(itemEdited.imageType))
 			return false;
 		
 		updateItemInfo(itemEdited);
@@ -41,7 +41,7 @@ public class ShopService {
 		itemInDatabase.setImage(itemEdited.image);
 		itemInDatabase.setValue(itemEdited.value);
 		itemInDatabase.setQuantity(itemEdited.quantity);
-		itemInDatabase.setImageContentType(itemEdited.imageContentType);
+		itemInDatabase.setImageType(itemEdited.imageType);
 	}
 	
 	boolean isImageValid(String type) {

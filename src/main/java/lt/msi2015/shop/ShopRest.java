@@ -30,7 +30,10 @@ public class ShopRest {
 									shopItem.getDescription(), 
 									shopItem.getImage(), 
 									shopItem.getQuantity(), 
-									shopItem.getValue()));
+									shopItem.getValue(),
+									shopItem.getImageType(),
+									shopItem.getImageName())
+					);
 		}
 		
 		return items;
@@ -50,10 +53,10 @@ public class ShopRest {
 		return shopService.getShopItem(id);
 	}
 	
-	@RequestMapping(value = "api/shop/item/{id}", method = RequestMethod.POST) 
-	ResponseEntity<?> updateShopItem (@PathVariable Long id){
-		ShopItem item = repository.findById(id);
-		item.setName(item.getName());
-		return new ResponseEntity<>(null, HttpStatus.OK);
+	@RequestMapping(value = "api/shop/updateItem", method = RequestMethod.POST) 
+	ResponseEntity<?> updateShopItem (@RequestBody ShopItemDto item){
+		if (shopService.updateShopItem(item))
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
 }

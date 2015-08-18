@@ -8,21 +8,23 @@ public class ShopItemDto extends Dto {
 	public String name;
 	public String description;
 	public byte[] image;
-	public String imageContentType;
 	public Integer quantity;
 	public Integer value;
+	public String imageName;
+	public String imageType;
 	
 	public ShopItemDto() {}
 	
-	public ShopItemDto(Long id, String name, String description, byte[] image, String imageContentType, Integer quantity, Integer value) {
+	public ShopItemDto(Long id, String name, String description, 
+			byte[] image, Integer quantity, Integer value, String imageName, String imageType) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.image = image;
 		this.quantity = quantity;
 		this.value = value;
-		this.imageContentType = imageContentType;
+		this.imageName = imageName;
+		this.imageType = imageType;
 	}
-	
 	
 }

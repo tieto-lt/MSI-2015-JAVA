@@ -12,7 +12,8 @@
 		var data = [];
 		
 		return {
-			addNewShopItem: addNewShopItem
+			addNewShopItem: addNewShopItem,
+			getShopItems:   getShopItems
 	    };
 	    
 	    function addNewShopItem(transferInfo) {
@@ -20,6 +21,8 @@
 					name: transferInfo.name,
 					description: transferInfo.description,
 					image: transferInfo.image,
+					imageType: transferInfo.imageType,
+					imageName: transferInfo.imageName,
 					quantity: transferInfo.amount,
 					value: transferInfo.price
 	    	}
@@ -27,7 +30,14 @@
 		    return $http
 		    	.post('api/shop/addItem', transferObject);
 	    }
-	    
+	
+	    /*
+	     * Fucntion returns a promise to get all shop items in db
+	     */
+	    function getShopItems(){
+	    	
+	    	return $http.get('api/shop/items');
+	    }
 	}
 	
 })();

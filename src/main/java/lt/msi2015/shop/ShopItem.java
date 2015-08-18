@@ -33,8 +33,10 @@ public class ShopItem extends Dto {
 	private byte[] image;
 	
 	@NotNull
-	@Size(max=10)
-	private String imageContentType;
+	private String imageType;
+	
+	@NotNull
+	private String imageName;
 	
 	@NotNull
 	@Min(0)
@@ -50,14 +52,21 @@ public class ShopItem extends Dto {
 		super();
 	}
 
-
-	public ShopItem(String name, String description, byte[] image, String imageContentType, Integer quantity, Integer value) {
+	public ShopItem(String name,
+				String description, 
+				byte[] image, 
+				Integer quantity, 
+				Integer value, 
+				String imageName, 
+				String imageType) {
+		
 		this.name = name;
 		this.description = description;
 		this.image = image;
 		this.quantity = quantity;
 		this.value = value;
-		this.imageContentType = imageContentType;
+		this.imageName = imageName;
+		this.imageType = imageType;
 	}
 	
 	public ShopItem(NewShopItemDto newShopItemDto) {
@@ -66,7 +75,8 @@ public class ShopItem extends Dto {
 		this.image = newShopItemDto.image;
 		this.quantity = newShopItemDto.quantity;
 		this.value = newShopItemDto.value;
-		this.imageContentType = newShopItemDto.imageContentType;
+		this.imageName = newShopItemDto.imageName;
+		this.imageType = newShopItemDto.imageType;
 	}
 
 	/*
@@ -136,16 +146,23 @@ public class ShopItem extends Dto {
 	public void setValue(Integer value) {
 		this.value = value;
 	}
-
-
-	public String getImageContentType() {
-		return imageContentType;
+	
+	public String getImageType() {
+		return imageType;
 	}
 
 
-	public void setImageContentType(String imageContentType) {
-		this.imageContentType = imageContentType;
+	public void setImageType(String imageType) {
+		this.imageType = imageType;
+	}
+
+
+	public String getImageName() {
+		return imageName;
+	}
+
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}	
-	
-	
 }
