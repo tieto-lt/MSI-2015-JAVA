@@ -20,7 +20,7 @@
 	    	var transferObject = {
 					name: transferInfo.name,
 					description: transferInfo.description,
-					image: transferInfo.image,
+					image: btoa(transferInfo.image),
 					imageType: transferInfo.imageType,
 					imageName: transferInfo.imageName,
 					quantity: transferInfo.amount,

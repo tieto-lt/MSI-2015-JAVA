@@ -25,8 +25,8 @@
 			var f = document.getElementById('add-item-photo').files[0];
 			var r = new FileReader();
 			
-			vm.imageName = f.name;
-			vm.imageType = f.type;
+			vm.transferInfo.imageName = f.name;
+			vm.transferInfo.imageType = f.type;
 			
 			r.onload = function(e) {
 				vm.transferInfo.image = e.target.result;
