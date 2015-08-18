@@ -13,7 +13,7 @@ public class ShopService {
 	
 	@Transactional
 	boolean save(ShopItem item) {
-		if (isImageValid(item.getImageType()))
+		if (imageIsValid(item.getImageType()))
 			return shopRepository.save(item) != null;
 		return false;
 	}
@@ -27,7 +27,7 @@ public class ShopService {
 	
 	@Transactional
 	boolean updateShopItem(ShopItemDto itemEdited) {
-		if (!isImageValid(itemEdited.imageType))
+		if (!imageIsValid(itemEdited.imageType))
 			return false;
 		
 		updateItemInfo(itemEdited);
@@ -44,7 +44,7 @@ public class ShopService {
 		itemInDatabase.setImageType(itemEdited.imageType);
 	}
 	
-	boolean isImageValid(String type) {
-		return (type == "image/jpeg") || (type == "image/png") || (type == "image/gif");
+	boolean imageIsValid(String type) {
+		return (type.equals("image/jpeg")) || (type.equals("image/png")) || (type.equals("image/gif"));
 	}
 }
