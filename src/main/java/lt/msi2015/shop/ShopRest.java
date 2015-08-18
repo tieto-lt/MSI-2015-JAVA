@@ -49,7 +49,7 @@ public class ShopRest {
 	}
 	
 
-	@RequestMapping(value = "/api/shop/deleteItem/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/shop/deleteItem/{id}", method = RequestMethod.DELETE)
 	boolean deleteItem(@PathVariable Long id) {
 		if(shopRepository.findById(id) == null){
 			return false;

@@ -13,7 +13,8 @@
 		
 		return {
 			addNewShopItem: addNewShopItem,
-			getShopItems:   getShopItems
+			getShopItems:   getShopItems,
+			deleteItem:     deleteItem
 	    };
 	    
 	    function addNewShopItem(transferInfo) {
@@ -32,11 +33,17 @@
 	    }
 	
 	    /*
-	     * Fucntion returns a promise to get all shop items in db
+	     * Function returns a promise to get all shop items in db
 	     */
 	    function getShopItems(){
 	    	
 	    	return $http.get('api/shop/items');
+	    }
+	    
+	    
+	    function deleteItem(id){
+	    	
+	    	return $http.delete('api/shop/deleteItem/' + id.toString());
 	    }
 	}
 	
