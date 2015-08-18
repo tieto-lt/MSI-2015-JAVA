@@ -1,12 +1,15 @@
 
-.shop-item {
+.shop-item, .admin-shop-item {
 	width: 160px;
-	height: 220px;
 /* 	background-color: #BDBDBD; */
 	margin: 15px;
 	display: inline-block;
 	border-radius: 10px;
  	box-shadow: 1px 1px 5px #AAA; 
+}
+
+.shop-item {
+	height: 220px;
 }
 
 .shop-item-container {
@@ -72,3 +75,17 @@
 	font-size: 0.8em;
 	font-style: italic;
 }
+
+ .shop-item-edit-button {
+ 	min-height: auto;
+ 	line-height: inherit;	
+ }
+ 
+ .shop-item-edit {
+ 	width: 100%;
+ 	text-align: center;
+ }
+ 
+ .admin-shop-item {
+ 	height: 260px;
+ }
