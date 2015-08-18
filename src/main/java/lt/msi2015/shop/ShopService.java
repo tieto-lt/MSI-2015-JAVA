@@ -13,8 +13,10 @@ public class ShopService {
 	
 	@Transactional
 	boolean save(ShopItem item) {
-		if (imageIsValid(item.getImageType()))
+		if (imageIsValid(item.getImageType())) {
 			return shopRepository.save(item) != null;
+		}
+		
 		return false;
 	}
 	
@@ -27,21 +29,25 @@ public class ShopService {
 	
 	@Transactional
 	boolean updateShopItem(ShopItemDto itemEdited) {
-		if (!imageIsValid(itemEdited.imageType))
+		if (!imageIsValid(itemEdited.imageType)) {
 			return false;
+		}
 		
-		updateItemInfo(itemEdited);
-		return true;
+		return updateItemInfo(itemEdited);
 	}
 	
-	private void updateItemInfo(ShopItemDto itemEdited) {
+	private boolean updateItemInfo(ShopItemDto itemEdited) {
 		ShopItem itemInDatabase = shopRepository.findById(itemEdited.id);
-		itemInDatabase.setName(itemEdited.name);
-		itemInDatabase.setDescription(itemEdited.description);
-		itemInDatabase.setImage(itemEdited.image);
-		itemInDatabase.setValue(itemEdited.value);
-		itemInDatabase.setQuantity(itemEdited.quantity);
-		itemInDatabase.setImageType(itemEdited.imageType);
+		if (itemInDatabase != null) {
+			itemInDatabase.setName(itemEdited.name);
+			itemInDatabase.setDescription(itemEdited.description);
+			itemInDatabase.setImage(itemEdited.image);
+			itemInDatabase.setValue(itemEdited.value);
+			itemInDatabase.setQuantity(itemEdited.quantity);
+			itemInDatabase.setImageType(itemEdited.imageType);
+			return shopRepository.save(itemInDatabase) != null;
+		}
+		return false;
 	}
 	
 	boolean imageIsValid(String type) {
