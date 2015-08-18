@@ -39,7 +39,7 @@
 				
 			}
 			r.readAsDataURL(f);
-			//r.readAsBinaryString(f);
+//			r.readAsBinaryString(f);
 		}
 
 //		vm.save = save;
