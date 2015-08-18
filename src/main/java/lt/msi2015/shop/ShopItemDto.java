@@ -27,5 +27,4 @@ public class ShopItemDto extends Dto {
 		this.imageType = imageType;
 	}
 	
-	
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.Authentication;
@@ -67,6 +69,7 @@ public class UserService {
 	 * Quartz monthly points_to_give reset to application_settings value
 	 */
 	@Scheduled(cron = "1 0 0 1 * *")
+	@Transactional
 	public void resetUserPointsToGiveEachMonth() {
 		//System.out.println("Ivyko: " + new Date());
 	
@@ -82,6 +85,7 @@ public class UserService {
 		}
 	}
 	
+	@Transactional
 	public List<UserAutocompleteDto> getUsersOnly() {
 		
 		List<User> userList = repo.findAll();

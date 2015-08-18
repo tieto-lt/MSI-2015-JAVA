@@ -1,5 +1,21 @@
-<div class="admin-shop-container" ng-controller="NavigationController as vm">
-	<input type="submit" value="Add new item" ng-click="vm.changePage('adminPage.addItem')">
-		
-	<div ui-view></div>
+<div class="admin-shop-container" ng-controller="NavigationController as vm">		
+	<div class="shop-item-container-intro">
+		<div class="shop-item-container-title">
+			Manage Tieto Shop
+		</div>
+			<md-button class="add-new-item-button md-raised" type="button" 
+				ng-click="vm.changePage('adminPage.addItem')">	
+				Add new item
+			</md-button>	
+	</div>
+	<div class="shop-items">
+		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
+		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
+		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
+		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
+		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
+		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
+		<data-ng-include src="'app/userShop/userShopItem.tmpl.html'"></data-ng-include>
+	</div>
+	
 </div>

@@ -6,18 +6,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import lt.msi2015.applicationSettings.ApplicationSetting;
-
 @RestController
 public class ShopRest {
 	
 	@Autowired
-	private ShopRepository repository;
+	private ShopRepository shopRepository;
 	
 	@Autowired
 	private ShopService shopService;
@@ -25,7 +24,7 @@ public class ShopRest {
 	@RequestMapping(value = "/api/shop/items", method = RequestMethod.GET)
 	List<ShopItemDto> getShopItems() {
 		List<ShopItemDto> items = new ArrayList<>();
-		for (ShopItem shopItem : repository.findAll()) {
+		for (ShopItem shopItem : shopRepository.findAll()) {
 			items.add(new ShopItemDto(shopItem.getId(), 
 									shopItem.getName(), 
 									shopItem.getDescription(), 
@@ -42,12 +41,34 @@ public class ShopRest {
 	
 	@RequestMapping(value = "/api/shop/addItem", method = RequestMethod.POST)
 	ResponseEntity<?> addNewItem(@RequestBody NewShopItemDto item) {
-		System.out.println(item);
-		System.out.println(item.image);
 		if (!shopService.save(new ShopItem(item))) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 		
 		return new ResponseEntity<>(null, HttpStatus.OK);
+	}
+	
+
+	@RequestMapping(value = "/api/shop/deleteItem/{id}", method = RequestMethod.DELETE)
+	boolean deleteItem(@PathVariable Long id) {
+		if(shopRepository.findById(id) == null){
+			return false;
+		} else {
+			shopRepository.delete(id);
+			return true;
+		}
+	}
+
+	@RequestMapping(value = "api/shop/item/{id}", method = RequestMethod.GET) 
+	ShopItemDto getShopItem (@PathVariable Long id){
+		return shopService.getShopItem(id);
+	}
+	
+	@RequestMapping(value = "api/shop/updateItem", method = RequestMethod.POST) 
+	ResponseEntity<?> updateShopItem (@RequestBody ShopItemDto item){
+		if (shopService.updateShopItem(item))
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
 	}
 }

@@ -12,7 +12,8 @@ public class NewShopItemDto {
 
 	public NewShopItemDto() {}
 
-	public NewShopItemDto(String name, String description, byte[] image, Integer quantity, Integer value, String imageName, String imageType) {
+	public NewShopItemDto(String name, String description, byte[] image,
+				Integer quantity, Integer value, String imageName, String imageType) {
 			this.name = name;
 			this.description = description;
 			this.image = image;

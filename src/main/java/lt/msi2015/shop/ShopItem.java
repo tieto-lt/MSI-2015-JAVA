@@ -52,7 +52,6 @@ public class ShopItem extends Dto {
 		super();
 	}
 
-
 	public ShopItem(String name,
 				String description, 
 				byte[] image, 
@@ -147,8 +146,7 @@ public class ShopItem extends Dto {
 	public void setValue(Integer value) {
 		this.value = value;
 	}
-
-
+	
 	public String getImageType() {
 		return imageType;
 	}
@@ -167,5 +165,4 @@ public class ShopItem extends Dto {
 	public void setImageName(String imageName) {
 		this.imageName = imageName;
 	}	
-	
 }
