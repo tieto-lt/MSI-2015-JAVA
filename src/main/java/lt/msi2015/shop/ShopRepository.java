@@ -9,4 +9,5 @@ public interface ShopRepository extends Repository<ShopItem, Long> {
 	ShopItem save(ShopItem item);
 	ShopItem findById(Long id);
 	ShopItem delete(Long id);
+
 }

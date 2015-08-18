@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -31,7 +30,10 @@ public class ShopRest {
 									shopItem.getDescription(), 
 									shopItem.getImage(), 
 									shopItem.getQuantity(), 
-									shopItem.getValue()));
+									shopItem.getValue(),
+									shopItem.getImageType(),
+									shopItem.getImageName())
+					);
 		}
 		
 		return items;
@@ -46,6 +48,7 @@ public class ShopRest {
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 	
+
 	@RequestMapping(value = "/api/shop/deleteItem/{id}", method = RequestMethod.GET)
 	boolean deleteItem(@PathVariable Long id) {
 		if(shopRepository.findById(id) == null){
@@ -54,5 +57,18 @@ public class ShopRest {
 			shopRepository.delete(id);
 			return true;
 		}
+	}
+
+	@RequestMapping(value = "api/shop/item/{id}", method = RequestMethod.GET) 
+	ShopItemDto getShopItem (@PathVariable Long id){
+		return shopService.getShopItem(id);
+	}
+	
+	@RequestMapping(value = "api/shop/updateItem", method = RequestMethod.POST) 
+	ResponseEntity<?> updateShopItem (@RequestBody ShopItemDto item){
+		if (shopService.updateShopItem(item))
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+
 	}
 }
