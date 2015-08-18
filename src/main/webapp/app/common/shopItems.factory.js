@@ -2,7 +2,7 @@
 	'use strict';
 	
 	angular
-		.module('app.adminShopAddItem')
+		.module('app.shopItem')
 		.factory('ShopItemFactory', ShopItemFactory);
 	
 	ShopItemFactory.$inject = ['$http'];
@@ -15,7 +15,8 @@
 			addNewShopItem: addNewShopItem,
 			getShopItems:   getShopItems,
 			deleteItem:     deleteItem,
-			updateItem: 	updateItem
+			updateItem: 	updateItem,
+			getShopItem:	getShopItem
 	    };
 	    
 	    function addNewShopItem(transferInfo) {
@@ -61,6 +62,9 @@
 		    return $http.post('api/shop/updateItem', transferObject);
 	    }
 	
+	    function getShopItem(id) {
+	    	return $http.get('api/shop/item/' + id);
+	    }
 	}
 	
 })();
