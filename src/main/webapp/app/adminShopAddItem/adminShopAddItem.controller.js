@@ -14,12 +14,13 @@
 			price : 400,
 			amount: 20,
 			description: 'Whooohooo',
-			image: '',
-			imageName: '',
-			imageType: ''
+			image: ["a","b"],
+			imageName: 'marius',
+			imageType: 'image/png'
 		};
 		
 		vm.submit = submit;
+		vm.updateItem = updateItem;
 
 		function submit() {
 			var f = document.getElementById('add-item-photo').files[0];
@@ -41,6 +42,11 @@
 			r.readAsDataURL(f);
 //			r.readAsBinaryString(f);
 		}
+		
+		function updateItem(){
+			ShopItemFactory.updateItem(vm.transferInfo);
+		}
+		
 
 //		vm.save = save;
 
