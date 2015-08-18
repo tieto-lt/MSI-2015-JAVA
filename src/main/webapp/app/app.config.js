@@ -96,6 +96,10 @@
 		    	url: "/userShop",
 		    	templateUrl: "app/userShop/userShop.tmpl.html"
 		    })
+		    .state('userPage.item', {
+		    	url: "/item",
+		    	templateUrl: "app/itemDescription/itemDescription.tmpl.html"
+		    })
 		    .state('userPage.home', {
 		    	url: "/userHome",
 		    	templateUrl: "app/userHome/userHome.tmpl.html"
