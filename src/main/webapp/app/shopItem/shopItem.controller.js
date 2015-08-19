@@ -14,8 +14,7 @@
     
     vm.decodeImage = decodeImage;
     vm.showBuyConfirmation = showBuyConfirmation;
-
-//    vm.shopItem = ShopItemFactory.getShopItem($routeParams.id);
+    
     vm.shopItems = [];
     ShopItemFactory.getShopItems().then(function (response) {
     	vm.shopItems = response.data;
@@ -26,8 +25,15 @@
     }
     
     function showBuyConfirmation(item, event) {
+    	/*
+    	 * Reikia pasikurti geriau factory metoda, kuris sukurti visa sita dialog reikala, pvz: 
+    	 */
+    	/*function okClick () {
+    		...
+    	}
+    	mymodal.show({item: item}, template, okClick, cancelClick);*/
     	var options = {
-    		controller: function BuyItemDialogController($mdDialog, item, ItemDescriptionFactory, ProfileHeaderFactory) {
+    		controller: function BuyItemDialogController($mdDialog, ItemDescriptionFactory, ProfileHeaderFactory) {
     			var vm = this;
     			
     			vm.ok = function () {
@@ -51,19 +57,6 @@
     	};
     	
     	$mdDialog.show(options);
-    	
-        /*var confirm = $mdDialog.confirm()
-              .title('Confirm your purchase')
-              .content('Are you sure you want to spend ' + item.value + ' karma points on ' + item.name + '?')
-              .ok('No')
-              .cancel('Yes')
-              .ariaLabel('qweqweqweqwe')
-              .targetEvent(event);
-        $mdDialog.show(confirm).then(function() {
-          //NO
-        }, function() {
-          //YEs
-        });*/
     }
   }
   

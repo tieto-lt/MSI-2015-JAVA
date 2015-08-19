@@ -97,3 +97,8 @@
 .user-home-inlcude.leaderboard{
 	width: 250px;
 }
+
+.user-profile-inlcude.news-feed {
+    height: 400px;
+    width: calc(100% - 250px);
+}

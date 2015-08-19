@@ -62,17 +62,17 @@
 					<div class="error" ng-message="maxlength">Too many symbols</div>
 				</div>
 				<div class="add-item-photo-container">
-					<label for="add-item-photo">Photo</label>
+					<label for="add-item-photo">Photo (Only .gif, .jpg, .png formats max. 2 mb)</label>
 					<input name="addItemPhoto" type="file" check-file-size="" id="add-item-photo"
 							ng-model="addItemPhoto" valid-file accept=".gif, .jpg, .png">
 					<div class="error" ng-if="vm.fileSizeError">{{vm.fileSizeError}}</div>
 					<!-- <div class="error" ng-if="vm.addItemForm.addItemPhoto.$invalid">Field is required</div> -->
 				</div>
 				
-				<div>
+				<div data-ng-controller="NavigationController as nav">
 					<md-button class="md-raised" ng-click="vm.updateItem()" 
 					ng-disabled="vm.addItemForm.$invalid || vm.fileSizeError">Save</md-button>
-					<md-button class="md-raised" ng-click="vm.deleteItem()">Delete item</md-button>
+					<md-button class="md-raised" ng-click="vm.showDeleteConfirmation($events, nav.changePage, vm.transferInfo)">Delete item</md-button>
 				</div>
 			</form>
 		</div>

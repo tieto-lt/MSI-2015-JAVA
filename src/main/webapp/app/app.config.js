@@ -96,6 +96,10 @@
 		            }]        
 		         }    
 		    })
+		    .state('userPage.profile', {
+		    	url: "/userProfile",
+		    	templateUrl: "app/userProfile/userProfile.tmpl.html"
+		    })
 		    .state('userPage.shop', {
 		    	url: "/userShop",
 		    	templateUrl: "app/userShop/userShop.tmpl.html"

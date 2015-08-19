@@ -4,9 +4,9 @@
 	angular.module('app.adminShopAddItem').controller(
 			'AdminShopAddItemController', AdminShopAddItemController);
 
-	AdminShopAddItemController.$inject = [ 'ShopItemFactory', '$stateParams', '$state', '$scope' ];
+	AdminShopAddItemController.$inject = [ 'ShopItemFactory', '$stateParams', '$state', '$scope',  '$mdDialog' ];
 
-	function AdminShopAddItemController(ShopItemFactory, $stateParams, $state, $scope) {
+	function AdminShopAddItemController(ShopItemFactory, $stateParams, $state, $scope, $mdDialog) {
 		var vm = this;
 
 		vm.transferInfo = {
@@ -29,6 +29,7 @@
 		vm.updateItem = updateItem;
 		vm.deleteItem = deleteItem;
 		vm.updatePicture = updatePicture;
+		vm.showDeleteConfirmation = showDeleteConfirmation;
 
 		function updatePicture() {
 			var f = document.getElementById('add-item-photo').files[0];
@@ -109,6 +110,35 @@
 		function deleteItem() {
 			ShopItemFactory.deleteItem(vm.id);
 		}
+		
+		function showDeleteConfirmation(event, redirectAction, item) {
+	    	var options = {
+	    		controller: function DeleteItemDialogController($mdDialog, ShopItemFactory) {
+	    			var vm = this;
+	    			
+	    			vm.ok = function () {
+	    				ShopItemFactory.deleteItem(vm.item.id).then(function() {
+	    					$mdDialog.hide();
+	    					redirectAction('adminPage.shop');
+	    				});
+	    			}
+	    			vm.cancel = function () {
+	    				$mdDialog.cancel();
+	    			}
+	    		},
+	    		controllerAs: 'vm',
+	    		locals: {
+	    			item: item
+	    		},
+	    		bindToController: true,
+	    		parent: angular.element(document.body),
+	    		targetEvent: event,
+	    		templateUrl: 'app/deleteItemDialog/deleteItemDialog.tmpl.html'
+	    	};
+	    	
+	    	$mdDialog.show(options);
+	    }
+		
 //		vm.save = save;
 
 		/*
