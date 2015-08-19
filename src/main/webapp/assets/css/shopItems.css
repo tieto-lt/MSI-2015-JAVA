@@ -4,8 +4,14 @@
 	margin: 15px;
 	display: inline-block;
 	border-radius: 10px;
- 	box-shadow: 1px 1px 5px #AAA; 
+ 	box-shadow: 1px 1px 15px #AAA; 
  	height: 220px;
+}
+
+.shop-item:hover, .admin-shop-item:hover {
+ 	box-shadow: 1px 1px 3px #AAA; 
+ 	-webkit-transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s;
 }
 
 .shop-item-container {
