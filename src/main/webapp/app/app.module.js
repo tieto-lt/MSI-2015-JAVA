@@ -14,6 +14,7 @@
       'app.navigation',
       'app.adminShopAddItem',
       'app.shopItem',
+      'app.itemDescription',
       
       /*angular ngMessages*/
       'ngMessages',
