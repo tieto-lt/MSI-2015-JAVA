@@ -1,0 +1,32 @@
+.item-description-container > div {
+	display: inline-block;
+	width: 50%;
+	height: 500px;
+	vertical-align:top;
+	padding-top: 30px;
+}
+
+.item-Name {
+	font-size: 30px;
+}
+
+.item-amount {
+	padding-bottom: 30px;
+}
+
+.item-description {
+	padding-top: 15px;
+}
+
+.item-description {
+	padding-bottom: 30px;
+}
+
+.item-photo-block {
+	text-align: center
+}
+
+.item-image {
+	width: 80%;
+	height: 100%;
+}

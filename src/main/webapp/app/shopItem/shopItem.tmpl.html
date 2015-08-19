@@ -1,8 +1,8 @@
-<div class="{{vm.type}}">
+<div class="{{vm.type}}" ng-controller="NavigationController as nav">
 	<div class="shop-item-image">
 		<img alt="sketis" src="assets/images/sketis.jpg">
 	</div>
-	<div class="shop-item-title">
+	<div class="shop-item-title" ng-click="nav.changePage('userPage.item')">
 		{{vm.item.name}}
 	</div>
 	<div class="shop-item-price">
