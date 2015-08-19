@@ -8,8 +8,13 @@
 					      elem[0].addEventListener('change', function() {
 					    	  scope.vm.fileSizeError = '';
 					    	  scope.$apply();
+					    	  var type = this.files[0].type;
 					    	  if(this.files[0].size > 200000) {
 					    		  scope.vm.fileSizeError = "Max 2mb";
+					    		  scope.$apply();
+					    	  } else if(type != "image/jpeg" && type != "image/png" &&
+					    			  	type != "image/jpg" && type != "image/gif") {
+					    		  scope.vm.fileSizeError = "Only .jpg, .png, .gif supported";
 					    		  scope.$apply();
 					    	  }
 					      }, false);
