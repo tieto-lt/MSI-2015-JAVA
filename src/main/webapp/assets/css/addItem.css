@@ -6,4 +6,13 @@
 .add-item-photo-container {
 	padding-top: 10px;
 	padding-bottom: 10px;
+	display: inline-block;
+}
+
+/* Edit item container */
+
+.edit-item-picture-container {
+	background-color: green;
+	width: 300px;
+	display: inline-block;
 }

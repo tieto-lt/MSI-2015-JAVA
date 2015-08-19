@@ -71,6 +71,10 @@
 		    	url: "/addItem",
 		    	templateUrl: "app/adminShopAddItem/adminShopAddItem.tmpl.html"
 		    })
+		    .state('adminPage.editItem', {
+		    	url: "/editItem",
+		    	templateUrl: "app/adminShopEditItem/adminShopEditItem.tmpl.html"
+		    })
 		    .state('userPage', {
 		    	url: "/user",
 		    	templateUrl: "userPage.tmpl.html",

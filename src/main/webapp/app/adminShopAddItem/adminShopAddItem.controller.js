@@ -18,9 +18,9 @@
 			imageName: 'marius',
 			imageType: 'image/png'
 		};
-		
+
 		vm.submit = submit;
-		vm.updateItem = updateItem;
+		vm.getEditItem = getEditItem;
 
 		function submit() {
 			var f = document.getElementById('add-item-photo').files[0];
@@ -40,13 +40,21 @@
 				
 			}
 			r.readAsDataURL(f);
-//			r.readAsBinaryString(f);
 		}
 		
-		function updateItem(){
-			ShopItemFactory.updateItem(vm.transferInfo);
+		function getEditItem(id) {
+			ShopItemFactory.getShopItem(id).then(function(response) {
+				vm.transferInfo = {
+						name : response.data.name,
+						price : response.data.value,
+						amount: response.data.quantity,
+						description: response.data.description,
+						image:  response.data.image,
+						imageName: response.data.imageName,
+						imageType: response.data.imageType
+				};
+			});
 		}
-		
 
 //		vm.save = save;
 

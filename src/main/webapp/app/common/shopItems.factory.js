@@ -2,7 +2,7 @@
 	'use strict';
 	
 	angular
-		.module('app.shopItem')
+		.module('app.common')
 		.factory('ShopItemFactory', ShopItemFactory);
 	
 	ShopItemFactory.$inject = ['$http'];
@@ -43,7 +43,6 @@
 	    }
 	    
 	    function deleteItem(id){
-	    	
 	    	return $http.delete('api/shop/deleteItem/' + id.toString());
 	    }
 	    
