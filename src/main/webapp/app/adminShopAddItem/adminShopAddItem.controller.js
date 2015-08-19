@@ -21,6 +21,7 @@
 
 		vm.submit = submit;
 		vm.getEditItem = getEditItem;
+		vm.update = update;
 
 		function submit() {
 			var f = document.getElementById('add-item-photo').files[0];
@@ -42,11 +43,38 @@
 			r.readAsDataURL(f);
 		}
 		
+		function update() {
+			var f = document.getElementById('add-item-photo').files[0];
+			
+			if (f) {
+				var r = new FileReader();
+				
+				vm.transferInfo.imageName = f.name;
+				vm.transferInfo.imageType = f.type;
+			
+				r.onload = function(e) {
+						vm.transferInfo.image = e.target.result;
+					// send you binary data via $http or $resource or do anything
+					// else with it
+					ShopItemFactory.updateItem(vm.transferInfo).then(function() {
+						
+					})
+				}
+				
+				r.readAsDataURL(f);
+			} else {
+				ShopItemFactory.updateItem(vm.transferInfo).then(function() {
+					
+				});
+			}	
+		}
+		
 		function getEditItem(id) {
 			ShopItemFactory.getShopItem(id).then(function(response) {
 				vm.transferInfo = {
-						name : response.data.name,
-						price : response.data.value,
+						id: response.data.id,
+						name: response.data.name,
+						price: response.data.value,
 						amount: response.data.quantity,
 						description: response.data.description,
 						image:  atob(response.data.image),
