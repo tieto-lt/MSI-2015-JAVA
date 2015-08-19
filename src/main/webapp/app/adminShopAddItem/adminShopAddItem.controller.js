@@ -10,10 +10,10 @@
 		var vm = this;
 
 		vm.transferInfo = {
-			name : 'Umbrella',
-			price : 400,
-			amount: 20,
-			description: 'Whooohooo',
+			name : '',
+			price : '',
+			amount: '',
+			description: '',
 			image: '',
 			imageName: '',
 			imageType: ''
