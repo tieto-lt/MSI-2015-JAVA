@@ -1,8 +1,8 @@
 package lt.msi2015.pointsTransferInfo;
 
-import java.util.Date;
+import lt.msi2015.util.Dto;
 
-public class ExistingPointsTransferInfoDto {
+public class ExistingPointsTransferInfoDto extends Dto {
 
 	private Long id;
 	private Long fromUserID;

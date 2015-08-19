@@ -1,15 +1,17 @@
 
 .shop-item, .admin-shop-item {
 	width: 160px;
-/* 	background-color: #BDBDBD; */
 	margin: 15px;
 	display: inline-block;
 	border-radius: 10px;
- 	box-shadow: 1px 1px 5px #AAA; 
+ 	box-shadow: 1px 1px 15px #AAA; 
+ 	height: 220px;
 }
 
-.shop-item {
-	height: 220px;
+.shop-item:hover, .admin-shop-item:hover {
+ 	box-shadow: 1px 1px 3px #AAA; 
+ 	-webkit-transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s;
 }
 
 .shop-item-container {
@@ -44,19 +46,16 @@
     color: gray;
 } 
 
-.shop-item-price{
-	margin: 0px 10px 5px 10px;
+.shop-item-price {
+	margin-bottom: 5px;
 	text-align: center;
 	font-weight: bold;
+	display: inline-block;
 }
 
 .shop-item-price > * {
 	display:inline-block;
 	vertical-align: middle;
-}
-
-.shop-item-buy-button {
-	margin: 0px 10px 5px 10px;
 }
 
 .shop-item-price img {
@@ -80,16 +79,20 @@
 	font-style: italic;
 }
 
- .shop-item-edit-button {
+ .shop-item-edit-button, .shop-item-buy-button {
  	min-height: auto;
  	line-height: inherit;	
+ 	margin-bottom: 5px;
+	min-width: auto;
  }
  
- .shop-item-edit {
+ .shop-item-edit, .shop-item-buy {
  	width: 100%;
  	text-align: center;
+ 	display: inline-block;
+ 	width: 50px;
  }
  
- .admin-shop-item {
- 	height: 260px;
+ .shop-item-bottom-container {
+ 	text-align: center;
  }
