@@ -11,6 +11,6 @@
 		</div>
 	</div>
 	<div class="shop-items" data-ng-controller="ShopItemController as vm">
-		<shop-item item="item" type="'admin-shop-item'" ng-repeat="item in vm.shopItems"></shop-item>
+		<shop-item item="item" type="'admin-shop-item'" ng-repeat="item in vm.shopItems | orderBy:'-dateAdded'"></shop-item>
 	</div>
 </div>

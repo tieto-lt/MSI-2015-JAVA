@@ -1,5 +1,7 @@
 package lt.msi2015.shop;
 
+import java.util.Date;
+
 import lt.msi2015.util.Dto;
 
 public class ShopItemDto extends Dto {
@@ -12,11 +14,12 @@ public class ShopItemDto extends Dto {
 	public Integer value;
 	public String imageName;
 	public String imageType;
+	public Date dateAdded;
 	
 	public ShopItemDto() {}
 	
 	public ShopItemDto(Long id, String name, String description, 
-			byte[] image, Integer quantity, Integer value, String imageName, String imageType) {
+			byte[] image, Integer quantity, Integer value, String imageName, String imageType, Date dateAdded) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -25,6 +28,7 @@ public class ShopItemDto extends Dto {
 		this.value = value;
 		this.imageName = imageName;
 		this.imageType = imageType;
+		this.dateAdded = dateAdded;
 	}
 	
 }

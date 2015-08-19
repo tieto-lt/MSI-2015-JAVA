@@ -1,5 +1,7 @@
 package lt.msi2015.shop;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -48,6 +50,9 @@ public class ShopItem extends Dto {
 	@Max(9999)
 	private Integer value;
 	
+	@NotNull
+	private Date dateAdded;
+	
 	public ShopItem() {
 		super();
 	}
@@ -67,6 +72,8 @@ public class ShopItem extends Dto {
 		this.value = value;
 		this.imageName = imageName;
 		this.imageType = imageType;
+		this.dateAdded = new Date();
+		
 	}
 	
 	public ShopItem(NewShopItemDto newShopItemDto) {
@@ -76,7 +83,9 @@ public class ShopItem extends Dto {
 		this.quantity = newShopItemDto.quantity;
 		this.value = newShopItemDto.value;
 		this.imageName = newShopItemDto.imageName;
-		this.imageType = newShopItemDto.imageType;
+		this.imageType = newShopItemDto.
+				imageType;
+		this.dateAdded = new Date();
 	}
 
 	/*
@@ -164,5 +173,15 @@ public class ShopItem extends Dto {
 
 	public void setImageName(String imageName) {
 		this.imageName = imageName;
+	}
+
+	public Date getDateAdded() {
+		return dateAdded;
+	}
+
+	public void setDateAdded(Date dateAdded) {
+		this.dateAdded = dateAdded;
 	}	
+	
+	
 }

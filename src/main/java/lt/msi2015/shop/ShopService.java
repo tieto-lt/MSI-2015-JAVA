@@ -25,7 +25,7 @@ public class ShopService {
 		ShopItem item = shopRepository.findById(id);
 		if (item != null) {
 			return new ShopItemDto(item.getId(), item.getName(), item.getDescription(),
-					item.getImage(), item.getQuantity(), item.getValue(), item.getImageName(), item.getImageType());
+					item.getImage(), item.getQuantity(), item.getValue(), item.getImageName(), item.getImageType(), item.getDateAdded());
 		}
 		return null;
 	}

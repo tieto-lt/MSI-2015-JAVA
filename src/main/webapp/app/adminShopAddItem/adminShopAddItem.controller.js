@@ -102,7 +102,8 @@
 						description: response.data.description,
 						image:  atob(response.data.image),
 						imageName: response.data.imageName,
-						imageType: response.data.imageType
+						imageType: response.data.imageType,
+						dateAdded: response.data.dateAdded
 				};
 			});
 		}

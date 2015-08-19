@@ -32,7 +32,8 @@ public class ShopRest {
 									shopItem.getQuantity(), 
 									shopItem.getValue(),
 									shopItem.getImageType(),
-									shopItem.getImageName())
+									shopItem.getImageName(),
+									shopItem.getDateAdded())
 					);
 		}
 		
