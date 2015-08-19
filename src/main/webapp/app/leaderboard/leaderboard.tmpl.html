@@ -1,5 +1,7 @@
-<div data-ng-controller="LeaderboardController as vm" >
-	<h4 class="leaderbordH4">Leaders of the month</h4>
+<div class="leaderboard-container" data-ng-controller="LeaderboardController as vm" >
+	<div class="leaderboard-title">
+		Leaders of the month
+	</div>
 	<div ng-if="!vm.leaders.length"><center>Keep calm and wait for karma...</center></div>
 	<table id="leaderboard-table" ng-if="vm.leaders.length">
 		<thead>

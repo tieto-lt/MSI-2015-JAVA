@@ -1,3 +1,7 @@
+.white-bg {
+	background-color: white;
+}
+
 * {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -113,10 +117,15 @@ md-input-container {
 	text-align: center;
 }
 
+.leaderboard-container {
+	background-color: white;
+}
+
 #leaderboard-table tbody td {
 	padding-bottom: 7px;
 	padding-top: 7px;
-	border-collapse: collapmargin: 0 auto;se;
+	border-collapse: collap
+	margin: 0 auto;
 	border-bottom: solid 1px #d2d2d2;
 	text-align: left;
 }
@@ -219,4 +228,34 @@ header.login-header > span {
 
 #points-form .success-block {
 	margin-top: 15px;
+}
+
+.leaderboard-title {
+	text-align: center;
+	color:#F78D2D;
+	font-size: 20px;
+	padding-bottom: 15px;
+	padding-top: 10px;
+}
+
+.transfer-info-form-title {
+	color: #F78D2D;
+	font-size: 20px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+#container {
+/* 	background-image: url("../images/background.jpg"); */
+	background-color: white;
+}
+
+.points-form-container {
+	box-shadow: 1px 1px 3px #888888;
+	padding: 5px 15px;
+	background: white;
+}
+
+.points-form-main {
+	padding-left: 10px;
 }
