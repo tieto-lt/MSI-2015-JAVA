@@ -23,8 +23,11 @@ public class ShopService {
 	@Transactional
 	ShopItemDto getShopItem(Long id) {
 		ShopItem item = shopRepository.findById(id);
-		return new ShopItemDto(item.getId(), item.getName(), item.getDescription(),
-				item.getImage(), item.getQuantity(), item.getValue(), item.getImageName(), item.getImageType());
+		if (item != null) {
+			return new ShopItemDto(item.getId(), item.getName(), item.getDescription(),
+					item.getImage(), item.getQuantity(), item.getValue(), item.getImageName(), item.getImageType());
+		}
+		return null;
 	}
 	
 	@Transactional

@@ -1,9 +1,28 @@
 .add-item-container {
 	width: 60%;
 	margin: 0 auto;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .add-item-photo-container {
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+
+/* Edit item container */
+
+.edit-item-picture-container {
+	width: 300px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.edit-item-picture-inside-container {
+	width: 250px;
+	align: center;
+}
+
+.edit-item-picture {
+	width: 250px;
 }

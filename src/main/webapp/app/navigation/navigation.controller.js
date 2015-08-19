@@ -11,12 +11,18 @@
     var vm = this;
 
     vm.changePage = changePage;
-           vm.currentPage = $state.current.name;
-        
-        function changePage(state) {
-                  vm.currentPage = state;
-                  $state.go(state);
-        }
+    vm.currentPage = $state.current.name;
+    vm.changePageWithParams = changePageWithParams;
+
+	function changePage(state) {
+	      vm.currentPage = state;
+	      $state.go(state);
+	}
+	
+	function changePageWithParams(state, params) {
+		vm.currentPage = state;
+	    $state.go(state, params);
+	}
 
     
 }

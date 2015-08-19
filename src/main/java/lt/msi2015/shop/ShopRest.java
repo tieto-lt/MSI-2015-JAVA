@@ -60,8 +60,11 @@ public class ShopRest {
 	}
 
 	@RequestMapping(value = "api/shop/item/{id}", method = RequestMethod.GET) 
-	ShopItemDto getShopItem (@PathVariable Long id){
-		return shopService.getShopItem(id);
+	ResponseEntity<ShopItemDto> getShopItem (@PathVariable Long id){
+		ShopItemDto item = shopService.getShopItem(id);
+		if (item != null)
+			return new ResponseEntity<>(item, HttpStatus.OK);
+		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
 	
 	@RequestMapping(value = "api/shop/updateItem", method = RequestMethod.POST) 

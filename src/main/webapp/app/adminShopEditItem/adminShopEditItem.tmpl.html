@@ -1,6 +1,11 @@
 <div ng-controller="AdminShopAddItemController as vm">
+	<div class="edit-item-picture-container">
+		<div class="edit-item-picture-inside-container" ng-if="vm.transferInfo.image != ''">
+			<img ng-src="{{vm.transferInfo.image}}" class="edit-item-picture">
+		</div>
+	</div>
 	<div class="add-item-container">
-		<h1>Add item to tieto shop</h1>
+		<h1>Manage tieto shop (Edit Item)</h1>
 		<form class="add-item-form" name="vm.addItemForm" enctype="multipart/form-data" novalidate>
 			<div>
 				<md-input-container>
@@ -55,20 +60,19 @@
 				<div class="error" ng-message="maxlength">Too many symbols</div>
 			</div>
 			<div class="add-item-photo-container">
-				<label for="add-item-photo">Photo</label>
+				<label for="add-item-photo">Edit Photo</label>
 				<input name="addItemPhoto" type="file" check-file-size="" id="add-item-photo"
 						ng-model="addItemPhoto" required valid-file accept=".gif, .jpg, .png">
 				<div class="error" ng-if="vm.fileSizeError">{{vm.fileSizeError}}</div>
 				<!-- <div class="error" ng-if="vm.addItemForm.addItemPhoto.$invalid">Field is required</div> -->
-				
-				<!--  -->
 			</div>
 			
 			<div>
-				<img ng-src="{{vm.transferInfo.image}}">
 				<input type="submit" value="Add an item" ng-click="vm.submit()" 
 				ng-disabled="vm.addItemForm.$invalid || vm.fileSizeError">
+				
 			</div>
 		</form>
+		<input type="button" value="Get item" ng-click="vm.getEditItem(3)">
 	</div>
 </div>

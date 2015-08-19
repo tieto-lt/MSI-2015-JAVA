@@ -43,7 +43,6 @@
 	    }
 	    
 	    function deleteItem(id){
-	    	
 	    	return $http.delete('api/shop/deleteItem/' + id.toString());
 	    }
 	    
