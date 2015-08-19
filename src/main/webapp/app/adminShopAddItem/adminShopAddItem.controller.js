@@ -4,9 +4,9 @@
 	angular.module('app.adminShopAddItem').controller(
 			'AdminShopAddItemController', AdminShopAddItemController);
 
-	AdminShopAddItemController.$inject = [ 'ShopItemFactory', '$stateParams' ];
+	AdminShopAddItemController.$inject = [ 'ShopItemFactory', '$stateParams', '$state' ];
 
-	function AdminShopAddItemController(ShopItemFactory, $stateParams) {
+	function AdminShopAddItemController(ShopItemFactory, $stateParams, $state) {
 		var vm = this;
 
 		vm.transferInfo = {
@@ -41,7 +41,7 @@
 				// send you binary data via $http or $resource or do anything
 				// else with it
 				ShopItemFactory.addNewShopItem(vm.transferInfo).then(function() {
-					
+					$state.go('adminPage.shop');
 				})
 				
 				
