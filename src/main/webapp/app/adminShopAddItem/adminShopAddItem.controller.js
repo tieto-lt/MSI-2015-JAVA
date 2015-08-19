@@ -19,8 +19,10 @@
 			imageType: ''
 		};
 
-		vm.id = $stateParams.id;
-		getEditItem();
+		if ($stateParams.id) {
+			vm.id = $stateParams.id;
+			getEditItem();
+		}
 		
 		vm.submit = submit;
 		vm.getEditItem = getEditItem;
