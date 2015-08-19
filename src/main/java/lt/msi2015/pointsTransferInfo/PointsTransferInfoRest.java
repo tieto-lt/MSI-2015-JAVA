@@ -1,5 +1,7 @@
 package lt.msi2015.pointsTransferInfo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,5 +22,10 @@ public class PointsTransferInfoRest {
 		if (!service.save(info))
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<>(null, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/api/points", method = RequestMethod.GET)
+	List<ExistingPointsTransferInfoDto> get() {
+		return service.getAllTransfers();
 	}
 }
