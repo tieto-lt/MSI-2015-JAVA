@@ -1,15 +1,15 @@
 <div class="item-description-container" ng-controller="ItemDescriptionController as vm">
 	<div class="item-photo-block">
-		<img class="item-image" ng-src={{::vm.itemInfo.image}}>
+		<img class="item-image" ng-src={{vm.itemInfo.image}}>
 	</div><!--
  --><div class="item-description-block" ng-model="vm.iteminfo">
-		<div class="item-Name">{{::vm.itemInfo.name}}</div>
+		<div class="item-Name">{{vm.itemInfo.name}}</div>
 		<div class="item-availability">In stock</div>
-		<div class="item-amount">{{::vm.itemInfo.amount}}</div>
-		<div class="item-price">Price: {{::vm.itemInfo.price}}</div>
+		<div class="item-amount">{{vm.itemInfo.amount}}</div>
+		<div class="item-price">Price: {{vm.itemInfo.price}}</div>
 		<div>Description:</div>
 		<div class="item-description">
-			{{::vm.itemInfo.description}}
+			{{vm.itemInfo.description}}
 		</div>
 		<md-button class="md-raised" value="Buy" ng-click="vm.buy()">Buy</md-button>
 		<md-button ng-controller="NavigationController as vm" class="md-raised" value="Go to Tieto shop"
