@@ -4,15 +4,16 @@
 	</div><!--
  --><div class="item-description-block" ng-model="vm.itemInfo">
 		<div class="item-Name">{{vm.itemInfo.name}}</div>
-		<div class="item-availability">In stock</div>
-		<div class="item-amount">{{vm.itemInfo.amount}}</div>
+		<div ng-if="vm.itemInfo.amount > 0">In stock</div>
+		<div ng-if="vm.itemInfo.amount == 0">Not in stock</div>
+		<div class="item-amount" >{{vm.itemInfo.amount}}</div>
 		<div class="item-price">Price: {{vm.itemInfo.price}}</div>
 		<div>Description:</div>
 		<div class="item-description">
 			{{vm.itemInfo.description}}
 		</div>
 		<md-button class="md-raised" value="Buy" ng-click="vm.buy()" 
-			ng-disabled="vm.itemInfo.amount == 0">Buy</md-button>
+			ng-disabled="vm.itemInfo.amount == 0 || vm.itemInfo.price > vm.profileInfo.userPoints">Buy</md-button>
 		<md-button ng-controller="NavigationController as vm" class="md-raised" value="Go to Tieto shop"
 			ng-click="vm.changePage('userPage.shop')">Go to Tieto Shop</md-button>
 	</div>
