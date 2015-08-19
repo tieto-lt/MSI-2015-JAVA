@@ -21,7 +21,8 @@
 
 		vm.submit = submit;
 		vm.getEditItem = getEditItem;
-		vm.update = update;
+		vm.updateItem = updateItem;
+		vm.deleteItem = deleteItem;
 
 		function submit() {
 			var f = document.getElementById('add-item-photo').files[0];
@@ -43,7 +44,7 @@
 			r.readAsDataURL(f);
 		}
 		
-		function update() {
+		function updateItem() {
 			var f = document.getElementById('add-item-photo').files[0];
 			
 			if (f) {
@@ -84,6 +85,9 @@
 			});
 		}
 
+		function deleteItem(id) {
+			ShopItemFactory.deleteItem(id);
+		}
 //		vm.save = save;
 
 		/*
