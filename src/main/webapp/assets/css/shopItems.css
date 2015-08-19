@@ -96,3 +96,8 @@
  .shop-item-bottom-container {
  	text-align: center;
  }
+ 
+ .shop-item-image-image {
+    width: 130px;
+    height: 130px;
+}

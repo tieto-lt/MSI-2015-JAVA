@@ -7,7 +7,7 @@
 	</div><!-- 
  --><div class="add-item-container">
  		<div class="add-item-inside-container">
-			<h1>Add item to tieto shop</h1>
+			<h3>Add item to tieto shop</h3>
 			<form class="add-item-form" name="vm.addItemForm" enctype="multipart/form-data" novalidate>
 				<div>
 					<md-input-container>
@@ -62,7 +62,7 @@
 					<div class="error" ng-message="maxlength">Too many symbols</div>
 				</div>
 				<div class="add-item-photo-container">
-					<label for="add-item-photo">Photo</label>
+					<label for="add-item-photo">Photo (Only .gif, .jpg, .png formats max. 2 mb)</label>
 					<input name="addItemPhoto" type="file" check-file-size="" id="add-item-photo"
 							ng-model="addItemPhoto" required valid-file accept=".gif, .jpg, .png">
 					<div class="error" ng-if="vm.fileSizeError">{{vm.fileSizeError}}</div>
@@ -72,8 +72,8 @@
 				</div>
 				
 				<div>
-					<input type="submit" value="Add an item" ng-click="vm.submit()" 
-					ng-disabled="vm.addItemForm.$invalid || vm.fileSizeError">
+					<md-button class="md-raised" ng-click="vm.submit()" 
+					ng-disabled="vm.addItemForm.$invalid || vm.fileSizeError">Add Item</md-button>
 				</div>
 			</form>
 		</div>
