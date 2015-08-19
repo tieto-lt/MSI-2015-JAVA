@@ -19,7 +19,7 @@
 				<img alt="sketis" src="assets/images/karma_logo.png">
 			</div>
 		</div>
-		<div class="shop-item-edit" data-ng-if="vm.type === 'admin-shop-item'">
+		<div class="shop-item-edit" data-ng-if="vm.type === 'admin-shop-item'"  data-ng-controller="NavigationController as nav">
 			<md-button class="shop-item-edit-button md-raised" 
 				ng-click="nav.changePageWithParams('adminPage.editItem', {'id': vm.item.id})">
 				Edit
