@@ -1,5 +1,10 @@
 package lt.msi2015.pointsTransferInfo;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.transaction.Transactional;
@@ -74,5 +79,22 @@ public class PointsTransferInfoService {
 	private boolean transferIsValid(PointsTransferInfoDto info){
 		User fromUser = userRepo.findById(userService.getCurrentUser().getId());
 		return fromUser.pointsToGive >= info.points && userService.getCurrentUser().getId() != info.toUserID;
+	}
+	
+	public List<ExistingPointsTransferInfoDto> getAllTransfers() {
+		
+		List<PointsTransferInfo> databaseTransfersList = pointsRepo.findAll();
+		List<ExistingPointsTransferInfoDto> existingTransfersList = new ArrayList<>();
+		DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		
+		for(PointsTransferInfo transfer: databaseTransfersList) {
+			Date transferDate = transfer.getDateCreated();
+			String date = df.format(transferDate);
+			existingTransfersList.add(new ExistingPointsTransferInfoDto(transfer.getId(),
+					transfer.getFromUserID(), transfer.getToUserID(), transfer.getPoints(),
+					transfer.getComment(), date));
+		}
+		
+		return existingTransfersList;
 	}
 }

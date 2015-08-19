@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -43,6 +42,30 @@ public class PointsTransferInfo {
 		this.points = points;
 		this.comment = comment;
 		this.dateCreated = new Date();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public Long getFromUserID() {
+		return fromUserID;
+	}
+
+	public Long getToUserID() {
+		return toUserID;
+	}
+
+	public Integer getPoints() {
+		return points;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public Date getDateCreated() {
+		return dateCreated;
 	}
 
 }
