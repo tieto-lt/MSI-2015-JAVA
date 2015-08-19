@@ -3,7 +3,6 @@
 	margin: 0 auto;
 	display: inline-block;
 	vertical-align: top;
-	background-color: red;
 }
 
 .add-item-photo-container {
@@ -14,7 +13,6 @@
 /* Edit item container */
 
 .edit-item-picture-container {
-	background-color: green;
 	width: 300px;
 	display: inline-block;
 	vertical-align: top;
