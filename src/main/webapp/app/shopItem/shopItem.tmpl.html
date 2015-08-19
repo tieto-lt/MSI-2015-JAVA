@@ -3,8 +3,11 @@
 		<img alt="sketis" ng-src="{{sic.decodeImage(vm.item.image)}}">
 	</div>
 	<div data-ng-controller="NavigationController as nav">
-		<div class="shop-item-title" ng-click="nav.changePage('userPage.item')">
-			{{vm.item.name}}
+		<div class="shop-item-title" ng-if="vm.type === 'admin-shop-item'">
+			{{vm.item.name}}	
+		</div>
+		<div class="shop-item-title" ng-click="nav.changePage('userPage.item')" ng-if="vm.type === 'shop-item'">
+			{{vm.item.name}}	
 		</div>
 	</div>
 	<div class="shop-item-bottom-container">
