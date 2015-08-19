@@ -1,6 +1,8 @@
 <div ng-controller="AdminShopAddItemController as vm">
 	<div class="edit-item-picture-container">
-		AAA
+		<div class="edit-item-picture-inside-container" ng-if="vm.transferInfo.image != ''">
+			<img src="{{vm.transferInfo.image}}" class="edit-item-picture">
+		</div>
 	</div>
 	<div class="add-item-container">
 		<h1>Manage tieto shop (Edit Item)</h1>
@@ -66,7 +68,6 @@
 			</div>
 			
 			<div>
-<!-- 				<img src="{{vm.transferInfo.image}}"> -->
 				<input type="submit" value="Add an item" ng-click="vm.submit()" 
 				ng-disabled="vm.addItemForm.$invalid || vm.fileSizeError">
 				

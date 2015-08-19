@@ -14,9 +14,9 @@
 			price : 400,
 			amount: 20,
 			description: 'Whooohooo',
-			image: ["a","b"],
-			imageName: 'marius',
-			imageType: 'image/png'
+			image: '',
+			imageName: '',
+			imageType: ''
 		};
 
 		vm.submit = submit;
@@ -49,7 +49,7 @@
 						price : response.data.value,
 						amount: response.data.quantity,
 						description: response.data.description,
-						image:  response.data.image,
+						image:  atob(response.data.image),
 						imageName: response.data.imageName,
 						imageType: response.data.imageType
 				};
