@@ -3,6 +3,7 @@
 	margin: 0px 15px;
 	border: 1px solid #AAA;
 	background-color: white;
+	box-shadow: 1px 1px 3px #888888;
 }
 
 .news-feed-content {

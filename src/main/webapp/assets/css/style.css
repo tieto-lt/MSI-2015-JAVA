@@ -1,3 +1,7 @@
+.white-bg {
+	background-color: white;
+}
+
 * {
 	-webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -120,7 +124,8 @@ md-input-container {
 #leaderboard-table tbody td {
 	padding-bottom: 7px;
 	padding-top: 7px;
-	border-collapse: collapmargin: 0 auto;se;
+	border-collapse: collap
+	margin: 0 auto;
 	border-bottom: solid 1px #d2d2d2;
 	text-align: left;
 }
@@ -230,11 +235,13 @@ header.login-header > span {
 	color:#F78D2D;
 	font-size: 20px;
 	padding-bottom: 15px;
+	padding-top: 10px;
 }
 
 .transfer-info-form-title {
 	color: #F78D2D;
 	font-size: 20px;
+	padding-top: 10px;
 	padding-bottom: 20px;
 }
 
