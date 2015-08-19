@@ -246,7 +246,8 @@ header.login-header > span {
 }
 
 #container {
-	background-image: url("../images/background.jpg");
+/* 	background-image: url("../images/background.jpg"); */
+	background-color: white;
 }
 
 .points-form-container {
