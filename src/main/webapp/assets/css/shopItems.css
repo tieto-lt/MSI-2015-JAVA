@@ -86,7 +86,7 @@
 	min-width: auto;
  }
  
- .shop-item-edit, .shop-item-buy {
+ .shop-item-bottom {
  	width: 100%;
  	text-align: center;
  	display: inline-block;

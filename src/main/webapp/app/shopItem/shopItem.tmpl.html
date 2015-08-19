@@ -20,16 +20,18 @@
 				<img alt="sketis" src="assets/images/karma_logo.png">
 			</div>
 		</div>
-		<div class="shop-item-edit" data-ng-if="vm.type === 'admin-shop-item'">
-			<md-button class="shop-item-edit-button md-raised" 
-				ng-click="nav.changePageWithParams('adminPage.editItem', {'id': vm.item.id})">
-				Edit
-			</md-button>
-		</div>
-		<div class="shop-item-buy" data-ng-if="vm.type === 'shop-item'">
-			<md-button class="shop-item-buy-button md-raised" ng-click="sic.showBuyConfirmation(vm.item, $events)">
-				Buy
-			</md-button>
+		<div class="shop-item-bottom" data-ng-controller="NavigationController as nav">
+			<div class="shop-item-edit" data-ng-if="vm.type === 'admin-shop-item'">
+				<md-button class="shop-item-edit-button md-raised" 
+					ng-click="nav.changePageWithParams('adminPage.editItem', {'id': vm.item.id})">
+					Edit
+				</md-button>
+			</div>
+			<div class="shop-item-buy" data-ng-if="vm.type === 'shop-item'">
+				<md-button class="shop-item-buy-button md-raised" ng-click="sic.showBuyConfirmation(vm.item, $events)">
+					Buy
+				</md-button>
+			</div>
 		</div>
 	</div>
 </div>
