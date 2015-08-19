@@ -6,7 +6,8 @@
 		<div class="shop-item-title" ng-if="vm.type === 'admin-shop-item'">
 			{{vm.item.name}}	
 		</div>
-		<div class="shop-item-title" ng-click="nav.changePage('userPage.item')" ng-if="vm.type === 'shop-item'">
+		<div class="shop-item-title" ng-if="vm.type === 'shop-item'"
+				ng-click="nav.changePageWithParams('userPage.item', {'id': vm.item.id})">
 			{{vm.item.name}}	
 		</div>
 	</div>

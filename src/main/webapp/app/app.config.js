@@ -101,7 +101,7 @@
 		    	templateUrl: "app/userShop/userShop.tmpl.html"
 		    })
 		    .state('userPage.item', {
-		    	url: "/item",
+		    	url: "/item/:id",
 		    	templateUrl: "app/itemDescription/itemDescription.tmpl.html"
 		    })
 		    .state('userPage.home', {
