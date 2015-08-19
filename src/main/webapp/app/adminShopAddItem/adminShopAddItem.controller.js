@@ -4,9 +4,9 @@
 	angular.module('app.adminShopAddItem').controller(
 			'AdminShopAddItemController', AdminShopAddItemController);
 
-	AdminShopAddItemController.$inject = [ 'ShopItemFactory', '$stateParams', '$state' ];
+	AdminShopAddItemController.$inject = [ 'ShopItemFactory', '$stateParams', '$state', '$scope' ];
 
-	function AdminShopAddItemController(ShopItemFactory, $stateParams, $state) {
+	function AdminShopAddItemController(ShopItemFactory, $stateParams, $state, $scope) {
 		var vm = this;
 
 		vm.transferInfo = {
@@ -28,7 +28,23 @@
 		vm.getEditItem = getEditItem;
 		vm.updateItem = updateItem;
 		vm.deleteItem = deleteItem;
+		vm.updatePicture = updatePicture;
 
+		function updatePicture() {
+			var f = document.getElementById('add-item-photo').files[0];
+			var r = new FileReader();
+			
+			vm.transferInfo.imageName = f.name;
+			vm.transferInfo.imageType = f.type;
+			
+			r.onload = function(e) {
+				vm.transferInfo.image = e.target.result;
+				$scope.$apply();
+			}
+			
+			r.readAsDataURL(f);
+		}
+		
 		function submit() {
 			var f = document.getElementById('add-item-photo').files[0];
 			var r = new FileReader();
@@ -63,14 +79,14 @@
 					// send you binary data via $http or $resource or do anything
 					// else with it
 					ShopItemFactory.updateItem(vm.transferInfo).then(function() {
-						
+						$state.go('adminPage.shop');
 					})
 				}
 				
 				r.readAsDataURL(f);
 			} else {
 				ShopItemFactory.updateItem(vm.transferInfo).then(function() {
-					
+					$state.go('adminPage.shop');
 				});
 			}	
 		}

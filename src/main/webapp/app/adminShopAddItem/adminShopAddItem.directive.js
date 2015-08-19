@@ -9,8 +9,11 @@
 					    	  scope.vm.fileSizeError = '';
 					    	  scope.$apply();
 					    	  if(this.files[0].size > 200000) {
-					    		  scope.vm.fileSizeError = "Max 2mb";
+					    		  scope.vm.fileSizeError = "Max 2mb";  
 					    		  scope.$apply();
+					    	  } else {
+					    		  scope.vm.updatePicture();
+//					    		  scope.$apply();
 					    	  }
 					      }, false);
 					    }
@@ -26,6 +29,7 @@
 					        scope.$apply(function(){
 					          ngModel.$setViewValue(el.val());
 					          ngModel.$render();
+					         
 					        });
 					      }, false);
 					    }

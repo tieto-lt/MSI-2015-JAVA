@@ -18,7 +18,7 @@
 	      vm.currentPage = state;
 	      $state.go(state);
 	}
-	
+
 	function changePageWithParams(state, params) {
 		vm.currentPage = state;
 	    $state.go(state, params);
