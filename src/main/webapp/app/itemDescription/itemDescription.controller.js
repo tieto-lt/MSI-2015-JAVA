@@ -15,7 +15,7 @@
 	  
 	vm.buy = buy;
 	
-	/*vm.itemInfo = {
+	vm.itemInfo = {
 			name : '',
 			price : '',
 			amount: '',
@@ -23,7 +23,7 @@
 			image: '',
 			imageName: '',
 			imageType: ''
-		};*/
+		};
 	
 	if ($stateParams.id) {
 		vm.id = $stateParams.id;
@@ -32,7 +32,9 @@
 	
 	function buy() {
 		vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
-		ItemDescriptionFactory.buy(vm.profileInfo.id, "1");	/*TURI BUTI SHOP ITEM ID*/
+		ItemDescriptionFactory.buy(vm.profileInfo.id, vm.id).then(function() {
+			getItem();
+		});
 	}
 	
 	function getItem() {
