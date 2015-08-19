@@ -69,6 +69,5 @@ public class ShopRest {
 		if (shopService.updateShopItem(item))
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-
 	}
 }
