@@ -69,10 +69,10 @@
 					<!-- <div class="error" ng-if="vm.addItemForm.addItemPhoto.$invalid">Field is required</div> -->
 				</div>
 				
-				<div>
+				<div data-ng-controller="NavigationController as nav">
 					<md-button class="md-raised" ng-click="vm.updateItem()" 
 					ng-disabled="vm.addItemForm.$invalid || vm.fileSizeError">Save</md-button>
-					<md-button class="md-raised" ng-click="vm.deleteItem()">Delete item</md-button>
+					<md-button class="md-raised" ng-click="vm.showDeleteConfirmation($events, nav.changePage, vm.transferInfo)">Delete item</md-button>
 				</div>
 			</form>
 		</div>
