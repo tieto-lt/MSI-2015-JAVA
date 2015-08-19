@@ -5,17 +5,24 @@
 	<div class="shop-item-title" ng-click="nav.changePage('userPage.item')">
 		{{vm.item.name}}
 	</div>
-	<div class="shop-item-price">
-		<div class="shop-item-price-value">
-			{{vm.item.value}}
+	<div class="shop-item-bottom-container">
+		<div class="shop-item-price">
+			<div class="shop-item-price-value">
+				{{vm.item.value}}
+			</div>
+			<div class="shop-item-price-logo">
+				<img alt="sketis" src="assets/images/karma_logo.png">
+			</div>
 		</div>
-		<div class="shop-item-price-logo">
-			<img alt="sketis" src="assets/images/karma_logo.png">
+		<div class="shop-item-edit" data-ng-if="vm.type === 'admin-shop-item'">
+			<md-button class="shop-item-edit-button md-raised" ng-click="nav.changePageWithParams('adminPage.editItem', {'id': vm.item.id})">
+				Edit
+			</md-button>
 		</div>
-	</div>
-	<div class="shop-item-edit" data-ng-if="vm.type === 'admin-shop-item'">
-		<md-button class="shop-item-edit-button md-raised" >
-			Edit
-		</md-button>
+		<div class="shop-item-buy" data-ng-if="vm.type === 'shop-item'">
+			<md-button class="shop-item-buy-button md-raised">
+				Buy
+			</md-button>
+		</div>
 	</div>
 </div>
