@@ -4,9 +4,9 @@
 	angular.module('app.adminShopAddItem').controller(
 			'AdminShopAddItemController', AdminShopAddItemController);
 
-	AdminShopAddItemController.$inject = [ 'ShopItemFactory' ];
+	AdminShopAddItemController.$inject = [ 'ShopItemFactory', '$stateParams' ];
 
-	function AdminShopAddItemController(ShopItemFactory) {
+	function AdminShopAddItemController(ShopItemFactory, $stateParams) {
 		var vm = this;
 
 		vm.transferInfo = {
@@ -19,6 +19,9 @@
 			imageType: ''
 		};
 
+		vm.id = $stateParams.id;
+		getEditItem();
+		
 		vm.submit = submit;
 		vm.getEditItem = getEditItem;
 		vm.updateItem = updateItem;
@@ -70,8 +73,8 @@
 			}	
 		}
 		
-		function getEditItem(id) {
-			ShopItemFactory.getShopItem(id).then(function(response) {
+		function getEditItem() {
+			ShopItemFactory.getShopItem(vm.id).then(function(response) {
 				vm.transferInfo = {
 						id: response.data.id,
 						name: response.data.name,
@@ -85,8 +88,8 @@
 			});
 		}
 
-		function deleteItem(id) {
-			ShopItemFactory.deleteItem(id);
+		function deleteItem() {
+			ShopItemFactory.deleteItem(vm.id);
 		}
 //		vm.save = save;
 
