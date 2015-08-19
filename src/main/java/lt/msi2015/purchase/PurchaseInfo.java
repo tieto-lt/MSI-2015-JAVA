@@ -18,9 +18,8 @@ public class PurchaseInfo {
 	@NotNull
 	private Long shopItemId;
 
-	public PurchaseInfo(Long id, Long userId, Long shopItemId) {
+	public PurchaseInfo(Long userId, Long shopItemId) {
 		super();
-		this.id = id;
 		this.userId = userId;
 		this.shopItemId = shopItemId;
 	}

@@ -19,7 +19,6 @@ public class PurchaseInfoService {
 		
 		if(purchaseRepo.save(
 				new PurchaseInfo(
-					info.getId(),
 					info.getUserId(),
 					info.getShopItemId())
 				) != null) {

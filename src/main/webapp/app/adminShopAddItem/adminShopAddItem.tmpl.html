@@ -1,74 +1,82 @@
 <div ng-controller="AdminShopAddItemController as vm">
-	<div class="add-item-container">
-		<h1>Add item to tieto shop</h1>
-		<form class="add-item-form" name="vm.addItemForm" enctype="multipart/form-data" novalidate>
-			<div>
-				<md-input-container>
-					<label for="add-item-name">Name</label>
-					<input type="text" id="add-item-name" ng-model="vm.transferInfo.name"
-						name="addItemNameInput" required ng-maxlength="30">
-				</md-input-container>
-			</div>
-			<div ng-messages="vm.addItemForm.addItemNameInput.$error" 
-					ng-if="vm.addItemForm.addItemNameInput.$dirty">
-				<div ng-message="required" class="error">Field is required</div>
-				<div ng-message="maxlength" class="error">Too many symbols</div>
-			</div>
-			<div>
-				<md-input-container>
-					<label for="add-item-price">Price</label>
-					<input type="number" id="add-item-price" ng-model="vm.transferInfo.price"
-						name="addItemPriceInput" required min="1" max="9999" ng-pattern="/^\d+$/">
-				</md-input-container>
-			</div>
-			<div ng-messages="vm.addItemForm.addItemPriceInput.$error" 
-					ng-if="vm.addItemForm.addItemPriceInput.$dirty">
-				<div class="error" ng-message="required">Field is required</div>
-				<div class="error" ng-message="min, max">Only between 1 and 9999</div>
-				<div class="error" ng-message="number">Numbers only</div>
-				<div class="error" ng-message="pattern">Integers only</div>
-			</div>
-			<div>
-				<md-input-container>
-					<label for="add-item-amount">Amount</label>
-					<input type="number" id="add-item-amount" ng-model="vm.transferInfo.amount"
-						name="addItemAmountInput" required min="1" max="99" ng-pattern="/^\d+$/">
-				</md-input-container>
-			</div>
-			<div ng-messages="vm.addItemForm.addItemAmountInput.$error" 
-					ng-if="vm.addItemForm.addItemAmountInput.$dirty">
-				<div class="error" ng-message="required">Field is required</div>
-				<div class="error" ng-message="min, max">Only between 1 and 99</div>
-				<div class="error" ng-message="number">Numbers only</div>
-				<div class="error" ng-message="pattern">Integers only</div>
-			</div>
-			<div>
-				<md-input-container>
-					<label for="add-item-description">Description</label>
-					<textarea type="text" id="add-item-description" ng-model="vm.transferInfo.description"
-						name="addItemDescriptionInput" required ng-maxlength="300"></textarea>
-				</md-input-container>
-			</div>
-			<div ng-messages="vm.addItemForm.addItemDescriptionInput.$error" 
-					ng-if="vm.addItemForm.addItemDescriptionInput.$dirty">
-				<div class="error" ng-message="required">Field is required</div>
-				<div class="error" ng-message="maxlength">Too many symbols</div>
-			</div>
-			<div class="add-item-photo-container">
-				<label for="add-item-photo">Photo</label>
-				<input name="addItemPhoto" type="file" check-file-size="" id="add-item-photo"
-						ng-model="addItemPhoto" required valid-file accept=".gif, .jpg, .png">
-				<div class="error" ng-if="vm.fileSizeError">{{vm.fileSizeError}}</div>
-				<!-- <div class="error" ng-if="vm.addItemForm.addItemPhoto.$invalid">Field is required</div> -->
+	<div class="edit-item-picture-container">
+		<h1>Manage tieto shop</h1>
+		<div class="edit-item-picture-inside-container" ng-if="vm.transferInfo.image != ''">
+			<img ng-src="{{vm.transferInfo.image}}" class="edit-item-picture">
+		</div>
+	</div><!-- 
+ --><div class="add-item-container">
+ 		<div class="add-item-inside-container">
+			<h1>Add item to tieto shop</h1>
+			<form class="add-item-form" name="vm.addItemForm" enctype="multipart/form-data" novalidate>
+				<div>
+					<md-input-container>
+						<label for="add-item-name">Name</label>
+						<input type="text" id="add-item-name" ng-model="vm.transferInfo.name"
+							name="addItemNameInput" required ng-maxlength="30">
+					</md-input-container>
+				</div>
+				<div ng-messages="vm.addItemForm.addItemNameInput.$error" 
+						ng-if="vm.addItemForm.addItemNameInput.$dirty">
+					<div ng-message="required" class="error">Field is required</div>
+					<div ng-message="maxlength" class="error">Too many symbols</div>
+				</div>
+				<div>
+					<md-input-container>
+						<label for="add-item-price">Price</label>
+						<input type="number" id="add-item-price" ng-model="vm.transferInfo.price"
+							name="addItemPriceInput" required min="1" max="9999" ng-pattern="/^\d+$/">
+					</md-input-container>
+				</div>
+				<div ng-messages="vm.addItemForm.addItemPriceInput.$error" 
+						ng-if="vm.addItemForm.addItemPriceInput.$dirty">
+					<div class="error" ng-message="required">Field is required</div>
+					<div class="error" ng-message="min, max">Only between 1 and 9999</div>
+					<div class="error" ng-message="number">Numbers only</div>
+					<div class="error" ng-message="pattern">Integers only</div>
+				</div>
+				<div>
+					<md-input-container>
+						<label for="add-item-amount">Amount</label>
+						<input type="number" id="add-item-amount" ng-model="vm.transferInfo.amount"
+							name="addItemAmountInput" required min="1" max="99" ng-pattern="/^\d+$/">
+					</md-input-container>
+				</div>
+				<div ng-messages="vm.addItemForm.addItemAmountInput.$error" 
+						ng-if="vm.addItemForm.addItemAmountInput.$dirty">
+					<div class="error" ng-message="required">Field is required</div>
+					<div class="error" ng-message="min, max">Only between 1 and 99</div>
+					<div class="error" ng-message="number">Numbers only</div>
+					<div class="error" ng-message="pattern">Integers only</div>
+				</div>
+				<div>
+					<md-input-container>
+						<label for="add-item-description">Description</label>
+						<textarea type="text" id="add-item-description" ng-model="vm.transferInfo.description"
+							name="addItemDescriptionInput" required ng-maxlength="300"></textarea>
+					</md-input-container>
+				</div>
+				<div ng-messages="vm.addItemForm.addItemDescriptionInput.$error" 
+						ng-if="vm.addItemForm.addItemDescriptionInput.$dirty">
+					<div class="error" ng-message="required">Field is required</div>
+					<div class="error" ng-message="maxlength">Too many symbols</div>
+				</div>
+				<div class="add-item-photo-container">
+					<label for="add-item-photo">Photo</label>
+					<input name="addItemPhoto" type="file" check-file-size="" id="add-item-photo"
+							ng-model="addItemPhoto" required valid-file accept=".gif, .jpg, .png">
+					<div class="error" ng-if="vm.fileSizeError">{{vm.fileSizeError}}</div>
+					<!-- <div class="error" ng-if="vm.addItemForm.addItemPhoto.$invalid">Field is required</div> -->
+					
+					<!--  -->
+				</div>
 				
-				<!--  -->
-			</div>
-			
-			<div>
-				<img ng-src="{{vm.transferInfo.image}}">
-				<input type="submit" value="Add an item" ng-click="vm.submit()" 
-				ng-disabled="vm.addItemForm.$invalid || vm.fileSizeError">
-			</div>
-		</form>
+				<div>
+					<img ng-src="{{vm.transferInfo.image}}">
+					<input type="submit" value="Add an item" ng-click="vm.submit()" 
+					ng-disabled="vm.addItemForm.$invalid || vm.fileSizeError">
+				</div>
+			</form>
+		</div>
 	</div>
 </div>
