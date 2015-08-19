@@ -1,7 +1,7 @@
 <div ng-controller="AdminShopAddItemController as vm">
 	<div class="edit-item-picture-container">
 		<div class="edit-item-picture-inside-container" ng-if="vm.transferInfo.image != ''">
-			<img src="{{vm.transferInfo.image}}" class="edit-item-picture">
+			<img ng-src="{{vm.transferInfo.image}}" class="edit-item-picture">
 		</div>
 	</div>
 	<div class="add-item-container">

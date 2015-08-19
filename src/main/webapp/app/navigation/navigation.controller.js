@@ -20,7 +20,6 @@
 	}
 	
 	function changePageWithParams(state, params) {
-		console.log(params);
 		vm.currentPage = state;
 	    $state.go(state, params);
 	}
