@@ -1,0 +1,21 @@
+<div class="{{vm.type}}" data-ng-controller="NavigationController as nav">
+	<div class="shop-item-image" data-ng-controller="ShopItemController as sic">
+		<img alt="sketis" ng-src="{{sic.decodeImage(vm.item.image)}}">
+	</div>
+	<div class="shop-item-title" ng-click="nav.changePage('userPage.item')">
+		{{vm.item.name}}
+	</div>
+	<div class="shop-item-price">
+		<div class="shop-item-price-value">
+			{{vm.item.value}}
+		</div>
+		<div class="shop-item-price-logo">
+			<img alt="sketis" src="assets/images/karma_logo.png">
+		</div>
+	</div>
+	<div class="shop-item-edit" data-ng-if="vm.type === 'admin-shop-item'">
+		<md-button class="shop-item-edit-button md-raised" >
+			Edit
+		</md-button>
+	</div>
+</div>

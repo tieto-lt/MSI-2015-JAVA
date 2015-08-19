@@ -12,7 +12,6 @@
       'app.logout',
       'app.profileHeader',
       'app.navigation',
-      'app.adminShop',
       'app.adminShopAddItem',
       'app.shopItem',
       
