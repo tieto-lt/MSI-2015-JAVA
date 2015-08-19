@@ -2,7 +2,7 @@
 	<div class="item-photo-block">
 		<img class="item-image" ng-src={{vm.itemInfo.image}}>
 	</div><!--
- --><div class="item-description-block" ng-model="vm.iteminfo">
+ --><div class="item-description-block" ng-model="vm.itemInfo">
 		<div class="item-Name">{{vm.itemInfo.name}}</div>
 		<div class="item-availability">In stock</div>
 		<div class="item-amount">{{vm.itemInfo.amount}}</div>
@@ -11,7 +11,8 @@
 		<div class="item-description">
 			{{vm.itemInfo.description}}
 		</div>
-		<md-button class="md-raised" value="Buy" ng-click="vm.buy()">Buy</md-button>
+		<md-button class="md-raised" value="Buy" ng-click="vm.buy()" 
+			ng-disabled="vm.itemInfo.amount == 0">Buy</md-button>
 		<md-button ng-controller="NavigationController as vm" class="md-raised" value="Go to Tieto shop"
 			ng-click="vm.changePage('userPage.shop')">Go to Tieto Shop</md-button>
 	</div>
