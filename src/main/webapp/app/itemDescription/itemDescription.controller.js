@@ -34,6 +34,7 @@
 		vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
 		ItemDescriptionFactory.buy(vm.profileInfo.id, vm.id).then(function() {
 			getItem();
+			ProfileHeaderFactory.loadUserInfo();
 		});
 	}
 	

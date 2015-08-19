@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import lt.msi2015.shop.ShopItem;
 import lt.msi2015.shop.ShopRepository;
+import lt.msi2015.user.User;
+import lt.msi2015.user.UserRepository;
 
 @Service
 public class PurchaseInfoService {
@@ -15,14 +17,18 @@ public class PurchaseInfoService {
 	@Autowired
 	ShopRepository shopRepo;
 	
+	@Autowired
+	UserRepository userRepo;
+	
 	public boolean buy(PurchaseInfoDto info) {
-		
+		if(!subPoints(info)) {
+			return false;
+		}
 		if(purchaseRepo.save(
 				new PurchaseInfo(
 					info.getUserId(),
 					info.getShopItemId())
 				) != null) {
-			
 			return subShopItemAmount(info.getShopItemId());
 		} else {
 			return false;
@@ -34,5 +40,18 @@ public class PurchaseInfoService {
 		Integer itemQuantity = item.getQuantity();
 		item.setQuantity(itemQuantity - 1);
 		return shopRepo.save(item) != null;
+	}
+	
+	private boolean subPoints(PurchaseInfoDto info) {
+		
+		User user = userRepo.findById(info.getUserId());
+		ShopItem item = shopRepo.findById(info.getShopItemId());
+		
+		if(user.getUserPoints() >= item.getValue()) {
+			user.setUserPoints(user.getUserPoints() - item.getValue());
+			return true;
+		}
+		
+		return false;
 	}
 }
