@@ -12,7 +12,6 @@
     
     vm.decodeImage = decodeImage;
     vm.showBuyConfirmation = showBuyConfirmation;
-    vm.a = 'a';
 
 //    vm.shopItem = ShopItemFactory.getShopItem($routeParams.id);
     vm.shopItems = [];
@@ -25,7 +24,33 @@
     }
     
     function showBuyConfirmation(item, event) {
-        var confirm = $mdDialog.confirm()
+    	var options = {
+    		controller: function BuyItemDialogController($mdDialog, item, ItemDescriptionFactory, ProfileHeaderFactory) {
+    			var vm = this;
+    			
+    			vm.ok = function () {
+    				var userId = ProfileHeaderFactory.getProfileInfo().id;
+    				ItemDescriptionFactory.buy(userId, vm.item.id).then(function() {
+    					$mdDialog.hide();
+    				});
+    			}
+    			vm.cancel = function () {
+    				$mdDialog.cancel();
+    			}
+    		},
+    		controllerAs: 'vm',
+    		locals: {
+    			item: item
+    		},
+    		bindToController: true,
+    		parent: angular.element(document.body),
+    		targetEvent: event,
+    		templateUrl: 'app/buyItemDialog/buyItemDialog.tmpl.html'
+    	};
+    	
+    	$mdDialog.show(options);
+    	
+        /*var confirm = $mdDialog.confirm()
               .title('Confirm your purchase')
               .content('Are you sure you want to spend ' + item.value + ' karma points on ' + item.name + '?')
               .ok('No')
@@ -36,7 +61,7 @@
           //NO
         }, function() {
           //YEs
-        });
+        });*/
     }
   }
   
