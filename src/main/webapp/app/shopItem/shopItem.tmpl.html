@@ -28,7 +28,8 @@
 				</md-button>
 			</div>
 			<div class="shop-item-buy" data-ng-if="vm.type === 'shop-item'">
-				<md-button class="shop-item-buy-button md-raised" ng-click="sic.showBuyConfirmation(vm.item, $events)">
+				<md-button class="shop-item-buy-button md-raised" ng-click="sic.showBuyConfirmation(vm.item, $events)"
+						ng-disabled="vm.item.value > sic.profileInfo.userPoints">
 					Buy
 				</md-button>
 			</div>

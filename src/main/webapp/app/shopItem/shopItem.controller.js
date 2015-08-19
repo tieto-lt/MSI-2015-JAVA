@@ -5,10 +5,12 @@
     .module('app.shopItem')
     .controller('ShopItemController', ShopItemController);
 
-  ShopItemController.$inject = ['ShopItemFactory', '$mdDialog'];
+  ShopItemController.$inject = ['ShopItemFactory', '$mdDialog', 'ProfileHeaderFactory'];
 
-  function ShopItemController(ShopItemFactory, $mdDialog) {
+  function ShopItemController(ShopItemFactory, $mdDialog, ProfileHeaderFactory) {
     var vm = this;
+    
+    vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
     
     vm.decodeImage = decodeImage;
     vm.showBuyConfirmation = showBuyConfirmation;
