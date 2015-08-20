@@ -16,7 +16,7 @@
 		  element.mCustomScrollbar({
 			  theme: 'rounded-dark',
 			  mouseWheel:{ 
-				  scrollAmount: 500,
+				  scrollAmount: 400,
 				  preventDefault: true
 			  },
 			  callbacks:{
@@ -25,7 +25,7 @@
 				    		scope.$apply(attrs.whenScrolled);
 				    	}					    
 				    },
-				    onTotalScrollOffset: 300
+				    onTotalScrollOffset: 500
 				},
 				scrollButtons:{ enable: true }
 		  });
