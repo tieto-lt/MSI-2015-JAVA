@@ -12,6 +12,22 @@ insert into user(date_created, email, first_name, last_name, password, points_to
 insert into application_setting(property, value) values ('one_time_limit', 100);
 insert into application_setting(property, value) values ('monthly_limit', 1000);
 
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid) VALUES ('qweee', '2015-08-19 17:40:29', '3', '2', '2');
+
+
 /*insert into points_transfer_info(comment, date_created, from_userid, points, to_userid) values ("aaaa", '2015.05.12', 1, 100, 1);
 insert into points_transfer_info(comment, date_created, from_userid, points, to_userid) values ("aaaa", '2015.05.12', 2, 100, 1);
 insert into points_transfer_info(comment, date_created, from_userid, points, to_userid) values ("aaaa", '2015.07.02', 2, 100, 1);
