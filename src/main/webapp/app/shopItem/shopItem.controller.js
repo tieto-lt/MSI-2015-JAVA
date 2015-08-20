@@ -32,6 +32,7 @@
     	var okAction = function () {
 			ItemDescriptionFactory.buy(vm.profileInfo.id, item.id).then(function() {
 				ProfileHeaderFactory.loadUserInfo();
+				ShopItemFactory.getItem(item.id);
 				refreshItems();
 				$mdDialog.hide();
 			});

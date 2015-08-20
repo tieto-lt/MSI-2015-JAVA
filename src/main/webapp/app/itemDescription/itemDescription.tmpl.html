@@ -1,13 +1,13 @@
 <div class="item-description-container" ng-controller="ItemDescriptionController as vm">
 	<div class="item-photo-block">
-		<img class="item-image" ng-src={{vm.itemInfo.image}}>
+		<img class="item-image" ng-src={{vm.getImage()}}>
 	</div><!--
  --><div class="item-description-block" ng-model="vm.itemInfo">
 		<div class="item-Name">{{vm.itemInfo.name}}</div>
 		<div ng-if="vm.itemInfo.amount > 0">In stock</div>
 		<div ng-if="vm.itemInfo.amount == 0">Not in stock</div>
-		<div class="item-amount" >{{vm.itemInfo.amount}}</div>
-		<div class="item-price">Price: {{vm.itemInfo.price}}</div>
+		<div class="item-amount" >{{vm.itemInfo.quantity}}</div>
+		<div class="item-price">Price: {{vm.itemInfo.value}}</div>
 		<div>Description:</div>
 		<div class="item-description">
 			{{vm.itemInfo.description}}
