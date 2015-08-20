@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -53,6 +54,14 @@ public class User extends Dto {
 	
 	@Size(min=1, max=160)
 	public String aboutMe;
+	
+	@Lob
+	@Column(columnDefinition = "LONGBLOB", length=2097152)
+	private byte[] image;
+	
+	private String imageType;
+
+	private String imageName;
 	
 //	@NotNull
 //	private Boolean isAdmin;
@@ -170,6 +179,30 @@ public class User extends Dto {
 
 	public void setAboutMe(String aboutMe) {
 		this.aboutMe = aboutMe;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	public String getImageType() {
+		return imageType;
+	}
+
+	public void setImageType(String imageType) {
+		this.imageType = imageType;
+	}
+
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 //	public Boolean getIsAdmin() {

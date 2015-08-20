@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import lt.msi2015.applicationSettings.ApplicationSetting;
 import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
 import lt.msi2015.applicationSettings.ApplicationSettingsRepository;
-import lt.msi2015.leaderboard.LeaderboardEntryDto;
 import lt.msi2015.leaderboard.LeaderboardService;
 
 @Service
@@ -109,7 +108,8 @@ public class UserService {
 		Integer userRank = leaderboardService.getUserRank(id);
 		
 		UserProfileDto userProfile = new UserProfileDto(user.getId(), user.getFirstName(),
-				user.getLastName(), user.getEmail(), user.getUserPoints(), userRank, user.getAboutMe());
+				user.getLastName(), user.getEmail(), user.getUserPoints(), userRank, user.getAboutMe(), 
+				user.getImage(), user.getImageName(), user.getImageType());
 		
 		return userProfile;
 	}
