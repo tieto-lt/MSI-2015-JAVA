@@ -20,6 +20,8 @@
       'app.shopItem',
       'app.itemDescription',
       'app.userProfileInfo',
+      'app.newsFeed',
+
       
       /* angular ngMessages */
       'ngMessages',

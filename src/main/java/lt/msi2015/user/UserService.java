@@ -114,4 +114,33 @@ public class UserService {
 		return userProfile;
 	}
 	
+	@Transactional
+	boolean updateUserProfile(UserProfileDto userProfile) {
+		if (!imageIsValid(userProfile.getImageType())) {
+			return false;
+		}
+		
+		return updateProfileIfo(userProfile);
+	}
+	
+	public boolean imageIsValid(String type) {
+		return (type.equals("image/jpeg")) || (type.equals("image/png")) || (type.equals("image/gif"));
+	}
+	
+	private boolean updateProfileIfo(UserProfileDto userProfileEdited) {
+		
+		User userInDatabase = repo.findById(userProfileEdited.getId());
+		
+		if(userInDatabase != null) {
+			userInDatabase.setFirstName(userProfileEdited.getFirstName());
+			userInDatabase.setLastName(userProfileEdited.getLastName());
+			userInDatabase.setAboutMe(userProfileEdited.getAboutMe());
+			userInDatabase.setImage(userProfileEdited.getImage());
+			userInDatabase.setImageName(userProfileEdited.getImageName());
+			userInDatabase.setImageType(userProfileEdited.getImageType());
+			return repo.save(userInDatabase) != null;
+		}
+		return false;
+	}
+	
 }

@@ -12,48 +12,28 @@
 		  			$stateParams) {
 	  
 	var vm = this;
-	  
-	vm.buy = buy;
-	
+
 	vm.itemInfo = {
 			name : '',
-			price : '',
-			amount: '',
+			value : '',
+			quantity: '',
 			description: '',
 			image: '',
 			imageName: '',
 			imageType: ''
 		};
 	
+	vm.getImage = getImage;
+
+	function getImage() {
+    	return atob(vm.itemInfo.image);
+    }
+	
 	if ($stateParams.id) {
 		vm.id = $stateParams.id;
-		getItem();
+		vm.itemInfo = ShopItemFactory.getItem(vm.id);
 	}
 	
 	vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
-	
-	function buy() {
-		vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
-		ItemDescriptionFactory.buy(vm.profileInfo.id, vm.id).then(function() {
-			getItem();
-			ProfileHeaderFactory.loadUserInfo();
-		});
-	}
-	
-	function getItem() {
-		ShopItemFactory.getShopItem(vm.id).then(function(response) {
-			vm.itemInfo = {
-					id: response.data.id,
-					name: response.data.name,
-					price: response.data.value,
-					amount: response.data.quantity,
-					description: response.data.description,
-					image:  atob(response.data.image),
-					imageName: response.data.imageName,
-					imageType: response.data.imageType
-			};
-		});
-	}
-	
   }
 })(window.angular);

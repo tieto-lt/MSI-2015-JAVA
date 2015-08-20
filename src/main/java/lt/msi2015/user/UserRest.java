@@ -1,5 +1,6 @@
 package lt.msi2015.user;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,6 +83,14 @@ public class UserRest {
 	public @ResponseBody UserProfileDto getUserProfile(@RequestParam(value="id") Long id) {
 		
 		return userService.getUserProfile(id);
+	}
+	
+	@RequestMapping(value = "api/user/profile", method = RequestMethod.POST) 
+	ResponseEntity<?> updateShopItem (@RequestBody UserProfileDto userProfile){
+		if (userService.updateUserProfile(userProfile)) {
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
 	
 }

@@ -8,10 +8,11 @@
   UsersFactory.$inject = ['$http'];
 
   function UsersFactory($http) {
-
+	   
     return {
-    	addUser: addUser,
-    	getUsers: getUsers
+    	addUser:  addUser,
+    	getUsers: getUsers,
+    	getUser:  getUser
     };
 
     function addUser(user) {
@@ -24,9 +25,17 @@
     	
     	return $http
 	      .get('api/user/getAllUsersFullnames');
+    }    
     	
+    function getUser(id){
+    	var data = {};
+    	 	
+    	$http.get('user/' + id).then(function(response) {
+        	angular.extend(data, response.data);     	
+	    });
+    	
+    	return data;
     }
-    
   }
 
 })();
