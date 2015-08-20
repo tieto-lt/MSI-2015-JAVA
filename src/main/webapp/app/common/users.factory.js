@@ -12,7 +12,8 @@
     return {
     	addUser:  addUser,
     	getUsers: getUsers,
-    	getUser:  getUser
+    	getUser:  getUser,
+    	getUserProfile: getUserProfile
     };
 
     function addUser(user) {
@@ -36,6 +37,14 @@
     	
     	return data;
     }
+    
+    function getUserProfile(id) {
+    	return $http({
+    		url: 'api/user/profile', 
+			    method: "GET",
+			    params: { id: id}
+			 });
+	  }
   }
 
 })();
