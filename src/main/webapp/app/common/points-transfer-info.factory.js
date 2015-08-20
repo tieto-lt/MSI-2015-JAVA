@@ -9,8 +9,12 @@
 	
 	function PointsTransferFactory($http) {
 		
+    	var data = [];
+		
 		return {
-			sendPoints: sendPoints
+			sendPoints: sendPoints,
+			getTransfers: getTransfers,
+			getNewsFeed: getNewsFeed
 	    };
 
 	    /**
@@ -25,6 +29,22 @@
 	    	return $http
 	    	  .post('api/points/send', transfer);
 	    }
+	    
+	    function getTransfers(){
+	    	
+	    	return $http.get('api/points');
+	    }
+	    
+	    function getNewsFeed(){
+	    	
+	    	
+	    	$http.get('api/newsfeed').then(function(response) {
+		        angular.extend(data, response.data);
+	    	});
+	    	
+	    	return data;
+	    }
+	    
 	}
 	
 })();
