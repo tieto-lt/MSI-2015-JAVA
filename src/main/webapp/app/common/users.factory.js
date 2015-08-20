@@ -27,8 +27,6 @@
 	      .get('api/user/getAllUsersFullnames');
     }    
     	
-    }
-	
     function getUser(id){
     	var data = {};
     	 	
