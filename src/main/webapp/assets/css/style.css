@@ -271,3 +271,7 @@ header.login-header > span {
 .points-form-main {
 	padding-left: 10px;
 }
+
+header {
+	box-shadow: 0px 0px 10px #444;
+}

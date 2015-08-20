@@ -1,5 +1,7 @@
 package lt.msi2015.pointsTransferInfo;
 
+import java.util.Date;
+
 public class NewsFeedDto {
 	public byte[] fromImage;
 	public byte[] toImage;
@@ -10,6 +12,7 @@ public class NewsFeedDto {
 	public int points;
 	public String comment;
 	public String date;
+	public Date dateFull;
 
 	public NewsFeedDto(byte[] fromImage, 
 						byte[] toImage, 
@@ -19,7 +22,9 @@ public class NewsFeedDto {
 						String toLastName, 
 						int points,
 						String comment, 
-						String date) {
+						String date,
+						Date dateFull) {
+
 		super();
 		this.fromImage = fromImage;
 		this.toImage = toImage;
@@ -30,6 +35,7 @@ public class NewsFeedDto {
 		this.points = points;
 		this.comment = comment;
 		this.date = date;
+		this.dateFull = dateFull;
 	}
 
 	

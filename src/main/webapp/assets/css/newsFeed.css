@@ -8,7 +8,7 @@
 
 .news-feed-content {
 	padding: 0 15px;
-	overflow-y: scroll;
+	overflow: auto;
 	height: 750px;
 }
 

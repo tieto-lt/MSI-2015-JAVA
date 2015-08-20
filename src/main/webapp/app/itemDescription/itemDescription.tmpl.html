@@ -6,9 +6,9 @@
 		<div class="item-Name">{{vm.itemInfo.name}}</div>
 		<div ng-if="vm.itemInfo.amount > 0">In stock</div>
 		<div ng-if="vm.itemInfo.amount == 0">Not in stock</div>
-		<div class="item-amount" >{{vm.itemInfo.quantity}}</div>
-		<div class="item-price">Price: {{vm.itemInfo.value}}</div>
-		<div>Description:</div>
+		<div class="item-amount" ><b>Quantity: </b>{{vm.itemInfo.quantity}}</div>
+		<div class="item-price"><b>Price: </b>{{vm.itemInfo.value}}</div>
+		<div><b>Description:</b></div>
 		<div class="item-description">
 			{{vm.itemInfo.description}}
 		</div>

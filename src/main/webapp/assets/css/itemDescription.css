@@ -7,19 +7,27 @@
 }
 
 .item-Name {
-	font-size: 30px;
+	font-size: 40px;
+	margin-bottom: 30px;
 }
 
 .item-amount {
-	padding-bottom: 30px;
+	margin-bottom: 18px;
+}
+
+.item-price {
+	margin-bottom: 18px;
 }
 
 .item-description {
-	padding-top: 15px;
+	font-style: italic;
+	padding-top: 8px;
+	padding-left: 20px;
+	min-height: 100px;
 }
 
 .item-description {
-	padding-bottom: 30px;
+	padding-bottom: 10px;
 }
 
 .item-photo-block {

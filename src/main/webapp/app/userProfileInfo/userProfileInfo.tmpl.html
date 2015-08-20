@@ -2,37 +2,27 @@
 	<div class="user-profile-photo-container">
 		<img class="user-profile-photo" ng-src="{{vm.user.photo}}">
 	</div>
-	<div>
-		<h3>{{ vm.user.firstName }} {{ vm.user.lastName }}</h3>
+	
+	<div ng-if="!vm.editBlock">
+		<data-ng-include src="'app/userProfileInfo/userProfileInfoBlock.tmpl.html'"></data-ng-include>
 	</div>
-	<div class="user-profile-line">
-		<span class="user-profile-title">Karma points: </span>
-		<span class="user-profile-amount">{{ vm.user.userPoints }}</span>
+	<div ng-if="vm.editBlock">
+		<data-ng-include src="'app/userProfileEdit/userProfileEdit.tmpl.html'"></data-ng-include>
+	</div>
+	
+	<div class="user-profile-line user-profile-line-centered" ng-if="!vm.editBlock">
 		<span>
-			<img src="assets/images/karma_logo.png" class="user-profile-logo">
-		</span>
-	</div>
-	<div>
-		<span class="user-profile-title">Karma rank: </span>
-		<span class="user-profile-amount">{{ vm.user.rank }}</span>
-		<span>
-			<img src="assets/images/star.png" class="user-profile-logo">
-		</span>
-	</div>
-	<div class="user-profile-line small-bottom-margin">
-		<span class="user-profile-title">About me: </span>
-	</div>
-	<div class="user-profile-line no-top-margin">
-			{{ vm.user.aboutMe }}
-	</div>
-	<div class="user-profile-line user-profile-line-centered">
-		<span>
-			<a href=".....">Edit my profile</a>
+			<a ng-click="vm.edit()">Edit my profile</a>
 		</span>
 		<span>
 			<img src="assets/images/edit-icon.png" class="edit-profile-logo">
 		</span>
 	</div>
+	
+	<div ng-if="vm.editBlock" class="edit-profile-save">
+		<md-button class="md-raised" ng-click="vm.saveChanges()">Save changes</md-button>
+	</div>
+	
 	<hr>
 	<div class="user-profile-line">
 		<a href="....." class="user-profile-navigation">Newsfeed</a>
