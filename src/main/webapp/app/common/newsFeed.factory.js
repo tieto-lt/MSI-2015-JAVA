@@ -25,7 +25,7 @@
 		return $http.get('api/newsfeed').then(function(response) {
 			shownNewsFeed.length = 0;
 			newsFeed.length = 0;
-	        angular.extend(newsFeed, $filter('orderBy')(response.data, 'date', true));
+	        angular.extend(newsFeed, $filter('orderBy')(response.data, '-date', true));
 	        loadMoreNews();
 		});
 	}
