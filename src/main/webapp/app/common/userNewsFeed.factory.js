@@ -19,7 +19,7 @@
 		
 		var data = []
 		
-		$http.get('api/newsfeed/' + id.toString()).then(function(response) {
+		$http.get('api/profileNewsfeed/' + id.toString()).then(function(response) {
 	        angular.extend(data, response.data);
 		});
 		
