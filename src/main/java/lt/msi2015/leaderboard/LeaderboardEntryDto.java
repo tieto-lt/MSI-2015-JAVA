@@ -18,4 +18,17 @@ public class LeaderboardEntryDto extends Dto {
 		this.points = points;
 		this.name = name;
 	}
+
+	public Long getUserID() {
+		return userID;
+	}
+
+	public Long getPoints() {
+		return points;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
 }

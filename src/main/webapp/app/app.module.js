@@ -3,8 +3,10 @@
 
   angular
     .module('MSI-app', [
+      /* ui-router */
       'ui.router',
-                        
+      
+      /* modules */
       'ngMaterial',
       'app.pointsTransferInfo',
       'app.registration',
@@ -17,15 +19,15 @@
       'app.adminShopAddItem',
       'app.shopItem',
       'app.itemDescription',
+      'app.userProfileInfo',
+      'app.newsFeed',
+
       
-      /*angular ngMessages*/
+      /* angular ngMessages */
       'ngMessages',
 
-      /*commons*/
+      /* commons */
       'app.common'
-      
-      /*ui-router*/
-      
     ]);
 
 })(window.angular);

@@ -1,7 +1,6 @@
 package lt.msi2015.user;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -15,6 +14,7 @@ import org.springframework.stereotype.Service;
 import lt.msi2015.applicationSettings.ApplicationSetting;
 import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
 import lt.msi2015.applicationSettings.ApplicationSettingsRepository;
+import lt.msi2015.leaderboard.LeaderboardService;
 
 @Service
 public class UserService {
@@ -24,7 +24,9 @@ public class UserService {
 	
 	@Autowired
 	ApplicationSettingsRepository appSettingsRepo;
-
+	
+	@Autowired
+	LeaderboardService leaderboardService;
 	
 	public LoggedUserDto getCurrentUser() {
 		
@@ -97,6 +99,19 @@ public class UserService {
 			}
 		}
 		return namesList;
+	}
+	
+	public UserProfileDto getUserProfile(Long id) {
+		
+		User user = repo.findById(id);
+		
+		Integer userRank = leaderboardService.getUserRank(id);
+		
+		UserProfileDto userProfile = new UserProfileDto(user.getId(), user.getFirstName(),
+				user.getLastName(), user.getEmail(), user.getUserPoints(), userRank, user.getAboutMe(), 
+				user.getImage(), user.getImageName(), user.getImageType());
+		
+		return userProfile;
 	}
 	
 }
