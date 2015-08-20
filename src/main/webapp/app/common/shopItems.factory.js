@@ -5,18 +5,18 @@
 		.module('app.common')
 		.factory('ShopItemFactory', ShopItemFactory);
 	
-	ShopItemFactory.$inject = ['$http'];
+	ShopItemFactory.$inject = ['$http', '$mdDialog'];
 	
-	function ShopItemFactory($http) {
-		
-		var data = [];
+	function ShopItemFactory($http, $mdDialog) {
+		var data = {};
 		
 		return {
 			addNewShopItem: addNewShopItem,
 			getShopItems:   getShopItems,
 			deleteItem:     deleteItem,
 			updateItem: 	updateItem,
-			getShopItem:	getShopItem
+			getShopItem:	getShopItem,
+			getItem: getItem
 	    };
 	    
 	    function addNewShopItem(transferInfo) {
@@ -34,9 +34,6 @@
 		    	.post('api/shop/addItem', transferObject);
 	    }
 	
-	    /*
-	     * Function returns a promise to get all shop items in db
-	     */
 	    function getShopItems(){
 	    	
 	    	return $http.get('api/shop/items');
@@ -64,6 +61,14 @@
 	    function getShopItem(id) {
 	    	return $http.get('api/shop/item/' + id);
 	    }
+	    
+	    function getItem(id) {
+			getShopItem(id).then(function(response) {
+				angular.extend(data, response.data);
+			});
+			
+			return data;
+		}
 	}
 	
 })();
