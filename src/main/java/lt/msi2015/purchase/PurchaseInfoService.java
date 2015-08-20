@@ -21,9 +21,18 @@ public class PurchaseInfoService {
 	UserRepository userRepo;
 	
 	public boolean buy(PurchaseInfoDto info) {
-		if(!subPoints(info)) {
+		
+		User user = userRepo.findById(info.getUserId());
+		ShopItem item = shopRepo.findById(info.getShopItemId());
+		
+		if(item.getQuantity() == 0) {
 			return false;
 		}
+		
+		if(!subPoints(user, item)) {
+			return false;
+		}
+		
 		if(purchaseRepo.save(
 				new PurchaseInfo(
 					info.getUserId(),
@@ -42,10 +51,7 @@ public class PurchaseInfoService {
 		return shopRepo.save(item) != null;
 	}
 	
-	private boolean subPoints(PurchaseInfoDto info) {
-		
-		User user = userRepo.findById(info.getUserId());
-		ShopItem item = shopRepo.findById(info.getShopItemId());
+	private boolean subPoints(User user, ShopItem item) {
 		
 		if(user.getUserPoints() >= item.getValue()) {
 			user.setUserPoints(user.getUserPoints() - item.getValue());
