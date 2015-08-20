@@ -113,31 +113,18 @@
 		}
 		
 		function showDeleteConfirmation(event, redirectAction, item) {
-	    	var options = {
-	    		controller: function DeleteItemDialogController($mdDialog, ShopItemFactory) {
-	    			var vm = this;
-	    			
-	    			vm.ok = function () {
-	    				ShopItemFactory.deleteItem(vm.item.id).then(function() {
-	    					$mdDialog.hide();
-	    					redirectAction('adminPage.shop');
-	    				});
-	    			}
-	    			vm.cancel = function () {
-	    				$mdDialog.cancel();
-	    			}
-	    		},
-	    		controllerAs: 'vm',
-	    		locals: {
-	    			item: item
-	    		},
-	    		bindToController: true,
-	    		parent: angular.element(document.body),
-	    		targetEvent: event,
-	    		templateUrl: 'app/deleteItemDialog/deleteItemDialog.tmpl.html'
-	    	};
-	    	
-	    	$mdDialog.show(options);
+			var okAction = function () {
+				ItemDescriptionFactory.buy(vm.profileInfo.id, item.id).then(function() {
+					$mdDialog.hide();
+					redirectAction('adminPage.shop');
+				});
+			}
+	    	var cancelAction = function () {
+				$mdDialog.cancel();
+			}
+	    	ShopItemFactory.showConfirmationDialog(
+	    			"Do you really want to delete" + item.name + "?", event,
+	    			okAction, cancelAction);
 	    }
 		
 //		vm.save = save;

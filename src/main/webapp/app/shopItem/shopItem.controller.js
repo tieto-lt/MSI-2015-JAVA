@@ -29,38 +29,6 @@
     }
     
     function showBuyConfirmation(item, event) {
-    	/*
-    	 * Reikia pasikurti geriau factory metoda, kuris sukurti visa sita dialog reikala, pvz: 
-    	 */
-    	/*function okClick () {
-    		...
-    	}
-    	mymodal.show({item: item}, template, okClick, cancelClick);*/
-    	/*var options = {
-    		controller: function BuyItemDialogController($mdDialog, ItemDescriptionFactory, ProfileHeaderFactory) {
-    			var vm = this;
-    			
-    			vm.ok = function () {
-    				var userId = ProfileHeaderFactory.getProfileInfo().id;
-    				ItemDescriptionFactory.buy(userId, vm.item.id).then(function() {
-    					$mdDialog.hide();
-    				});
-    			}
-    			vm.cancel = function () {
-    				$mdDialog.cancel();
-    			}
-    		},
-    		controllerAs: 'vm',
-    		locals: {
-    			item: item
-    		},
-    		bindToController: true,
-    		parent: angular.element(document.body),
-    		targetEvent: event,
-    		templateUrl: 'app/buyItemDialog/buyItemDialog.tmpl.html'
-    	};
-    	
-    	$mdDialog.show(options);*/
     	var okAction = function () {
 			ItemDescriptionFactory.buy(vm.profileInfo.id, item.id).then(function() {
 				ProfileHeaderFactory.loadUserInfo();
