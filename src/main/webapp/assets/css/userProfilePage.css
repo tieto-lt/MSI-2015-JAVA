@@ -1,0 +1,24 @@
+.user-profile-main-container {
+	box-shadow: 1px 1px 3px #888888;
+	padding: 5px 15px;
+	background: white;
+}
+
+.user-profile{
+	width: 300px;
+}
+
+.user-profile-photo-container {
+	width: 270px;
+	height: 270px;
+}
+
+.user-profile-photo {
+	width: 250px;
+	height: 250px;
+}
+
+.user-profile-newsfeed{
+	height: 400px;
+	width: calc(100% - 300px);
+}
