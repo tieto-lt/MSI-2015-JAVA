@@ -40,6 +40,7 @@
     				var userId = ProfileHeaderFactory.getProfileInfo().id;
     				ItemDescriptionFactory.buy(userId, vm.item.id).then(function() {
     					$mdDialog.hide();
+    					vm.profileInfo = ProfileHeaderFactory.loadUserInfo();
     				});
     			}
     			vm.cancel = function () {
