@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lt.msi2015.user.User;
@@ -61,7 +60,8 @@ public class PointsTransferInfoRest {
 					toUser.getLastName(),
 					transfer.getPoints(),
 					transfer.getComment(),
-					s.format(transfer.getDateCreated()).toString()
+					s.format(transfer.getDateCreated()).toString(),
+					transfer.getDateCreated()
 					);
 			newsFeed.add(entry);
 		}
@@ -94,7 +94,8 @@ public class PointsTransferInfoRest {
 						toUser.getLastName(),
 						transfer.getPoints(),
 						transfer.getComment(),
-						s.format(transfer.getDateCreated()).toString()
+						s.format(transfer.getDateCreated()).toString(),
+						transfer.getDateCreated()
 						);
 				newsFeed.add(entry);
 			}

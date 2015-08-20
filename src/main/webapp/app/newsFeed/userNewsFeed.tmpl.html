@@ -4,36 +4,8 @@
 	<div class="news-feed-title">
 		What's new
 	</div>
-	<div class="news-feed-content">
-		<div class="news-entry">
-			<div class="reciever-photo-info">
-				<img class="reciever-photo" src="assets/images/mantas.jpg" >
-				<div class="recieved-points">
-					+50
-				</div>
-			</div><!--
-		 --><div class="entry-info">
-				<div class="transfer-details">
-					<b>Mantas Marcinkus</b> recieved karma points from <b>Mantas Marcinkus</b>
-			 	</div><!--
-			 --><div class="transfer-category">
-					Beauty
-				</div><!--
-			 --><div class="transfer-comment">
-					"As esu labai grazus"
-				</div>
-			</div><!--
-		 --><div class="sender-photo-info">
-		 		<div class="info-date">
-		 			June 3
-		 		</div>
-		 		<div class="sender-photo">
-		 			<span class="helper"></span>
-		 			<img src="assets/images/mantas.jpg" >
-		 		</div>
-			</div>
-		</div>
-		<div class="news-entry" ng-repeat="entry in vm.newsFeed">
+	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()">
+		<div class="news-entry" ng-repeat="entry in vm.shownNewsFeed">
 			<div class="reciever-photo-info">
 				<img class="reciever-photo" src="assets/images/mantas.jpg" >
 				<div class="recieved-points">
