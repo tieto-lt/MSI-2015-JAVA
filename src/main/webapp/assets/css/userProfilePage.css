@@ -2,23 +2,88 @@
 	box-shadow: 1px 1px 3px #888888;
 	padding: 5px 15px;
 	background: white;
+	margin-left: 10px;
+}
+
+.user-profile-main-container h3 {
+	font-weight: normal;
+	text-align: center;	
+}
+
+.user-profile-main-container a {
+	text-decoration: none;
+    color: #5e5e5e;
+}
+
+.user-profile-main-container a:hover {
+	text-decoration: none;
+    color: #333;
 }
 
 .user-profile{
 	width: 300px;
 }
 
+.user-profile-title {
+	color: #F78D2D;
+    font-weight: bold;
+    width: 110px;
+    display: inline-block;
+}
+
+.user-profile-amount {
+	text-align: right;
+    display: inline-block;
+    width: 55px;
+}
+
+.user-profile-line {
+	margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.user-profile-line-centered {
+	text-align: center;
+}
+
+.small-bottom-margin{
+	margin-bottom: 5px;
+}
+
+.no-top-margin {
+	margin-top: 0px;
+}
+
+.user-profile-logo {
+	width: 25px;
+	height: 25px;
+}
+
+.edit-profile-logo {
+	width: 15px;
+	height: 15px;
+}
+
 .user-profile-photo-container {
-	width: 270px;
-	height: 270px;
+	width: 259px;
+	height: 259px;
+	margin-top: 10px;
 }
 
 .user-profile-photo {
-	width: 250px;
-	height: 250px;
+	width: 259px;
+	height: 259px;
 }
 
 .user-profile-newsfeed{
 	height: 400px;
-	width: calc(100% - 300px);
+	width: calc(100% - 310px);
+}
+
+.user-profile-navigation {
+	color: #5E5E5E;
+}
+
+.user-profile-navigation:hover {
+	color: #F78D2D !important;
 }
