@@ -16,9 +16,13 @@
     vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
     
     vm.shopItems = [];
-    ShopItemFactory.getShopItems().then(function (response) {
-    	vm.shopItems = response.data;
-	}) ;
+    refreshItems();
+    
+    function refreshItems() {
+    	ShopItemFactory.getShopItems().then(function (response) {
+        	vm.shopItems = response.data;
+    	});
+    }
     
     function decodeImage(image) {
     	return atob(image);
@@ -58,12 +62,18 @@
     	
     	$mdDialog.show(options);*/
     	var okAction = function () {
-			var userId = vm.profileInfo.id;
-			return ShopItemFactory.buy(item);
+			ItemDescriptionFactory.buy(vm.profileInfo.id, item.id).then(function() {
+				ProfileHeaderFactory.loadUserInfo();
+				refreshItems();
+				$mdDialog.hide();
+			});
+		}
+    	var cancelAction = function () {
+			$mdDialog.cancel();
 		}
     	ShopItemFactory.showConfirmationDialog(
     			"Are you sure you want to spend " + item.value + " karma points on " + item.name + "?", event,
-    			okAction, function(){});
+    			okAction, cancelAction);
     }
   }
   

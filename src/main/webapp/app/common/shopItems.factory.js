@@ -78,15 +78,8 @@
 	    		controller: function BuyItemDialogController($mdDialog) {
 	    			var vm = this;
 	    			
-	    			vm.ok = function () {
-	    				okAction().then(function() {
-	    					$mdDialog.hide();
-	    				});
-	    				
-	    			}
-	    			vm.cancel = function () {
-	    				$mdDialog.cancel();
-	    			}
+	    			vm.ok = okAction;
+	    			vm.cancel = cancelAction;
 	    		},
 	    		controllerAs: 'vm',
 	    		locals: {
