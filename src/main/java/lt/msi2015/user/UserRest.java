@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
 import lt.msi2015.applicationSettings.ApplicationSettingsService;
+import lt.msi2015.shop.ShopItemDto;
 
 @RestController
 public class UserRest {
@@ -82,6 +83,14 @@ public class UserRest {
 	public @ResponseBody UserProfileDto getUserProfile(@RequestParam(value="id") Long id) {
 		
 		return userService.getUserProfile(id);
+	}
+	
+	@RequestMapping(value = "api/user/profile", method = RequestMethod.POST) 
+	ResponseEntity<?> updateShopItem (@RequestBody UserProfileDto userProfile){
+		if (userService.updateUserProfile(userProfile)) {
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
 	
 }
