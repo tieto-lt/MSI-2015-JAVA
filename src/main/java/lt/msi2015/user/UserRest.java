@@ -1,14 +1,12 @@
 package lt.msi2015.user;
 
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -87,16 +85,12 @@ public class UserRest {
 		return userService.getUserProfile(id);
 	}
 	
-	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-	public HashMap<String, String> getUser(@PathVariable Long id) {
-		User user = repo.findById(id);
-		if(user == null)
-			return null;
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("firstName", user.getFirstName());
-		map.put("lastName", user.getLastName());
-		map.put("id", user.getId().toString());
-		return map;
+	@RequestMapping(value = "api/user/profile", method = RequestMethod.POST) 
+	ResponseEntity<?> updateShopItem (@RequestBody UserProfileDto userProfile){
+		if (userService.updateUserProfile(userProfile)) {
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
-
+	
 }
