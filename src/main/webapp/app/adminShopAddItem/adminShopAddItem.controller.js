@@ -14,7 +14,7 @@
 			price : '',
 			amount: '',
 			description: '',
-			image: '',
+			image: 'assets/images/no-thumb.png',
 			imageName: '',
 			imageType: ''
 		};

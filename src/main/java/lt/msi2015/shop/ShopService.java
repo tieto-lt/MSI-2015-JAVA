@@ -1,5 +1,7 @@
 package lt.msi2015.shop;
 
+import java.util.Date;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +50,7 @@ public class ShopService {
 			itemInDatabase.setValue(itemEdited.value);
 			itemInDatabase.setQuantity(itemEdited.quantity);
 			itemInDatabase.setImageType(itemEdited.imageType);
+			itemInDatabase.setDateAdded(new Date());
 			return shopRepository.save(itemInDatabase) != null;
 		}
 		return false;
