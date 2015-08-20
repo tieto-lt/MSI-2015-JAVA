@@ -5,9 +5,9 @@
     .module('app.shopItem')
     .controller('ShopItemController', ShopItemController);
 
-  ShopItemController.$inject = ['ShopItemFactory', '$mdDialog', 'ProfileHeaderFactory', 'ItemDescriptionFactory'];
+  ShopItemController.$inject = ['ShopItemFactory', '$mdDialog', 'ProfileHeaderFactory', 'ItemDescriptionFactory', 'ConfirmationDialogFactory'];
 
-  function ShopItemController(ShopItemFactory, $mdDialog, ProfileHeaderFactory, ItemDescriptionFactory) {
+  function ShopItemController(ShopItemFactory, $mdDialog, ProfileHeaderFactory, ItemDescriptionFactory, ConfirmationDialogFactory) {
     var vm = this;
     
     vm.decodeImage = decodeImage;
@@ -39,7 +39,7 @@
     	var cancelAction = function () {
 			$mdDialog.cancel();
 		}
-    	ShopItemFactory.showConfirmationDialog(
+    	ConfirmationDialogFactory.showConfirmationDialog(
     			"Are you sure you want to spend " + item.value + " karma points on " + item.name + "?", event,
     			okAction, cancelAction);
     }

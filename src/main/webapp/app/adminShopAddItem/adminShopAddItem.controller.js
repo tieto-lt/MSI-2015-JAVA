@@ -4,9 +4,9 @@
 	angular.module('app.adminShopAddItem').controller(
 			'AdminShopAddItemController', AdminShopAddItemController);
 
-	AdminShopAddItemController.$inject = [ 'ShopItemFactory', '$stateParams', '$state', '$scope',  '$mdDialog' ];
+	AdminShopAddItemController.$inject = [ 'ShopItemFactory', '$stateParams', '$state', '$scope',  '$mdDialog', 'ConfirmationDialogFactory'];
 
-	function AdminShopAddItemController(ShopItemFactory, $stateParams, $state, $scope, $mdDialog) {
+	function AdminShopAddItemController(ShopItemFactory, $stateParams, $state, $scope, $mdDialog, ConfirmationDialogFactory) {
 		var vm = this;
 
 		vm.transferInfo = {
@@ -114,7 +114,7 @@
 		
 		function showDeleteConfirmation(event, redirectAction, item) {
 			var okAction = function () {
-				ItemDescriptionFactory.buy(vm.profileInfo.id, item.id).then(function() {
+				ShopItemFactory.deleteItem(item.id).then(function() {
 					$mdDialog.hide();
 					redirectAction('adminPage.shop');
 				});
@@ -122,7 +122,7 @@
 	    	var cancelAction = function () {
 				$mdDialog.cancel();
 			}
-	    	ShopItemFactory.showConfirmationDialog(
+	    	ConfirmationDialogFactory.showConfirmationDialog(
 	    			"Do you really want to delete" + item.name + "?", event,
 	    			okAction, cancelAction);
 	    }
