@@ -5,16 +5,13 @@
     .module('app.newsFeed')
     .controller('NewsFeedController', NewsFeedController);
   
-  NewsFeedController.$inject = ['PointsTransferFactory','UsersFactory'];
+  NewsFeedController.$inject = ['NewsFeedFactory'];
 
-  function NewsFeedController(PointsTransferFactory,UsersFactory) {
+  function NewsFeedController(NewsFeedFactory) {
     var vm = this;
     
-    vm.newsFeed = getNewsFeed();
-    
-    function getNewsFeed() {
-    	return PointsTransferFactory.getNewsFeed()
-    }
+    vm.newsFeed = NewsFeedFactory.newsFeed;
+
 
   }
   

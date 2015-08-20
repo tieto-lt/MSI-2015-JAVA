@@ -7,10 +7,10 @@
 	
 	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory',
 	                                        'AdminAppSettingsFactory', 'UsersFactory',
-	                                        'ProfileHeaderFactory'];
+	                                        'ProfileHeaderFactory','NewsFeedFactory'];
 	
 	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory,
-				AdminAppSettingsFactory, UsersFactory, ProfileHeaderFactory) {
+				AdminAppSettingsFactory, UsersFactory, ProfileHeaderFactory,NewsFeedFactory) {
 
 		var vm = this;
 		
@@ -39,6 +39,7 @@
 	     * Function to execute when points transfer form is submitted
 	     */
 	    function submit() {
+	    	
 	    	vm.successMessage = '';
 	    	vm.errorMessage = '';
 	    	
@@ -58,6 +59,7 @@
 	    			vm.pointsForm.$setPristine();
 	    			vm.pointsForm.$setUntouched();
 	    			LeaderboardFactory.leaders();
+	    			NewsFeedFactory.updateNewsFeed();
 	    			ProfileHeaderFactory.loadUserInfo();
 	    			vm.submitClicked = false;
 	    		}, function() {
