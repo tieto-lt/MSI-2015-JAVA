@@ -3,18 +3,18 @@
 		<img class="user-profile-photo" ng-src="{{vm.user.photo}}">
 	</div>
 	<div>
-		<h3>Mantas Marcinkus</h3>
+		<h3>{{ vm.user.firstName }} {{ vm.user.lastName }}</h3>
 	</div>
 	<div class="user-profile-line">
 		<span class="user-profile-title">Karma points: </span>
-		<span class="user-profile-amount">350</span>
+		<span class="user-profile-amount">{{ vm.user.userPoints }}</span>
 		<span>
 			<img src="assets/images/karma_logo.png" class="user-profile-logo">
 		</span>
 	</div>
 	<div>
 		<span class="user-profile-title">Karma rank: </span>
-		<span class="user-profile-amount">47</span>
+		<span class="user-profile-amount">{{ vm.user.rank }}</span>
 		<span>
 			<img src="assets/images/star.png" class="user-profile-logo">
 		</span>
@@ -23,7 +23,7 @@
 		<span class="user-profile-title">About me: </span>
 	</div>
 	<div class="user-profile-line no-top-margin">
-			I am programmer working in Tieto for 10 years. This is description about me.
+			{{ vm.user.aboutMe }}
 	</div>
 	<div class="user-profile-line user-profile-line-centered">
 		<span>
