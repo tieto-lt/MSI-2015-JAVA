@@ -42,9 +42,9 @@
 			</div><!--
 		 --><div class="entry-info">
 				<div class="transfer-details">
-					<b>{{entry.toFirstName + " " + toLastName }}</b>
+					<b>{{entry.toFirstName + " " + entry.toLastName }}</b>
 					 recieved karma points from 
-					<b>{{entry.fromFirstName + " " + fromLastName }}</b>
+					<b>{{entry.fromFirstName + " " + entry.fromLastName }}</b>
 			 	</div><!--
 			 --><div class="transfer-category">
 					Beauty
@@ -55,7 +55,7 @@
 			</div><!--
 		 --><div class="sender-photo-info">
 		 		<div class="info-date">
-		 			June 3
+		 			{{entry.date}}
 		 		</div>
 		 		<div class="sender-photo">
 		 			<span class="helper"></span>
