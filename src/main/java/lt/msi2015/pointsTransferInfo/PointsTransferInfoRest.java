@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -72,8 +73,8 @@ public class PointsTransferInfoRest {
 	
 	//FOR PROFILE NEWS FEED*************************
 	
-	@RequestMapping(value = "/api/profileNewsfeed", method = RequestMethod.GET)
-	public List<NewsFeedDto> getprofileNewsfeed(@RequestParam(value="id") Long userId) {
+	@RequestMapping(value = "/api/profileNewsfeed/{id}", method = RequestMethod.GET)
+	public List<NewsFeedDto> getprofileNewsfeed(@PathVariable Long id) {
 		
 		List<NewsFeedDto> newsFeed = new ArrayList<NewsFeedDto>();
 		
@@ -83,7 +84,7 @@ public class PointsTransferInfoRest {
 		
 		for (PointsTransferInfo transfer : allTransfers) {
 				// Only user newsfeed
-			if(userId == transfer.fromUserID || userId == transfer.toUserID) {
+			if(id == transfer.fromUserID || id == transfer.toUserID) {
 				User fromUser  = userRepo.findById(transfer.fromUserID);
 				User toUser  = userRepo.findById(transfer.toUserID);
 				NewsFeedDto entry = new NewsFeedDto(
