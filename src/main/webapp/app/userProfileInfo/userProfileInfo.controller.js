@@ -12,6 +12,17 @@
 		var vm = this;
 		var currUserData = ProfileHeaderFactory.getProfileInfo();
 		
+		vm.edit = edit;
+		vm.saveChanges = saveChanges;
+		
+		function edit() {
+			vm.editBlock = 'go';
+		}
+		
+		function saveChanges() {
+			vm.editBlock = '';
+		}
+		
 		vm.user = {
 	      photo: 'assets/images/no-profile-pic.png',
 	    };

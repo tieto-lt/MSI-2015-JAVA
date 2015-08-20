@@ -87,3 +87,33 @@
 .user-profile-navigation:hover {
 	color: #F78D2D !important;
 }
+
+.edit-profile-name-label {
+	display: block;
+}
+
+.edit-profile-name-input {
+	display: block;
+}
+
+.edit-profile-surname-label {
+	display: block;
+}
+
+.edit-profile-save {
+	text-align: center;
+}
+
+.edit-profile-surname {
+	padding-bottom: 10px;
+}
+
+.edit-profile-password {
+	padding-bottom: 10px;
+}
+
+.edit-profile-photo {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
