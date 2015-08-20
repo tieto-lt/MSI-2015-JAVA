@@ -14,7 +14,6 @@
 		return {
 			sendPoints: sendPoints,
 			getTransfers: getTransfers,
-			getNewsFeed: getNewsFeed
 	    };
 
 	    /**
@@ -33,16 +32,6 @@
 	    function getTransfers(){
 	    	
 	    	return $http.get('api/points');
-	    }
-	    
-	    function getNewsFeed(){
-	    	
-	    	
-	    	$http.get('api/newsfeed').then(function(response) {
-		        angular.extend(data, response.data);
-	    	});
-	    	
-	    	return data;
 	    }
 	    
 	}
