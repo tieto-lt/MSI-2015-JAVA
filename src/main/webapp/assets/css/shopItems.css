@@ -1,11 +1,11 @@
 
 .shop-item, .admin-shop-item {
-	width: 160px;
+	width: 180px;
 	margin: 15px;
 	display: inline-block;
 	border-radius: 10px;
  	box-shadow: 1px 1px 15px #AAA; 
- 	height: 220px;
+ 	height: 240px;
 }
 
 .shop-item:hover, .admin-shop-item:hover {
@@ -24,8 +24,8 @@
 }
 
 .shop-item-image {
-	width: 130px;
-	height: 130px;
+	width: 150px;
+	height: 150px;
 	margin: 10px auto;
 }
 
@@ -98,6 +98,6 @@
  }
  
  .shop-item-image-image {
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
 }
