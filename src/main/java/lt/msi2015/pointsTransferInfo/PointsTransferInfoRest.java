@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lt.msi2015.user.User;
@@ -68,4 +69,36 @@ public class PointsTransferInfoRest {
 		return newsFeed;
 
 	}
+	
+	//FOR PROFILE NEWS FEED*************************
+	
+	@RequestMapping(value = "/api/profileNewsfeed", method = RequestMethod.GET)
+	public List<NewsFeedDto> getprofileNewsfeed(@RequestParam(value="id") Long userId) {
+		
+		List<NewsFeedDto> newsFeed = new ArrayList<NewsFeedDto>();
+		
+		List<PointsTransferInfo> allTransfers = transfersRepo.findAll();
+		
+		SimpleDateFormat s = new SimpleDateFormat("MMdd");
+		
+		for (PointsTransferInfo transfer : allTransfers) {
+				// Only user newsfeed
+			if(userId == transfer.fromUserID || userId == transfer.toUserID) {
+				User fromUser  = userRepo.findById(transfer.fromUserID);
+				User toUser  = userRepo.findById(transfer.toUserID);
+				NewsFeedDto entry = new NewsFeedDto(
+						fromUser.getFirstName(),
+						fromUser.getLastName(),
+						toUser.getFirstName(),
+						toUser.getLastName(),
+						transfer.getPoints(),
+						transfer.getComment(),
+						s.format(transfer.getDateCreated()).toString()
+						);
+				newsFeed.add(entry);
+			}
+		}
+		return newsFeed;
+	}
+	
 }
