@@ -5,15 +5,15 @@
     .module('app.shopItem')
     .controller('ShopItemController', ShopItemController);
 
-  ShopItemController.$inject = ['ShopItemFactory', '$mdDialog', 'ProfileHeaderFactory'];
+  ShopItemController.$inject = ['ShopItemFactory', '$mdDialog', 'ProfileHeaderFactory', 'ItemDescriptionFactory'];
 
-  function ShopItemController(ShopItemFactory, $mdDialog, ProfileHeaderFactory) {
+  function ShopItemController(ShopItemFactory, $mdDialog, ProfileHeaderFactory, ItemDescriptionFactory) {
     var vm = this;
-    
-    vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
     
     vm.decodeImage = decodeImage;
     vm.showBuyConfirmation = showBuyConfirmation;
+    
+    vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
     
     vm.shopItems = [];
     ShopItemFactory.getShopItems().then(function (response) {
@@ -32,7 +32,7 @@
     		...
     	}
     	mymodal.show({item: item}, template, okClick, cancelClick);*/
-    	var options = {
+    	/*var options = {
     		controller: function BuyItemDialogController($mdDialog, ItemDescriptionFactory, ProfileHeaderFactory) {
     			var vm = this;
     			
@@ -40,7 +40,6 @@
     				var userId = ProfileHeaderFactory.getProfileInfo().id;
     				ItemDescriptionFactory.buy(userId, vm.item.id).then(function() {
     					$mdDialog.hide();
-    					vm.profileInfo = ProfileHeaderFactory.loadUserInfo();
     				});
     			}
     			vm.cancel = function () {
@@ -57,7 +56,14 @@
     		templateUrl: 'app/buyItemDialog/buyItemDialog.tmpl.html'
     	};
     	
-    	$mdDialog.show(options);
+    	$mdDialog.show(options);*/
+    	var okAction = function () {
+			var userId = vm.profileInfo.id;
+			return ShopItemFactory.buy(item);
+		}
+    	ShopItemFactory.showConfirmationDialog(
+    			"Are you sure you want to spend " + item.value + " karma points on " + item.name + "?", event,
+    			okAction, function(){});
     }
   }
   

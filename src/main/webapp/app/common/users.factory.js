@@ -24,9 +24,7 @@
     	
     	return $http
 	      .get('api/user/getAllUsersFullnames');
-    	
-    }
-    
+    }    
   }
 
 })();
