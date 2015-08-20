@@ -28,7 +28,7 @@ public class LeaderboardService {
 	UserRepository userRepo;
 	
 	@Transactional
-	List<LeaderboardEntryDto> getLeaderboardEntries() {
+	public List<LeaderboardEntryDto> getLeaderboardSortedEntries() {
 
 		Map<Long, LeaderboardEntryDto> groupedLeaders = new HashMap<>();
 		
@@ -37,7 +37,7 @@ public class LeaderboardService {
 				addToGroupedLeaders(groupedLeaders, historyEntry);			
 		}
 		
-		return getTopFive(groupedLeaders.values());
+		return sortLeaders(groupedLeaders.values());
 	}
 	
 	
@@ -67,12 +67,12 @@ public class LeaderboardService {
 	
 	
 	
-	private ArrayList<LeaderboardEntryDto> getTopFive(Collection<LeaderboardEntryDto> collection) {
+	private List<LeaderboardEntryDto> sortLeaders(Collection<LeaderboardEntryDto> collection) {
 		
-		ArrayList<LeaderboardEntryDto> entries = new ArrayList<>(collection);
+		List<LeaderboardEntryDto> entries = new ArrayList<>(collection);
 		entries.sort(new LeadersComparator());
 		
-		return getSublistOfFive(entries);
+		return entries;
 	}
 	
 	
@@ -99,8 +99,24 @@ public class LeaderboardService {
 	
 	
 	
-	private ArrayList<LeaderboardEntryDto> getSublistOfFive(ArrayList<LeaderboardEntryDto> entries) {
+	public List<LeaderboardEntryDto> getSublistOfFive(List<LeaderboardEntryDto> entries) {
 		return new ArrayList<>(entries.subList(0, 5 > entries.size() ? entries.size() : 5));
+	}
+	
+	public Integer getUserRank(Long userId) {
+		
+		List <LeaderboardEntryDto> rankings = getLeaderboardSortedEntries();
+		
+		Integer rank = 1;
+		for(LeaderboardEntryDto entry : rankings) {
+			if(entry.getUserID() == userId) {
+				return rank;
+			} else {
+				rank++;
+			}
+		}
+		
+		return rank;
 	}
 
 }

@@ -15,7 +15,8 @@ public class LeaderboardRest {
 	
 	@RequestMapping(value = "/api/leaderboard", method = RequestMethod.GET)
 	List<LeaderboardEntryDto> leaderboard() {
-		return leaderboardService.getLeaderboardEntries();
+		List<LeaderboardEntryDto> sortedEntries = leaderboardService.getLeaderboardSortedEntries();
+		return leaderboardService.getSublistOfFive(sortedEntries);
 	}
 	
 }
