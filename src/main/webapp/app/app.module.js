@@ -21,6 +21,7 @@
       'app.itemDescription',
       'app.userProfileInfo',
       'app.newsFeed',
+      'app.newsFeedCurrUser',
 
       
       /* angular ngMessages */

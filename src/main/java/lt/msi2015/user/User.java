@@ -62,9 +62,6 @@ public class User extends Dto {
 	private String imageType;
 
 	private String imageName;
-	
-//	@NotNull
-//	private Boolean isAdmin;
 
 	public Role role = Role.USER;
 
@@ -89,15 +86,6 @@ public class User extends Dto {
 		this.userPoints = 0;
 	}
 
-	/*
-	 * If creating admin user
-	 */
-	/*public User(String email, String firstName,
-			String lastName, String password, Boolean isAdmin) {
-		this(email, firstName, lastName, password);
-		this.isAdmin = isAdmin;
-	}	
-	
 	/*
 	 * Getters and setters
 	 */
@@ -204,12 +192,4 @@ public class User extends Dto {
 	public void setImageName(String imageName) {
 		this.imageName = imageName;
 	}
-
-//	public Boolean getIsAdmin() {
-//		return isAdmin;
-//	}
-//
-//	public void setIsAdmin(Boolean isAdmin) {
-//		this.isAdmin = isAdmin;
-//	}	
 }

@@ -15,7 +15,8 @@
 	  
 	return {
 	    updateNewsFeed: updateNewsFeed,
-	    newsFeed: newsFeed
+	    newsFeed: newsFeed,
+	    getNewsFeedCurrUser: getNewsFeedCurrUser
 	};
 		  
 		    
@@ -28,7 +29,23 @@
 	function getNewsFeed(){
 		return newsFeed;
 	}
-  
+	
+	function getNewsFeedCurrUser(id){
+		var data = {};
+		
+		data = $http({
+					url: '/api/profileNewsfeed/' + id.toString(),
+					method: "GET"	
+		});
+		
+		return data;
+		
+//		$http.get('api/profileNewsfeed/' + id.toString()).then(function(response) {
+//	        angular.extend(data, response.data);
+//		});
+//		
+//		return data;
+	}
   }
   
   })();

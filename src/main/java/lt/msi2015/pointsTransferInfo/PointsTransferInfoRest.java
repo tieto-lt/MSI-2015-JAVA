@@ -55,6 +55,8 @@ public class PointsTransferInfoRest {
 			User fromUser  = userRepo.findById(transfer.fromUserID);
 			User toUser  = userRepo.findById(transfer.toUserID);
 			NewsFeedDto entry = new NewsFeedDto(
+					fromUser.getImage(),
+					toUser.getImage(),
 					fromUser.getFirstName(),
 					fromUser.getLastName(),
 					toUser.getFirstName(),
@@ -88,6 +90,8 @@ public class PointsTransferInfoRest {
 				User fromUser  = userRepo.findById(transfer.fromUserID);
 				User toUser  = userRepo.findById(transfer.toUserID);
 				NewsFeedDto entry = new NewsFeedDto(
+						fromUser.getImage(),
+						toUser.getImage(),
 						fromUser.getFirstName(),
 						fromUser.getLastName(),
 						toUser.getFirstName(),

@@ -8,9 +8,10 @@
         <ul>
             <li ng-class="{'current' : vm.currentPage == 'adminPage.applicationSettings'}"><a ng-click="vm.changePage('adminPage.applicationSettings')">Home</a></li>
             <li ng-class="{'current' : vm.currentPage == 'adminPage.shop'}"><a ng-click="vm.changePage('adminPage.shop')">Tieto Shop</a></li>
+        	<div class="logout" data-ng-controller="LogoutController as vm">
+				<a ng-click="vm.logout()" >Logout</a>
+			</div>
         </ul>
     </div>
-	<div class="logout" data-ng-controller="LogoutController as vm">
-		<a ng-click="vm.logout()" >Logout</a>
-	</div>
+	
 </header>

@@ -14,8 +14,6 @@ header.admin-header  {
 }
 
 .admin-header .navigation {
-	width: calc(70% - 300px);
-	display: inline-block;
 	vertical-align: bottom;
 }
 
@@ -117,7 +115,8 @@ header.admin-header  {
  	width: 100px;
  	vertical-align: bottom;
  	display: inline-block; 
- 	padding-bottom: 10px;	
+ 	padding-bottom: 10px;
+ 	float: right;	
  }
  
  .karma-logo-container {

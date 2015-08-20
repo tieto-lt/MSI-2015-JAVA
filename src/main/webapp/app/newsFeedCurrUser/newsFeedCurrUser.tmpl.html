@@ -1,7 +1,7 @@
-<div class="news-feed-container" data-ng-controller="NewsFeedController as vm" >
+<div class="news-feed-container" data-ng-controller="NewsFeedCurrUserController as vm" >
 	<div class="news-entry" ng-repeat="entry in vm.newsFeed">
 		<div class="reciever-photo-info">
-			<img class="reciever-photo" src="assets/images/mantas.jpg" >
+			<img class="reciever-photo" ng-src="{{entry.toImage}}" >
 			<div class="recieved-points">
 				+{{entry.points}}
 			</div>
@@ -25,7 +25,7 @@
 	 		</div>
 	 		<div class="sender-photo">
 	 			<span class="helper"></span>
-	 			<img src="assets/images/mantas.jpg" >
+	 			<img ng-src="{{entry.fromImage}}">
 	 		</div>
 		</div>
 	</div>
