@@ -51,6 +51,9 @@ public class User extends Dto {
 	@Column(columnDefinition = "int default 0")
 	public Integer userPoints;
 	
+	@Size(min=1, max=160)
+	public String aboutMe;
+	
 //	@NotNull
 //	private Boolean isAdmin;
 
@@ -159,6 +162,14 @@ public class User extends Dto {
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+
+	public String getAboutMe() {
+		return aboutMe;
+	}
+
+	public void setAboutMe(String aboutMe) {
+		this.aboutMe = aboutMe;
 	}
 
 //	public Boolean getIsAdmin() {

@@ -1,6 +1,5 @@
 package lt.msi2015.user;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +76,12 @@ public class UserRest {
 	@RequestMapping(value = "/email/check", method = RequestMethod.GET)
 	public boolean emailExists(@RequestParam(value="email") String email) {
 		return userService.emailExists(email);
+	}
+	
+	@RequestMapping(value = "/api/user/profile", method = RequestMethod.GET)
+	public @ResponseBody UserProfileDto getUserProfile(@RequestParam(value="id") Long id) {
+		
+		return userService.getUserProfile(id);
 	}
 	
 }
