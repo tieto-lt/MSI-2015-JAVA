@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import aj.org.objectweb.asm.Type;
 import lt.msi2015.applicationSettings.ApplicationSetting;
 import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
 import lt.msi2015.applicationSettings.ApplicationSettingsRepository;
@@ -142,7 +143,7 @@ public class UserService {
 	private boolean updateProfileIfo(UserProfileDto userProfileEdited) {
 		
 		User userInDatabase = repo.findById(userProfileEdited.getId());
-		String passHash = new BCryptPasswordEncoder().encode(userProfileEdited.getNewPassword());
+		
 		
 		if(userInDatabase != null) {
 			userInDatabase.setFirstName(userProfileEdited.getFirstName());
@@ -153,7 +154,10 @@ public class UserService {
 				userInDatabase.setImageName(userProfileEdited.getImageName());
 				userInDatabase.setImageType(userProfileEdited.getImageType());
 			}
-			userInDatabase.setPassword(passHash);
+			if(!(userProfileEdited.getNewPassword() == null || userProfileEdited.getNewPassword() == "")){
+				String passHash = new BCryptPasswordEncoder().encode(userProfileEdited.getNewPassword());
+				userInDatabase.setPassword(passHash);
+			}
 			return repo.save(userInDatabase) != null;
 		}
 		return false;
@@ -163,7 +167,13 @@ public class UserService {
 		if(dto.getImage() == null) {
 			return true;
 		}
+		
+		if(dto.getImageType() == null) {
+			return false;
+		}
+		
 		String type = dto.getImageType();
+		
 		return (type.equals("image/jpeg")) || (type.equals("image/png")) || (type.equals("image/gif"));
 	}
 }
