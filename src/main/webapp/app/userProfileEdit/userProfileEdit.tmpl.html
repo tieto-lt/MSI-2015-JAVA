@@ -35,15 +35,15 @@
 	<div class="edit-profile-password">
 		<md-input-container>
 			<label for="edit-profile-password-input">Password</label>
-			<input type="text" id="edit-profile-password-input" placeholder="Current password">
+			<input type="password" id="edit-profile-password-input" placeholder="Current password"  ng-model="vm.user.oldPassword">
 		</md-input-container>
 		<md-input-container>
 			<label for="edit-profile-new-password-input">New password</label>
-			<input type="text" placeholder="New password">
+			<input type="password" placeholder="New password" ng-model="vm.user.newPassword">
 		</md-input-container>
 		<md-input-container>
 			<label for="edit-profile-repeat-password-input">Confirm new password</label>
-			<input type="text" placeholder="Confirm new password">
+			<input type="password" placeholder="Confirm new password" ng-model="vm.user.confirmPassword">
 		</md-input-container>
 	</div>
 	

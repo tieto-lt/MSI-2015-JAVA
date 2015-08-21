@@ -58,7 +58,9 @@
     		aboutMe: user.aboutMe,
     		image: btoa(user.image),
     		imageName: user.imageName,
-    		imageType: user.imageType
+    		imageType: user.imageType,
+    		oldPassword: user.oldPassword,
+    		newPassword: user.newPassword
     	};
     	
     	return $http
