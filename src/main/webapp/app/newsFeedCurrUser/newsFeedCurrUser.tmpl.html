@@ -2,7 +2,9 @@
 	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()">
 		<div class="news-entry" ng-repeat="entry in vm.shownNewsFeed">
 			<div class="reciever-photo-info">
-				<img class="reciever-photo" ng-src="{{entry.toImage}}" >
+				<div class="reciever-photo-container">
+					<img class="reciever-photo" ng-src="{{entry.toImage}}" >
+				</div>
 				<div class="recieved-points">
 					+{{entry.points}}
 				</div>
