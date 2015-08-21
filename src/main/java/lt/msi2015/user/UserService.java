@@ -137,9 +137,11 @@ public class UserService {
 			userInDatabase.setFirstName(userProfileEdited.getFirstName());
 			userInDatabase.setLastName(userProfileEdited.getLastName());
 			userInDatabase.setAboutMe(userProfileEdited.getAboutMe());
-			userInDatabase.setImage(userProfileEdited.getImage());
-			userInDatabase.setImageName(userProfileEdited.getImageName());
-			userInDatabase.setImageType(userProfileEdited.getImageType());
+			if(userProfileEdited.getImage() != null) {
+				userInDatabase.setImage(userProfileEdited.getImage());
+				userInDatabase.setImageName(userProfileEdited.getImageName());
+				userInDatabase.setImageType(userProfileEdited.getImageType());
+			}
 			return repo.save(userInDatabase) != null;
 		}
 		return false;
