@@ -32,9 +32,14 @@
 		<div class="error" ng-message="pattern">Letters only</div>
 	</div>
 	
-	<div class="edit-profile-password">
+	<md-input-container>
+		<div class="edit-profile-about-me">
+			<label for="edit-profile-about-me" class="edit-profile-about-me-label">About me</label>
+			<textarea id="edit-profile-about-me-input" ng-model="vm.user.aboutMe" ></textarea>
+		</div>
+	</md-input-container>
 	
-	
+	<div class="password-field">
 		<md-input-container>
 			<label for="edit-profile-password-input">Password</label>
 			<input type="password" id="edit-profile-password-input" ng-model="vm.user.oldPassword"
@@ -49,7 +54,9 @@
 			<div class="error" ng-message="pattern">Should contain atleast 1 number</div>
 			<div class="error" ng-message="required">Field is required</div>
 		</div>
-		
+	</div>
+	
+	<div class="edit-profile-password">	
 		
 		<md-input-container>
 			<label for="edit-profile-new-password-input">New password</label>
@@ -86,11 +93,4 @@
 		</div>
 	</div>
 	
-	
-	<md-input-container>
-		<div class="edit-profile-about-me">
-			<label for="edit-profile-about-me" class="edit-profile-about-me-label">About me</label>
-			<textarea id="edit-profile-about-me-input" ng-model="vm.user.aboutMe" ></textarea>
-		</div>
-	</md-input-container>
 </form>	
