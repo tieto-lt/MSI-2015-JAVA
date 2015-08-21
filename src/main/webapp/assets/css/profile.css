@@ -7,18 +7,109 @@ header.profile-header {
     color: #ffffff;
     margin-bottom: 20px;
     box-shadow: 0px 0px 10px #444;
+    padding-top: 0px;
 }
 
+/* -------------------------- */
+
+.header-feald {
+	display: inline-block;
+}
+
+.profile-header-top {
+	width: 100%;
+}
+
+.profile-header-top h3 {
+	margin-top: 0px;
+    margin-bottom: 0px;	
+}
+
+.profile-header-navigation {
+	width: 100%;
+
+}
+
+.profile-header-user-image {
+	width: 30px;
+    height: 30px;
+}
+
+.header-search-feald {
+	width: 450px;
+	display: inline-block;
+	width: calc(100% - 715px);
+}
+
+.header-profile-feald {
+	width: 300px;
+	display: inline-block;
+}
+
+.header-details-name {
+	font-size: 18px;
+}
+
+.header-details-small {
+	font-size: 14px;
+}
+
+.profile-header-bottom {
+	vertical-align: bottom;
+}
+
+.header-navigation {
+	vertical-align: bottom;
+}
+
+.profile-header .header-navigation li {
+    margin-top: 0px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 100px;
+    text-align: center;
+	padding-bottom: 10px;
+	font-size: 18px;
+}
+
+.profile-header ul {
+	margin-top: 0px;
+}
+
+.profile-header-logout-div {
+	vertical-align: top;
+    margin-top: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.profile-header .header-navigation li.current {
+	color: orange;
+	border-bottom: 2px solid orange;
+}
+
+.profile-header .header-navigation a {
+    display: inline-block;
+    cursor: pointer;
+    outline:0;
+}
+
+.profile-header .header-navigation a:hover {
+    display: inline-block;
+}
+
+/* -------------------------- */
 
 .profile-header .left-side,
 .profile-header .navigation,
 .profile-header .profile-info {
 	width: 30%;
-	display: inline-block;
+/* 	display: inline-block; */
 }
 
 .profile-header .profile-info {
-	vertical-align: bottom;
+	vertical-align: top;
 	padding-bottom: 10px;
 }
 
@@ -74,10 +165,12 @@ header.profile-header {
 }
 
 .profile-header .profile-info .profile-info-container .profile-image {
-    height: 60px;
-    width: 60px;
+    height: 20px;
+    width: 20px;
     display: inline-block;
 }
+
+
 
 .left-side h3 {
 	display: inline-block;

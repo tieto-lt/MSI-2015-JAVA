@@ -1,32 +1,73 @@
 <header class="profile-header" data-ng-controller="ProfileHeaderController as vm">
-        <div class="left-side">
-        	<img id="karma-logo" src="assets/images/karma_logo.png"/>
-            <h3>Karma points</h3>
-        </div>
-        <div class="navigation" data-ng-controller="NavigationController as nm">
-            <ul>
-                <li ng-class="{'current' : nm.currentPage == 'userPage.home'}"><a ng-click="nm.changePage('userPage.home')">Home</a></li>
-                <li ng-class="{'current' : nm.currentPage == 'userPage.shop'}"><a ng-click="nm.changePage('userPage.shop')">Tieto Shop</a></li>
-            	<li ng-class="{'current' : nm.currentPage == 'userPage.profile'}"><a ng-click="nm.changePage('userPage.profile')">My profile</a></li>
-            </ul>
-        </div>
-        <div class="profile-info">
-            <div class="profile-info-container">
-                <img class="profile-image" src="./assets/images/profile_picture_placeholder.png"/>
-                <div class="info-container" data-ng-model="vm.profileInfo">
-                    <div class="info" >{{vm.profileInfo.firstName}}</div>
-                    <div class="info">{{vm.profileInfo.lastName}}</div>
-                    <div class="info points-info">
-	                    You have: 
-	                    <span class="points">{{vm.profileInfo.userPoints}}</span>
-	                    	<img class="formLogoImage" src="assets/images/karma_logo.png">
-                   	</div>
-                </div>
-            </div>
-        </div>
-        <div class="logout">
-        	<div data-ng-controller="LogoutController as vm">
-            	<a ng-click="vm.logout()" >Logout</a>
+	<div class="profile-header-top">
+		<div class="header-feald">
+			<img id="karma-logo" src="assets/images/karma_logo.png"/>
+		</div>
+	 	<div class="header-feald">
+			<h3>Karma Points</h3>
+		</div>
+		<div class="header-search-feald">
+			<!-- EMPTY -->
+		</div>
+		<div class="header-profile-feald">
+        	<div class="info-container" data-ng-model="vm.profileInfo">
+        		<span class="info">
+        			<img class="profile-header-user-image" src="./assets/images/profile_picture_placeholder.png"/>
+        		</span>
+        		<span class="header-details-name">
+        			{{vm.profileInfo.firstName}} {{vm.profileInfo.lastName}}
+        		</span>
         	</div>
-        </div>
+        	<div>
+        		<span class="header-details-small">You have: </span>
+        		<span class="header-details-small">{{vm.profileInfo.userPoints}}</span>
+        		<span><img class="formLogoImage" src="assets/images/karma_logo.png"></span>
+        	</div>
+		</div>
+		
+		<div class="header-feald header-details-small profile-header-logout-div" data-ng-controller="LogoutController as vm">
+			<a ng-click="vm.logout()" >Log out</a>
+		</div>
+
+	</div>
+	<div class="profile-header-bottom header-navigation" data-ng-controller="NavigationController as nm">
+	    <ul>
+            <li ng-class="{'current' : nm.currentPage == 'userPage.home'}"><a ng-click="nm.changePage('userPage.home')">Home</a></li>
+            <li ng-class="{'current' : nm.currentPage == 'userPage.shop'}"><a ng-click="nm.changePage('userPage.shop')">Tieto Shop</a></li>
+           	<li ng-class="{'current' : nm.currentPage == 'userPage.profile'}"><a ng-click="nm.changePage('userPage.profile')">My profile</a></li>
+        </ul>
+	</div>
 </header>
+
+<!-- <header class="profile-header" data-ng-controller="ProfileHeaderController as vm"> -->
+<!--         <div class="left-side"> -->
+<!--         	<img id="karma-logo" src="assets/images/karma_logo.png"/> -->
+<!--             <h3>Karma points</h3> -->
+<!--         </div> -->
+<!--         <div class="navigation" data-ng-controller="NavigationController as nm"> -->
+<!--             <ul> -->
+<!--                 <li ng-class="{'current' : nm.currentPage == 'userPage.home'}"><a ng-click="nm.changePage('userPage.home')">Home</a></li> -->
+<!--                 <li ng-class="{'current' : nm.currentPage == 'userPage.shop'}"><a ng-click="nm.changePage('userPage.shop')">Tieto Shop</a></li> -->
+<!--             	 <li ng-class="{'current' : nm.currentPage == 'userPage.profile'}"><a ng-click="nm.changePage('userPage.profile')">My profile</a></li> -->
+<!--             </ul> -->
+<!--         </div> -->
+<!--         <div class="profile-info"> -->
+<!--             <div class="profile-info-container"> -->
+<!--                 <img class="profile-image" src="./assets/images/profile_picture_placeholder.png"/> -->
+<!--                 <div class="info-container" data-ng-model="vm.profileInfo"> -->
+<!--                     <div class="info" >{{vm.profileInfo.firstName}}</div> -->
+<!--                     <div class="info">{{vm.profileInfo.lastName}}</div> -->
+<!--                     <div class="info points-info"> -->
+<!-- 	                    You have:  -->
+<!-- 	                    <span class="points">{{vm.profileInfo.userPoints}}</span> -->
+<!-- 	                    	<img class="formLogoImage" src="assets/images/karma_logo.png"> -->
+<!--                    	</div> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--         <div class="logout"> -->
+<!--         	<div data-ng-controller="LogoutController as vm"> -->
+<!--             	<a ng-click="vm.logout()" >Logout</a> -->
+<!--         	</div> -->
+<!--         </div> -->
+<!-- </header> -->
