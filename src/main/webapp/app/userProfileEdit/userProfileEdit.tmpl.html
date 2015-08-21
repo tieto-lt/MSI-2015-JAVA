@@ -1,7 +1,10 @@
 <form name="vm.profileEditForm">
 	<div class="edit-profile-photo">
-		<input name="editProfilePhoto" type="file" id="edit-profile-photo" accept=".gif, .jpg, .png">
+		<input name="editProfilePhoto" type="file" id="edit-profile-photo" accept=".gif, .jpg, .png"
+			check-file-size="">
 	</div>
+	
+	<div class="error" ng-if="vm.fileSizeError">{{vm.fileSizeError}}</div>
 
 	<md-input-container>
 		<div class="edit-profile-name">
@@ -100,6 +103,6 @@
 	<div class="edit-profile-save">
 		<md-button class="md-raised" ng-click="vm.saveChanges()" ng-disabled="vm.profileEditForm.$invalid ||
 				(vm.user.oldPassword && ((vm.user.newPassword === vm.user.oldPassword) || 
-				(vm.user.confirmPassword != vm.user.newPassword)))">Save changes</md-button>
+				(vm.user.confirmPassword != vm.user.newPassword)) || vm.fileSizeError)">Save changes</md-button>
 	</div>
 </form>	
