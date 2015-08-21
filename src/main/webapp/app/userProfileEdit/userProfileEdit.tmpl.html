@@ -36,10 +36,12 @@
 	<md-input-container>
 		<div class="edit-profile-about-me">
 			<label for="edit-profile-about-me" class="edit-profile-about-me-label">About me</label>
-			<textarea id="edit-profile-about-me-input" ng-model="vm.user.aboutMe" ></textarea>
+			<textarea id="edit-profile-about-me-input" ng-model="vm.user.aboutMe" ng-maxlength="160" name="aboutMeText"></textarea>
 		</div>
 	</md-input-container>	
-	
+		<div ng-messages="vm.profileEditForm.aboutMeText.$error">
+			<div class="error" ng-message="maxlength">Too many symbols (160 max)</div>
+		</div>
 	
 	<div class="edit-profile-password">	
 	
