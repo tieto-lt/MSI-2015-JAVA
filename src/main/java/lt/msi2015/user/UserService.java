@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import lt.msi2015.applicationSettings.ApplicationSetting;
@@ -116,17 +117,27 @@ public class UserService {
 	
 	@Transactional
 	boolean updateUserProfile(UserProfileDto userProfile) {
-		if (!imageIsValid(userProfile.getImageType())) {
+		if (!dataIsValid(userProfile)) {
 			return false;
 		}
 		
 		return updateProfileIfo(userProfile);
 	}
 	
-	public boolean imageIsValid(String type) {
-		return (type.equals("image/jpeg")) || (type.equals("image/png")) || (type.equals("image/gif"));
+	public boolean dataIsValid(UserProfileDto dto) {
+		return imageIsValid(dto.getImageType()) && passwordIsValid(dto);
 	}
 	
+	private boolean passwordIsValid(UserProfileDto dto) {
+		return matchesOldPassword(dto);
+	}
+
+	private boolean matchesOldPassword(UserProfileDto dto) {
+		User user = repo.findById(dto.getId());
+		String passString = dto.getOldPassword();
+		return BCrypt.checkpw(passString, user.getPassword());
+	}
+
 	private boolean updateProfileIfo(UserProfileDto userProfileEdited) {
 		
 		User userInDatabase = repo.findById(userProfileEdited.getId());
@@ -143,4 +154,7 @@ public class UserService {
 		return false;
 	}
 	
+	private boolean imageIsValid(String type){
+		return (type.equals("image/jpeg")) || (type.equals("image/png")) || (type.equals("image/gif"));
+	}
 }
