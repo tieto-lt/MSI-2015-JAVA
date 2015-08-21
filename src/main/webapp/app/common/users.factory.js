@@ -13,7 +13,8 @@
     	addUser:  addUser,
     	getUsers: getUsers,
     	getUser:  getUser,
-    	getUserProfile: getUserProfile
+    	getUserProfile: getUserProfile,
+    	updateUserProfile: updateUserProfile
     };
 
     function addUser(user) {
@@ -45,6 +46,24 @@
 			    params: { id: id}
 			 });
 	  }
+    
+    function updateUserProfile(user) {
+    	var transferObject = {
+    		id: user.id,
+    		firstName: user.firstName,
+    		lastName: user.lastName,
+    		email: user.email,
+    		userPoints: user.userPoints,
+    		rank: user.rank,
+    		aboutMe: user.aboutMe,
+    		image: btoa(user.image),
+    		imageName: user.imageName,
+    		imageType: user.imageType
+    	};
+    	
+    	return $http
+  	  		.post('api/user/profile', transferObject);
+    }
   }
 
 })();
