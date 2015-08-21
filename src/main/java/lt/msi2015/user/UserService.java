@@ -116,8 +116,10 @@ public class UserService {
 	
 	@Transactional
 	boolean updateUserProfile(UserProfileDto userProfile) {
-		if (!imageIsValid(userProfile.getImageType())) {
-			return false;
+		if(userProfile.getImage() != null) {
+			if (!imageIsValid(userProfile.getImageType())) {
+				return false;
+			}
 		}
 		
 		return updateProfileIfo(userProfile);

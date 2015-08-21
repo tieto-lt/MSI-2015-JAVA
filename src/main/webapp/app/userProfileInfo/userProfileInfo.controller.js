@@ -21,6 +21,7 @@
 		
 		function saveChanges() {
 			vm.editBlock = '';
+			UsersFactory.updateUserProfile(vm.user);
 		}
 		
 		vm.user = {

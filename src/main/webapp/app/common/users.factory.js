@@ -13,7 +13,8 @@
     	addUser:  addUser,
     	getUsers: getUsers,
     	getUser:  getUser,
-    	getUserProfile: getUserProfile
+    	getUserProfile: getUserProfile,
+    	updateUserProfile: updateUserProfile
     };
 
     function addUser(user) {
@@ -45,6 +46,11 @@
 			    params: { id: id}
 			 });
 	  }
+    
+    function updateUserProfile(user) {
+    	return $http
+  	  		.post('api/user/profile', user);
+    }
   }
 
 })();
