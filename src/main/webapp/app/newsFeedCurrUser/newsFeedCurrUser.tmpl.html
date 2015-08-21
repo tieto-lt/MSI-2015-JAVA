@@ -1,32 +1,36 @@
 <div class="news-feed-container" data-ng-controller="NewsFeedCurrUserController as vm" >
-	<div class="news-entry" ng-repeat="entry in vm.newsFeed">
-		<div class="reciever-photo-info">
-			<img class="reciever-photo" ng-src="{{entry.toImage}}" >
-			<div class="recieved-points">
-				+{{entry.points}}
-			</div>
-		</div><!--
-	 --><div class="entry-info">
-			<div class="transfer-details">
-				<b>{{entry.toFirstName + " " + entry.toLastName }}</b>
-				 recieved karma points from 
-				<b>{{entry.fromFirstName + " " + entry.fromLastName }}</b>
-		 	</div><!--
-		 --><div class="transfer-category">
-				Beauty
+	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()">
+		<div class="news-entry" ng-repeat="entry in vm.shownNewsFeed">
+			<div class="reciever-photo-info">
+				<div class="reciever-photo-container">
+					<img class="reciever-photo" ng-src="{{entry.toImage}}" >
+				</div>
+				<div class="recieved-points">
+					+{{entry.points}}
+				</div>
 			</div><!--
-		 --><div class="transfer-comment">
-				"{{entry.comment}}"
+		 --><div class="entry-info">
+				<div class="transfer-details">
+					<b>{{entry.toFirstName + " " + entry.toLastName }}</b>
+					 recieved karma points from 
+					<b>{{entry.fromFirstName + " " + entry.fromLastName }}</b>
+			 	</div><!--
+			 --><div class="transfer-category">
+					Beauty
+				</div><!--
+			 --><div class="transfer-comment">
+					"{{entry.comment}}"
+				</div>
+			</div><!--
+		 --><div class="sender-photo-info">
+		 		<div class="info-date">
+		 			{{entry.date}}
+		 		</div>
+		 		<div class="sender-photo">
+		 			<span class="helper"></span>
+		 			<img ng-src="{{entry.fromImage}}">
+		 		</div>
 			</div>
-		</div><!--
-	 --><div class="sender-photo-info">
-	 		<div class="info-date">
-	 			{{entry.date}}
-	 		</div>
-	 		<div class="sender-photo">
-	 			<span class="helper"></span>
-	 			<img ng-src="{{entry.fromImage}}">
-	 		</div>
 		</div>
 	</div>
 </div>

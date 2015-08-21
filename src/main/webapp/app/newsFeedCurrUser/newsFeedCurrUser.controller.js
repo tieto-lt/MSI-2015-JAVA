@@ -5,16 +5,18 @@
     .module('app.newsFeedCurrUser')
     .controller('NewsFeedCurrUserController', NewsFeedCurrUserController);
   
-  NewsFeedCurrUserController.$inject = ['NewsFeedFactory', 'ProfileHeaderFactory'];
+  NewsFeedCurrUserController.$inject = ['UserNewsFeedFactory', 'ProfileHeaderFactory'];
 
-  function NewsFeedCurrUserController(NewsFeedFactory, ProfileHeaderFactory) {
+  function NewsFeedCurrUserController(UserNewsFeedFactory, ProfileHeaderFactory) {
     var vm = this;
     var currUserData = ProfileHeaderFactory.getProfileInfo();
 
     vm.newsFeed = [];
+    vm.loadMoreNews = UserNewsFeedFactory.loadMoreNews;
+    vm.shownNewsFeed = UserNewsFeedFactory.shownNewsFeed;
  
-    NewsFeedFactory.getNewsFeedCurrUser(currUserData.id).then(function(response) {
-    	vm.newsFeed = response.data;
+    UserNewsFeedFactory.updateNewsFeed(currUserData.id).then(function() {
+    	vm.newsFeed = UserNewsFeedFactory.newsFeed;
     });
 
   }

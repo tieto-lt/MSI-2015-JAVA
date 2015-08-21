@@ -5,27 +5,49 @@
     .module('app.common')
     .factory('UserNewsFeedFactory', UserNewsFeedFactory);
 
-  UserNewsFeedFactory.$inject = ['$http'];
+  UserNewsFeedFactory.$inject = ['$http', '$filter'];
   
-  function UserNewsFeedFactory($http) {
-	  
-	  
+  function UserNewsFeedFactory($http, $filter) {
+	 
+	var newsFeed = [];
+	var shownNewsFeed = [];
+
 	return {
-		getNewsFeed: getNewsFeed
+	    updateNewsFeed: updateNewsFeed,
+	    newsFeed: newsFeed,
+	    getNewsFeedCurrUser: getNewsFeedCurrUser,
+	    shownNewsFeed: shownNewsFeed,
+	    loadMoreNews: loadMoreNews
 	};
 		  
-		    
-	function getNewsFeed(id){
+	function updateNewsFeed(id){
+		return $http.get('api/profileNewsfeed/' + id.toString()).then(function(response) {
+			shownNewsFeed.length = 0;
+			newsFeed.length = 0;
+	        angular.extend(newsFeed, $filter('orderBy')(response.data, 'dateFull', true));
+	        loadMoreNews();
+		});
+	}
+	
+	function getNewsFeed(){
+		return newsFeed;
+	}
+	
+	function getNewsFeedCurrUser(id){
+		var data = {};
 		
-		var data = []
-		
-		$http.get('api/profileNewsfeed/' + id.toString()).then(function(response) {
-	        angular.extend(data, response.data);
+		data = $http({
+					url: '/api/profileNewsfeed/' + id.toString(),
+					method: "GET"	
 		});
 		
 		return data;
 	}
-	
+
+	function loadMoreNews() {
+    	var loaded = newsFeed.slice(shownNewsFeed.length, shownNewsFeed.length + 10);
+    	shownNewsFeed.push.apply(shownNewsFeed, loaded);
+    }
   
   }
   
