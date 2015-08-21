@@ -34,6 +34,7 @@
 					// else with it
 					UsersFactory.updateUserProfile(vm.user).then(function() {
 						UserNewsFeedFactory.updateNewsFeed(currUserData.id);
+						ProfileHeaderFactory.loadUserInfo();
 					});
 	
 				}
@@ -41,6 +42,7 @@
 			} else {
 				UsersFactory.updateUserProfile(vm.user).then(function() {
 					UserNewsFeedFactory.updateNewsFeed(currUserData.id);
+					ProfileHeaderFactory.loadUserInfo();
 				});
 			}
 			
