@@ -26,6 +26,19 @@
 		return $http.get('api/newsfeed').then(function(response) {
 			shownNewsFeed.length = 0;
 			newsFeed.length = 0;
+			angular.forEach(response.data, function(record){
+	        	if(record.fromImage) {
+	        		record.fromImage = atob(record.fromImage);
+	        	} else {
+	        		record.fromImage = 'assets/images/no-profile-pic.png';
+	        	}
+	        	if(record.toImage) {
+	        		record.toImage = atob(record.toImage);
+	        	} else {
+	        		record.toImage = 'assets/images/no-profile-pic.png';
+	        	}
+	        	
+	        });
 	        angular.extend(newsFeed, $filter('orderBy')(response.data, 'dateFull', true));
 	        loadMoreNews();
 		});

@@ -16,6 +16,8 @@
     
     NewsFeedFactory.updateNewsFeed().then(function() {
     	vm.newsFeed = NewsFeedFactory.newsFeed;
+    	
+    
     });
 
   }
