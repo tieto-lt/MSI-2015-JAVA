@@ -5,9 +5,9 @@
 		.module('app.userProfileInfo')
 		.controller('UserProfileInfoController', UserProfileInfoController);
 	
-	UserProfileInfoController.$inject = ['UsersFactory', 'ProfileHeaderFactory'];
+	UserProfileInfoController.$inject = ['UsersFactory', 'ProfileHeaderFactory', 'UserNewsFeedFactory'];
 	
-	function UserProfileInfoController(UsersFactory, ProfileHeaderFactory) {
+	function UserProfileInfoController(UsersFactory, ProfileHeaderFactory, UserNewsFeedFactory) {
 
 		var vm = this;
 		var currUserData = ProfileHeaderFactory.getProfileInfo();
@@ -32,13 +32,18 @@
 					vm.user.image = e.target.result;
 					// send you binary data via $http or $resource or do anything
 					// else with it
-					UsersFactory.updateUserProfile(vm.user);
+					UsersFactory.updateUserProfile(vm.user).then(function() {
+						UserNewsFeedFactory.updateNewsFeed(currUserData.id);
+					});
 	
 				}
 				r.readAsDataURL(f);
 			} else {
-				UsersFactory.updateUserProfile(vm.user);
+				UsersFactory.updateUserProfile(vm.user).then(function() {
+					UserNewsFeedFactory.updateNewsFeed(currUserData.id);
+				});
 			}
+			
 		}
 		
 		

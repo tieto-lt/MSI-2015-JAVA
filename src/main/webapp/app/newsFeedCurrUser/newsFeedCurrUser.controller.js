@@ -11,13 +11,11 @@
     var vm = this;
     var currUserData = ProfileHeaderFactory.getProfileInfo();
 
-    vm.newsFeed = [];
+    vm.newsFeed = UserNewsFeedFactory.newsFeed;
     vm.loadMoreNews = UserNewsFeedFactory.loadMoreNews;
     vm.shownNewsFeed = UserNewsFeedFactory.shownNewsFeed;
  
-    UserNewsFeedFactory.updateNewsFeed(currUserData.id).then(function() {
-    	vm.newsFeed = UserNewsFeedFactory.newsFeed;
-    });
+    UserNewsFeedFactory.updateNewsFeed(currUserData.id);
 
   }
   
