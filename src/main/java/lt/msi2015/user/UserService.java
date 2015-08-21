@@ -126,7 +126,7 @@ public class UserService {
 	}
 	
 	public boolean dataIsValid(UserProfileDto dto) {
-		return imageIsValid(dto.getImageType()) && passwordIsValid(dto);
+		return imageIsValid(dto) && passwordIsValid(dto);
 	}
 	
 	private boolean passwordIsValid(UserProfileDto dto) {
@@ -159,7 +159,11 @@ public class UserService {
 		return false;
 	}
 	
-	private boolean imageIsValid(String type){
+	private boolean imageIsValid(UserProfileDto dto){
+		if(dto.getImage() == null) {
+			return true;
+		}
+		String type = dto.getImageType();
 		return (type.equals("image/jpeg")) || (type.equals("image/png")) || (type.equals("image/gif"));
 	}
 }
