@@ -34,6 +34,7 @@ header.profile-header {
 .profile-header-user-image {
 	width: 30px;
     height: 30px;
+    vertical-align: middle;
 }
 
 .header-search-feald {
