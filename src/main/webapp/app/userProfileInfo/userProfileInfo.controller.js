@@ -22,20 +22,23 @@
 		function saveChanges() {
 			vm.editBlock = '';
 			var f = document.getElementById('edit-profile-photo').files[0];
-			var r = new FileReader();
+			if (f) {
+				var r = new FileReader();
+				
+				vm.user.imageName = f.name;
+				vm.user.imageType = f.type;
 			
-			vm.user.imageName = f.name;
-			vm.user.imageType = f.type;
-			
-			r.onload = function(e) {
-				vm.user.image = e.target.result;
-				// send you binary data via $http or $resource or do anything
-				// else with it
+				r.onload = function(e) {
+					vm.user.image = e.target.result;
+					// send you binary data via $http or $resource or do anything
+					// else with it
+					UsersFactory.updateUserProfile(vm.user);
+	
+				}
+				r.readAsDataURL(f);
+			} else {
 				UsersFactory.updateUserProfile(vm.user);
-
 			}
-			r.readAsDataURL(f);
-			
 		}
 		
 		vm.user = {
