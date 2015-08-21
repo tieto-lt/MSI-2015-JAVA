@@ -34,6 +34,7 @@ header.profile-header {
 .profile-header-user-image {
 	width: 30px;
     height: 30px;
+    vertical-align: middle;
 }
 
 .header-search-feald {
@@ -191,6 +192,7 @@ header.profile-header {
 .navigation ul {
 	margin: 0;
 	padding: 0;	
+	margin-left: 50px;
 }
 
 .navigation, .logout {
