@@ -48,8 +48,21 @@
 	  }
     
     function updateUserProfile(user) {
+    	var transferObject = {
+    		id: user.id,
+    		firstName: user.firstName,
+    		lastName: user.lastName,
+    		email: user.email,
+    		userPoints: user.userPoints,
+    		rank: user.rank,
+    		aboutMe: user.aboutMe,
+    		image: btoa(user.image),
+    		imageName: user.imageName,
+    		imageType: user.imageType
+    	};
+    	
     	return $http
-  	  		.post('api/user/profile', user);
+  	  		.post('api/user/profile', transferObject);
     }
   }
 

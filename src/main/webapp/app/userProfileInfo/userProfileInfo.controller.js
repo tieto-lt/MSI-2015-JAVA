@@ -21,15 +21,33 @@
 		
 		function saveChanges() {
 			vm.editBlock = '';
-			UsersFactory.updateUserProfile(vm.user);
+			var f = document.getElementById('edit-profile-photo').files[0];
+			var r = new FileReader();
+			
+			vm.user.imageName = f.name;
+			vm.user.imageType = f.type;
+			
+			r.onload = function(e) {
+				vm.user.image = e.target.result;
+				// send you binary data via $http or $resource or do anything
+				// else with it
+				UsersFactory.updateUserProfile(vm.user);
+
+			}
+			r.readAsDataURL(f);
+			
 		}
 		
 		vm.user = {
-	      photo: 'assets/images/no-profile-pic.png',
+	      image: 'assets/images/no-profile-pic.png'
 	    };
 
 		UsersFactory.getUserProfile(currUserData.id).then(function(response) {
 			vm.user = response.data;
+			if(response.data.image) {
+				vm.user.image = atob(response.data.image);
+			}
+			
 			
 			/*if (vm.user.aboutMe == null) {
 				vm.user.aboutMe = 'Write something about yourself!';
