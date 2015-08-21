@@ -41,14 +41,16 @@
 			}
 		}
 		
-		vm.user = {
-	      image: 'assets/images/no-profile-pic.png'
-	    };
+		
 
 		UsersFactory.getUserProfile(currUserData.id).then(function(response) {
 			vm.user = response.data;
 			if(response.data.image) {
 				vm.user.image = atob(response.data.image);
+			} else {
+				vm.user.image = 'assets/images/no-profile-pic.png';
+				vm.user.imageType = 'image/png';
+				vm.user.imageName = 'no-profile-pic.png';
 			}
 			
 			
