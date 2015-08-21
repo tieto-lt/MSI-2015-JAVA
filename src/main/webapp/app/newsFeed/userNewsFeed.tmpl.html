@@ -1,6 +1,6 @@
 <div class="news-feed-container" data-ng-controller="NewsFeedController as vm" >
 	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()">
-		<div class="news-entry" ng-repeat="entry in vm.newsFeed" >
+		<div class="news-entry" ng-repeat="entry in vm.shownNewsFeed" >
 			<div class="reciever-photo-info">
 				<img class="reciever-photo" src="assets/images/mantas.jpg" >
 				<div class="recieved-points">
