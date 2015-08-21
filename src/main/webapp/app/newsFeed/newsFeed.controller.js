@@ -10,19 +10,19 @@
   function NewsFeedController(NewsFeedFactory) {
     var vm = this;
     
-    //vm.newsFeed = {};
+    vm.newsFeed = {};
     vm.shownNewsFeed = NewsFeedFactory.shownNewsFeed;
     vm.loadMoreNews = NewsFeedFactory.loadMoreNews;
     
-//    NewsFeedFactory.updateNewsFeed().then(function() {
-//    	vm.newsFeed = NewsFeedFactory.newsFeed;
-////    	loadMoreNews();
-//    });
+    NewsFeedFactory.updateNewsFeed().then(function() {
+    	vm.newsFeed = NewsFeedFactory.newsFeed;
+    	loadMoreNews();
+    });
     
-//    function loadMoreNews() {
-//    	var loaded = vm.newsFeed.slice(vm.shownNewsFeed.length, vm.shownNewsFeed.length + 10);
-//    	vm.shownNewsFeed.push.apply(vm.shownNewsFeed, loaded);
-//    }
+    function loadMoreNews() {
+    	var loaded = vm.newsFeed.slice(vm.shownNewsFeed.length, vm.shownNewsFeed.length + 10);
+    	vm.shownNewsFeed.push.apply(vm.shownNewsFeed, loaded);
+    }
 
   }
   
