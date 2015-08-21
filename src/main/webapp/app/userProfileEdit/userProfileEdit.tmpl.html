@@ -32,31 +32,33 @@
 		<div class="error" ng-message="pattern">Letters only</div>
 	</div>
 	
+		
 	<md-input-container>
 		<div class="edit-profile-about-me">
 			<label for="edit-profile-about-me" class="edit-profile-about-me-label">About me</label>
 			<textarea id="edit-profile-about-me-input" ng-model="vm.user.aboutMe" ></textarea>
 		</div>
-	</md-input-container>
+	</md-input-container>	
 	
-	<div class="password-field">
-		<md-input-container>
-			<label for="edit-profile-password-input">Password</label>
-			<input type="password" id="edit-profile-password-input" ng-model="vm.user.oldPassword"
-				name="passwordInput"
-				ng-maxlength="15"
-				ng-minlength="5"
-				ng-pattern = "/^(?=.*[0-9])(?=.*[a-zA-Z0-9])([a-zA-Z0-9]+)$/">
-		</md-input-container>
-		<div ng-messages="vvm.profileEditForm.passwordInput.$error" ng-if="vm.profileEditForm.passwordInput.$dirty">
-			<div class="error" ng-message="maxlength">Too many symbols</div>
-			<div class="error" ng-message="minlength">Too few symbols</div>
-			<div class="error" ng-message="pattern">Should contain atleast 1 number</div>
-			<div class="error" ng-message="required">Field is required</div>
-		</div>
-	</div>
 	
 	<div class="edit-profile-password">	
+	
+		<div class="password-field">
+			<md-input-container>
+				<label for="edit-profile-password-input">Password</label>
+				<input type="password" id="edit-profile-password-input" ng-model="vm.user.oldPassword"
+					name="passwordInput"
+					ng-maxlength="15"
+					ng-minlength="5"
+					ng-pattern = "/^(?=.*[0-9])(?=.*[a-zA-Z0-9])([a-zA-Z0-9]+)$/">
+			</md-input-container>
+			<div ng-messages="vm.profileEditForm.passwordInput.$error" ng-if="vm.profileEditForm.passwordInput.$dirty">
+				<div class="error" ng-message="maxlength">Too many symbols</div>
+				<div class="error" ng-message="minlength">Too few symbols</div>
+				<div class="error" ng-message="pattern">Should contain atleast 1 number</div>
+				<div class="error" ng-message="required">Field is required</div>
+			</div>
+		</div>
 		
 		<md-input-container>
 			<label for="edit-profile-new-password-input">New password</label>
@@ -74,7 +76,7 @@
 			<div class="error" ng-message="required">Field is required</div>
 		</div>
 		<div class="error" ng-show="(vm.user.newPassword === vm.user.oldPassword) &&
-	 				vm.profileEditForm.newPasswordInput.$dirty"
+	 				vm.profileEditForm.newPasswordInput.$dirty && (vm.user.oldPassword.length > 0)"
 					>Cannot match old password</div>
 		
 		
@@ -92,5 +94,10 @@
 			<div class="error" ng-message="required">Field is required</div>
 		</div>
 	</div>
-	
+
+	<div class="edit-profile-save">
+		<md-button class="md-raised" ng-click="vm.saveChanges()" ng-disabled="vm.profileEditForm.$invalid ||
+				(vm.user.oldPassword && ((vm.user.newPassword === vm.user.oldPassword) || 
+				(vm.user.confirmPassword != vm.user.newPassword)))">Save changes</md-button>
+	</div>
 </form>	
