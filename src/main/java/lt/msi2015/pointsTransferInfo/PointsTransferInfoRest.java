@@ -82,7 +82,7 @@ public class PointsTransferInfoRest {
 		
 		List<PointsTransferInfo> allTransfers = transfersRepo.findAll();
 		
-		SimpleDateFormat s = new SimpleDateFormat("MMdd");
+		SimpleDateFormat s = new SimpleDateFormat("YYYY-MM-dd");
 		
 		for (PointsTransferInfo transfer : allTransfers) {
 				// Only user newsfeed

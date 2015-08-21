@@ -13,6 +13,14 @@ public class NewsFeedDto {
 	public String comment;
 	public String date;
 	public Date dateFull;
+	
+	
+
+	public NewsFeedDto() {
+		super();
+	}
+
+
 
 	public NewsFeedDto(byte[] fromImage, 
 						byte[] toImage, 
