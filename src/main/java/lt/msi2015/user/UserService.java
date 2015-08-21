@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.parboiled.scala.rules.ReductionRule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.Authentication;
@@ -127,14 +128,14 @@ public class UserService {
 	}
 	
 	public boolean dataIsValid(UserProfileDto dto) {
-		return imageIsValid(dto) && passwordIsValid(dto);
-	}
-	
-	private boolean passwordIsValid(UserProfileDto dto) {
-		return matchesOldPassword(dto);
+		return imageIsValid(dto) && matchesOldPassword(dto);
 	}
 
 	private boolean matchesOldPassword(UserProfileDto dto) {
+		if(dto.getNewPassword() == null || dto.getNewPassword() == ""){
+			return true;	
+		}
+
 		User user = repo.findById(dto.getId());
 		String passString = dto.getOldPassword();
 		return BCrypt.checkpw(passString, user.getPassword());
