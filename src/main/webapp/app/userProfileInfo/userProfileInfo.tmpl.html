@@ -21,12 +21,12 @@
 	
 	<hr>
 	
-	<!--  COMMENTED FOR DEMO!!!!!!!!!!!!
-	<div class="user-profile-line">
-		<a href="#" class="user-profile-navigation">Newsfeed</a>
+	<div data-ng-controller="NavigationController as nav">
+		<div class="user-profile-line">
+			<a ng-click="nav.changePage('userPage.home')" class="user-profile-navigation">Newsfeed</a>
+		</div>
+		<div class="user-profile-line">
+			<a ng-click="nav.changePage('userPage.profile.purchaseHistory')" class="user-profile-navigation">My purchases</a>
+		</div>
 	</div>
-	<div class="user-profile-line">
-		<a href="#" class="user-profile-navigation">My purchases</a>
-	</div> -->
-	
 </div>

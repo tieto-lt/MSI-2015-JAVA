@@ -100,6 +100,14 @@
 		    	url: "/userProfile",
 		    	templateUrl: "app/userProfile/userProfile.tmpl.html"
 		    })
+		    .state('userPage.profile.newsfeed', {
+		    	url: "/userProfile/newsfeed",
+		    	templateUrl: "app/newsFeedCurrUser/newsFeedCurrUser.tmpl.html"
+		    })
+		    .state('userPage.profile.purchaseHistory', {
+		    	url: "/userProfile/purchaseHistory",
+		    	templateUrl: "app/userPurchaseHistory/userPurchaseHistory.tmpl.html"
+		    })
 		    .state('userPage.otherProfile', {
 		    	url: "/otherProfile/:id",
 		    	templateUrl: "app/otherProfile/otherProfile.tmpl.html"
