@@ -3,6 +3,8 @@ package lt.msi2015.pointsTransferInfo;
 import java.util.Date;
 
 public class NewsFeedDto {
+	private Long fromUserID;
+	private Long toUserID;
 	public byte[] fromImage;
 	public byte[] toImage;
 	public String fromFirstName;
@@ -20,21 +22,22 @@ public class NewsFeedDto {
 		super();
 	}
 
-
-
-	public NewsFeedDto(byte[] fromImage, 
-						byte[] toImage, 
-						String fromFirstName, 
-						String fromLastName, 
-						String toFirstName, 
-						String toLastName, 
-						int points,
-						String comment, 
-						String date,
-						Date dateFull, 
-						CategoryDto category) {
-
+	public NewsFeedDto(Long fromUserID,
+				Long toUserID,
+				byte[] fromImage,
+				byte[] toImage, String
+				fromFirstName,
+				String fromLastName,
+				String toFirstName,
+				String toLastName,
+				int points,
+				String comment,
+				String date,
+				Date dateFull,
+				CategoryDto category) {
 		super();
+		this.fromUserID = fromUserID;
+		this.toUserID = toUserID;
 		this.fromImage = fromImage;
 		this.toImage = toImage;
 		this.fromFirstName = fromFirstName;
@@ -46,6 +49,14 @@ public class NewsFeedDto {
 		this.date = date;
 		this.dateFull = dateFull;
 		this.category = category;
+	}
+
+	public Long getFromUserID() {
+		return fromUserID;
+	}
+
+	public Long getToUserID() {
+		return toUserID;
 	}
 
 	
