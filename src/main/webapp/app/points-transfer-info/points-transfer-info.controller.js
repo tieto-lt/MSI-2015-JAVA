@@ -7,10 +7,10 @@
 	
 	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory',
 	                                        'AdminAppSettingsFactory', 'UsersFactory',
-	                                        'ProfileHeaderFactory','NewsFeedFactory'];
+	                                        'ProfileHeaderFactory','NewsFeedFactory', 'CategoryFactory'];
 	
 	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory,
-				AdminAppSettingsFactory, UsersFactory, ProfileHeaderFactory,NewsFeedFactory) {
+				AdminAppSettingsFactory, UsersFactory, ProfileHeaderFactory,NewsFeedFactory, CategoryFactory) {
 
 		var vm = this;
 		
@@ -30,11 +30,12 @@
 		vm.oneTimeLimit = 0;
 			
 		getOneTimeLimit();
-	
+		
+		CategoryFactory.loadCategories();
 
 	    vm.submit = submit;
 	    vm.fillteredList = fillteredList;
-
+	    
 	    /**
 	     * Function to execute when points transfer form is submitted
 	     */

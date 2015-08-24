@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
 import lt.msi2015.applicationSettings.ApplicationSettingsRepository;
 import lt.msi2015.applicationSettings.ApplicationSettingsService;
+import lt.msi2015.category.Category;
+import lt.msi2015.category.CategoryRepository;
 import lt.msi2015.user.User;
 import lt.msi2015.user.UserRepository;
 import lt.msi2015.user.UserService;

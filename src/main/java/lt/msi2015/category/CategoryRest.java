@@ -1,4 +1,4 @@
-package lt.msi2015.pointsTransferInfo;
+package lt.msi2015.category;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +17,12 @@ public class CategoryRest {
 	@RequestMapping(value = "/api/categories", method = RequestMethod.GET)
 	List<CategoryDto> getCategories() {
 		List<CategoryDto> categories = new ArrayList<>();
-		if (categories != null) {
-			for (Category category : categoryRepository.findAll()) {
-				categories.add(new CategoryDto(
-					category.getId(),
-					category.getName(),
-					category.isEnabled()
-				));
-			}
+		for (Category category : categoryRepository.findAll()) {
+			categories.add(new CategoryDto(
+				category.getId(),
+				category.getName(),
+				category.isEnabled()
+			));
 		}
 		return categories;
 	}
