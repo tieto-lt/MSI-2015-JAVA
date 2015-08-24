@@ -12,7 +12,7 @@ public class ShopService {
 	
 	@Autowired
 	ShopRepository shopRepository;
-	
+
 	@Transactional
 	boolean save(ShopItem item) {
 		if (imageIsValid(item.getImageType())) {
@@ -58,5 +58,12 @@ public class ShopService {
 	
 	boolean imageIsValid(String type) {
 		return (type.equals("image/jpeg")) || (type.equals("image/png")) || (type.equals("image/gif"));
+	}
+
+	@Transactional
+	public ShopItem softDeleteItem(Long id) {
+		ShopItem shopItem = shopRepository.findById(id);
+		shopItem.setDeleted(true);
+		return shopRepository.save(shopItem);
 	}
 }

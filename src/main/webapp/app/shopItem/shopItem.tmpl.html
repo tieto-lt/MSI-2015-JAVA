@@ -1,10 +1,17 @@
 <div class="{{vm.type}}"  data-ng-controller="ShopItemController as sic">
 
 	<div data-ng-controller="NavigationController as nav">
-		<div class="shop-item-image">
+	
+		<div class="user-shop-item-image">
 			<img class="shop-item-image-image" ng-src="{{sic.decodeImage(vm.item.image)}}"
-			ng-click="nav.changePageWithParams('userPage.item', {'id': vm.item.id})">
+			ng-click="nav.changePageWithParams('userPage.item', {'id': vm.item.id})"
+			ng-if="vm.type === 'shop-item'">
 		</div>
+		<div class="admin-shop-item-image">
+			<img ng-if="vm.type === 'admin-shop-item'" class="shop-item-image-image" 
+			ng-src="{{sic.decodeImage(vm.item.image)}}">
+		</div>
+		
 		<div class="shop-item-title" ng-if="vm.type === 'admin-shop-item'">
 			{{vm.item.name}}	
 		</div>
