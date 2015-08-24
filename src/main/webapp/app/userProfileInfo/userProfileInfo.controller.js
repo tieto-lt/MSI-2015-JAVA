@@ -18,9 +18,14 @@
 		
 		vm.edit = edit;
 		vm.saveChanges = saveChanges;
+		vm.goToGivingPoints = goToGivingPoints;
 		
 		function edit() {
 			vm.editBlock = 'go';
+		}
+		
+		function goToGivingPoints() {
+			vm.givingPointsBlock = 'go';
 		}
 		
 		function saveChanges() {
