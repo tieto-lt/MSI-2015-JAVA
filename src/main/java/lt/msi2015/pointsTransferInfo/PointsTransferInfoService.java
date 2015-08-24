@@ -48,7 +48,7 @@ public class PointsTransferInfoService {
 		pointsCalculations(info);
 		
 		Category category = categoryRepository.findById(info.categoryId);
-		
+		if (category.isEnabled()) {
 		return pointsRepo.save(
 			new PointsTransferInfo(
 				userService.getCurrentUser().getId(),
@@ -57,6 +57,9 @@ public class PointsTransferInfoService {
 				info.comment,
 				category)
 			) != null;
+		} else {
+			return false;
+		}
 	}
 	
 	@Transactional
