@@ -1,7 +1,7 @@
 /* pass=admin1 */
 insert into user(date_created, email, first_name, last_name, password, role) values ("2015-08-17 15:36:43", "admin@admin.lt", "Admin", "Admin", "$2a$10$k8vbxDO1XSww2iccooPAb.EG6FjwR9gnXUwoVqGom31Ye3B3CC.Ge", "1");
 /* pass=user1 */
-insert into user(date_created, email, first_name, last_name, password, points_to_give, role) values ("2015-08-17 15:36:43", "user@user.lt", "User", "User", "$2a$10$eN0WzyLuSFBwX2oLDBdKFeV.Hlxork4nqT8map6u.e7UGEj/a4uIO", "1000", "0");
+insert into user(date_created, email, first_name, last_name, password, points_to_give, user_points, role) values ("2015-08-17 15:36:43", "user@user.lt", "User", "User", "$2a$10$eN0WzyLuSFBwX2oLDBdKFeV.Hlxork4nqT8map6u.e7UGEj/a4uIO", "1000", "10000", "0");
 insert into user(date_created, email, first_name, last_name, password, points_to_give, role) values ("2015-08-17 15:36:43", "user2@user.lt", "User2", "User2", "$2a$10$eN0WzyLuSFBwX2oLDBdKFeV.Hlxork4nqT8map6u.e7UGEj/a4uIO", "1000", "0");
 insert into user(date_created, email, first_name, last_name, password, points_to_give, role) values ("2015-08-17 15:36:43", "user3@user.lt", "User3", "User3", "$2a$10$eN0WzyLuSFBwX2oLDBdKFeV.Hlxork4nqT8map6u.e7UGEj/a4uIO", "1000", "0");
 insert into user(date_created, email, first_name, last_name, password, points_to_give, role) values ("2015-08-17 15:36:43", "user4@user.lt", "User4", "User4", "$2a$10$eN0WzyLuSFBwX2oLDBdKFeV.Hlxork4nqT8map6u.e7UGEj/a4uIO", "1000", "0");
