@@ -43,12 +43,13 @@ public class PointsTransferInfo {
 		//for JSON
 	}
 	
-	public PointsTransferInfo(Long fromUserID, Long toUserID, Integer points, String comment) {
+	public PointsTransferInfo(Long fromUserID, Long toUserID, Integer points, String comment, Category category) {
 		this.fromUserID = fromUserID;
 		this.toUserID = toUserID;
 		this.points = points;
 		this.comment = comment;
 		this.dateCreated = new Date();
+		this.category = category;
 	}
 
 	public Long getId() {
@@ -74,5 +75,13 @@ public class PointsTransferInfo {
 	public Date getDateCreated() {
 		return dateCreated;
 	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}	
 
 }

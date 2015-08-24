@@ -29,6 +29,9 @@ public class PointsTransferInfoRest {
 	@Autowired
 	PointsTransferInfoService service;
 	
+	@Autowired
+	CategoryRepository categoryRepository;
+	
 	@RequestMapping(value = "/api/points/send", method = RequestMethod.POST)
 	ResponseEntity<PointsTransferInfo> save(@RequestBody PointsTransferInfoDto info) {
 		if (!service.save(info))
@@ -36,35 +39,37 @@ public class PointsTransferInfoRest {
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/api/points", method = RequestMethod.GET)
-	List<ExistingPointsTransferInfoDto> get() {
-		return service.getAllTransfers();
-	}
+//	@RequestMapping(value = "/api/points", method = RequestMethod.GET)
+//	List<ExistingPointsTransferInfoDto> get() {
+//		return service.getAllTransfers();
+//	}
 	
 	@RequestMapping(value = "/api/newsfeed", method = RequestMethod.GET)
-	public List<NewsFeedDto> getUser() {
+	public List<NewsFeedDto> getNewsfeed() {
 		
 		List<NewsFeedDto> newsFeed = new ArrayList<NewsFeedDto>();
 		
 		List<PointsTransferInfo> allTransfers = transfersRepo.findAll();
 		
-		SimpleDateFormat s = new SimpleDateFormat("YYYY-MM-dd");
+		SimpleDateFormat s = new SimpleDateFormat("YYYY-MM-dd");	
 		
 		for (PointsTransferInfo transfer : allTransfers) {
-			User fromUser  = userRepo.findById(transfer.fromUserID);
-			User toUser  = userRepo.findById(transfer.toUserID);
+			User fromUser = userRepo.findById(transfer.fromUserID);
+			User toUser = userRepo.findById(transfer.toUserID);
+			Category category = transfer.getCategory();
 			NewsFeedDto entry = new NewsFeedDto(
-					fromUser.getImage(),
-					toUser.getImage(),
-					fromUser.getFirstName(),
-					fromUser.getLastName(),
-					toUser.getFirstName(),
-					toUser.getLastName(),
-					transfer.getPoints(),
-					transfer.getComment(),
-					s.format(transfer.getDateCreated()).toString(),
-					transfer.getDateCreated()
-					);
+				fromUser.getImage(),
+				toUser.getImage(),
+				fromUser.getFirstName(),
+				fromUser.getLastName(),
+				toUser.getFirstName(),
+				toUser.getLastName(),
+				transfer.getPoints(),
+				transfer.getComment(),
+				s.format(transfer.getDateCreated()).toString(),
+				transfer.getDateCreated(),
+				new CategoryDto(category.getId(), category.getName(), category.isEnabled()) 
+			);
 			newsFeed.add(entry);
 		}
 		
@@ -89,18 +94,20 @@ public class PointsTransferInfoRest {
 			if(id == transfer.fromUserID || id == transfer.toUserID) {
 				User fromUser  = userRepo.findById(transfer.fromUserID);
 				User toUser  = userRepo.findById(transfer.toUserID);
+				Category category = transfer.getCategory();
 				NewsFeedDto entry = new NewsFeedDto(
-						fromUser.getImage(),
-						toUser.getImage(),
-						fromUser.getFirstName(),
-						fromUser.getLastName(),
-						toUser.getFirstName(),
-						toUser.getLastName(),
-						transfer.getPoints(),
-						transfer.getComment(),
-						s.format(transfer.getDateCreated()).toString(),
-						transfer.getDateCreated()
-						);
+					fromUser.getImage(),
+					toUser.getImage(),
+					fromUser.getFirstName(),
+					fromUser.getLastName(),
+					toUser.getFirstName(),
+					toUser.getLastName(),
+					transfer.getPoints(),
+					transfer.getComment(),
+					s.format(transfer.getDateCreated()).toString(),
+					transfer.getDateCreated(),
+					new CategoryDto(category.getId(), category.getName(), category.isEnabled())
+				);
 				newsFeed.add(entry);
 			}
 		}

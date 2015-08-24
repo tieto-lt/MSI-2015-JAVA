@@ -1,10 +1,5 @@
 package lt.msi2015.pointsTransferInfo;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 import javax.transaction.Transactional;
@@ -37,6 +32,9 @@ public class PointsTransferInfoService {
 	@Autowired
 	private ApplicationSettingsRepository settingsRepository;
 	
+	@Autowired
+	private CategoryRepository categoryRepository;
+	
 	@Transactional
 	boolean save(PointsTransferInfoDto info) {
 		
@@ -49,12 +47,15 @@ public class PointsTransferInfoService {
 		
 		pointsCalculations(info);
 		
+		Category category = categoryRepository.findById(info.categoryId);
+		
 		return pointsRepo.save(
 			new PointsTransferInfo(
 				userService.getCurrentUser().getId(),
 				info.toUserID,
 				info.points,
-				info.comment)
+				info.comment,
+				category)
 			) != null;
 	}
 	
@@ -81,20 +82,20 @@ public class PointsTransferInfoService {
 		return fromUser.pointsToGive >= info.points && userService.getCurrentUser().getId() != info.toUserID;
 	}
 	
-	public List<ExistingPointsTransferInfoDto> getAllTransfers() {
-		
-		List<PointsTransferInfo> databaseTransfersList = pointsRepo.findAll();
-		List<ExistingPointsTransferInfoDto> existingTransfersList = new ArrayList<>();
-		DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		
-		for(PointsTransferInfo transfer: databaseTransfersList) {
-			Date transferDate = transfer.getDateCreated();
-			String date = df.format(transferDate);
-			existingTransfersList.add(new ExistingPointsTransferInfoDto(transfer.getId(),
-					transfer.getFromUserID(), transfer.getToUserID(), transfer.getPoints(),
-					transfer.getComment(), date));
-		}
-		
-		return existingTransfersList;
-	}
+//	public List<ExistingPointsTransferInfoDto> getAllTransfers() {
+//		
+//		List<PointsTransferInfo> databaseTransfersList = pointsRepo.findAll();
+//		List<ExistingPointsTransferInfoDto> existingTransfersList = new ArrayList<>();
+//		DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//		
+//		for(PointsTransferInfo transfer: databaseTransfersList) {
+//			Date transferDate = transfer.getDateCreated();
+//			String date = df.format(transferDate);
+//			existingTransfersList.add(new ExistingPointsTransferInfoDto(transfer.getId(),
+//					transfer.getFromUserID(), transfer.getToUserID(), transfer.getPoints(),
+//					transfer.getComment(), date));
+//		}
+//		
+//		return existingTransfersList;
+//	}
 }

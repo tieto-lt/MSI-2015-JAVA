@@ -13,7 +13,7 @@ public class NewsFeedDto {
 	public String comment;
 	public String date;
 	public Date dateFull;
-	
+	public CategoryDto category;
 	
 
 	public NewsFeedDto() {
@@ -31,7 +31,8 @@ public class NewsFeedDto {
 						int points,
 						String comment, 
 						String date,
-						Date dateFull) {
+						Date dateFull, 
+						CategoryDto category) {
 
 		super();
 		this.fromImage = fromImage;
@@ -44,6 +45,7 @@ public class NewsFeedDto {
 		this.comment = comment;
 		this.date = date;
 		this.dateFull = dateFull;
+		this.category = category;
 	}
 
 	
