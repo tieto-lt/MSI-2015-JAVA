@@ -123,7 +123,7 @@
 				$mdDialog.cancel();
 			}
 	    	ConfirmationDialogFactory.showConfirmationDialog(
-	    			"Do you really want to delete" + item.name + "?", event,
+	    			"Do you really want to delete " + item.name + "?", event,
 	    			okAction, cancelAction);
 	    }
 		

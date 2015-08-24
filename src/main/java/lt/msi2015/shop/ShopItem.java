@@ -53,10 +53,16 @@ public class ShopItem extends Dto {
 	@NotNull
 	private Date dateAdded;
 	
+	@NotNull
+	private Boolean deleted;
+
+	/*
+	 * Constructors
+	 */
 	public ShopItem() {
 		super();
 	}
-
+	
 	public ShopItem(String name,
 				String description, 
 				byte[] image, 
@@ -73,7 +79,6 @@ public class ShopItem extends Dto {
 		this.imageName = imageName;
 		this.imageType = imageType;
 		this.dateAdded = new Date();
-		
 	}
 	
 	public ShopItem(NewShopItemDto newShopItemDto) {
@@ -83,9 +88,9 @@ public class ShopItem extends Dto {
 		this.quantity = newShopItemDto.quantity;
 		this.value = newShopItemDto.value;
 		this.imageName = newShopItemDto.imageName;
-		this.imageType = newShopItemDto.
-				imageType;
+		this.imageType = newShopItemDto.imageType;
 		this.dateAdded = new Date();
+		this.deleted = false;
 	}
 
 	/*
@@ -181,7 +186,13 @@ public class ShopItem extends Dto {
 
 	public void setDateAdded(Date dateAdded) {
 		this.dateAdded = dateAdded;
-	}	
-	
-	
+	}
+
+	public Boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
+	}
 }
