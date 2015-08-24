@@ -48,15 +48,15 @@ public class PointsTransferInfoService {
 		pointsCalculations(info);
 		
 		Category category = categoryRepository.findById(info.categoryId);
-		if (category.isEnabled()) {
-		return pointsRepo.save(
-			new PointsTransferInfo(
-				userService.getCurrentUser().getId(),
-				info.toUserID,
-				info.points,
-				info.comment,
-				category)
-			) != null;
+		if (category != null && category.isEnabled()) {
+			return pointsRepo.save(
+				new PointsTransferInfo(
+					userService.getCurrentUser().getId(),
+					info.toUserID,
+					info.points,
+					info.comment,
+					category)
+				) != null;
 		} else {
 			return false;
 		}

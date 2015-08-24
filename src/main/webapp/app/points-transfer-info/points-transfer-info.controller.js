@@ -39,7 +39,6 @@
 	     * Function to execute when points transfer form is submitted
 	     */
 	    function submit() {
-	    	
 	    	vm.successMessage = '';
 	    	vm.errorMessage = '';
 	    	

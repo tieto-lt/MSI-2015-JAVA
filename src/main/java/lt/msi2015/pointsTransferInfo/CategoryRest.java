@@ -19,13 +19,11 @@ public class CategoryRest {
 		List<CategoryDto> categories = new ArrayList<>();
 		if (categories != null) {
 			for (Category category : categoryRepository.findAll()) {
-				if (category.isEnabled()) {
-					categories.add(new CategoryDto(
-						category.getId(),
-						category.getName(),
-						category.isEnabled()
-					));
-				}
+				categories.add(new CategoryDto(
+					category.getId(),
+					category.getName(),
+					category.isEnabled()
+				));
 			}
 		}
 		return categories;
