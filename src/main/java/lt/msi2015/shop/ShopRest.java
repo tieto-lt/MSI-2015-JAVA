@@ -25,16 +25,18 @@ public class ShopRest {
 	List<ShopItemDto> getShopItems() {
 		List<ShopItemDto> items = new ArrayList<>();
 		for (ShopItem shopItem : shopRepository.findAll()) {
-			items.add(new ShopItemDto(shopItem.getId(), 
-									shopItem.getName(), 
-									shopItem.getDescription(), 
-									shopItem.getImage(), 
-									shopItem.getQuantity(), 
-									shopItem.getValue(),
-									shopItem.getImageType(),
-									shopItem.getImageName(),
-									shopItem.getDateAdded())
-					);
+			if (!shopItem.isDeleted()) {
+				items.add(new ShopItemDto(shopItem.getId(), 
+										shopItem.getName(), 
+										shopItem.getDescription(), 
+										shopItem.getImage(), 
+										shopItem.getQuantity(), 
+										shopItem.getValue(),
+										shopItem.getImageType(),
+										shopItem.getImageName(),
+										shopItem.getDateAdded())
+						);
+			}
 		}
 		
 		return items;
@@ -55,8 +57,7 @@ public class ShopRest {
 		if(shopRepository.findById(id) == null){
 			return false;
 		} else {
-			shopRepository.delete(id);
-			return true;
+			return shopService.softDeleteItem(id) != null;
 		}
 	}
 
