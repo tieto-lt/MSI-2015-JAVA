@@ -15,10 +15,10 @@
 		var vm = this;
 		
 		vm.transferInfo = {
-	      fromUser: '',
 	      toUser: '',
 	      points: '',
-	      comment: ''
+	      comment: '',
+	      categoryId: ''
 	    };
 		
 		vm.data = [];
@@ -31,10 +31,9 @@
 			
 		getOneTimeLimit();
 		
-		CategoryFactory.loadCategories();
-
 	    vm.submit = submit;
 	    vm.fillteredList = fillteredList;
+	    vm.categories = getCategories();
 	    
 	    /**
 	     * Function to execute when points transfer form is submitted
@@ -56,6 +55,7 @@
 	    			vm.searchText = '';
 	    			vm.transferInfo.points = '';
 	    			vm.transferInfo.comment = '';
+	    			vm.transferInfo.categoryId = null;
 	    			vm.pointsForm.$setPristine();
 	    			vm.pointsForm.$setUntouched();
 	    			LeaderboardFactory.leaders();
@@ -96,6 +96,11 @@
 	    		
 	    		return vm.data;
 	    	})
+	    }
+	    
+	    function getCategories() {
+	    	CategoryFactory.loadCategories();
+	    	return CategoryFactory.getCategories();
 	    }
 	}
 })();

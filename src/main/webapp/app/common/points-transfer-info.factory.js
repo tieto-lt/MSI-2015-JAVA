@@ -23,7 +23,8 @@
 	    	var transfer = {
     			toUserID: transferInfo.toUser.id,
     			points: transferInfo.points,
-    			comment: transferInfo.comment
+    			comment: transferInfo.comment,
+    			categoryId: transferInfo.categoryId
 	    	}
 	    	return $http
 	    	  .post('api/points/send', transfer);

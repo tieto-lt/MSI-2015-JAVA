@@ -12,22 +12,6 @@
 	     	<span class="one-time-limit"><br>(max {{vm.oneTimeLimit}} at a time)</span>
 	
 			<form name="vm.pointsForm" id="points-form" novalidate data-ng-submit="vm.submit()">
-			
-			
-	<!-- 			<div class="points-form-input"> -->
-	<!-- 				<md-input-container> -->
-	<!-- 					<label>From:</label> -->
-	<!-- 					<input name="fromInput" type="text" id="from"  -->
-	<!-- 						data-ng-model="vm.transferInfo.fromUser" -->
-	<!-- 						placeholder="max. 30" ng-maxlength="30" required> -->
-	<!-- 				</md-input-container> -->
-	<!-- 			</div> -->
-				
-	<!-- 			<div ng-messages="vm.pointsForm.fromInput.$error" ng-if="vm.pointsForm.fromInput.$dirty"> -->
-	<!-- 				<div class="error" ng-message="maxlength">Too many symbols</div> -->
-	<!-- 				<div class="error" ng-message="required">Field is required</div> -->
-	<!-- 			</div> -->
-				
 				
 				<div class="points-form-input">
 						<md-autocomplete
@@ -40,7 +24,7 @@
 						md-items="user in vm.fillteredList(vm.searchText)"
 						md-item-text="user.firstName + ' ' + user.lastName"
 						md-min-length="1"
-						md-floating-label="To"
+						md-floating-label="To:"
 						md-no-cache="true">
 							<md-item-template>
 								<span>{{user.firstName}} {{user.lastName}}</span>
@@ -77,6 +61,17 @@
 				
 				<div class="error" ng-show="vm.transferInfo.points > vm.profileInfo.pointsToGive">Not enough points</div>
 				
+				<div class="points-form-input">
+					<md-input-container>
+						<label for="categories">Category:</label>
+						<md-select id="categories" name="categoryInput" ng-model="vm.transferInfo.categoryId" required>
+							<md-option ng-repeat="category in vm.categories" value="{{category.id}}">{{category.name}}</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+				<div ng-messages="vm.pointsForm.categoryInput.$error" ng-if="vm.pointsForm.categoryInput.$dirty">
+					<div class="error" ng-message="required">Field is required</div>
+				</div>
 				
 				
 				<div class="points-form-input">
