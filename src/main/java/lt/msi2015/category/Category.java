@@ -1,4 +1,4 @@
-package lt.msi2015.pointsTransferInfo;
+package lt.msi2015.category;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lt.msi2015.pointsTransferInfo.PointsTransferInfo;
 import lt.msi2015.util.Dto;
 
 @Entity

@@ -9,11 +9,11 @@
 			</div><!--
 		 --><div class="entry-info">
 				<div class="transfer-details" data-ng-controller="NavigationController as nav">
-					<b ng-click="nav.changePageWithParams('userPage.otherProfile', {'id': entry.toUserID})">
+					<b ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.toUserID})">
 						{{entry.toFirstName + " " + entry.toLastName }}
 					</b>
 					received karma points from 
-					<b ng-click="nav.changePageWithParams('userPage.otherProfile', {'id': entry.fromUserID})">
+					<b ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.fromUserID})">
 						{{entry.fromFirstName + " " + entry.fromLastName }}
 					</b>
 			 	</div><!--

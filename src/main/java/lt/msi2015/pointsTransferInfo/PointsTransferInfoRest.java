@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import lt.msi2015.category.Category;
+import lt.msi2015.category.CategoryDto;
+import lt.msi2015.category.CategoryRepository;
 import lt.msi2015.user.User;
 import lt.msi2015.user.UserRepository;
 

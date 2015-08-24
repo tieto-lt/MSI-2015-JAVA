@@ -5,19 +5,22 @@
     .module('app.newsFeedOtherUser')
     .controller('NewsFeedOtherUserController', NewsFeedOtherUserController);
   
-  NewsFeedOtherUserController.$inject = ['UserNewsFeedFactory'];
+  NewsFeedOtherUserController.$inject = ['UserNewsFeedFactory', '$stateParams'];
 
-  function NewsFeedOtherUserController(UserNewsFeedFactory) {
+  function NewsFeedOtherUserController(UserNewsFeedFactory, $stateParams) {
     var vm = this;
 
 
     vm.newsFeed = UserNewsFeedFactory.newsFeed;
     vm.loadMoreNews = UserNewsFeedFactory.loadMoreNews;
     vm.shownNewsFeed = UserNewsFeedFactory.shownNewsFeed;
- 
-    /*HARDCODED ID*/ var id = 2;
-    UserNewsFeedFactory.updateNewsFeed(id);
-
+    
+    if ($stateParams.id) {
+		vm.id = $stateParams.id;
+	}
+    
+    UserNewsFeedFactory.updateNewsFeed(vm.id);
+    
   }
   
 

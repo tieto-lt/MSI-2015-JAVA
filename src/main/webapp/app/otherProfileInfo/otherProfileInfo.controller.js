@@ -5,14 +5,17 @@
 		.module('app.otherProfileInfo')
 		.controller('OtherProfileInfoController', OtherProfileInfoController);
 	
-	OtherProfileInfoController.$inject = ['UsersFactory'];
+	OtherProfileInfoController.$inject = ['UsersFactory', '$stateParams'];
 	
-	function OtherProfileInfoController(UsersFactory) {
+	function OtherProfileInfoController(UsersFactory, $stateParams) {
 
 		var vm = this;
 		
-		/*HARDCODED ID*/ var id = 2;
-		UsersFactory.getUserProfile(id).then(function(response) {
+		if ($stateParams.id) {
+			vm.id = $stateParams.id;
+		}
+		
+		UsersFactory.getUserProfile(vm.id).then(function(response) {
 			vm.user = response.data;
 			if(response.data.image) {
 				vm.user.image = atob(response.data.image);
