@@ -2,13 +2,23 @@
 	<div class="user-profile-photo-container">
 		<img class="user-profile-photo" ng-src="{{vm.user.image}}">
 	</div>
+	<div ng-if="vm.currUserData.id == vm.profileId">
+		<div ng-if="!vm.editBlock">
+			<data-ng-include src="'app/userProfileInfo/userProfileInfoBlock.tmpl.html'"></data-ng-include>
+		</div>
+		<div ng-if="vm.editBlock">
+			<data-ng-include src="'app/userProfileEdit/userProfileEdit.tmpl.html'"></data-ng-include>
+		</div>
+	</div>
+	<div ng-if="vm.currUserData.id != vm.profileId">
+		<div>
+			<data-ng-include src="'app/userProfileInfo/userProfileInfoBlock.tmpl.html'"></data-ng-include>
+		</div>
+		<div>
+			<data-ng-include src="'app/points-transfer-info/points-transfer-info.tmpl.html'"></data-ng-include>
+		</div>
+	</div>
 	
-	<div ng-if="!vm.editBlock">
-		<data-ng-include src="'app/userProfileInfo/userProfileInfoBlock.tmpl.html'"></data-ng-include>
-	</div>
-	<div ng-if="vm.editBlock">
-		<data-ng-include src="'app/userProfileEdit/userProfileEdit.tmpl.html'"></data-ng-include>
-	</div>
 	
 	<div class="user-profile-line user-profile-line-centered" ng-if="!vm.editBlock">
 		<span>

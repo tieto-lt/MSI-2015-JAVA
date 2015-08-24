@@ -7,12 +7,17 @@
 	
 	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory',
 	                                        'AdminAppSettingsFactory', 'UsersFactory',
-	                                        'ProfileHeaderFactory','NewsFeedFactory', 'CategoryFactory'];
+	                                        'ProfileHeaderFactory','NewsFeedFactory', 'CategoryFactory',
+	                                        '$state'];
 	
 	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory,
-				AdminAppSettingsFactory, UsersFactory, ProfileHeaderFactory,NewsFeedFactory, CategoryFactory) {
+				AdminAppSettingsFactory, UsersFactory, ProfileHeaderFactory,NewsFeedFactory,
+				CategoryFactory, $state) {
 
 		var vm = this;
+		
+		vm.state = $state.current.name;
+		vm.profileId = $state.params.id;
 		
 		vm.transferInfo = {
 	      toUser: '',
@@ -47,29 +52,40 @@
 	    	}
 	    	vm.submitClicked = true;
 	    	
+	    	if(vm.state == "userPage.profile") {
+	    		UsersFactory.getUserProfile(vm.profileId).then(function(response) {
+	    			vm.transferInfo.toUser = response.data;
+	    			sendPoints();
+	    		})
+	    	} else {
+	    		sendPoints();
+	    	}
+	    }
+	    
+	    function sendPoints() {
 	    	PointsTransferFactory
-	    		.sendPoints(vm.transferInfo)
-	    		.then(function() {
-	    			vm.successMessage = 'Transfer was successful';	    			
-	    			/*vm.transferInfo.toUser = '';*/
-	    			vm.searchText = '';
-	    			vm.transferInfo.points = '';
-	    			vm.transferInfo.comment = '';
-	    			vm.transferInfo.categoryId = null;
-	    			vm.pointsForm.$setPristine();
-	    			vm.pointsForm.$setUntouched();
-	    			LeaderboardFactory.leaders();
-	    			NewsFeedFactory.updateNewsFeed();
-	    			ProfileHeaderFactory.loadUserInfo();
-	    			vm.submitClicked = false;
-	    		}, function() {
-	    			vm.errorMessage = 'Transfer failed';
-	    			vm.transferInfo.toUser = '';
-	    			vm.transferInfo.points = '';
-	    			vm.transferInfo.comment = '';
-	    			vm.pointsForm.$setPristine();
-	    			vm.submitClicked = false;
-	    		})	    		
+    		.sendPoints(vm.transferInfo)
+    		.then(function() {
+    			vm.successMessage = 'Transfer was successful';	    			
+    			/*vm.transferInfo.toUser = '';*/
+    			vm.searchText = '';
+    			vm.transferInfo.points = '';
+    			vm.transferInfo.comment = '';
+    			vm.transferInfo.categoryId = null;
+    			vm.pointsForm.$setPristine();
+    			vm.pointsForm.$setUntouched();
+    			LeaderboardFactory.leaders();
+    			NewsFeedFactory.updateNewsFeed();
+    			ProfileHeaderFactory.loadUserInfo();
+    			vm.submitClicked = false;
+    		}, function() {
+    			vm.errorMessage = 'Transfer failed';
+    			vm.transferInfo.toUser = '';
+    			vm.transferInfo.points = '';
+    			vm.transferInfo.comment = '';
+    			vm.pointsForm.$setPristine();
+    			vm.submitClicked = false;
+    		})
 	    }
 	    
 	    function getOneTimeLimit() {

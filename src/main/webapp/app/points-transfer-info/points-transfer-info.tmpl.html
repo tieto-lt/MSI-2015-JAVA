@@ -1,7 +1,7 @@
 <div class="points-form-main">
 	<div class="points-form-container" data-ng-controller="PointsTransferInfoController as vm">
 
-	     <div class="transfer-info-form-title" >
+	     <div class="transfer-info-form-title" ng-if="vm.state == 'userPage.home'">
 	     	Thank your colleague...
 	     </div>
 	     
@@ -12,8 +12,24 @@
 	     	<span class="one-time-limit"><br>(max {{vm.oneTimeLimit}} at a time)</span>
 	
 			<form name="vm.pointsForm" id="points-form" novalidate data-ng-submit="vm.submit()">
+			
+			
+	<!-- 			<div class="points-form-input"> -->
+	<!-- 				<md-input-container> -->
+	<!-- 					<label>From:</label> -->
+	<!-- 					<input name="fromInput" type="text" id="from"  -->
+	<!-- 						data-ng-model="vm.transferInfo.fromUser" -->
+	<!-- 						placeholder="max. 30" ng-maxlength="30" required> -->
+	<!-- 				</md-input-container> -->
+	<!-- 			</div> -->
 				
-				<div class="points-form-input">
+	<!-- 			<div ng-messages="vm.pointsForm.fromInput.$error" ng-if="vm.pointsForm.fromInput.$dirty"> -->
+	<!-- 				<div class="error" ng-message="maxlength">Too many symbols</div> -->
+	<!-- 				<div class="error" ng-message="required">Field is required</div> -->
+	<!-- 			</div> -->
+				
+				<div ng-if="vm.state == 'userPage.home'">
+					<div class="points-form-input">
 						<md-autocomplete
 						md-input-name="toInput" type="text" id="to"
 						data-ng-model="vm.transferInfo.toUser"
@@ -30,18 +46,19 @@
 								<span>{{user.firstName}} {{user.lastName}}</span>
 							</md-item-template>
 						</md-autocomplete>
-				</div>
+					</div>
 				
-				<div ng-messages="vm.pointsForm.toInput.$error" ng-if="vm.pointsForm.toInput.$dirty">
-					<div class="error" ng-message="maxlength">Too many symbols</div>
-					<div class="error" ng-message="required">Field is required</div>
-				</div>
-				<div ng-if="vm.transferInfo.toUser.id == vm.profileInfo.id" class="error">
-					Can't send to yourself
-				</div>
-				
-				<div ng-if="vm.pointsForm.toInput.$dirty">
-					<div class="error" ng-if="vm.data.length == 0 && vm.searchText.length > 0">No such user</div>
+					<div ng-messages="vm.pointsForm.toInput.$error" ng-if="vm.pointsForm.toInput.$dirty">
+						<div class="error" ng-message="maxlength">Too many symbols</div>
+						<div class="error" ng-message="required">Field is required</div>
+					</div>
+					<div ng-if="vm.transferInfo.toUser.id == vm.profileInfo.id" class="error">
+						Can't send to yourself
+					</div>
+					
+					<div ng-if="vm.pointsForm.toInput.$dirty">
+						<div class="error" ng-if="vm.data.length == 0 && vm.searchText.length > 0">No such user</div>
+					</div>	
 				</div>
 				
 				<div class="points-form-input">

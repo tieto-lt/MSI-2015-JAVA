@@ -5,12 +5,16 @@
 		.module('app.userProfileInfo')
 		.controller('UserProfileInfoController', UserProfileInfoController);
 	
-	UserProfileInfoController.$inject = ['UsersFactory', 'ProfileHeaderFactory', 'UserNewsFeedFactory'];
+	UserProfileInfoController.$inject = ['UsersFactory', 'ProfileHeaderFactory', 'UserNewsFeedFactory',
+	                                     	'$state'];
 	
-	function UserProfileInfoController(UsersFactory, ProfileHeaderFactory, UserNewsFeedFactory) {
+	function UserProfileInfoController(UsersFactory, ProfileHeaderFactory, UserNewsFeedFactory,
+			$state) {
 
 		var vm = this;
 		var currUserData = ProfileHeaderFactory.getProfileInfo();
+		vm.currUserData = ProfileHeaderFactory.getProfileInfo();
+		vm.profileId = $state.params.id;
 		
 		vm.edit = edit;
 		vm.saveChanges = saveChanges;
@@ -50,7 +54,7 @@
 		
 		
 
-		UsersFactory.getUserProfile(currUserData.id).then(function(response) {
+		UsersFactory.getUserProfile(vm.profileId).then(function(response) {
 			vm.user = response.data;
 			if(response.data.image) {
 				vm.user.image = atob(response.data.image);

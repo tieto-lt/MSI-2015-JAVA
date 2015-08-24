@@ -1,14 +1,16 @@
-<div class="news-feed-container" data-ng-controller="NewsFeedController as vm" >
-	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()">
+<div class="news-feed-container" data-ng-controller="NewsFeedController as vm">
+	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()"
+			data-ng-controller="NavigationController as nav">
 		<div class="news-entry" ng-repeat="entry in vm.shownNewsFeed" >
 			<div class="reciever-photo-info">
-				<img class="reciever-photo" ng-src="{{entry.toImage}}" >
+				<img class="reciever-photo" ng-src="{{entry.toImage}}"
+					ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.toUserID})">
 				<div class="recieved-points">
 					+{{entry.points}}
 				</div>
 			</div><!--
 		 --><div class="entry-info">
-				<div class="transfer-details" data-ng-controller="NavigationController as nav">
+				<div class="transfer-details">
 					<b ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.toUserID})">
 						{{entry.toFirstName + " " + entry.toLastName }}
 					</b>
@@ -30,7 +32,8 @@
 		 		</div>
 		 		<div class="sender-photo">
 		 			<span class="helper"></span>
-		 			<img ng-src="{{entry.fromImage}}" >
+		 			<img ng-src="{{entry.fromImage}}"
+		 				ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.fromUserID})">
 		 		</div>
 			</div>
 		</div>

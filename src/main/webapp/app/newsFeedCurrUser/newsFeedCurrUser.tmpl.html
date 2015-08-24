@@ -1,9 +1,11 @@
 <div class="news-feed-container" data-ng-controller="NewsFeedCurrUserController as vm" >
-	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()">
+	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()"
+			data-ng-controller="NavigationController as nav">
 		<div class="news-entry" ng-repeat="entry in vm.shownNewsFeed">
 			<div class="reciever-photo-info">
 				<div class="reciever-photo-container">
-					<img class="reciever-photo" ng-src="{{entry.toImage}}" >
+					<img class="reciever-photo" ng-src="{{entry.toImage}}"
+						ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.toUserID})">
 				</div>
 				<div class="recieved-points">
 					+{{entry.points}}
@@ -11,9 +13,13 @@
 			</div><!--
 		 --><div class="entry-info">
 				<div class="transfer-details">
-					<b>{{entry.toFirstName + " " + entry.toLastName }}</b>
-					 received karma points from 
-					<b>{{entry.fromFirstName + " " + entry.fromLastName }}</b>
+					<b ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.toUserID})">
+						{{entry.toFirstName + " " + entry.toLastName }}
+					</b>
+						received karma points from 
+					<b ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.fromUserID})">
+						{{entry.fromFirstName + " " + entry.fromLastName }}
+					</b>
 			 	</div><!--
 			 --><div class="transfer-category">
 					Great Job!
@@ -28,7 +34,8 @@
 		 		</div>
 		 		<div class="sender-photo">
 		 			<span class="helper"></span>
-		 			<img ng-src="{{entry.fromImage}}">
+		 			<img ng-src="{{entry.fromImage}}"
+		 				ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.fromUserID})">
 		 		</div>
 			</div>
 		</div>

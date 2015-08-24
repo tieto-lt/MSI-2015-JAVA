@@ -97,7 +97,7 @@
 		         }    
 		    })
 		    .state('userPage.profile', {
-		    	url: "/userProfile",
+		    	url: "/userProfile/:id",
 		    	templateUrl: "app/userProfile/userProfile.tmpl.html"
 		    })
 		    .state('userPage.profile.newsfeed', {
@@ -108,10 +108,10 @@
 		    	url: "/userProfile/purchaseHistory",
 		    	templateUrl: "app/userPurchaseHistory/userPurchaseHistory.tmpl.html"
 		    })
-		    .state('userPage.otherProfile', {
+		    /*.state('userPage.otherProfile', {
 		    	url: "/otherProfile/:id",
 		    	templateUrl: "app/otherProfile/otherProfile.tmpl.html"
-		    })
+		    })*/
 		    .state('userPage.shop', {
 		    	url: "/userShop",
 		    	templateUrl: "app/userShop/userShop.tmpl.html"
