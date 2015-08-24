@@ -283,3 +283,11 @@ header {
 md-autocomplete#to {
 	padding-bottom: 0px;
 }
+
+md-select .md-select-value.md-select-placeholder {
+	color: inherit;
+}
+
+md-select .md-select-value {
+    border-bottom-color: rgba(0, 0, 0, 0.26);
+}

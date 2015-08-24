@@ -64,7 +64,7 @@
 				<div class="points-form-input">
 					<md-input-container>
 						<label for="categories">Category:</label>
-						<md-select id="categories" name="categoryInput" ng-model="vm.transferInfo.categoryId" required>
+						<md-select class="md-input" id="categories" name="categoryInput" ng-model="vm.transferInfo.categoryId" required>
 							<md-option ng-repeat="category in vm.categories" value="{{category.id}}">{{category.name}}</md-option>
 						</md-select>
 					</md-input-container>
