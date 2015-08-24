@@ -100,6 +100,10 @@
 		    	url: "/userProfile",
 		    	templateUrl: "app/userProfile/userProfile.tmpl.html"
 		    })
+		    .state('userPage.otherProfile', {
+		    	url: "/otherProfile/:id",
+		    	templateUrl: "app/otherProfile/otherProfile.tmpl.html"
+		    })
 		    .state('userPage.shop', {
 		    	url: "/userShop",
 		    	templateUrl: "app/userShop/userShop.tmpl.html"
