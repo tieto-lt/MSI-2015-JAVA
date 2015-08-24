@@ -2,6 +2,8 @@ package lt.msi2015.pointsTransferInfo;
 
 import java.util.Date;
 
+import lt.msi2015.category.CategoryDto;
+
 public class NewsFeedDto {
 	private Long fromUserID;
 	private Long toUserID;

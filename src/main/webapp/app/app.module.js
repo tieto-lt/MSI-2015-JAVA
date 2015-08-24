@@ -24,7 +24,8 @@
       'app.newsFeedCurrUser',
       'app.otherProfileInfo',
       'app.newsFeedOtherUser',
-      
+      'app.adminCategorySettings',
+
 
       
       /* angular ngMessages */

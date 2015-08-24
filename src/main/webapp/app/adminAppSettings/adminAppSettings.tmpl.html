@@ -1,5 +1,5 @@
 <div ng-controller="AdminAppSettingsController as vm">
-	<div class="admin-application-settings-container" style="width: 50%">
+	<div class="admin-application-settings-container">
 		<span>
 			<img class="admin-image image-padding" src="./assets/images/gears.png"/>
 		</span>
@@ -66,5 +66,10 @@
 				</div>
 			</div>
 		</form>
+	</div><!--
+	
+	
+ --><div class="admin-category-settings">
+		<data-ng-include src="'app/adminCategorySettings/adminCategorySettings.tmpl.html'"></data-ng-include>
 	</div>
 </div>

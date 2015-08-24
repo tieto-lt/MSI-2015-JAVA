@@ -95,7 +95,7 @@ header.admin-header  {
  	margin-left: auto;
  	margin-right: auto;
  	display: table;
- }
+ }category
  
  .admin-image {
  	float: left;
@@ -132,3 +132,9 @@ header.admin-header  {
  .add-new-item-button {
  	margin: 20px 0;
  }
+ 
+ .admin-application-settings-container {
+ 	width: 50%;
+ 	display: inline-block;
+ }
+ 

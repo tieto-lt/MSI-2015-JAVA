@@ -11,6 +11,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lt.msi2015.category.Category;
+
 @Entity
 public class PointsTransferInfo {
 	
