@@ -1,0 +1,26 @@
+<div class="category-settings-container" data-ng-controller="AdminCategorySettings as vm">
+	<div class="settings-title">
+		Category configuration
+	</div>
+	<div class="settings-content">
+		<div class="new-category-field">
+			<div class="category-input">
+				<md-input-container>
+							<label>New Category</label>
+							<input ng-model="vm.newCategoryName">
+				</md-input-container>
+			</div>
+			<div class="category-add-button">
+				<md-button class="md-raised">ADD</md-button>
+			</div>
+		</div>
+		<div class="category-entry" ng-repeat="category in vm.categories">
+			<div class="category-name">
+				{{category.name}}
+			</div>
+			<div class="delete-button">
+				&#10006
+			</div>
+		</div>	
+	</div>
+</div>
