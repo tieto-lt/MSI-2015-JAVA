@@ -17,7 +17,7 @@
 				<span>Date</span>
 		   </div>
 		</div>
-		<div class="purchased-item-entry" ng-repeat="purchase in vm.currUserPurchases">
+		<div class="purchased-item-entry" ng-repeat="purchase in vm.currUserPurchases | orderBy:'-dateAdded'">
 			<div class="purchased-item-photo-container">
 				<img class="purchased-item-photo" ng-src="{{vm.decodeImage(purchase.image)}}">
 			</div><!--
@@ -25,10 +25,10 @@
 				<span>{{purchase.name}}</span>
 			</div><!--
 		 --><div class="purchased-item-price">
-				<span>{{purchase.price}}</span>
+				<span>{{purchase.price}}</span><img src="assets/images/karma_logo.png" class="purchased-item-karma-logo">
 			</div><!-- 
 		--><div class="purchased-item-date">
-				<span>{{purchase.dateAdded}}</span>
+				<span>{{purchase.dateToDisplay}}</span>
 			</div>
 		</div>
 	</div>

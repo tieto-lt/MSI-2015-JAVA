@@ -11,6 +11,7 @@ public class PurchasedShopItemDto extends Dto {
 	private byte[] image;
 	private Integer price;
 	private Date dateAdded;
+	private String dateToDisplay;
 	
 	/*
 	 * Constructors
@@ -23,12 +24,14 @@ public class PurchasedShopItemDto extends Dto {
 								String name,
 								byte[] image,
 								Integer price,
-								Date dateAdded) {
+								Date dateAdded,
+								String dateToDisplay) {
 		this.id = id;
 		this.name = name;
 		this.image = image;
 		this.price = price;
 		this.dateAdded = dateAdded;
+		this.dateToDisplay = dateToDisplay;
 	}
 	
 	/*
@@ -72,5 +75,13 @@ public class PurchasedShopItemDto extends Dto {
 
 	public void setDateAdded(Date dateAdded) {
 		this.dateAdded = dateAdded;
+	}
+
+	public String getDateToDisplay() {
+		return dateToDisplay;
+	}
+
+	public void setDateToDisplay(String dateToDisplay) {
+		this.dateToDisplay = dateToDisplay;
 	}
 }
