@@ -59,6 +59,7 @@
 .user-profile-logo {
 	width: 25px;
 	height: 25px;
+	vertical-align: middle;
 }
 
 .edit-profile-logo {

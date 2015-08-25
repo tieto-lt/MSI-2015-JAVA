@@ -44,10 +44,20 @@
 	width: 30%;
 }
 
+.purchased-item-name > span {
+	color: #F78D2D;
+}
+
 .purchased-item-price {
 	width: 35%;
 }
 
 .purchased-item-date {
 	width: 15%;
+}
+
+.purchased-item-karma-logo {
+	width: 25px;
+	height: 25px;
+	vertical-align: middle;
 }

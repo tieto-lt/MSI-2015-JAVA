@@ -1,5 +1,6 @@
 package lt.msi2015.shop;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -81,14 +82,18 @@ public class ShopService {
 		List<PurchasedShopItemDto> purchaseList = new ArrayList<> ();
 		List<PurchaseInfo> purchasedShopItems =  purchaseInfoRepo.findAll();
 		
+		SimpleDateFormat dateForHistoryDisplay = new SimpleDateFormat("YYYY-MM-dd");
+		
 		for (PurchaseInfo purchasedItemInfo: purchasedShopItems) {
 			if (purchasedItemInfo.getUserId() == userId) {
 				ShopItem item = shopRepository.findById(purchasedItemInfo.getShopItemId());
 				purchaseList.add(new PurchasedShopItemDto(item.getId(),
 														  item.getName(),
 														  item.getImage(),
-														  item.getQuantity(),
-														  item.getDateAdded())
+														  item.getValue(),
+														  item.getDateAdded(),
+														  dateForHistoryDisplay
+														  .format(item.getDateAdded()).toString())
 				);
 			}
 		}
