@@ -31,9 +31,8 @@
 	function changePageIfWithParams(state, condition, params) {
 		if (condition) {
 			vm.changePageWithParams(state, params);
-			console.log('did it?');
+			vm.searchText = '';
 		}
-		console.log('worked');
 	}
 }
   

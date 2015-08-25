@@ -17,8 +17,8 @@
 							md-selected-item="ptc.transferInfo.toUser"
 							md-selected-item-change=
 								"nc.changePageIfWithParams('userPage.profile.newsfeed', user, {id:user.id})"
-							md-search-text="ptc.searchText"
-							md-items="user in ptc.fillteredList(ptc.searchText)"
+							md-search-text="nc.searchText"
+							md-items="user in ptc.fillteredList(nc.searchText)"
 							md-item-text="user.firstName + ' ' + user.lastName"
 							md-min-length="1"
 							placeholder="Search User"
