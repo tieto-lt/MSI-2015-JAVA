@@ -1,5 +1,7 @@
 package lt.msi2015.purchase;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,6 +20,9 @@ public class PurchaseInfo {
 	@NotNull
 	private Long shopItemId;
 
+	@NotNull
+	private Date buyDate;
+	
 	/*
 	 * Constructors
 	 */
@@ -29,6 +34,7 @@ public class PurchaseInfo {
 		super();
 		this.userId = userId;
 		this.shopItemId = shopItemId;
+		this.buyDate = new Date();
 	}
 
 	/*
@@ -45,5 +51,8 @@ public class PurchaseInfo {
 	public Long getShopItemId() {
 		return shopItemId;
 	}
-	
+
+	public Date getBuyDate() {
+		return buyDate;
+	}
 }

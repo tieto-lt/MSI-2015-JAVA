@@ -80,22 +80,23 @@ public class ShopService {
 	@Transactional
 	public List<PurchasedShopItemDto> getUserPurchases(Long userId) {
 		List<PurchasedShopItemDto> purchaseList = new ArrayList<> ();
-		List<PurchaseInfo> purchasedShopItems =  purchaseInfoRepo.findAll();
+		List<PurchaseInfo> purchasedShopItems =  purchaseInfoRepo.findAllByUserId(userId);
 		
 		SimpleDateFormat dateForHistoryDisplay = new SimpleDateFormat("YYYY-MM-dd");
 		
 		for (PurchaseInfo purchasedItemInfo: purchasedShopItems) {
-			if (purchasedItemInfo.getUserId() == userId) {
-				ShopItem item = shopRepository.findById(purchasedItemInfo.getShopItemId());
-				purchaseList.add(new PurchasedShopItemDto(item.getId(),
-														  item.getName(),
-														  item.getImage(),
-														  item.getValue(),
-														  item.getDateAdded(),
-														  dateForHistoryDisplay
-														  .format(item.getDateAdded()).toString())
-				);
-			}
+			ShopItem item = shopRepository.findById(purchasedItemInfo.getShopItemId());
+			
+			purchaseList
+				.add(new PurchasedShopItemDto(item.getId(),
+											  item.getName(),
+											  item.getImage(),
+											  item.getValue(),
+											  purchasedItemInfo.getBuyDate(),
+											  dateForHistoryDisplay
+											  .format(purchasedItemInfo.getBuyDate()).toString())
+			);
+		
 		}
 		
 		return purchaseList;
