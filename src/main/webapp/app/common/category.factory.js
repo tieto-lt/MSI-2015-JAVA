@@ -19,7 +19,6 @@
 		}
 		
 		function getCategories() {
-			
 			return categories;
 		}
 		

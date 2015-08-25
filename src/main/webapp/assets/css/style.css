@@ -279,3 +279,15 @@ header.login-header > span {
 header {
 	box-shadow: 0px 0px 10px #444;
 }
+
+md-autocomplete#to {
+	padding-bottom: 0px;
+}
+
+md-select .md-select-value.md-select-placeholder {
+	color: inherit;
+}
+
+md-select .md-select-value {
+    border-bottom-color: rgba(0, 0, 0, 0.26);
+}

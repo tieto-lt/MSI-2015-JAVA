@@ -15,23 +15,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CategoryRest {
 	
-	@Autowired
-	CategoryRepository categoryRepository;
+	CategoryService categoryService;
 	
 	@Autowired
-	CategoryService categoryService;
+	CategoryRepository categoryRepository;
 	
 	@RequestMapping(value = "/api/categories", method = RequestMethod.GET)
 	List<CategoryDto> getCategories() {
 		List<CategoryDto> categories = new ArrayList<>();
-		if (categories != null) {
-			for (Category category : categoryRepository.findAll()) {
-				categories.add(new CategoryDto(
-					category.getId(),
-					category.getName(),
-					category.isEnabled()
-				));
-			}
+		for (Category category : categoryRepository.findAll()) {
+			categories.add(new CategoryDto(
+				category.getId(),
+				category.getName(),
+				category.isEnabled()
+			));
 		}
 		return categories;
 	}
@@ -52,6 +49,4 @@ public class CategoryRest {
 		
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
-	
-	
 }

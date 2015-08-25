@@ -5,11 +5,14 @@
     .module('app.navigation')
     .controller('NavigationController', NavigationController);
 
-  NavigationController.$inject = ['$state'];
+  NavigationController.$inject = ['$state', 'ProfileHeaderFactory'];
 
-  function NavigationController($state) {
+  function NavigationController($state, ProfileHeaderFactory) {
     var vm = this;
 
+    vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
+    ProfileHeaderFactory.loadUserInfo();
+    
     vm.changePage = changePage;
     vm.currentPage = $state.current.name;
     vm.changePageWithParams = changePageWithParams;
@@ -23,8 +26,6 @@
 		vm.currentPage = state;
 	    $state.go(state, params);
 	}
-
-    
 }
   
 

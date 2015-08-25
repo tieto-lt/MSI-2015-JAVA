@@ -21,7 +21,8 @@
 	text-align: center;
 }
 
-.registration-form-container md-input-container label, md-input-container {
+.registration-form-container md-input-container label,
+.registration-form-container md-input-container md-input-container {
 	color: white !important;
 }
 

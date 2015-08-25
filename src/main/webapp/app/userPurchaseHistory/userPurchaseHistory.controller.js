@@ -5,18 +5,17 @@
     .module('app.newsFeedCurrUser')
     .controller('NewsFeedCurrUserController', NewsFeedCurrUserController);
   
-  NewsFeedCurrUserController.$inject = ['UserNewsFeedFactory', 'ProfileHeaderFactory', '$state'];
+  NewsFeedCurrUserController.$inject = ['UserNewsFeedFactory', 'ProfileHeaderFactory'];
 
-  function NewsFeedCurrUserController(UserNewsFeedFactory, ProfileHeaderFactory, $state) {
+  function NewsFeedCurrUserController(UserNewsFeedFactory, ProfileHeaderFactory) {
     var vm = this;
     var currUserData = ProfileHeaderFactory.getProfileInfo();
-    vm.profileId = $state.params.id;
 
     vm.newsFeed = UserNewsFeedFactory.newsFeed;
     vm.loadMoreNews = UserNewsFeedFactory.loadMoreNews;
     vm.shownNewsFeed = UserNewsFeedFactory.shownNewsFeed;
  
-    UserNewsFeedFactory.updateNewsFeed(vm.profileId);
+    UserNewsFeedFactory.updateNewsFeed(currUserData.id);
 
   }
   

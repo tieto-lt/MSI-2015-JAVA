@@ -22,8 +22,6 @@
       'app.userProfileInfo',
       'app.newsFeed',
       'app.newsFeedCurrUser',
-      'app.otherProfileInfo',
-      'app.newsFeedOtherUser',
       'app.adminCategorySettings',
 
 

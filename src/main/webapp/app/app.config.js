@@ -97,12 +97,17 @@
 		         }    
 		    })
 		    .state('userPage.profile', {
-		    	url: "/userProfile",
+		    	url: "/userProfile/:id",
+		    	abstract: true,
 		    	templateUrl: "app/userProfile/userProfile.tmpl.html"
 		    })
-		    .state('userPage.otherProfile', {
-		    	url: "/otherProfile/:id",
-		    	templateUrl: "app/otherProfile/otherProfile.tmpl.html"
+		    .state('userPage.profile.newsfeed', {
+		    	url: "/newsfeed",
+		    	templateUrl: "app/newsFeedCurrUser/newsFeedCurrUser.tmpl.html"
+		    })
+		    .state('userPage.profile.purchaseHistory', {
+		    	url: "/purchaseHistory",
+		    	templateUrl: "app/userPurchaseHistory/userPurchaseHistory.tmpl.html"
 		    })
 		    .state('userPage.shop', {
 		    	url: "/userShop",

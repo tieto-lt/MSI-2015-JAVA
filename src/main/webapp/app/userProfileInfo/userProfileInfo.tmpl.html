@@ -3,30 +3,44 @@
 		<img class="user-profile-photo" ng-src="{{vm.user.image}}">
 	</div>
 	
-	<div ng-if="!vm.editBlock">
-		<data-ng-include src="'app/userProfileInfo/userProfileInfoBlock.tmpl.html'"></data-ng-include>
-	</div>
-	<div ng-if="vm.editBlock">
-		<data-ng-include src="'app/userProfileEdit/userProfileEdit.tmpl.html'"></data-ng-include>
+	<div ng-if="vm.currUserData.id == vm.profileId">
+		<div ng-if="!vm.editBlock">
+			<data-ng-include src="'app/userProfileInfo/userProfileInfoBlock.tmpl.html'"></data-ng-include>
+			<div class="user-profile-line user-profile-line-centered" ng-if="!vm.editBlock">
+			<span>
+				<a ng-click="vm.edit()">Edit my profile</a>
+			</span>
+			<span>
+				<img src="assets/images/edit-icon.png" class="edit-profile-logo">
+			</span>
+		</div>
+		</div>
+		<div ng-if="vm.editBlock">
+			<data-ng-include src="'app/userProfileEdit/userProfileEdit.tmpl.html'"></data-ng-include>
+		</div>
 	</div>
 	
-	<div class="user-profile-line user-profile-line-centered" ng-if="!vm.editBlock">
-		<span>
-			<a ng-click="vm.edit()">Edit my profile</a>
-		</span>
-		<span>
-			<img src="assets/images/edit-icon.png" class="edit-profile-logo">
-		</span>
+	<div ng-if="vm.currUserData.id != vm.profileId">
+		<div ng-if="!vm.givingPointsBlock">
+			<data-ng-include src="'app/userProfileInfo/userProfileInfoBlock.tmpl.html'"></data-ng-include>
+			<md-button class="md-raised" ng-click="vm.goToGivingPoints()">Give karma points</md-button>
+		</div>
+		<div ng-if="vm.givingPointsBlock">
+			<div>
+				<h3 class="user-profile-first-and-last-names">{{ vm.user.firstName }} {{ vm.user.lastName }}</h3>
+			</div>
+			<data-ng-include src="'app/points-transfer-info/points-transfer-info.tmpl.html'"></data-ng-include>
+		</div>
 	</div>
 	
 	<hr>
 	
-	<!--  COMMENTED FOR DEMO!!!!!!!!!!!!
-	<div class="user-profile-line">
-		<a href="#" class="user-profile-navigation">Newsfeed</a>
+	<div data-ng-controller="NavigationController as nav">
+		<div class="user-profile-line">
+			<a ng-click="nav.changePage('userPage.profile.newsfeed')" class="user-profile-navigation">Newsfeed</a>
+		</div>
+		<div class="user-profile-line">
+			<a ng-click="nav.changePage('userPage.profile.purchaseHistory')" class="user-profile-navigation">My purchases</a>
+		</div>
 	</div>
-	<div class="user-profile-line">
-		<a href="#" class="user-profile-navigation">My purchases</a>
-	</div> -->
-	
 </div>
