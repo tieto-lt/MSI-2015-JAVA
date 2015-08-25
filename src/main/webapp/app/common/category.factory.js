@@ -5,9 +5,9 @@
 		.module('app.common')
 		.factory('CategoryFactory', CategoryFactory);
 	
-	CategoryFactory.$inject = ['$http'];
+	CategoryFactory.$inject = ['$http', '$filter'];
 	
-	function CategoryFactory($http) {
+	function CategoryFactory($http, $filter) {
 		
 		var categories = [];
 		loadCategories();
@@ -16,7 +16,9 @@
 			
 			return $http.get('api/categories').then(function(response) {
 				categories.length = 0;
-				angular.extend(categories, response.data);
+				
+				angular.extend(categories, $filter('orderBy')(response.data, 'name'));
+				
 			});
 		}
 		
@@ -28,10 +30,18 @@
 			return categories;
 		}
 		
+		function saveCategory(name) {
+			var transfer = {
+					name: name
+			}
+			return $http.post('api/categories', transfer);
+		}
+		
 		return {
 			getCategories: getCategories,
 			loadCategories: loadCategories,
-			deleteCategory: deleteCategory
+			deleteCategory: deleteCategory,
+			saveCategory: saveCategory
 		};
 	}
 	

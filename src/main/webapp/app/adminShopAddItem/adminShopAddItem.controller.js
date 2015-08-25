@@ -53,12 +53,18 @@
 			vm.transferInfo.imageName = f.name;
 			vm.transferInfo.imageType = f.type;
 			
+			if(vm.submitClicked) {
+	    		return;
+	    	}
+	    	vm.submitClicked = true;
+			
 			r.onload = function(e) {
 				vm.transferInfo.image = e.target.result;
 				// send you binary data via $http or $resource or do anything
 				// else with it
 				ShopItemFactory.addNewShopItem(vm.transferInfo).then(function() {
 					$state.go('adminPage.shop');
+					vm.submitClicked = false;
 				})
 				
 				
