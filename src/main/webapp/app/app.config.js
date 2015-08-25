@@ -98,6 +98,7 @@
 		    })
 		    .state('userPage.profile', {
 		    	url: "/userProfile/:id",
+		    	abstract: true,
 		    	templateUrl: "app/userProfile/userProfile.tmpl.html"
 		    })
 		    .state('userPage.profile.newsfeed', {
