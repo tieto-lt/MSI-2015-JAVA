@@ -1,14 +1,17 @@
-package lt.msi2015.pointsTransferInfo;
+package lt.msi2015.category;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lt.msi2015.pointsTransferInfo.PointsTransferInfo;
 import lt.msi2015.util.Dto;
 
 @Entity
@@ -20,6 +23,7 @@ public class Category extends Dto {
 	
 	@NotNull
 	@Size(min = 1, max = 30)
+	@Column(unique = true)
 	private String name;
 	
 	@NotNull
@@ -69,6 +73,8 @@ public class Category extends Dto {
 		this.transferInfoEntries = transferInfoEntries;
 	}	
 	
-	
+	public void toggleEnabled(){
+		enabled = !enabled;
+	}
 	
 }

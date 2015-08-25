@@ -1,4 +1,4 @@
-package lt.msi2015.pointsTransferInfo;
+package lt.msi2015.category;
 
 import lt.msi2015.util.Dto;
 
