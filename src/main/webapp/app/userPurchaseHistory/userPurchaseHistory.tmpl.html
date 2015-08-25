@@ -1,7 +1,21 @@
+<div class="news-feed-header">
+	<h2>My purchase history</h2>	
+</div>
 <div class="news-feed-container" data-ng-controller="UserPurchaseHistoryController as vm" >
-	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()">
-		<div class="news-entry" ng-repeat="entry in vm.shownNewsFeed" >
-			AAAASSSSSDDDDDDD
+	<div class="news-feed-content" scrollbar>
+		<div class="purchased-item-entry">
+			<div class="purchased-item-photo-container">
+				<img class="purchased-item-photo" src="assets/images/star.png">
+			</div><!--
+		 --><div class="purchased-item-name">
+				<div>Name</div>
+			</div><!--
+		 --><div class="purchased-item-price">
+				<span>Price</span>
+			</div><!-- 
+		--><div class="purchased-item-date">
+				<span>Date</span>
+			</div>
 		</div>
 	</div>
 </div>

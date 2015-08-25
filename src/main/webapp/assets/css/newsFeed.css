@@ -11,6 +11,13 @@
 	overflow: auto;
 	height: 750px;
 }
+.news-feed-header h2 {
+    font-weight: normal;
+    color: #F78D2D;
+    margin-left: 40px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
 
 .news-feed-title {
 /* 	background-color: yellow; */

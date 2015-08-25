@@ -101,11 +101,11 @@
 		    	templateUrl: "app/userProfile/userProfile.tmpl.html"
 		    })
 		    .state('userPage.profile.newsfeed', {
-		    	url: "/userProfile/newsfeed",
+		    	url: "/newsfeed",
 		    	templateUrl: "app/newsFeedCurrUser/newsFeedCurrUser.tmpl.html"
 		    })
 		    .state('userPage.profile.purchaseHistory', {
-		    	url: "/userProfile/purchaseHistory",
+		    	url: "/purchaseHistory",
 		    	templateUrl: "app/userPurchaseHistory/userPurchaseHistory.tmpl.html"
 		    })
 		    .state('userPage.shop', {
