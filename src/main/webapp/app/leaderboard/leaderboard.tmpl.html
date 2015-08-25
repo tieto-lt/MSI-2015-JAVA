@@ -2,22 +2,28 @@
 	<div class="leaderboard-title">
 		Leaders of the month
 	</div>
-	<div ng-if="!vm.leaders.length"><center>Keep calm and wait for karma...</center></div>
-	<table id="leaderboard-table" ng-if="vm.leaders.length">
-		<thead>
-			<tr>
-				<td>POS</td>
-				<td>NAME</td>
-				<td>POINTS</td>
-			</tr>	
-		</thead>
-		<tbody>
-		  <tr ng-repeat="leader in vm.leaders | orderBy:['-points', 'name']">
-		    <td class="leaderboard-table-points">{{ $index + 1 }}</td>
-		    <td>{{ leader.name }}</td>
-		    <td class="leaderboard-table-points">{{ leader.points }}</td>
-		  </tr>
-		</tbody>
-	</table>
-	<div class="reload-leaders-button"><md-button class="md-raised" id="reload-leaders" ng-click="vm.updateLeaders()">Reload leaders</button></div>
+	
+	<div data-ng-controller="NavigationController as nav">
+		<div ng-if="!vm.leaders.length"><center>Keep calm and wait for karma...</center></div>
+		<table id="leaderboard-table" ng-if="vm.leaders.length">
+			<thead>
+				<tr>
+					<td>POS</td>
+					<td>NAME</td>
+					<td>POINTS</td>
+				</tr>	
+			</thead>
+			<tbody>
+			  <tr ng-repeat="leader in vm.leaders | orderBy:['-points', 'name']">
+			    <td class="leaderboard-table-points">{{ $index + 1 }}</td>
+			    <td ng-click="nav.changePageWithParams('userPage.profile.newsfeed', {'id': leader.userID})">
+			    	{{ leader.name }}
+			    </td>
+			    <td class="leaderboard-table-points">{{ leader.points }}</td>
+			  </tr>
+			</tbody>
+		</table>
+		<div class="reload-leaders-button"><md-button class="md-raised" id="reload-leaders" ng-click="vm.updateLeaders()">Reload leaders</button></div>
+	</div>
+	
 </div>
