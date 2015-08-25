@@ -1,38 +1,52 @@
 <div class="news-feed-header">
 	<h2>Purchase history</h2>	
 </div>
-<div class="news-feed-container" data-ng-controller="UserPurchaseHistoryController as vm" >
-	<div class="purchased-item-entry-header">
-		<div class="purchased-item-photo-container">
-			<!-- EMPTY -->
-		</div><!--
-	 --><div class="purchased-item-name">
-			<div>Product name</div>
-		</div><!--
-	 --><div class="purchased-item-price">
-			<span>Karma points</span>
-		</div><!-- 
-	--><div class="purchased-item-date">
-			<span>Date</span>
-	   </div>
-	</div>
-	<div class="news-feed-content" scrollbar>
+<div class="purchased-item-entry-header">
+	<div class="admin-purchased-item-received">
+		<span>Received</span>
+	</div><!--
+ --><div class="admin-purchased-item-photo-container">
+		<!-- EMPTY -->
+	</div><!--
+ --><div class="admin-purchased-item-name">
+		<div>Product name</div>
+	</div><!--
+ --><div class="admin-purchased-item-price">
+		<span>Karma points</span>
+	</div><!--
+ --><div class="admin-purchased-item-buyer">
+		<span>Buyer's name</span>
+	</div><!--
+--><div class="admin-purchased-item-date">
+		<span>Date</span>
+   </div>
+</div>
+<div class="admin-purchase-history-container" data-ng-controller="AdminPurchaseHistoryController as vm" >	
+	<div class="admin-puchased-item-content">
 		<div class="purchased-no-items" ng-if="vm.currUserPurchases == ''">
 			<br><br>
 			<h3>You currently have no purchased Items!</h3>
 		</div>
-		<div class="purchased-item-entry" ng-repeat="purchase in vm.currUserPurchases | orderBy:'-dateAdded'">
-			<div class="purchased-item-photo-container">
-				<img class="purchased-item-photo" ng-src="{{vm.decodeImage(purchase.image)}}">
+<!-- 		<div class="purchased-item-entry" ng-repeat="purchase in vm.currUserPurchases | orderBy:'-dateAdded'"> -->
+		
+		<div class="purchased-item-entry">
+			<div class="admin-purchased-item-received">
+				<md-checkbox ng-model="vm.received"></md-checkbox>
 			</div><!--
-		 --><div class="purchased-item-name">
-				<span>{{purchase.name}}</span>
+ 		 --><div class="admin-purchased-item-photo-container">
+				<img class="purchased-item-photo" src="assets/images/sketis.jpg">
 			</div><!--
-		 --><div class="purchased-item-price">
-				<span>{{purchase.price}}</span><img src="assets/images/karma_logo.png" class="purchased-item-karma-logo">
+		 --><div class="admin-purchased-item-name">
+				<span>Purchased product name</span>
+			</div><!--
+		 --><div class="admin-purchased-item-price">
+				<span>2000</span><img src="assets/images/karma_logo.png" class="purchased-item-karma-logo">
 			</div><!-- 
-		--><div class="purchased-item-date">
-				<span>{{purchase.dateToDisplay}}</span>
+		 --><div class="admin-purchased-item-buyer">
+				<span>Buyer's name</span>
+			</div><!--
+		 --><div class="admin-purchased-item-date">
+				<span>2015-08-25</span>
 			</div>
 		</div>
 	</div>
