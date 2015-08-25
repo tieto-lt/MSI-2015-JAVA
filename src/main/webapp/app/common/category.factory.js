@@ -16,9 +16,9 @@
 			
 			return $http.get('api/categories').then(function(response) {
 				categories.length = 0;
+				
 				angular.extend(categories, $filter('orderBy')(response.data, 'name'));
 				
-				/*angular.extend(newsFeed, $filter('orderBy')(response.data, 'dateFull', true));*/
 			});
 		}
 		

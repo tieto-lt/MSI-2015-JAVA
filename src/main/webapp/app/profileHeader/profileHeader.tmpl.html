@@ -6,10 +6,30 @@
 	 	<div class="header-feald">
 			<h3>Karma Points</h3>
 		</div>
-		<div class="header-search-feald">
-			<!-- EMPTY -->
-		</div>
 		
+		<div class="header-search-feald" data-ng-controller="PointsTransferInfoController as ptc">
+			<div data-ng-controller="NavigationController as nc">
+				<div class="user-search-input">
+					<md-autocomplete
+							md-input-name="toInput" type="text" id="to"
+							data-ng-model="ptc.transferInfo.toUser"
+							md-input-maxlength="51" required
+							md-selected-item="ptc.transferInfo.toUser"
+							md-selected-item-change=
+								"nc.changePageIfWithParams('userPage.profile.newsfeed', user, {id:user.id})"
+							md-search-text="ptc.searchText"
+							md-items="user in ptc.fillteredList(ptc.searchText)"
+							md-item-text="user.firstName + ' ' + user.lastName"
+							md-min-length="1"
+							placeholder="Search User"
+							md-no-cache="true">
+						<md-item-template>
+							<span>{{user.firstName}} {{user.lastName}}</span>
+						</md-item-template>
+					</md-autocomplete>
+				</div>
+			</div>
+		</div>
 		<div class="header-profile-feald">
         	<div class="info-container" data-ng-model="vm.profileInfo">
         		<span class="info">
@@ -39,36 +59,3 @@
         </ul>
 	</div>
 </header>
-
-<!-- <header class="profile-header" data-ng-controller="ProfileHeaderController as vm"> -->
-<!--         <div class="left-side"> -->
-<!--         	<img id="karma-logo" src="assets/images/karma_logo.png"/> -->
-<!--             <h3>Karma points</h3> -->
-<!--         </div> -->
-<!--         <div class="navigation" data-ng-controller="NavigationController as nm"> -->
-<!--             <ul> -->
-<!--                 <li ng-class="{'current' : nm.currentPage == 'userPage.home'}"><a ng-click="nm.changePage('userPage.home')">Home</a></li> -->
-<!--                 <li ng-class="{'current' : nm.currentPage == 'userPage.shop'}"><a ng-click="nm.changePage('userPage.shop')">Tieto Shop</a></li> -->
-<!--             	 <li ng-class="{'current' : nm.currentPage == 'userPage.profile'}"><a ng-click="nm.changePage('userPage.profile')">My profile</a></li> -->
-<!--             </ul> -->
-<!--         </div> -->
-<!--         <div class="profile-info"> -->
-<!--             <div class="profile-info-container"> -->
-<!--                 <img class="profile-image" src="./assets/images/profile_picture_placeholder.png"/> -->
-<!--                 <div class="info-container" data-ng-model="vm.profileInfo"> -->
-<!--                     <div class="info" >{{vm.profileInfo.firstName}}</div> -->
-<!--                     <div class="info">{{vm.profileInfo.lastName}}</div> -->
-<!--                     <div class="info points-info"> -->
-<!-- 	                    You have:  -->
-<!-- 	                    <span class="points">{{vm.profileInfo.userPoints}}</span> -->
-<!-- 	                    	<img class="formLogoImage" src="assets/images/karma_logo.png"> -->
-<!--                    	</div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--         <div class="logout"> -->
-<!--         	<div data-ng-controller="LogoutController as vm"> -->
-<!--             	<a ng-click="vm.logout()" >Logout</a> -->
-<!--         	</div> -->
-<!--         </div> -->
-<!-- </header> -->

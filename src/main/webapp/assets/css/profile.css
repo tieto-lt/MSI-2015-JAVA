@@ -198,3 +198,16 @@ header.profile-header {
 .navigation, .logout {
 	font-size: 16px;
 }
+
+.user-search-input {
+	width: 350px;
+	margin: 20px auto 0 auto;
+}
+
+.user-search-input md-autocomplete button {
+    top: 0;
+}
+
+.user-search-input .md-whiteframe-z1 {
+    box-shadow: none;
+}
