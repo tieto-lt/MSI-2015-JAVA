@@ -3,7 +3,7 @@
 			data-ng-controller="NavigationController as nav">
 		<div class="news-entry" ng-repeat="entry in vm.shownNewsFeed" >
 			<div class="reciever-photo-info">
-				<img class="reciever-photo" ng-src="{{entry.toImage}}"
+				<img class="reciever-photo link-cursor" ng-src="{{entry.toImage}}"
 					ng-click="nav.changePageWithParams('userPage.profile.newsfeed', {'id': entry.toUserID})">
 				<div class="recieved-points">
 					+{{entry.points}}
@@ -11,11 +11,13 @@
 			</div><!--
 		 --><div class="entry-info">
 				<div class="transfer-details">
-					<b ng-click="nav.changePageWithParams('userPage.profile.newsfeed', {'id': entry.toUserID})">
+					<b ng-click="nav.changePageWithParams('userPage.profile.newsfeed', {'id': entry.toUserID})"
+							class="link-cursor">
 						{{entry.toFirstName + " " + entry.toLastName }}
 					</b>
 					received karma points from 
-					<b ng-click="nav.changePageWithParams('userPage.profile.newsfeed', {'id': entry.fromUserID})">
+					<b ng-click="nav.changePageWithParams('userPage.profile.newsfeed', {'id': entry.fromUserID})"
+							class="link-cursor">
 						{{entry.fromFirstName + " " + entry.fromLastName }}
 					</b>
 			 	</div><!--
@@ -32,7 +34,7 @@
 		 		</div>
 		 		<div class="sender-photo">
 		 			<span class="helper"></span>
-		 			<img ng-src="{{entry.fromImage}}"
+		 			<img ng-src="{{entry.fromImage}}" class="link-cursor"
 		 				ng-click="nav.changePageWithParams('userPage.profile.newsfeed', {'id': entry.fromUserID})">
 		 		</div>
 			</div>
