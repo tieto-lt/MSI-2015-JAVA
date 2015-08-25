@@ -17,7 +17,6 @@
 			return $http.get('api/categories').then(function(response) {
 				categories.length = 0;
 				angular.extend(categories, response.data);
-				console.log('refresh: ' + response.data);
 			});
 		}
 		
