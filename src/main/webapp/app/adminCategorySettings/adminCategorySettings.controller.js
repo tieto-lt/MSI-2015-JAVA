@@ -26,6 +26,7 @@
 	  function saveCategory(name) {
 		  CategoryFactory.saveCategory(name).then(function() {
 			  vm.refreshCategories();
+			  vm.newCategoryName = '';
 		  });
 	  }
 	  

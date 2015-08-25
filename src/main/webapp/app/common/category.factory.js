@@ -5,9 +5,9 @@
 		.module('app.common')
 		.factory('CategoryFactory', CategoryFactory);
 	
-	CategoryFactory.$inject = ['$http'];
+	CategoryFactory.$inject = ['$http', '$filter'];
 	
-	function CategoryFactory($http) {
+	function CategoryFactory($http, $filter) {
 		
 		var categories = [];
 		loadCategories();
@@ -16,8 +16,9 @@
 			
 			return $http.get('api/categories').then(function(response) {
 				categories.length = 0;
-				angular.extend(categories, response.data);
-				console.log('refresh: ' + response.data);
+				angular.extend(categories, $filter('orderBy')(response.data, 'name'));
+				
+				/*angular.extend(newsFeed, $filter('orderBy')(response.data, 'dateFull', true));*/
 			});
 		}
 		
