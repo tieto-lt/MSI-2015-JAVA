@@ -78,6 +78,8 @@
     			NewsFeedFactory.updateNewsFeed();
     			if(vm.state != "userPage.home") {
     				UserNewsFeedFactory.updateNewsFeed(vm.profileId);
+    				UsersFactory.unsetGivingPointsBlock();
+    				UsersFactory.setSuccessMessage();
     			}
     			ProfileHeaderFactory.loadUserInfo();
     			vm.submitClicked = false;
@@ -87,6 +89,11 @@
     			vm.transferInfo.points = '';
     			vm.transferInfo.comment = '';
     			vm.pointsForm.$setPristine();
+    			if(vm.state != "userPage.home") {
+    				UserNewsFeedFactory.updateNewsFeed(vm.profileId);
+    				UsersFactory.unsetGivingPointsBlock();
+    				UsersFactory.setErrorMessage();
+    			}
     			vm.submitClicked = false;
     		})
 	    }
