@@ -18,12 +18,22 @@ public class PurchaseInfo {
 	@NotNull
 	private Long shopItemId;
 
+	/*
+	 * Constructors
+	 */
+	public PurchaseInfo() {
+		
+	}
+	
 	public PurchaseInfo(Long userId, Long shopItemId) {
 		super();
 		this.userId = userId;
 		this.shopItemId = shopItemId;
 	}
 
+	/*
+	 * Getters and Setters
+	 */
 	public Long getId() {
 		return id;
 	}
