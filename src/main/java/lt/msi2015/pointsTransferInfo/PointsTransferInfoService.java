@@ -12,6 +12,7 @@ import lt.msi2015.applicationSettings.ApplicationSettingsRepository;
 import lt.msi2015.applicationSettings.ApplicationSettingsService;
 import lt.msi2015.category.Category;
 import lt.msi2015.category.CategoryRepository;
+import lt.msi2015.mailers.MailerService;
 import lt.msi2015.user.User;
 import lt.msi2015.user.UserRepository;
 import lt.msi2015.user.UserService;
@@ -37,6 +38,9 @@ public class PointsTransferInfoService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
+	@Autowired
+	private MailerService mailer;
+	
 	@Transactional
 	boolean save(PointsTransferInfoDto info) {
 		
@@ -51,6 +55,7 @@ public class PointsTransferInfoService {
 		
 		Category category = categoryRepository.findById(info.categoryId);
 		if (category != null && category.isEnabled()) {
+			mailer.sendMail(info);
 			return pointsRepo.save(
 				new PointsTransferInfo(
 					userService.getCurrentUser().getId(),
@@ -87,20 +92,4 @@ public class PointsTransferInfoService {
 		return fromUser.pointsToGive >= info.points && userService.getCurrentUser().getId() != info.toUserID;
 	}
 	
-//	public List<ExistingPointsTransferInfoDto> getAllTransfers() {
-//		
-//		List<PointsTransferInfo> databaseTransfersList = pointsRepo.findAll();
-//		List<ExistingPointsTransferInfoDto> existingTransfersList = new ArrayList<>();
-//		DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-//		
-//		for(PointsTransferInfo transfer: databaseTransfersList) {
-//			Date transferDate = transfer.getDateCreated();
-//			String date = df.format(transferDate);
-//			existingTransfersList.add(new ExistingPointsTransferInfoDto(transfer.getId(),
-//					transfer.getFromUserID(), transfer.getToUserID(), transfer.getPoints(),
-//					transfer.getComment(), date));
-//		}
-//		
-//		return existingTransfersList;
-//	}
 }
