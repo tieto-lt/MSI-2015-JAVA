@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('app.newsFeedCurrUser', []);
+    .module('app.userPurchaseHistory', []);
 
 })(window.angular);

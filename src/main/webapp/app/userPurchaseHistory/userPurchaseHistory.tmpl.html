@@ -17,34 +17,18 @@
 				<span>Date</span>
 		   </div>
 		</div>
-		
-		<div class="purchased-item-entry">
+		<div class="purchased-item-entry" ng-repeat="purchase in vm.currUserPurchases">
 			<div class="purchased-item-photo-container">
-				<img class="purchased-item-photo" src="assets/images/star.png">
+				<img class="purchased-item-photo" ng-src="{{vm.decodeImage(purchase.image)}}">
 			</div><!--
 		 --><div class="purchased-item-name">
-				<span>Name</span>
+				<span>{{purchase.name}}</span>
 			</div><!--
 		 --><div class="purchased-item-price">
-				<span>Price</span>
+				<span>{{purchase.price}}</span>
 			</div><!-- 
 		--><div class="purchased-item-date">
-				<span>Date</span>
-			</div>
-		</div>
-		
-				<div class="purchased-item-entry">
-			<div class="purchased-item-photo-container">
-				<img class="purchased-item-photo" src="assets/images/star.png">
-			</div><!--
-		 --><div class="purchased-item-name">
-				<span>Name</span>
-			</div><!--
-		 --><div class="purchased-item-price">
-				<span>Price</span>
-			</div><!-- 
-		--><div class="purchased-item-date">
-				<span>Date</span>
+				<span>{{purchase.dateAdded}}</span>
 			</div>
 		</div>
 	</div>
