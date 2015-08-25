@@ -23,3 +23,9 @@
 	padding-bottom: 20px;
 	font-size: 30px;
 }
+#about {
+	background-image: url("../images/about.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 2164px;
+}
