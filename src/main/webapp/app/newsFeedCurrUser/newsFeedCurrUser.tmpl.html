@@ -5,7 +5,7 @@
 			<div class="reciever-photo-info">
 				<div class="reciever-photo-container">
 					<img class="reciever-photo" ng-src="{{entry.toImage}}"
-						ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.toUserID})">
+						ng-click="nav.changePageWithParams('userPage.profile', {'id': entry.toUserID})">
 				</div>
 				<div class="recieved-points">
 					+{{entry.points}}
@@ -13,11 +13,11 @@
 			</div><!--
 		 --><div class="entry-info">
 				<div class="transfer-details">
-					<b ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.toUserID})">
+					<b ng-click="nav.changePageWithParams('userPage.profile', {'id': entry.toUserID})">
 						{{entry.toFirstName + " " + entry.toLastName }}
 					</b>
 						received karma points from 
-					<b ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.fromUserID})">
+					<b ng-click="nav.changePageWithParams('userPage.profile', {'id': entry.fromUserID})">
 						{{entry.fromFirstName + " " + entry.fromLastName }}
 					</b>
 			 	</div><!--
@@ -35,7 +35,7 @@
 		 		<div class="sender-photo">
 		 			<span class="helper"></span>
 		 			<img ng-src="{{entry.fromImage}}"
-		 				ng-click="nav.goToOtherProfile('userPage.otherProfile', {'id': entry.fromUserID})">
+		 				ng-click="nav.changePageWithParams('userPage.profile', {'id': entry.fromUserID})">
 		 		</div>
 			</div>
 		</div>
