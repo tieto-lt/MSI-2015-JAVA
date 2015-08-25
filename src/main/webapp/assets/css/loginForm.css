@@ -11,15 +11,12 @@
 }
 
 #superContainer {
-    position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin-top:131px;
+    
+	/*margin-top:131px;*/
 	background-image: url("../images/login_background_woman.jpg");
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: cover;
+	height: 720px;
 }
 
 .login-messge {

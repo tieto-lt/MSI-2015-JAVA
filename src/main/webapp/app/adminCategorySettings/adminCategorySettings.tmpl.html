@@ -3,17 +3,24 @@
 		Category configuration
 	</div>
 	<div class="settings-content">
-		<div class="new-category-field">
-			<div class="category-input">
-				<md-input-container>
-							<label>New Category</label>
-							<input ng-model="vm.newCategoryName">
-				</md-input-container>
-			</div>
-			<div class="category-add-button">
-				<md-button class="md-raised" ng-click="vm.saveCategory(vm.newCategoryName)">ADD</md-button>
-			</div>
-		</div>
+		<form name="vm.addCategory" id="points-form" novalidate data-ng-submit="vm.saveCategory()">
+			<div class="new-category-field">
+				<div class="category-input">
+					<md-input-container>
+						<label for="category">New Category</label>
+						<input id="category" name="categoryName" ng-maxlength="30"
+							required ng-model="vm.newCategoryName">
+					</md-input-container>
+					<div ng-messages="vm.addCategory.categoryName.$error" ng-if="vm.addCategory.categoryName.$dirty">
+						<div class="error" ng-message="maxlength">Name is too long</div>
+						<div class="error" ng-message="required">Field is required</div>
+					</div>
+				</div>
+				<div class="category-add-button">
+					<md-button class="md-raised" type="submit" ng-disabled="vm.addCategory.$invalid">ADD</md-button>
+				</div>
+			</div>			
+		</form>
 		<div class="category-entry" ng-repeat="category in vm.categories">
 			
 			<div class="category-name">
