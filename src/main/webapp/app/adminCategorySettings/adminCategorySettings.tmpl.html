@@ -15,10 +15,11 @@
 			</div>
 		</div>
 		<div class="category-entry" ng-repeat="category in vm.categories">
+			
 			<div class="category-name">
 				{{category.name}}
 			</div>
-			<div class="delete-button">
+			<div class="delete-button" ng-click="vm.deleteCategory(category.id)">
 				&#10006
 			</div>
 		</div>	

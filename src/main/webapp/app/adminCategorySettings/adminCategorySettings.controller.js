@@ -11,6 +11,20 @@
 	  var vm = this;
 	  
 	  vm.categories = CategoryFactory.getCategories();
+	  vm.deleteCategory = deleteCategory;
+	  vm.refreshCategories = refreshCategories;
+	  
+	  vm.refreshCategories();
+	  
+	  function deleteCategory(id) {
+		  CategoryFactory.deleteCategory(id).then(function() {
+			  vm.refreshCategories();
+		  });
+	  }
+	  
+	  function refreshCategories() {
+		  CategoryFactory.loadCategories();
+	  }
 	  
   }
   

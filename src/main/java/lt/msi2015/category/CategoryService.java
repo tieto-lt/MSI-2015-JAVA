@@ -33,7 +33,7 @@ public class CategoryService {
 	private Category categoryToSave(CategoryDto dto){
 		List<Category> duplicateList = catRepo.findByName(dto.name);
 		if(duplicateList.isEmpty()){
-			return new Category(dto.name, dto.enabled);
+			return new Category(dto.name);
 		} else {
 			Category cat = duplicateList.get(0);
 			cat.toggleEnabled();
