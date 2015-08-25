@@ -75,6 +75,10 @@
 		    	url: "/editItem/:id",
 		    	templateUrl: "app/adminShopEditItem/adminShopEditItem.tmpl.html"
 		    })
+		    .state('adminPage.purchases', {
+		    	url: "/purchases",
+		    	templateUrl: "app/adminPurchaseHistory/adminPurchaseHistory.tmpl.html"
+		    })
 		    .state('userPage', {
 		    	url: "/user",
 		    	templateUrl: "userPage.tmpl.html",
