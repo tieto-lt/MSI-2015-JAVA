@@ -12,8 +12,7 @@
 	width: calc(100% - 20px);
     /* height: 170px; */
     margin-top: 8px;
-    border-top: 1px solid #AAA;
-    border-bottom: 1px solid #AAA;
+    border: 1px solid #AAA;
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #EEE;
@@ -33,7 +32,10 @@
 .purchased-item-entry > span {
 	vertical-align: middle;
 }
-
+.purchased-item-photo {
+	width: 150px;
+	height: 150px;
+}
 .purchased-item-photo-container {
 	width: 20%;
 }

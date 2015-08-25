@@ -23,7 +23,7 @@
       'app.newsFeed',
       'app.newsFeedCurrUser',
       'app.adminCategorySettings',
-
+      'app.userPurchaseHistory',
 
       
       /* angular ngMessages */

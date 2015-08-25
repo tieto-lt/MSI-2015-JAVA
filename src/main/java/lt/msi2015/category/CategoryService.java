@@ -16,7 +16,7 @@ public class CategoryService {
 	CategoryRepository catRepo;
 
 	@Transactional
-	public void saveCategory(CategoryDto dto){
+	public void saveCategory(NewCategoryDto dto){
 		
 		adjustTitle(dto);
 		
@@ -25,15 +25,15 @@ public class CategoryService {
 		catRepo.save(catToSave);
 	}
 	
-	private void adjustTitle(CategoryDto dto){
+	private void adjustTitle(NewCategoryDto dto){
 		dto.name = dto.name.toLowerCase();
 		dto.name = WordUtils.capitalize(dto.name);
 	}
 	
-	private Category categoryToSave(CategoryDto dto){
+	private Category categoryToSave(NewCategoryDto dto){
 		List<Category> duplicateList = catRepo.findByName(dto.name);
 		if(duplicateList.isEmpty()){
-			return new Category(dto.name, dto.enabled);
+			return new Category(dto.name);
 		} else {
 			Category cat = duplicateList.get(0);
 			cat.toggleEnabled();

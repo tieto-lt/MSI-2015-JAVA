@@ -2,21 +2,26 @@
   'use strict';
 
   angular
-    .module('app.newsFeedCurrUser')
-    .controller('NewsFeedCurrUserController', NewsFeedCurrUserController);
+    .module('app.userPurchaseHistory')
+    .controller('UserPurchaseHistoryController', UserPurchaseHistoryController);
   
-  NewsFeedCurrUserController.$inject = ['UserNewsFeedFactory', 'ProfileHeaderFactory'];
+  UserPurchaseHistoryController.$inject = ['PurchaseHistoryFactory', '$state'];
 
-  function NewsFeedCurrUserController(UserNewsFeedFactory, ProfileHeaderFactory) {
+  function UserPurchaseHistoryController(PurchaseHistoryFactory, $state) {
     var vm = this;
-    var currUserData = ProfileHeaderFactory.getProfileInfo();
-
-    vm.newsFeed = UserNewsFeedFactory.newsFeed;
-    vm.loadMoreNews = UserNewsFeedFactory.loadMoreNews;
-    vm.shownNewsFeed = UserNewsFeedFactory.shownNewsFeed;
+    vm.profileId = $state.params.id;
  
-    UserNewsFeedFactory.updateNewsFeed(currUserData.id);
-
+    vm.decodeImage = decodeImage;
+    
+    vm.currUserPurchases = {};
+    
+    PurchaseHistoryFactory.getCurrUserPurchasedItems(vm.profileId).then(function(response) {
+    	vm.currUserPurchases = response.data;
+    });
+    
+    function decodeImage(image) {
+    	return atob(image);
+    }
   }
   
 

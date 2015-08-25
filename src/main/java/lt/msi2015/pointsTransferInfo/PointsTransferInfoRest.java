@@ -73,7 +73,7 @@ public class PointsTransferInfoRest {
 				transfer.getComment(),
 				s.format(transfer.getDateCreated()).toString(),
 				transfer.getDateCreated(),
-				new CategoryDto(category.getId(), category.getName(), category.isEnabled()) 
+				new CategoryDto(category.getId(), category.getName()) 
 			);
 			newsFeed.add(entry);
 		}
@@ -113,7 +113,7 @@ public class PointsTransferInfoRest {
 					transfer.getComment(),
 					s.format(transfer.getDateCreated()).toString(),
 					transfer.getDateCreated(),
-					new CategoryDto(category.getId(), category.getName(), category.isEnabled())
+					new CategoryDto(category.getId(), category.getName())
 				);
 				newsFeed.add(entry);
 			}

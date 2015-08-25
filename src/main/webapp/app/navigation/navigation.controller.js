@@ -16,6 +16,7 @@
     vm.changePage = changePage;
     vm.currentPage = $state.current.name;
     vm.changePageWithParams = changePageWithParams;
+    vm.changePageIfWithParams = changePageIfWithParams;
 
 	function changePage(state) {
 	      vm.currentPage = state;
@@ -25,6 +26,14 @@
 	function changePageWithParams(state, params) {
 		vm.currentPage = state;
 	    $state.go(state, params);
+	}
+	
+	function changePageIfWithParams(state, condition, params) {
+		if (condition) {
+			vm.changePageWithParams(state, params);
+			console.log('did it?');
+		}
+		console.log('worked');
 	}
 }
   

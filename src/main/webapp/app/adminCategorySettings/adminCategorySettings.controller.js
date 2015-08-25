@@ -11,6 +11,28 @@
 	  var vm = this;
 	  
 	  vm.categories = CategoryFactory.getCategories();
+	  vm.deleteCategory = deleteCategory;
+	  vm.refreshCategories = refreshCategories;
+	  vm.saveCategory = saveCategory;
+	  
+	  vm.refreshCategories();
+	  
+	  function deleteCategory(id) {
+		  CategoryFactory.deleteCategory(id).then(function() {
+			  vm.refreshCategories();
+		  });
+	  }
+	  
+	  function saveCategory(name) {
+		  CategoryFactory.saveCategory(name).then(function() {
+			  vm.refreshCategories();
+			  vm.newCategoryName = '';
+		  });
+	  }
+	  
+	  function refreshCategories() {
+		  CategoryFactory.loadCategories();
+	  }
 	  
   }
   

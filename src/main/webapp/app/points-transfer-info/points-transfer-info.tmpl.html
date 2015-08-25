@@ -12,22 +12,6 @@
 	     	<span class="one-time-limit"><br>(max {{vm.oneTimeLimit}} at a time)</span>
 	
 			<form name="vm.pointsForm" id="points-form" novalidate data-ng-submit="vm.submit()">
-			
-			
-	<!-- 			<div class="points-form-input"> -->
-	<!-- 				<md-input-container> -->
-	<!-- 					<label>From:</label> -->
-	<!-- 					<input name="fromInput" type="text" id="from"  -->
-	<!-- 						data-ng-model="vm.transferInfo.fromUser" -->
-	<!-- 						placeholder="max. 30" ng-maxlength="30" required> -->
-	<!-- 				</md-input-container> -->
-	<!-- 			</div> -->
-				
-	<!-- 			<div ng-messages="vm.pointsForm.fromInput.$error" ng-if="vm.pointsForm.fromInput.$dirty"> -->
-	<!-- 				<div class="error" ng-message="maxlength">Too many symbols</div> -->
-	<!-- 				<div class="error" ng-message="required">Field is required</div> -->
-	<!-- 			</div> -->
-				
 				<div ng-if="vm.state == 'userPage.home'">
 					<div class="points-form-input">
 						<md-autocomplete

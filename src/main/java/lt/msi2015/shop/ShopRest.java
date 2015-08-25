@@ -75,4 +75,12 @@ public class ShopRest {
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
+	
+	@RequestMapping(value = "api/shop/userPurchasedItems/{userId}", method = RequestMethod.GET) 
+	ResponseEntity<?> getUserPurchases (@PathVariable Long userId){
+		List<PurchasedShopItemDto> purchasedItems = shopService.getUserPurchases(userId);
+		if (purchasedItems != null)
+			return new ResponseEntity<>(purchasedItems, HttpStatus.OK);
+		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+	}
 }

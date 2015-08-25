@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CategoryRest {
 	
+	@Autowired
 	CategoryService categoryService;
 	
 	@Autowired
@@ -25,17 +26,18 @@ public class CategoryRest {
 	List<CategoryDto> getCategories() {
 		List<CategoryDto> categories = new ArrayList<>();
 		for (Category category : categoryRepository.findAll()) {
-			categories.add(new CategoryDto(
-				category.getId(),
-				category.getName(),
-				category.isEnabled()
-			));
+			if (category.isEnabled()) {
+				categories.add(new CategoryDto(
+					category.getId(),
+					category.getName()
+				));
+			}
 		}
 		return categories;
 	}
 	
 	@RequestMapping(value = "api/categories", method = RequestMethod.POST)
-	ResponseEntity<?> newCategory(@RequestBody CategoryDto dto){
+	ResponseEntity<?> newCategory(@RequestBody NewCategoryDto dto){
 		categoryService.saveCategory(dto);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
@@ -46,8 +48,10 @@ public class CategoryRest {
 		
 		Category category = categoryRepository.findById(id);
 		category.toggleEnabled();
-		categoryRepository.save(category);
-		
-		return new ResponseEntity<>(null, HttpStatus.OK);
+		if (category != null && categoryRepository.save(category) != null) {
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
 	}
 }
