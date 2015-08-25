@@ -18,13 +18,15 @@
 }
 
 .purchased-item-entry-header {
-	width: calc(100% - 20px);
+	width: calc(100% - 50px);
     /* height: 170px; */
     margin-top: 8px;
     border: 1px solid #AAA;
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #EEE;
+    margin-left: auto;
+    margin-right: auto;
 }
 .purchased-item-entry-header > div {
 	display: inline-block;
