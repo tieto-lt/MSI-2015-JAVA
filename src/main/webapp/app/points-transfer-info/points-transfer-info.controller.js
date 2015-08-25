@@ -8,11 +8,11 @@
 	PointsTransferInfoController.$inject = ['PointsTransferFactory', 'LeaderboardFactory',
 	                                        'AdminAppSettingsFactory', 'UsersFactory',
 	                                        'ProfileHeaderFactory','NewsFeedFactory', 'CategoryFactory',
-	                                        '$state'];
+	                                        '$state', 'UserNewsFeedFactory'];
 	
 	function PointsTransferInfoController(PointsTransferFactory, LeaderboardFactory,
 				AdminAppSettingsFactory, UsersFactory, ProfileHeaderFactory,NewsFeedFactory,
-				CategoryFactory, $state) {
+				CategoryFactory, $state, UserNewsFeedFactory) {
 
 		var vm = this;
 		
@@ -76,6 +76,9 @@
     			vm.pointsForm.$setUntouched();
     			LeaderboardFactory.leaders();
     			NewsFeedFactory.updateNewsFeed();
+    			if(vm.state == "userPage.profile") {
+    				UserNewsFeedFactory.updateNewsFeed(vm.profileId);
+    			}
     			ProfileHeaderFactory.loadUserInfo();
     			vm.submitClicked = false;
     		}, function() {
