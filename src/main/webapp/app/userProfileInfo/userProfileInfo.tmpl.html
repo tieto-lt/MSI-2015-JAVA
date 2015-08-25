@@ -42,7 +42,7 @@
 	
 	<hr>
 	
-	<div data-ng-controller="NavigationController as nav">
+	<div ng-if="vm.currUserData.id == vm.profileId" data-ng-controller="NavigationController as nav">
 		<div class="user-profile-line">
 			<a ng-click="nav.changePage('userPage.profile.newsfeed')" class="user-profile-navigation">Newsfeed</a>
 		</div>
