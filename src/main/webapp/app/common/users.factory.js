@@ -12,6 +12,7 @@
 	var givingPointsBlock = {shown : false};
 	var responseMessages = {success: '',
 							error: ''};
+	var userProfile = [];
 	  
     return {
     	addUser:  addUser,
@@ -24,7 +25,9 @@
     	responseMessages: responseMessages,
     	setSuccessMessage: setSuccessMessage,
     	setErrorMessage: setErrorMessage,
-    	unsetErrorMessages: unsetErrorMessages
+    	unsetErrorMessages: unsetErrorMessages,
+    	refreshUserProfile: refreshUserProfile,
+    	userProfile: userProfile
     };
     
     function unsetGivingPointsBlock() {
@@ -93,6 +96,20 @@
     	return $http
   	  		.post('api/user/profile', transferObject);
     }
+    
+    function refreshUserProfile(id) {
+    	getUserProfile(id).then(function(response) {
+    		angular.extend(userProfile, response.data);
+			if(response.data.image) {
+				userProfile.image = atob(response.data.image);
+			} else {
+				userProfile.image = 'assets/images/no-profile-pic.png';
+				userProfile.imageType = 'image/png';
+				userProfile.imageName = 'no-profile-pic.png';
+			}
+		});
+    }
+    
   }
 
 })();
