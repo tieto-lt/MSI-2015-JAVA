@@ -10,6 +10,7 @@
   function AdminCategorySettings(CategoryFactory) {
 	  var vm = this;
 	  
+	  vm.newCategoryName = '';
 	  vm.categories = CategoryFactory.getCategories();
 	  vm.deleteCategory = deleteCategory;
 	  vm.refreshCategories = refreshCategories;
@@ -23,10 +24,12 @@
 		  });
 	  }
 	  
-	  function saveCategory(name) {
-		  CategoryFactory.saveCategory(name).then(function() {
+	  function saveCategory() {
+		  CategoryFactory.saveCategory(vm.newCategoryName).then(function() {
 			  vm.refreshCategories();
 			  vm.newCategoryName = '';
+			  vm.addCategory.$setPristine();
+  			  vm.addCategory.$setUntouched();
 		  });
 	  }
 	  

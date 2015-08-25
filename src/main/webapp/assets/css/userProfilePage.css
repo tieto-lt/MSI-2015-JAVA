@@ -124,3 +124,11 @@
 	word-break: break-all;
 }
 
+.profile-transfer-success-block {
+	color: green;
+}
+
+.profile-transfer-error-block {
+	color: red;
+}
+

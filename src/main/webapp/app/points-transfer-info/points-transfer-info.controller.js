@@ -80,6 +80,7 @@
     				UserNewsFeedFactory.updateNewsFeed(vm.profileId);
     				UsersFactory.unsetGivingPointsBlock();
     				UsersFactory.setSuccessMessage();
+    				UsersFactory.refreshUserProfile(vm.profileId);
     			}
     			ProfileHeaderFactory.loadUserInfo();
     			vm.submitClicked = false;
