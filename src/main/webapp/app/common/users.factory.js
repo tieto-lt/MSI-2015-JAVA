@@ -10,6 +10,8 @@
   function UsersFactory($http) {
 	   
 	var givingPointsBlock = {shown : false};
+	var responseMessages = {success: '',
+							error: ''};
 	  
     return {
     	addUser:  addUser,
@@ -18,11 +20,28 @@
     	getUserProfile: getUserProfile,
     	updateUserProfile: updateUserProfile,
     	givingPointsBlock: givingPointsBlock,
-    	unsetGivingPointsBlock: unsetGivingPointsBlock
+    	unsetGivingPointsBlock: unsetGivingPointsBlock,
+    	responseMessages: responseMessages,
+    	setSuccessMessage: setSuccessMessage,
+    	setErrorMessage: setErrorMessage,
+    	unsetErrorMessages: unsetErrorMessages
     };
     
     function unsetGivingPointsBlock() {
     	givingPointsBlock.shown = false;
+    }
+    
+    function setSuccessMessage() {
+    	responseMessages.success = 'Points sent';
+    }
+    
+    function setErrorMessage() {
+    	responseMessages.error = 'Sending failed';
+    }
+    
+    function unsetErrorMessages() {
+    	responseMessages.success = '';
+    	responseMessages.error = '';
     }
     
     function addUser(user) {

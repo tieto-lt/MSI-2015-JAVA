@@ -16,6 +16,9 @@
 		vm.currUserData = ProfileHeaderFactory.getProfileInfo();
 		vm.profileId = $state.params.id;
 		vm.givingPointsBlock = UsersFactory.givingPointsBlock;
+		vm.responseMessages = UsersFactory.responseMessages;
+		
+		UsersFactory.unsetErrorMessages();
 		UsersFactory.unsetGivingPointsBlock();
 		
 		vm.edit = edit;
