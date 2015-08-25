@@ -78,6 +78,7 @@
     			NewsFeedFactory.updateNewsFeed();
     			if(vm.state != "userPage.home") {
     				UserNewsFeedFactory.updateNewsFeed(vm.profileId);
+    				UsersFactory.unsetGivingPointsBlock();
     			}
     			ProfileHeaderFactory.loadUserInfo();
     			vm.submitClicked = false;

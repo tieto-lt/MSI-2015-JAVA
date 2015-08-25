@@ -2,6 +2,7 @@ package lt.msi2015.category;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,6 +22,7 @@ public class Category extends Dto {
 	
 	@NotNull
 	@Size(min = 1, max = 30)
+	@Column(unique = true)
 	private String name;
 	
 	@NotNull
@@ -33,9 +35,9 @@ public class Category extends Dto {
 		
 	}
 	
-	public Category(String name, boolean enabled) {
+	public Category(String name) {
 		this.name = name;
-		this.enabled = enabled;
+		this.enabled = true;
 	}
 
 	public Long getId() {
@@ -70,6 +72,8 @@ public class Category extends Dto {
 		this.transferInfoEntries = transferInfoEntries;
 	}	
 	
-	
+	public void toggleEnabled(){
+		enabled = !enabled;
+	}
 	
 }

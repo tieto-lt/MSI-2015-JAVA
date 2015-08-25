@@ -13,9 +13,16 @@
 		loadCategories();
 		
 		function loadCategories() {
+			
 			return $http.get('api/categories').then(function(response) {
+				categories.length = 0;
 				angular.extend(categories, response.data);
+				console.log('refresh: ' + response.data);
 			});
+		}
+		
+		function deleteCategory(id) {
+			return $http.delete('api/category/' + id.toString());
 		}
 		
 		function getCategories() {
@@ -24,7 +31,8 @@
 		
 		return {
 			getCategories: getCategories,
-			loadCategories: loadCategories
+			loadCategories: loadCategories,
+			deleteCategory: deleteCategory
 		};
 	}
 	

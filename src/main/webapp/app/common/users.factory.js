@@ -9,14 +9,22 @@
 
   function UsersFactory($http) {
 	   
+	var givingPointsBlock = {shown : false};
+	  
     return {
     	addUser:  addUser,
     	getUsers: getUsers,
     	getUser:  getUser,
     	getUserProfile: getUserProfile,
-    	updateUserProfile: updateUserProfile
+    	updateUserProfile: updateUserProfile,
+    	givingPointsBlock: givingPointsBlock,
+    	unsetGivingPointsBlock: unsetGivingPointsBlock
     };
-
+    
+    function unsetGivingPointsBlock() {
+    	givingPointsBlock.shown = false;
+    }
+    
     function addUser(user) {
     	return $http
     	  .post('user/save', user);

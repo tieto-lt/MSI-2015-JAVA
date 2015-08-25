@@ -21,11 +21,11 @@
 	</div>
 	
 	<div ng-if="vm.currUserData.id != vm.profileId">
-		<div ng-if="!vm.givingPointsBlock">
+		<div ng-if="!vm.givingPointsBlock.shown">
 			<data-ng-include src="'app/userProfileInfo/userProfileInfoBlock.tmpl.html'"></data-ng-include>
 			<md-button class="md-raised" ng-click="vm.goToGivingPoints()">Give karma points</md-button>
 		</div>
-		<div ng-if="vm.givingPointsBlock">
+		<div ng-if="vm.givingPointsBlock.shown">
 			<div>
 				<h3 class="user-profile-first-and-last-names">{{ vm.user.firstName }} {{ vm.user.lastName }}</h3>
 			</div>
