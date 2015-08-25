@@ -52,7 +52,7 @@
 	    	}
 	    	vm.submitClicked = true;
 	    	
-	    	if(vm.state == "userPage.profile") {
+	    	if(vm.state != "userPage.home") {
 	    		UsersFactory.getUserProfile(vm.profileId).then(function(response) {
 	    			vm.transferInfo.toUser = response.data;
 	    			sendPoints();
@@ -76,7 +76,7 @@
     			vm.pointsForm.$setUntouched();
     			LeaderboardFactory.leaders();
     			NewsFeedFactory.updateNewsFeed();
-    			if(vm.state == "userPage.profile") {
+    			if(vm.state != "userPage.home") {
     				UserNewsFeedFactory.updateNewsFeed(vm.profileId);
     			}
     			ProfileHeaderFactory.loadUserInfo();
