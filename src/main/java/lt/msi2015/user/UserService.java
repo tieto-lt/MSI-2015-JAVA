@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.parboiled.scala.rules.ReductionRule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.Authentication;
@@ -14,7 +13,6 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import aj.org.objectweb.asm.Type;
 import lt.msi2015.applicationSettings.ApplicationSetting;
 import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
 import lt.msi2015.applicationSettings.ApplicationSettingsRepository;
@@ -110,12 +108,12 @@ public class UserService {
 		User user = repo.findById(id);
 		
 		Integer userRank = leaderboardService.getUserRank(id);
-		
-		UserProfileDto userProfile = new UserProfileDto(user.getId(), user.getFirstName(),
-				user.getLastName(), user.getEmail(), user.getUserPoints(), userRank, user.getAboutMe(), 
-				user.getImage(), user.getImageName(), user.getImageType());
-		
-		return userProfile;
+		if (user != null) {
+			return new UserProfileDto(user.getId(), user.getFirstName(),
+					user.getLastName(), user.getEmail(), user.getUserPoints(), userRank, user.getAboutMe(), 
+					user.getImage(), user.getImageName(), user.getImageType());
+		}
+		return null;
 	}
 	
 	@Transactional

@@ -33,6 +33,13 @@
 		</div>
 	</div>
 	
+	<div class="response-block">
+		<div class="success-block" ng-if="vm.responseMessages.success">
+			{{vm.responseMessages.success}}</div>
+		<div class="error-block" ng-if="vm.responseMessages.error">
+			{{vm.responseMessages.error}}</div>
+	</div>
+	
 	<hr>
 	
 	<div data-ng-controller="NavigationController as nav">
