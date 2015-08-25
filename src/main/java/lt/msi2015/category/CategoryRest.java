@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CategoryRest {
 	
+	@Autowired
 	CategoryService categoryService;
 	
 	@Autowired
@@ -35,7 +36,8 @@ public class CategoryRest {
 	}
 	
 	@RequestMapping(value = "api/categories", method = RequestMethod.POST)
-	ResponseEntity<?> newCategory(@RequestBody CategoryDto dto){
+	ResponseEntity<?> newCategory(@RequestBody NewCategoryDto dto){
+		System.out.println(dto);
 		categoryService.saveCategory(dto);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}

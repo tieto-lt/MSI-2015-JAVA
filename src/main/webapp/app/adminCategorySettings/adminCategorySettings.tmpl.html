@@ -11,7 +11,7 @@
 				</md-input-container>
 			</div>
 			<div class="category-add-button">
-				<md-button class="md-raised">ADD</md-button>
+				<md-button class="md-raised" ng-click="vm.saveCategory(vm.newCategoryName)">ADD</md-button>
 			</div>
 		</div>
 		<div class="category-entry" ng-repeat="category in vm.categories">

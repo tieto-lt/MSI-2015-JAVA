@@ -29,10 +29,18 @@
 			return categories;
 		}
 		
+		function saveCategory(name) {
+			var transfer = {
+					name: name
+			}
+			return $http.post('api/categories', transfer);
+		}
+		
 		return {
 			getCategories: getCategories,
 			loadCategories: loadCategories,
-			deleteCategory: deleteCategory
+			deleteCategory: deleteCategory,
+			saveCategory: saveCategory
 		};
 	}
 	
