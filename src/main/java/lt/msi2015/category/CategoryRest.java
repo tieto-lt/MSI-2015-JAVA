@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +37,6 @@ public class CategoryRest {
 	
 	@RequestMapping(value = "api/categories", method = RequestMethod.POST)
 	ResponseEntity<?> newCategory(@RequestBody NewCategoryDto dto){
-		categoryService.saveCategory(dto);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 	
