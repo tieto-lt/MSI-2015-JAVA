@@ -15,17 +15,19 @@
 		var currUserData = ProfileHeaderFactory.getProfileInfo();
 		vm.currUserData = ProfileHeaderFactory.getProfileInfo();
 		vm.profileId = $state.params.id;
+		vm.givingPointsBlock = UsersFactory.givingPointsBlock;
+		UsersFactory.unsetGivingPointsBlock();
 		
 		vm.edit = edit;
 		vm.saveChanges = saveChanges;
 		vm.goToGivingPoints = goToGivingPoints;
 		
 		function edit() {
-			vm.editBlock = 'go';
+			vm.editBlock = true;
 		}
 		
 		function goToGivingPoints() {
-			vm.givingPointsBlock = 'go';
+			vm.givingPointsBlock.shown = true;
 		}
 		
 		function saveChanges() {
