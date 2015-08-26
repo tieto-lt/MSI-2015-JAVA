@@ -4,14 +4,15 @@ import lt.msi2015.util.Dto;
 
 public class StatisticsDto extends Dto {
 
-	private Integer registeredUsersNumber;
-	private Long totalKarmaPointsSent;
-	private Long pointsToSendThisMonth;
-	private Long pointsSentThisMonth;
-	private Long totalItemsGiven;
+	private Integer registeredUsersNumber; //done
+	private Long totalKarmaPointsSent; //done
+	private Long pointsToSend; //done
+	private Long pointsSentThisMonth; //done
+	private Long totalItemsGiven; //done
 	private String mostPopularCategory;
-	private String mostTransfersBy;
+	private String mostTransfersByOnePerson;
 	private String mostPopularItem;
+	private Long totalTransfers; //done
 
 	public StatisticsDto() {
 		super();
@@ -33,12 +34,12 @@ public class StatisticsDto extends Dto {
 		this.totalKarmaPointsSent = totalKarmaPointsSent;
 	}
 
-	public Long getPointsToSendThisMonth() {
-		return pointsToSendThisMonth;
+	public Long getPointsToSend() {
+		return pointsToSend;
 	}
 
-	public void setPointsToSendThisMonth(Long pointsToSendThisMonth) {
-		this.pointsToSendThisMonth = pointsToSendThisMonth;
+	public void setPointsToSend(Long pointsToSend) {
+		this.pointsToSend = pointsToSend;
 	}
 
 	public Long getPointsSentThisMonth() {
@@ -65,12 +66,12 @@ public class StatisticsDto extends Dto {
 		this.mostPopularCategory = mostPopularCategory;
 	}
 
-	public String getMostTransfersBy() {
-		return mostTransfersBy;
+	public String getMostTransfersByOnePerson() {
+		return mostTransfersByOnePerson;
 	}
 
-	public void setMostTransfersBy(String mostTransfersBy) {
-		this.mostTransfersBy = mostTransfersBy;
+	public void setMostTransfersByOnePerson(String mostTransfersByOnePerson) {
+		this.mostTransfersByOnePerson = mostTransfersByOnePerson;
 	}
 
 	public String getMostPopularItem() {
@@ -79,6 +80,14 @@ public class StatisticsDto extends Dto {
 
 	public void setMostPopularItem(String mostPopularItem) {
 		this.mostPopularItem = mostPopularItem;
+	}
+
+	public Long getTotalTransfers() {
+		return totalTransfers;
+	}
+
+	public void setTotalTransfers(Long totalTransfers) {
+		this.totalTransfers = totalTransfers;
 	}
 
 }
