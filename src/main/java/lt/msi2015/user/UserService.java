@@ -32,8 +32,6 @@ public class UserService {
 	
 	public LoggedUserDto getCurrentUser() {
 		
-		 //String user = (String)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	      //String name = user.getEmail(); //get logged in username
 		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		 
 		 if (auth.getPrincipal() instanceof String) //Anonymous
@@ -75,8 +73,6 @@ public class UserService {
 	@Scheduled(cron = "1 0 0 1 * *")
 	@Transactional
 	public void resetUserPointsToGiveEachMonth() {
-		//System.out.println("Ivyko: " + new Date());
-	
 		final ApplicationSetting monthlyLimit = 
 				appSettingsRepo.findByProperty(ApplicationSettingsEnum.MONTHLY_LIMIT.toString());
 		
@@ -84,7 +80,6 @@ public class UserService {
 		
 		for (User u: userList) {
 			u.setPointsToGive(monthlyLimit.getValue());
-			//System.out.println(u.getPointsToGive());
 			repo.save(u);
 		}
 	}
