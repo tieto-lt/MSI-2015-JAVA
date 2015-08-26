@@ -15,10 +15,11 @@ public class StatisticsService {
 	UserRepository userRepo;
 	
 	public StatisticsDto getStatistics() {
-		StatisticsDto statisticsDto =
-				new StatisticsDto(getRegisteredUsersNumber());
+		StatisticsDto stats =new StatisticsDto();
 		
-		return statisticsDto;
+		stats.setRegisteredUsersNumber(getRegisteredUsersNumber());
+		
+		return stats;
 	}
 	
 	private Integer getRegisteredUsersNumber() {
