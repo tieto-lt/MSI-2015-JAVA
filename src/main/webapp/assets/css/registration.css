@@ -31,7 +31,24 @@
 }
 
 .registration-title {
-	color: #E6E7F0;
-	text-align: center;
+	margin: 0;
 }
 
+.registration-title-container {
+	text-align: center;
+	color: white;
+}
+
+.registration-title-container .karma-logo {
+	height: 100px;
+	margin-right: 40px;
+	margin-bottom: -10px;
+}
+
+.already-registered-link-container {
+	margin-top: 20px;
+}
+
+.already-registered-link {
+	color: white;
+}
