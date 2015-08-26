@@ -35,6 +35,14 @@
 				ShopItemFactory.getItem(item.id);
 				refreshItems();
 				$mdDialog.hide();
+				ConfirmationDialogFactory.showSimpleDialog(
+					{
+						message: "We will contact you soon about delivery.",
+						title: "Congratulations!"
+					}, event, function() {
+		    				$mdDialog.hide();
+					}
+				);
 			});
 		}
     	var cancelAction = function () {

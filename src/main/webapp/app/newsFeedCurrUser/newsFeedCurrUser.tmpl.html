@@ -2,8 +2,7 @@
 	<h2>Newsfeed</h2>	
 </div>
 <div class="news-feed-container" data-ng-controller="NewsFeedCurrUserController as vm" >
-	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()"
-			data-ng-controller="NavigationController as nav">
+	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()">
 		<div class="news-entry" ng-repeat="entry in vm.shownNewsFeed">
 			<div class="reciever-photo-info">
 				<div class="reciever-photo-container">
