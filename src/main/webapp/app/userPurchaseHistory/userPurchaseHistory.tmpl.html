@@ -23,7 +23,7 @@
 		</div>
 		<div class="purchased-item-entry" ng-repeat="purchase in vm.currUserPurchases | orderBy:'-dateAdded'">
 			<div class="purchased-item-photo-container">
-				<img class="purchased-item-photo" ng-src="{{vm.decodeImage(purchase.image)}}">
+				<img class="purchased-item-photo" ng-src="{{::vm.decodeImage(purchase.image)}}">
 			</div><!--
 		 --><div class="purchased-item-name">
 				<span>{{purchase.name}}</span>

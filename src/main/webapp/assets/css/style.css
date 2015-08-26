@@ -143,20 +143,6 @@ md-input-container {
 
 
 /* -----LEADERBOARD----- */
-/* -----FOOTER----- */
-
-footer {
-	margin-top:"1px";
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	left: 0;
-    background: #62B3E5;
-    color: #ffffff;
-    text-align: right;
-    padding: 20px;
-    display:none;
-}
 
 button.md-default-theme.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab {
     color: rgba(255,255,255,0.87);

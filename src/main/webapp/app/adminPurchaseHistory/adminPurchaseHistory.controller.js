@@ -11,19 +11,17 @@
     var vm = this;
     
     vm.received = false;
-//    vm.profileId = $state.params.id;
-// 
-//    vm.decodeImage = decodeImage;
-//    
-//    vm.currUserPurchases = {};
-//    
-//    PurchaseHistoryFactory.getCurrUserPurchasedItems(vm.profileId).then(function(response) {
-//    	vm.currUserPurchases = response.data;
-//    });
-//    
-//    function decodeImage(image) {
-//    	return atob(image);
-//    }
+    vm.decodeImage = decodeImage;
+
+    vm.purchases = {};
+    
+    PurchaseHistoryFactory.getAllPurchasedItems().then(function(response) {
+    	vm.purchases = response.data;
+    });
+    
+    function decodeImage(image) {
+    	return atob(image);
+    }
   }
   
 

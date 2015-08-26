@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import lt.msi2015.purchase.PurchaseInfo;
 import lt.msi2015.purchase.PurchaseInfoRepository;
+import lt.msi2015.user.User;
+import lt.msi2015.user.UserRepository;
 
 @Service
 public class ShopService {
@@ -22,6 +24,9 @@ public class ShopService {
 	
 	@Autowired
 	PurchaseInfoRepository purchaseInfoRepo;
+	
+	@Autowired
+	UserRepository userRepo;
 
 	@Transactional
 	boolean save(ShopItem item) {
@@ -103,18 +108,20 @@ public class ShopService {
 		return purchaseList;
 	}
 
-	public List<PurchasedShopItemDto> getAllPurchases() {
-		List<PurchasedShopItemDto> purchaseList = new ArrayList<> ();
+	public List<PurchasedItemsAdminDto> getAllPurchases() {
+		List<PurchasedItemsAdminDto> purchaseList = new ArrayList<> ();
 		List<PurchaseInfo> purchasedShopItems =  purchaseInfoRepo.findAll();
 		
 		SimpleDateFormat dateForHistoryDisplay = new SimpleDateFormat("YYYY-MM-dd");
 		
 		for (PurchaseInfo purchasedItemInfo: purchasedShopItems) {
 			ShopItem item = shopRepository.findById(purchasedItemInfo.getShopItemId());
+			User user = userRepo.findById(purchasedItemInfo.getUserId());
 			
 			purchaseList
-				.add(new PurchasedShopItemDto(item.getId(),
+				.add(new PurchasedItemsAdminDto(item.getId(),
 											  item.getName(),
+											  user.getFirstName() + " " + user.getLastName(),
 											  item.getImage(),
 											  item.getValue(),
 											  purchasedItemInfo.getBuyDate(),
