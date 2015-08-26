@@ -11,6 +11,7 @@
 	 
 	  return {
 		  getCurrUserPurchasedItems: getCurrUserPurchasedItems,
+		  getAllPurchasedItems: getAllPurchasedItems
 	  }
  
 	  function getCurrUserPurchasedItems(userId){
@@ -18,6 +19,17 @@
 			
 			data = $http({
 						url: 'api/shop/userPurchasedItems/' + userId.toString(),
+						method: "GET"	
+			});
+			
+			return data;
+	  }
+	  
+	  function getAllPurchasedItems(){
+			var data = {};
+			
+			data = $http({
+						url: 'api/shop/allPurchasedItems',
 						method: "GET"	
 			});
 			

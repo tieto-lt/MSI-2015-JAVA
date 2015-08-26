@@ -25,28 +25,26 @@
 	<div class="admin-puchased-item-content">
 		<div class="purchased-no-items" ng-if="vm.currUserPurchases == ''">
 			<br><br>
-			<h3>You currently have no purchased Items!</h3>
+			<h3>Nobody purchased any items yet!</h3>
 		</div>
-<!-- 		<div class="purchased-item-entry" ng-repeat="purchase in vm.currUserPurchases | orderBy:'-dateAdded'"> -->
-		
-		<div class="admin-purchased-item-entry">
+		<div class="admin-purchased-item-entry" ng-repeat="purchase in vm.purchases | orderBy:'-dateAdded'">
 			<div class="admin-purchased-item-received">
 				<md-checkbox ng-model="vm.received"></md-checkbox>
 			</div><!--
  		 --><div class="admin-purchased-item-photo-container">
-				<img class="purchased-item-photo" src="assets/images/sketis.jpg">
+				<img class="purchased-item-photo" ng-src="{{::vm.decodeImage(purchase.image)}}">
 			</div><!--
 		 --><div class="admin-purchased-item-name">
-				<span>Purchased product name</span>
+				<span>{{::purchase.name}}</span>
 			</div><!--
 		 --><div class="admin-purchased-item-price">
-				<span>2000</span><img src="assets/images/karma_logo.png" class="purchased-item-karma-logo">
+				<span>{{::purchase.price}}</span><img src="assets/images/karma_logo.png" class="purchased-item-karma-logo">
 			</div><!-- 
 		 --><div class="admin-purchased-item-buyer">
-				<span>Buyer's name</span>
+				<span>{{::purchase.buyersName}}</span>
 			</div><!--
 		 --><div class="admin-purchased-item-date">
-				<span>2015-08-25</span>
+				<span>{{::purchase.dateToDisplay}}</span>
 			</div>
 		</div>
 	</div>
