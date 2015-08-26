@@ -23,6 +23,9 @@ public class PurchaseInfo {
 	@NotNull
 	private Date buyDate;
 	
+	@NotNull
+	private Boolean isReceived;
+	
 	/*
 	 * Constructors
 	 */
@@ -30,11 +33,12 @@ public class PurchaseInfo {
 		
 	}
 	
-	public PurchaseInfo(Long userId, Long shopItemId) {
+	public PurchaseInfo(Long userId, Long shopItemId, Boolean isReceived) {
 		super();
 		this.userId = userId;
 		this.shopItemId = shopItemId;
 		this.buyDate = new Date();
+		this.isReceived = isReceived;
 	}
 
 	/*
@@ -54,5 +58,9 @@ public class PurchaseInfo {
 
 	public Date getBuyDate() {
 		return buyDate;
+	}
+
+	public void toggleReceived() {
+		this.isReceived = !isReceived;
 	}
 }

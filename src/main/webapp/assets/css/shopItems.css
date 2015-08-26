@@ -36,11 +36,12 @@
 
 
 .shop-item-title {
-	margin: 27px 10px 5px 10px;
+	margin: 10px 10px 5px 10px;
 	text-align: center;
     font-weight: bold;
     font-size: 1.2em;
     word-break: break-all;
+    min-height: 40px;
 }
 
 .shop-item-title:hover {
@@ -101,4 +102,12 @@
  .shop-item-image-image {
     width: 170px;
     height: 170px;
+}
+
+.item-style {
+	text-align: center;
+}
+
+.img-style {
+	margin-top: 20px;
 }

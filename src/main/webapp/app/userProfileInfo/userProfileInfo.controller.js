@@ -27,6 +27,7 @@
 		vm.edit = edit;
 		vm.saveChanges = saveChanges;
 		vm.goToGivingPoints = goToGivingPoints;
+		vm.goToProfileBlock = goToProfileBlock;
 		
 		function edit() {
 			vm.editBlock = true;
@@ -34,6 +35,10 @@
 		
 		function goToGivingPoints() {
 			vm.givingPointsBlock.shown = true;
+		}
+		
+		function goToProfileBlock() {
+			vm.givingPointsBlock.shown = false;
 		}
 		
 		function saveChanges() {

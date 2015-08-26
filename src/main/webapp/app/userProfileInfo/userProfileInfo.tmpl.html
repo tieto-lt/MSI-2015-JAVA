@@ -32,6 +32,9 @@
 				<h3 class="user-profile-first-and-last-names">{{ vm.user.firstName }} {{ vm.user.lastName }}</h3>
 			</div>
 			<data-ng-include src="'app/points-transfer-info/points-transfer-info.tmpl.html'"></data-ng-include>
+			<div class="user-profile-line user-profile-line-centered">
+				<button ng-click="vm.goToProfileBlock()">Cancel</button>
+			</div>
 		</div>
 	</div>
 	
