@@ -17,7 +17,8 @@
 					</div>
 				</div>
 				<div class="category-add-button">
-					<md-button class="md-raised" type="submit" ng-disabled="vm.addCategory.$invalid">ADD</md-button>
+					<md-button class="md-raised" type="submit" ng-disabled="vm.addCategory.$invalid"
+							ng-click="vm.saveCategory(vm.newCategoryName)">ADD</md-button>
 				</div>
 			</div>			
 		</form>
