@@ -11,7 +11,8 @@
 	 
 	  return {
 		  getCurrUserPurchasedItems: getCurrUserPurchasedItems,
-		  getAllPurchasedItems: getAllPurchasedItems
+		  getAllPurchasedItems: getAllPurchasedItems,
+		  toggleReceived: toggleReceived
 	  }
  
 	  function getCurrUserPurchasedItems(userId){
@@ -34,6 +35,13 @@
 			});
 			
 			return data;
+	  }
+	  
+	  function toggleReceived(id){
+		  $http({
+			  url: 'api/togglepurchase/' + id.toString(),
+			  method: "POST"	
+		  });
 	  }
   }
   

@@ -10,8 +10,8 @@
   function AdminPurchaseHistoryController(PurchaseHistoryFactory) {
     var vm = this;
     
-    vm.received = false;
     vm.decodeImage = decodeImage;
+    vm.togglePurchase = togglePurchase;
 
     vm.purchases = {};
     
@@ -21,6 +21,10 @@
     
     function decodeImage(image) {
     	return atob(image);
+    }
+    
+    function togglePurchase(id){
+    	PurchaseHistoryFactory.toggleReceived(id);
     }
   }
   
