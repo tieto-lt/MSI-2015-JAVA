@@ -10,7 +10,8 @@
 	function ConfirmationDialogFactory($mdDialog) {
 		
 		return {
-			showConfirmationDialog: showConfirmationDialog
+			showConfirmationDialog: showConfirmationDialog,
+			showSimpleDialog: showSimpleDialog
 		};
 		
 		function showConfirmationDialog(message, event, okAction, cancelAction) {
@@ -29,6 +30,26 @@
 	    		parent: angular.element(document.body),
 	    		targetEvent: event,
 	    		templateUrl: 'app/confirmationDialog/confirmationDialog.tmpl.html'
+	    	};
+	    	
+	    	$mdDialog.show(options);
+	    }
+		
+		function showSimpleDialog(params, event, okAction) {
+	    	var options = {
+	    		controller: function BuyItemDialogController($mdDialog) {
+	    			var vm = this;
+	    			
+	    			vm.ok = okAction;
+	    		},
+	    		controllerAs: 'vm',
+	    		locals: {
+	    			params: params
+	    		},
+	    		bindToController: true,
+	    		parent: angular.element(document.body),
+	    		targetEvent: event,
+	    		templateUrl: 'app/confirmationDialog/simpleDialog.tmpl.html'
 	    	};
 	    	
 	    	$mdDialog.show(options);
