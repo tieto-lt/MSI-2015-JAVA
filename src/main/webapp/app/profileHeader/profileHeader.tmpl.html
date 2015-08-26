@@ -8,7 +8,7 @@
 		</div>
 		
 		<div class="header-search-feald" data-ng-controller="PointsTransferInfoController as ptc">
-			<div data-ng-controller="NavigationController as nc">
+			<div>
 				<div class="user-search-input">
 					<md-autocomplete
 							md-input-name="toInput" type="text" id="to"
@@ -16,9 +16,9 @@
 							md-input-maxlength="51" required
 							md-selected-item="ptc.transferInfo.toUser"
 							md-selected-item-change=
-								"nc.changePageIfWithParams('userPage.profile.newsfeed', user, {id:user.id})"
-							md-search-text="nc.searchText"
-							md-items="user in ptc.fillteredList(nc.searchText)"
+								"nav.changePageIfWithParams('userPage.profile.newsfeed', user, {id:user.id})"
+							md-search-text="nav.searchText"
+							md-items="user in ptc.fillteredList(nav.searchText)"
 							md-item-text="user.firstName + ' ' + user.lastName"
 							md-min-length="1"
 							placeholder="Search User"
