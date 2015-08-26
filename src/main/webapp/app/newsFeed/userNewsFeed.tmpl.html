@@ -1,6 +1,5 @@
 <div class="news-feed-container" data-ng-controller="NewsFeedController as vm">
-	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()"
-			data-ng-controller="NavigationController as nav">
+	<div class="news-feed-content" scrollbar when-scrolled="vm.loadMoreNews()">
 		<div class="news-entry" ng-repeat="entry in vm.shownNewsFeed" >
 			<div class="reciever-photo-info">
 				<img class="reciever-photo link-cursor" ng-src="{{entry.toImage}}"
