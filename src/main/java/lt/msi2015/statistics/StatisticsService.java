@@ -1,16 +1,21 @@
 package lt.msi2015.statistics;
 
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lt.msi2015.category.Category;
 import lt.msi2015.pointsTransferInfo.PointsTransferInfo;
 import lt.msi2015.pointsTransferInfo.PointsTransferInfoRepository;
 import lt.msi2015.purchase.PurchaseInfo;
 import lt.msi2015.purchase.PurchaseInfoRepository;
+import lt.msi2015.shop.ShopRepository;
 import lt.msi2015.user.User;
 import lt.msi2015.user.UserRepository;
 
@@ -26,6 +31,9 @@ public class StatisticsService {
 	@Autowired
 	PurchaseInfoRepository purchaseRepo;
 	
+	@Autowired
+	ShopRepository shopRepo;
+	
 	public StatisticsDto getStatistics() {
 		StatisticsDto stats =new StatisticsDto();
 		
@@ -35,6 +43,9 @@ public class StatisticsService {
 		stats.setTotalTransfers(getTotalTransfers().longValue());
 		stats.setTotalItemsGiven(getTotalItemsGiven().longValue());
 		stats.setPointsToSend(getPointsToSend());
+		stats.setMostPopularCategory(getMostPopularCategory());
+		stats.setMostPopularItem(getMostPopularItem());
+		stats.setMostTransfersByOnePerson(getMostTransfersFromUser());
 		
 		return stats;
 	}
@@ -107,6 +118,89 @@ public class StatisticsService {
 		}
 		
 		return new Long(toSend);
+	}
+	
+	private String getMostPopularCategory(){
+		
+		Map<Category, Integer> map = new HashMap<>();
+		
+		List<PointsTransferInfo> allTransfers = transferRepo.findAll();
+		
+		for(PointsTransferInfo transfer : allTransfers ){
+			
+			if(map.containsKey(transfer.category)){
+				map.replace(transfer.category, map.get(transfer.category) + 1);
+			} else {
+				map.put(transfer.category, 1);
+			}
+			
+		}
+		
+		Category mostPopularCategory = null;
+		Integer max = 0;
+		
+		for(Map.Entry<Category, Integer> entry : map.entrySet()){
+		    if (mostPopularCategory == null || entry.getValue() > max)
+		    {
+		    	mostPopularCategory = entry.getKey();
+		    	max = entry.getValue();
+		    }
+		}
+		
+		return mostPopularCategory.getName();
+	}
+	
+	private String getMostPopularItem(){
+		
+		Map<Long, Integer> map = new HashMap<>();
+		
+		List<PurchaseInfo> allPurchases = purchaseRepo.findAll();
+		
+		for(PurchaseInfo purchase : allPurchases ){
+			
+			if(map.containsKey(purchase.getShopItemId())){
+				map.replace(purchase.getShopItemId(), map.get(purchase.getShopItemId()) + 1);
+			} else {
+				map.put(purchase.getShopItemId(), 1);
+			}
+			
+		}
+		
+		Long mostPopularItemId = null;
+		Integer max = 0;
+		
+		for(Map.Entry<Long, Integer> entry : map.entrySet()){
+		    if (mostPopularItemId == null || entry.getValue() > max)
+		    {
+		    	mostPopularItemId = entry.getKey();
+		    	max = entry.getValue();
+		    }
+		}
+		
+		if(mostPopularItemId != null){
+			return shopRepo.findById(mostPopularItemId).getName();
+		} else {
+			return "Nothing!";
+		}
+		
+	}
+	
+	private Integer getMostTransfersFromUser() {
+		Map<Long, Integer> map = new HashMap<>();
+		
+		List<PointsTransferInfo> allTransfers = transferRepo.findAll();
+		
+		for(PointsTransferInfo transfer : allTransfers ){
+			
+			if(map.containsKey(transfer.getFromUserID())){
+				map.replace(transfer.getFromUserID(), map.get(transfer.getFromUserID()) + 1);
+			} else {
+				map.put(transfer.getFromUserID(), 1);
+			}
+			
+		}
+		
+		return Collections.max(map.values());
 	}
 	
 }
