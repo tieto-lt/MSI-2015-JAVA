@@ -23,7 +23,7 @@ public class PurchaseInfoRest {
 		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
 	
-	@RequestMapping(value = "/api/togglepurchase/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/togglepurchase/{id}", method = RequestMethod.POST)
 	ResponseEntity<?> togglePurchase(@PathVariable Long id) {
 		if(purchaseService.togglePurchase(id)){
 			return new ResponseEntity<>(null, HttpStatus.OK);
