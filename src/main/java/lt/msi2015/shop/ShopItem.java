@@ -79,6 +79,7 @@ public class ShopItem extends Dto {
 		this.imageName = imageName;
 		this.imageType = imageType;
 		this.dateAdded = new Date();
+		this.deleted = false;
 	}
 	
 	public ShopItem(NewShopItemDto newShopItemDto) {

@@ -54,15 +54,16 @@ public class ShopService {
 	private boolean updateItemInfo(ShopItemDto itemEdited) {
 		ShopItem itemInDatabase = shopRepository.findById(itemEdited.id);
 		if (itemInDatabase != null) {
-			itemInDatabase.setName(itemEdited.name);
-			itemInDatabase.setDescription(itemEdited.description);
-			itemInDatabase.setImage(itemEdited.image);
-			itemInDatabase.setValue(itemEdited.value);
-			itemInDatabase.setQuantity(itemEdited.quantity);
-			itemInDatabase.setImageType(itemEdited.imageType);
-			itemInDatabase.setDateAdded(new Date());
-			return shopRepository.save(itemInDatabase) != null;
+			softDeleteItem(itemInDatabase.getId());
+			return save(new ShopItem(itemEdited.name,
+							  itemEdited.description,
+							  itemEdited.image,
+							  itemEdited.quantity,
+							  itemEdited.value,
+							  itemEdited.imageName,
+							  itemEdited.imageType));
 		}
+		
 		return false;
 	}
 	
@@ -81,6 +82,30 @@ public class ShopService {
 	public List<PurchasedShopItemDto> getUserPurchases(Long userId) {
 		List<PurchasedShopItemDto> purchaseList = new ArrayList<> ();
 		List<PurchaseInfo> purchasedShopItems =  purchaseInfoRepo.findAllByUserId(userId);
+		
+		SimpleDateFormat dateForHistoryDisplay = new SimpleDateFormat("YYYY-MM-dd");
+		
+		for (PurchaseInfo purchasedItemInfo: purchasedShopItems) {
+			ShopItem item = shopRepository.findById(purchasedItemInfo.getShopItemId());
+			
+			purchaseList
+				.add(new PurchasedShopItemDto(item.getId(),
+											  item.getName(),
+											  item.getImage(),
+											  item.getValue(),
+											  purchasedItemInfo.getBuyDate(),
+											  dateForHistoryDisplay
+											  .format(purchasedItemInfo.getBuyDate()).toString())
+			);
+		
+		}
+		
+		return purchaseList;
+	}
+
+	public List<PurchasedShopItemDto> getAllPurchases() {
+		List<PurchasedShopItemDto> purchaseList = new ArrayList<> ();
+		List<PurchaseInfo> purchasedShopItems =  purchaseInfoRepo.findAll();
 		
 		SimpleDateFormat dateForHistoryDisplay = new SimpleDateFormat("YYYY-MM-dd");
 		
