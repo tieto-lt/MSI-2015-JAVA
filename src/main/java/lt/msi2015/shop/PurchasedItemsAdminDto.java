@@ -13,7 +13,10 @@ public class PurchasedItemsAdminDto extends Dto {
 	private Integer price;
 	private Date dateAdded;
 	private String dateToDisplay;
-	
+	private Boolean received;
+	private Long purchaseId;
+
+
 	/*
 	 * Constructors
 	 */
@@ -27,7 +30,9 @@ public class PurchasedItemsAdminDto extends Dto {
 								byte[] image,
 								Integer price,
 								Date dateAdded,
-								String dateToDisplay) {
+								String dateToDisplay,
+								Boolean received,
+								Long purchaseId) {
 		this.id = id;
 		this.name = name;
 		this.buyersName = buyersName;
@@ -35,6 +40,8 @@ public class PurchasedItemsAdminDto extends Dto {
 		this.price = price;
 		this.dateAdded = dateAdded;
 		this.dateToDisplay = dateToDisplay;
+		this.received = received;
+		this.purchaseId = purchaseId;
 	}
 	
 	/*
@@ -94,5 +101,21 @@ public class PurchasedItemsAdminDto extends Dto {
 
 	public void setBuyersName(String buyersName) {
 		this.buyersName = buyersName;
+	}
+	
+	public Boolean getReceived() {
+		return received;
+	}
+
+	public void setReceived(Boolean received) {
+		this.received = received;
+	}
+	
+	public Long getPurchaseId() {
+		return purchaseId;
+	}
+
+	public void setPurchaseId(Long purchaseId) {
+		this.purchaseId = purchaseId;
 	}
 }

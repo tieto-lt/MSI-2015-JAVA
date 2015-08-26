@@ -2,8 +2,6 @@ package lt.msi2015.shop;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -93,14 +91,16 @@ public class ShopService {
 		for (PurchaseInfo purchasedItemInfo: purchasedShopItems) {
 			ShopItem item = shopRepository.findById(purchasedItemInfo.getShopItemId());
 			
-			purchaseList
-				.add(new PurchasedShopItemDto(item.getId(),
+			purchaseList.add(new PurchasedShopItemDto(item.getId(),
 											  item.getName(),
 											  item.getImage(),
 											  item.getValue(),
 											  purchasedItemInfo.getBuyDate(),
 											  dateForHistoryDisplay
-											  .format(purchasedItemInfo.getBuyDate()).toString())
+											  .format(purchasedItemInfo.getBuyDate()).toString(),
+											  purchasedItemInfo.getReceived(),
+											  purchasedItemInfo.getId()
+											  )
 			);
 		
 		}
@@ -126,7 +126,10 @@ public class ShopService {
 											  item.getValue(),
 											  purchasedItemInfo.getBuyDate(),
 											  dateForHistoryDisplay
-											  .format(purchasedItemInfo.getBuyDate()).toString())
+											  .format(purchasedItemInfo.getBuyDate()).toString(),
+											  purchasedItemInfo.getReceived(),
+											  purchasedItemInfo.getId()
+											  )
 			);
 		
 		}

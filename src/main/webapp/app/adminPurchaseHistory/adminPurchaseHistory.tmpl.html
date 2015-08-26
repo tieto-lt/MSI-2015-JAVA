@@ -1,5 +1,5 @@
 <div class="news-feed-header">
-	<h2>Purchase history</h2>	
+	<h2>Purchase history</h2>
 </div>
 <div class="purchased-item-entry-header">
 	<div class="admin-purchased-item-received">
@@ -21,6 +21,7 @@
 		<span>Date</span>
    </div>
 </div>
+
 <div class="admin-purchase-history-container" data-ng-controller="AdminPurchaseHistoryController as vm" >	
 	<div class="admin-puchased-item-content">
 		<div class="purchased-no-items" ng-if="vm.currUserPurchases == ''">
@@ -29,7 +30,7 @@
 		</div>
 		<div class="admin-purchased-item-entry" ng-repeat="purchase in vm.purchases | orderBy:'-dateAdded'">
 			<div class="admin-purchased-item-received">
-				<md-checkbox ng-model="vm.received"></md-checkbox>
+				<md-checkbox ng-model="purchase.received" ng-click="vm.togglePurchase(purchase.purchaseId)"></md-checkbox>
 			</div><!--
  		 --><div class="admin-purchased-item-photo-container">
 				<img class="purchased-item-photo" ng-src="{{::vm.decodeImage(purchase.image)}}">

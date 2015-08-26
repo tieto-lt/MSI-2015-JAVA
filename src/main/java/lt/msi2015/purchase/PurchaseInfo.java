@@ -24,7 +24,7 @@ public class PurchaseInfo {
 	private Date buyDate;
 	
 	@NotNull
-	private Boolean isReceived;
+	private Boolean received;
 	
 	/*
 	 * Constructors
@@ -38,7 +38,7 @@ public class PurchaseInfo {
 		this.userId = userId;
 		this.shopItemId = shopItemId;
 		this.buyDate = new Date();
-		this.isReceived = isReceived;
+		this.received = isReceived;
 	}
 
 	/*
@@ -61,6 +61,15 @@ public class PurchaseInfo {
 	}
 
 	public void toggleReceived() {
-		this.isReceived = !isReceived;
+		this.received = !received;
 	}
+
+	public Boolean getReceived() {
+		return received;
+	}
+
+	public void setReceived(Boolean received) {
+		this.received = received;
+	}
+	
 }
