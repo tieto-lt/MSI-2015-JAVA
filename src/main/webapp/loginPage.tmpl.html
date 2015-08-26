@@ -14,8 +14,8 @@
 			</div>
 		</div>
 	</div>
-	<div id="about">
-		<md-button class="md-raised join-button">
+	<div id="about" data-ng-controller="LoginController as vm">
+		<md-button class="md-raised join-button" ng-click="vm.moveToRegisterPage()">
 			Join Karma Points
 		</md-button>
 	</div>
