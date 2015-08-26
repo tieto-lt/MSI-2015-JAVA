@@ -81,6 +81,4 @@ public class StatisticsDto extends Dto {
 		this.mostPopularItem = mostPopularItem;
 	}
 
-	 
-	
 }
