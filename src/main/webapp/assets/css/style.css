@@ -277,3 +277,7 @@ md-select .md-select-value.md-select-placeholder {
 md-select .md-select-value {
     border-bottom-color: rgba(0, 0, 0, 0.26);
 }
+
+.link-cursor {
+	cursor: pointer;
+}

@@ -16,7 +16,8 @@
 			<tbody>
 			  <tr ng-repeat="leader in vm.leaders | orderBy:['-points', 'name']">
 			    <td class="leaderboard-table-points">{{ $index + 1 }}</td>
-			    <td ng-click="nav.changePageWithParams('userPage.profile.newsfeed', {'id': leader.userID})">
+			    <td ng-click="nav.changePageWithParams('userPage.profile.newsfeed', {'id': leader.userID})"
+			    		class="link-cursor">
 			    	{{ leader.name }}
 			    </td>
 			    <td class="leaderboard-table-points">{{ leader.points }}</td>

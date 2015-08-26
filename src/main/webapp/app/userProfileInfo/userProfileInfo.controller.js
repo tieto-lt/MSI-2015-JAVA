@@ -17,6 +17,9 @@
 		vm.profileId = $state.params.id;
 		vm.givingPointsBlock = UsersFactory.givingPointsBlock;
 		vm.responseMessages = UsersFactory.responseMessages;
+		vm.user = UsersFactory.userProfile;
+		
+		UsersFactory.refreshUserProfile(vm.profileId);
 		
 		UsersFactory.unsetErrorMessages();
 		UsersFactory.unsetGivingPointsBlock();
@@ -24,6 +27,7 @@
 		vm.edit = edit;
 		vm.saveChanges = saveChanges;
 		vm.goToGivingPoints = goToGivingPoints;
+		vm.goToProfileBlock = goToProfileBlock;
 		
 		function edit() {
 			vm.editBlock = true;
@@ -31,6 +35,10 @@
 		
 		function goToGivingPoints() {
 			vm.givingPointsBlock.shown = true;
+		}
+		
+		function goToProfileBlock() {
+			vm.givingPointsBlock.shown = false;
 		}
 		
 		function saveChanges() {
@@ -62,9 +70,7 @@
 			
 		}
 		
-		
-
-		UsersFactory.getUserProfile(vm.profileId).then(function(response) {
+		/*UsersFactory.getUserProfile(vm.profileId).then(function(response) {
 			vm.user = response.data;
 			if(response.data.image) {
 				vm.user.image = atob(response.data.image);
@@ -73,11 +79,6 @@
 				vm.user.imageType = 'image/png';
 				vm.user.imageName = 'no-profile-pic.png';
 			}
-			
-			
-			/*if (vm.user.aboutMe == null) {
-				vm.user.aboutMe = 'Write something about yourself!';
-			}*/
-		});
+		});*/
 	}
 })();
