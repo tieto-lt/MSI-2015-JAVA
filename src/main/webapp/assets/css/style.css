@@ -132,6 +132,7 @@ md-input-container {
 	margin: 0 auto;
 	border-bottom: solid 1px #d2d2d2;
 	text-align: left;
+	word-break: break-all;
 }
 
 .leaderboard-table-points {
@@ -253,17 +254,13 @@ header.login-header > span {
 }
 
 .points-form-container {
-	box-shadow: 1px 1px 3px #888888;
+/* 	box-shadow: 1px 1px 3px #888888; */
 	padding: 5px 15px;
 	background: white;
 }
 
 .points-form-main {
 	padding-left: 10px;
-}
-
-header {
-	box-shadow: 0px 0px 10px #444;
 }
 
 md-autocomplete#to {

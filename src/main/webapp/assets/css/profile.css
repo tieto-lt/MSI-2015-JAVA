@@ -6,7 +6,7 @@ header.profile-header {
     /* height: 125px; */
     color: #ffffff;
     margin-bottom: 20px;
-    box-shadow: 0px 0px 10px #444;
+    /*box-shadow: 0px 0px 10px #444;*/
     padding-top: 0px;
 }
 
@@ -68,7 +68,7 @@ header.profile-header {
 }
 
 .header-details-small {
-	font-size: 14px;
+	font-size: 16px;
 }
 
 .profile-header-bottom {
@@ -84,10 +84,12 @@ header.profile-header {
     box-sizing: border-box;
     display: inline-block;
     vertical-align: bottom;
-    width: 100px;
+    width: 150px;
     text-align: center;
-	padding-bottom: 10px;
+	padding: 5px 0px;
 	font-size: 18px;
+	border-radius: 3px 3px 0 0;
+	background-color: #428DBB;
 }
 
 .profile-header ul {
@@ -103,8 +105,9 @@ header.profile-header {
 }
 
 .profile-header .header-navigation li.current {
-	color: orange;
-	border-bottom: 2px solid orange;
+	color: #428DBB;
+/* 	border-bottom: 2px solid orange; */
+	background-color: white;
 }
 
 .profile-header .header-navigation a {
