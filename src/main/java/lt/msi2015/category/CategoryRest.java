@@ -37,6 +37,7 @@ public class CategoryRest {
 	
 	@RequestMapping(value = "api/categories", method = RequestMethod.POST)
 	ResponseEntity<?> newCategory(@RequestBody NewCategoryDto dto){
+		categoryService.saveCategory(dto);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 	
