@@ -19,6 +19,17 @@
 				
 				angular.extend(categories, $filter('orderBy')(response.data, 'name'));
 				
+				for (var i = 0; i < categories.length; i++) {
+					if(categories[i].name.toLowerCase() == "other") {
+						for (var j = i; j < categories.length-1; j++) {
+							var tempCategory = categories[j];
+							categories[j] = categories[j+1];
+							categories[j+1] = tempCategory;
+						}
+						break;
+					}
+				}
+				
 			});
 		}
 		

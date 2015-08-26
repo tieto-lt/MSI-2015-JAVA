@@ -31,6 +31,8 @@ INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to
 INSERT INTO points_transfer_info (comment, date_created, from_userid, points, to_userid, category_id) VALUES ('qweee', '2015-08-18 17:40:29', '3', '2', '2', 1);
 
 
+insert into shop_item (date_added, deleted, description, image, image_name, image_type, name, quantity, value) values ('2015-08-18 17:40:29', false, 'Cuts the grass so quickly', 'http://www.savasodyba.lt/wp-content/uploads/2009/05/zoliapjove.jpg', 'car.jpg', 'image/jpeg', 'Grass car', '5', '50')
+
 /*insert into points_transfer_info(comment, date_created, from_userid, points, to_userid) values ("aaaa", '2015.05.12', 1, 100, 1);
 insert into points_transfer_info(comment, date_created, from_userid, points, to_userid) values ("aaaa", '2015.05.12', 2, 100, 1);
 insert into points_transfer_info(comment, date_created, from_userid, points, to_userid) values ("aaaa", '2015.07.02', 2, 100, 1);

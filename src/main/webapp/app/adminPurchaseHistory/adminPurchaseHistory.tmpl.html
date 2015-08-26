@@ -28,7 +28,7 @@
 			<br><br>
 			<h3>Nobody purchased any items yet!</h3>
 		</div>
-		<div class="admin-purchased-item-entry" ng-repeat="purchase in vm.purchases | orderBy:'-dateAdded'">
+		<div class="admin-purchased-item-entry" ng-class="{'checked' : purchase.received }" ng-repeat="purchase in vm.purchases | orderBy:['received','-dateAdded']">
 			<div class="admin-purchased-item-received">
 				<md-checkbox ng-model="purchase.received" ng-click="vm.togglePurchase(purchase.purchaseId)"></md-checkbox>
 			</div><!--
