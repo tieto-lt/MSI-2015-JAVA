@@ -14,7 +14,7 @@
 	  
 	  function link(scope, element, attrs) {
 		  element.mCustomScrollbar({
-			  theme: 'rounded-dark',
+			  theme: '3d-dark',
 			  mouseWheel:{ 
 				  scrollAmount: 400,
 				  preventDefault: true

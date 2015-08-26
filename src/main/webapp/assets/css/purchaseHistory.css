@@ -3,7 +3,6 @@
     color: #000;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 0px;
     margin-bottom: 10px;
     text-align: center;
 }
@@ -82,11 +81,12 @@
 .admin-purchased-item-entry {
 	width: 100%;
     margin-bottom: 0px;
-    border: 1px solid #AAA;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 15px;
     margin-bottom: 15px;
+	border: 2px solid #FF8383;
+	box-shadow: 2px 2px 5px #FF8383;
 }
 
 .admin-purchase-history-container {
@@ -110,27 +110,34 @@
 
 .admin-purchased-item-name {
 	width: 28%;
+	padding: 0px 20px;
+	word-break: normal;
+	font-size: 20px;
+	text-align: center;
 }
 
-.admin-purchased-item-name > span {
+.admin-purchased-item-name purchase.received> span {
 	color: #F78D2D;
 }
 
 .admin-purchased-item-price {
 	width: 15%;
+	text-align: center;
+	font-size: 25px;
 }
 
 .admin-purchased-item-buyer {
 	width: 25%;
+	text-align: center;
 }
 
 .admin-purchased-item-date {
 	width: 10%;
+	text-align: center;
 }
 
 .admin-puchased-item-content {
     padding: 0 15px;
-    overflow: auto;
     padding-right: 0px;
     padding-left: 0px;
 }
@@ -138,5 +145,13 @@
 .admin-purchased-item-entry > div {
 	display: inline-block;
 	vertical-align: middle;
-/* 	height: 170px; */
+}
+
+.checked {
+	border: 2px solid #AAA;
+	box-shadow: 2px 2px 5px #AAA
+}
+
+.purchased-item-entry-header * {
+	font-size: 15px !important;
 }

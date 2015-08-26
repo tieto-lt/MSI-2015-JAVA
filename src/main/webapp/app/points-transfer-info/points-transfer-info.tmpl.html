@@ -2,7 +2,7 @@
 	<div class="points-form-container" data-ng-controller="PointsTransferInfoController as vm">
 
 	     <div class="transfer-info-form-title" ng-if="vm.state == 'userPage.home'">
-	     	Thank your colleague...
+	     	Thank your colleague
 	     </div>
 	     
      	<div class="transfer-info-form-content">
@@ -99,7 +99,7 @@
 				<div class="points-form-submit">
 					<md-button class="md-raised" type="submit" value="Give!" ng-disabled="vm.pointsForm.$invalid || 
 					vm.transferInfo.points > vm.profileInfo.pointsToGive || 
-					vm.transferInfo.toUser.id == vm.profileInfo.id">Give!</md-button>
+					vm.transferInfo.toUser.id == vm.profileInfo.id">Give</md-button>
 				</div>
 			</form>
      	</div>

@@ -30,16 +30,16 @@
 				</div>
 			</div>
 		</div>
+		<div class="header-profile-image">
+      			<img class="profile-header-user-image" ng-src="{{vm.showProfileImage(vm.profileInfo.image)}}"/>
+		</div>
 		<div class="header-profile-feald">
         	<div class="info-container" data-ng-model="vm.profileInfo">
-        		<span class="info">
-        			<img class="profile-header-user-image" src="./assets/images/ikona1.png"/>
-        		</span>
         		<span class="header-details-name">
         			{{vm.profileInfo.firstName}} {{vm.profileInfo.lastName}}
         		</span>
         	</div>
-        	<div class="header-points-alignment">
+        	<div>
         		<span class="header-details-small">You have: </span>
         		<span class="header-details-small">{{vm.profileInfo.userPoints}}</span>
         		<span><img class="formLogoImage" src="assets/images/karma_logo.png"></span>
