@@ -1,42 +1,29 @@
-<div data-ng-controller="StatisticsController as vm">
-	<div id="f1_container">
-		<div id="f1_card" class="shadow">
-			<div class="front face">
-		    	THE FRONT
-		  	</div>
-		  	<div class="back face center">
-		    	THE BACK
-		  	</div>
+<div data-ng-controller="StatisticsController as vm" class="statistics-info-cotainer">
+
+	<div class="column-1">
+		<div id="f1_container" ng-repeat="statistic in vm.statistics|limitTo:3:0">
+			<div id="f1_card" class="shadow">
+				<div class="front face">
+			    	THE FRONT
+			  	</div>
+			  	<div class="back face center">
+			    	{{statistic}}
+			  	</div>
+			</div>
 		</div>
 	</div>
-	<div id="f1_container">
-		<div id="f1_card" class="shadow">
-			<div class="front face">
-		    	THE FRONT
-		  	</div>
-		  	<div class="back face center">
-		    	THE BACK
-		  	</div>
+	
+	<div>
+		<div id="f1_container" ng-repeat="statistic in vm.statistics|limitTo:3:3">
+			<div id="f1_card" class="shadow">
+				<div class="front face">
+			    	THE FRONT
+			  	</div>
+			  	<div class="back face center">
+			    	{{statistic}}
+			  	</div>
+			</div>
 		</div>
 	</div>
-	<div id="f1_container">
-		<div id="f1_card" class="shadow">
-			<div class="front face">
-		    	THE FRONT
-		  	</div>
-		  	<div class="back face center">
-		    	THE BACK
-		  	</div>
-		</div>
-	</div>
-	<div id="f1_container">
-		<div id="f1_card" class="shadow">
-			<div class="front face">
-		    	THE FRONT
-		  	</div>
-		  	<div class="back face center">
-		    	THE BACK
-		  	</div>
-		</div>
-	</div>
+	
 </div>
