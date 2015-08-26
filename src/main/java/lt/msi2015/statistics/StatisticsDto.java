@@ -9,9 +9,9 @@ public class StatisticsDto extends Dto {
 	private Long pointsToSend; //done
 	private Long pointsSentThisMonth; //done
 	private Long totalItemsGiven; //done
-	private String mostPopularCategory;
-	private String mostTransfersByOnePerson;
-	private String mostPopularItem;
+	private String mostPopularCategory; //done
+	private Integer mostTransfersByOnePerson; 
+	private String mostPopularItem; 
 	private Long totalTransfers; //done
 
 	public StatisticsDto() {
@@ -66,11 +66,11 @@ public class StatisticsDto extends Dto {
 		this.mostPopularCategory = mostPopularCategory;
 	}
 
-	public String getMostTransfersByOnePerson() {
+	public Integer getMostTransfersByOnePerson() {
 		return mostTransfersByOnePerson;
 	}
 
-	public void setMostTransfersByOnePerson(String mostTransfersByOnePerson) {
+	public void setMostTransfersByOnePerson(Integer mostTransfersByOnePerson) {
 		this.mostTransfersByOnePerson = mostTransfersByOnePerson;
 	}
 
