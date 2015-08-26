@@ -251,6 +251,7 @@ header.login-header > span {
 #container {
 /* 	background-image: url("../images/background.jpg"); */
 	background-color: white;
+	overflow: hidden;
 }
 
 .points-form-container {
