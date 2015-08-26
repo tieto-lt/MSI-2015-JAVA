@@ -9,12 +9,14 @@
 }
 
 .purchased-item-entry {
-	width: 100%;
+	width: calc(100% - 20px);
     margin-bottom: 0px;
-    border: 1px solid #AAA;
+    border-bottom: 1px solid #AAA;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .purchased-item-entry-header {
@@ -77,6 +79,15 @@
 
 /*  ADMIN PURCHASE HISTORY*/
 
+.admin-purchased-item-entry {
+	width: 100%;
+    margin-bottom: 0px;
+    border: 1px solid #AAA;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+}
+
 .admin-purchase-history-container {
 	width: calc(100% - 50px);
     /* height: 170px; */
@@ -121,4 +132,10 @@
     overflow: auto;
     padding-right: 0px;
     padding-left: 0px;
+}
+
+.admin-purchased-item-entry > div {
+	display: inline-block;
+	vertical-align: middle;
+/* 	height: 170px; */
 }
