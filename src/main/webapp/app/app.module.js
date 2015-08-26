@@ -25,7 +25,8 @@
       'app.adminCategorySettings',
       'app.userPurchaseHistory',
       'app.adminPurchaseHistory',
-
+      'app.statistics',
+      
       
       /* angular ngMessages */
       'ngMessages',
