@@ -1,0 +1,16 @@
+<md-dialog>
+	
+	<md-dialog-content>
+	<h2 class="md-title" ng-if="vm.params.title">
+		{{vm.params.title}}
+	</h2>
+	<p>
+		{{vm.params.message}}
+	</p>
+	</md-dialog-content>
+	<div class="md-actions">
+	  	<md-button class="md-raised" ng-click="vm.ok()">
+	     Ok
+	    </md-button>
+    </div>
+</md-dialog>

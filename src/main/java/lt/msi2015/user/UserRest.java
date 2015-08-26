@@ -3,6 +3,7 @@ package lt.msi2015.user;
 
 import java.util.List;
 
+import org.apache.commons.lang3.text.WordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,16 +40,17 @@ public class UserRest {
 		
 		int monthlyLimit = appSettingsService.getSetting(ApplicationSettingsEnum.MONTHLY_LIMIT).getValue();
 		
-		repo.save(new User(
+		if (repo.save(new User(
 			info.email,
-			info.firstName,
-			info.lastName,
+			WordUtils.capitalize(info.firstName),
+			WordUtils.capitalize(info.lastName),
 			new BCryptPasswordEncoder().encode(info.password),
 			monthlyLimit
 			)
-		);
-		
-		return new ResponseEntity<>(null, HttpStatus.OK);
+		) != null) {
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
 	
 	@RequestMapping(value = "/api/user/getAllUsersFullnames", method = RequestMethod.GET)
