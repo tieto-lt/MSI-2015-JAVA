@@ -11,7 +11,7 @@ public class StatisticsRest {
 	@Autowired
 	StatisticsService statisticsService;
 
-	@RequestMapping(value = "/statistics", method = RequestMethod.GET)
+	@RequestMapping(value = "api/statistics", method = RequestMethod.GET)
 	StatisticsDto getCategories() {
 		
 		return statisticsService.getStatistics();
