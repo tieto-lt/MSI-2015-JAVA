@@ -44,7 +44,7 @@ public class UserService {
 	     User user = repo.findByEmail(email);
 	     LoggedUserDto loggedUser = new LoggedUserDto(user.getId(), user.getFirstName(), user.getLastName(), 
 	    		 			user.getEmail(), user.getRole(), user.getPointsToGive(),
-	    		 			user.getUserPoints());
+	    		 			user.getUserPoints(), user.getImage());
 	     
 	     return loggedUser;
 	}

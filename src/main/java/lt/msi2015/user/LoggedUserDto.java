@@ -11,13 +11,14 @@ public class LoggedUserDto extends Dto {
 	private Role role;
 	private Integer pointsToGive;
 	private Integer userPoints;
+	private byte[] image;
 	
 	public LoggedUserDto() {
 		super();
 	}
 	
 	public LoggedUserDto(Long id,String firstName, String lastName, String email, Role role,
-						Integer pointsToGive, Integer userPoints) {
+						Integer pointsToGive, Integer userPoints, byte[] image) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -26,6 +27,7 @@ public class LoggedUserDto extends Dto {
 		this.id = id;
 		this.pointsToGive = pointsToGive;
 		this.userPoints = userPoints;
+		this.image = image;
 	}
 
 	public Integer getPointsToGive() {
@@ -56,6 +58,14 @@ public class LoggedUserDto extends Dto {
 		return id;
 	}
 
+	public byte[] getImage() {
+		return image;
+	}
 
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	
 	
 }

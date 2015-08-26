@@ -11,10 +11,23 @@
     var vm = this;
 
     vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
-    
-    vm.getProfileInfo = function() {
+    vm.showProfileImage = showProfileImage;
+    vm.getProfileInfo = getProfileInfo;
+    	
+    function getProfileInfo() {
     	vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
     }
+    
+    function showProfileImage(image) {
+    	if (image) {
+    		return atob(image);
+    	}
+    	else {
+    		return 'assets/images/no-profile-pic.png';
+    	}
+    		
+    }
+    
   }
   
 
