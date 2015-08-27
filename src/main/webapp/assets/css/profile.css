@@ -80,7 +80,8 @@ header.profile-header {
 	vertical-align: bottom;
 }
 
-.profile-header .header-navigation li {
+.profile-header .header-navigation li, 
+.admin-header .navigation li {
 	margin-left: -3px;
     margin-top: 0px;
     box-sizing: border-box;
@@ -146,6 +147,7 @@ header.profile-header {
 	vertical-align: bottom;
 	padding-bottom: 10px;
 	cursor: pointer;
+	float: right;
 }
 
 .profile-header .logout:hover {
