@@ -42,7 +42,7 @@ public class CategoryRest {
 	}
 	
 	
-	@RequestMapping(value = "api/category/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/admin/category/{id}", method = RequestMethod.DELETE)
 	ResponseEntity<?> deleteCategory(@PathVariable Long id){
 		
 		Category category = categoryRepository.findById(id);

@@ -42,7 +42,7 @@ public class ShopRest {
 		return items;
 	}
 	
-	@RequestMapping(value = "/api/shop/addItem", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/shop/addItem", method = RequestMethod.POST)
 	ResponseEntity<?> addNewItem(@RequestBody NewShopItemDto item) {
 		if (!shopService.save(new ShopItem(item))) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -52,7 +52,7 @@ public class ShopRest {
 	}
 	
 
-	@RequestMapping(value = "/api/shop/deleteItem/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/admin/shop/deleteItem/{id}", method = RequestMethod.DELETE)
 	boolean deleteItem(@PathVariable Long id) {
 		if(shopRepository.findById(id) == null){
 			return false;
@@ -69,7 +69,7 @@ public class ShopRest {
 		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
 	
-	@RequestMapping(value = "api/shop/updateItem", method = RequestMethod.POST) 
+	@RequestMapping(value = "/admin/shop/updateItem", method = RequestMethod.POST) 
 	ResponseEntity<?> updateShopItem (@RequestBody ShopItemDto item){
 		if (shopService.updateShopItem(item))
 			return new ResponseEntity<>(null, HttpStatus.OK);
@@ -84,7 +84,7 @@ public class ShopRest {
 		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
 	
-	@RequestMapping(value = "api/shop/allPurchasedItems", method = RequestMethod.GET) 
+	@RequestMapping(value = "/admin/shop/allPurchasedItems", method = RequestMethod.GET) 
 	ResponseEntity<?> getAllPurchases (){
 		List<PurchasedItemsAdminDto> purchasedItems = shopService.getAllPurchases();
 		if (purchasedItems != null)
