@@ -60,7 +60,12 @@
 		
 		function claim(achievementId, achievementReward) {
 			
-			AchievementsFactory.claim(vm.profileInfo.id, achievementId, achievementReward);
+			
+			
+			AchievementsFactory.claim(vm.profileInfo.id, achievementId, achievementReward).then(function() {
+				ProfileHeaderFactory.loadUserInfo();
+			});
+			
 			switch (achievementId) {
 			case 1:
 				vm.userStatistics.achievement_1 = true;
