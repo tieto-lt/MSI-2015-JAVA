@@ -1,39 +1,39 @@
-<div class="news-feed-header">
-	<h2>My purchase history</h2>	
-</div>
-<div class="news-feed-container" data-ng-controller="UserPurchaseHistoryController as vm" >
-	<div class="purchased-item-entry-header">
-		<div class="purchased-item-photo-container">
-			<!-- EMPTY -->
-		</div><!--
-	 --><div class="purchased-item-name">
-			<div>Product name</div>
-		</div><!--
-	 --><div class="purchased-item-price">
-			<span>Karma points</span>
-		</div><!-- 
-	--><div class="purchased-item-date">
-			<span>Date</span>
-	   </div>
-	</div>
-	<div class="news-feed-content" scrollbar>
-		<div class="purchased-no-items" ng-if="vm.currUserPurchases == ''">
-			<br><br>
-			<h3>You currently have no purchased Items!</h3>
-		</div>
-		<div class="purchased-item-entry" ng-repeat="purchase in vm.currUserPurchases | orderBy:'-dateAdded'">
+
+	
+
+	<div class="news-feed-container" data-ng-controller="UserPurchaseHistoryController as vm">
+		<div class="purchased-item-entry-header" >
 			<div class="purchased-item-photo-container">
-				<img class="purchased-item-photo" ng-src="{{::vm.decodeImage(purchase.image)}}">
+				<!-- EMPTY -->
 			</div><!--
 		 --><div class="purchased-item-name">
-				<span>{{purchase.name}}</span>
+				<div>Product name</div>
 			</div><!--
 		 --><div class="purchased-item-price">
-				<span>{{purchase.price}}</span><img src="assets/images/karma_logo.png" class="purchased-item-karma-logo">
+				<span>Karma points</span>
 			</div><!-- 
 		--><div class="purchased-item-date">
-				<span>{{purchase.dateToDisplay}}</span>
+				<span>Date</span>
+		   </div>
+		</div>
+		<div class="news-feed-content"  auto-height scrollbar>
+			<div class="purchased-no-items" ng-if="vm.currUserPurchases == ''">
+				<br><br>
+				<h3>You currently have no purchased Items!</h3>
+			</div>
+			<div class="purchased-item-entry" ng-repeat="purchase in vm.currUserPurchases | orderBy:'-dateAdded'">
+				<div class="purchased-item-photo-container">
+					<img class="purchased-item-photo" ng-src="{{::vm.decodeImage(purchase.image)}}">
+				</div><!--
+			 --><div class="purchased-item-name">
+					<span>{{purchase.name}}</span>
+				</div><!--
+			 --><div class="purchased-item-price">
+					<span>{{purchase.price}}</span><img src="assets/images/karma_logo.png" class="purchased-item-karma-logo">
+				</div><!-- 
+			--><div class="purchased-item-date">
+					<span>{{purchase.dateToDisplay}}</span>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>

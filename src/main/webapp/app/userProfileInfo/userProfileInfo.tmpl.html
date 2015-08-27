@@ -51,10 +51,12 @@
 	<div ng-if="vm.currUserData.id == vm.profileId && !vm.editBlock">
 		<hr>
 		<div class="user-profile-line">
-			<a ng-click="nav.changePage('userPage.profile.newsfeed')" class="user-profile-navigation">Newsfeed</a>
+			<a ng-click="nav.changePage('userPage.profile.newsfeed')" class="user-profile-navigation"
+				ng-class="{'current' : nav.currentPage == 'userPage.profile.newsfeed'}">Newsfeed</a>
 		</div>
 		<div class="user-profile-line">
-			<a ng-click="nav.changePage('userPage.profile.purchaseHistory')" class="user-profile-navigation">My purchases</a>
+			<a ng-click="nav.changePage('userPage.profile.purchaseHistory')" class="user-profile-navigation"
+				ng-class="{'current' : nav.currentPage == 'userPage.profile.purchaseHistory'}">My purchases</a>
 		</div>
 	</div>
 </div>
