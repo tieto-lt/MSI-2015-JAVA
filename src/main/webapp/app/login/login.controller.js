@@ -6,11 +6,11 @@
   	.controller('LoginController', LoginController);
   
   LoginController.$inject = ['LoginFactory', '$state', 
-                             'ProfileHeaderFactory'];
+                             'ProfileHeaderFactory',  '$mdDialog', 'ConfirmationDialogFactory'];
   
   
   function LoginController(LoginFactory, $state, 
-		  ProfileHeaderFactory) {
+		  ProfileHeaderFactory, $mdDialog, ConfirmationDialogFactory) {
 	  var vm = this;
 	  
 	  vm.credentials = {
@@ -52,8 +52,5 @@
 	  function moveToRegisterPage() {
 		  $state.go('registration');
 	  }
-	  
-	  
   }
-  
 })(window.angular);
