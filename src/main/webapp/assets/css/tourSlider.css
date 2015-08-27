@@ -25,8 +25,10 @@
 /*--------------------------------*/
 .slider-img {
     width: 100%;
+/*     max-height: 490px; */
+/*     min-height: 200px; */
   	background:white;
-  	overflow:hidden;
+/*   	overflow:hidden; */
   	position:absolute;
   	top:0;
  	left:0;
@@ -37,13 +39,7 @@
 
 .slider-buttons {
     text-align: center;
-}
-
-.slider {
-	height: 491px;
-	width: 932px;
-	overflow: hidden;
-	overflow-x: hidden;
+    margin-top: 15px;
 }
 
 .md-actions-overflow {
@@ -52,4 +48,23 @@
 
 .md-actions-position {
 	text-align: right;
+}
+
+@media screen and ( min-height: 300px ){
+
+.slider {
+	height: 240px;
+	width: 477px;
+/* 	overflow: hidden; */
+	overflow-x: hidden;
+}
+}
+
+@media screen and ( min-height: 700px ){
+.slider {
+	height: 491px;
+	width: 932px;
+/* 	overflow: hidden; */
+	overflow-x: hidden;
+}
 }

@@ -14,10 +14,10 @@
 		      <img class="slider-img" ng-switch-when="4" src="/assets/images/tour/004.png" />
 		</div>
 		<div class="slider-buttons  md-actions-overflow">
-		      <md-button class="md-raised" ng-click="vm.slide = 1">Thanksgiving</md-button>
-		      <md-button class="md-raised" ng-click="vm.slide = 2">Leaderboard</md-button>
-		      <md-button class="md-raised" ng-click="vm.slide = 3">Shop</md-button>
-		      <md-button class="md-raised" ng-click="vm.slide = 4">Profile</md-button>
+		      <md-button ng-class="{true: 'md-raised', false: 'md-primary'}[vm.slide == 1]" ng-click="vm.slide = 1">Thanksgiving</md-button>
+		      <md-button ng-class="{true: 'md-raised', false: 'md-primary'}[vm.slide == 2]" ng-click="vm.slide = 2">Leaderboard</md-button>
+		      <md-button ng-class="{true: 'md-raised', false: 'md-primary'}[vm.slide == 3]" ng-click="vm.slide = 3">Shop</md-button>
+		      <md-button ng-class="{true: 'md-raised', false: 'md-primary'}[vm.slide == 4]" ng-click="vm.slide = 4">Profile</md-button>
 		</div>
 	</div>
 	</md-dialog-content>
