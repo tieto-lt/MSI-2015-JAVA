@@ -5,13 +5,15 @@
     .module('app.adminPurchaseHistory')
     .controller('AdminPurchaseHistoryController', AdminPurchaseHistoryController);
   
-  AdminPurchaseHistoryController.$inject = ['PurchaseHistoryFactory'];
+  AdminPurchaseHistoryController.$inject = ['PurchaseHistoryFactory', '$timeout'];
 
-  function AdminPurchaseHistoryController(PurchaseHistoryFactory) {
+  function AdminPurchaseHistoryController(PurchaseHistoryFactory, $timeout) {
     var vm = this;
     
     vm.decodeImage = decodeImage;
     vm.togglePurchase = togglePurchase;
+    
+    vm.isMoving = null;
 
     vm.purchases = {};
     
@@ -23,8 +25,13 @@
     	return atob(image);
     }
     
-    function togglePurchase(id){
-    	PurchaseHistoryFactory.toggleReceived(id);
+    function togglePurchase(id, event){
+    	
+    	vm.isMoving = id;
+    	$timeout(function() {
+    		PurchaseHistoryFactory.toggleReceived(id);
+    		vm.isMoving = null;
+    	}, 1000);
     }
   }
   
