@@ -1,4 +1,4 @@
-<div class="user-profile-main-container" ng-controller="UserProfileInfoController as vm">
+<div class="user-profile-main-container" scrollbar auto-height ng-controller="UserProfileInfoController as vm">
 	<div class="user-profile-photo-container">
 		<img class="user-profile-photo" ng-src="{{vm.user.image}}">
 	</div>
@@ -45,9 +45,8 @@
 			{{vm.responseMessages.error}}</div>
 	</div>
 	
-	<hr>
-	
-	<div ng-if="vm.currUserData.id == vm.profileId" data-ng-controller="NavigationController as nav">
+	<div ng-if="vm.currUserData.id == vm.profileId && !vm.editBlock">
+		<hr>
 		<div class="user-profile-line">
 			<a ng-click="nav.changePage('userPage.profile.newsfeed')" class="user-profile-navigation">Newsfeed</a>
 		</div>
