@@ -284,11 +284,6 @@ md-select .md-select-value {
 .mCS-3d-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
 	background-color: #BABABA;
 }
-/*
-.mCS-3d-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:active, 
-.mCS-3d-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:hover {
-	background-color: #9a9a9a;
-}*/
 
 .inline {
 	display: inline-block;
