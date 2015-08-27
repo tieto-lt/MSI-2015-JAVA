@@ -11,7 +11,8 @@
 		
 		return {
 			showConfirmationDialog: showConfirmationDialog,
-			showSimpleDialog: showSimpleDialog
+			showSimpleDialog: showSimpleDialog,
+			showTourDialog: showTourDialog
 		};
 		
 		function showConfirmationDialog(message, event, okAction, cancelAction) {
@@ -50,6 +51,25 @@
 	    		parent: angular.element(document.body),
 	    		targetEvent: event,
 	    		templateUrl: 'app/confirmationDialog/simpleDialog.tmpl.html'
+	    	};
+	    	
+	    	$mdDialog.show(options);
+	    }
+		
+		function showTourDialog(closeAction, event) {
+	    	var options = {
+	    		controller: function ShowTourController($mdDialog) {
+	    			var vm = this;
+	    			vm.closeAction = closeAction;
+	    		},
+	    		controllerAs: 'vm',
+//	    		locals: {
+//	    			params: params
+//	    		},
+	    		bindToController: true,
+	    		parent: angular.element(document.body),
+	    		targetEvent: event,
+	    		templateUrl: 'app/tourDialog/tourDialog.tmpl.html'
 	    	};
 	    	
 	    	$mdDialog.show(options);

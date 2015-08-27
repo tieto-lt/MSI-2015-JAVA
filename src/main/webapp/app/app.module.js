@@ -26,8 +26,10 @@
       'app.userPurchaseHistory',
       'app.adminPurchaseHistory',
       'app.statistics',
-      
-      
+      'app.tourDialog',
+      'app.slideshow',
+
+     
       /* angular ngMessages */
       'ngMessages',
 

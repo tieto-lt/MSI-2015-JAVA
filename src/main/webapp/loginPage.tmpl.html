@@ -25,7 +25,7 @@
 	
 </div>
 <footer>
-	<div>
-		Learn what karma points can do for you <button><span>Take a tour</span><span><img class="button-image" src="assets/images/plane.png" /></span></button>
+	<div ng-controller="TourDialogController as tdc">
+		Learn what karma points can do for you <button ng-click="tdc.showTour($events)"><span>Take a tour</span><span><img class="button-image" src="assets/images/plane.png" /></span></button>
 	</div>
 </footer>
