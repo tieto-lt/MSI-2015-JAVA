@@ -28,6 +28,7 @@
 		UsersFactory.unsetGivingPointsBlock();
 		
 		vm.edit = edit;
+		vm.cancel = cancel;
 		vm.saveChanges = saveChanges;
 		vm.goToGivingPoints = goToGivingPoints;
 		vm.goToProfileBlock = goToProfileBlock;
@@ -37,6 +38,10 @@
 		
 		function edit() {
 			vm.editBlock = true;
+		}
+		
+		function cancel() {
+			vm.editBlock = false;
 		}
 		
 		function goToGivingPoints() {

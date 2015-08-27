@@ -103,7 +103,7 @@ header.profile-header {
 
 .profile-header-logout-div {
 	vertical-align: top;
-    margin-top: 20px;
+    margin-top: 17px;
     margin-left: 50px;
     cursor: pointer;
 }
@@ -151,7 +151,8 @@ header.profile-header {
 	float: right;
 }
 
-.profile-header .logout a:hover {
+.profile-header .logout a:hover,
+.profile-header-logout-div:hover {
 	color: #ffbe85;
 }
 
