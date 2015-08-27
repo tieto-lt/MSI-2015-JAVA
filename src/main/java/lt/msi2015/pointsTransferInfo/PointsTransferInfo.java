@@ -20,7 +20,7 @@ public class PointsTransferInfo {
 	@GeneratedValue
 	public Long id;
 	
-	@NotNull
+	
 	public Long fromUserID;
 	
 	@NotNull
@@ -36,7 +36,6 @@ public class PointsTransferInfo {
 	@NotNull
 	public Date dateCreated;
 	
-	@NotNull
 	@ManyToOne
 	@JoinColumn(name="category_id")
 	public Category category;
