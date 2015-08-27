@@ -19,6 +19,15 @@
 	border-radius: 10px;
 }
 
+.shop-item-container .mCSB_container,
+.shop-item-container .mCSB_inside > .mCSB_container {
+	margin: 0px;
+}
+
+.shop-item-container .mCSB_scrollTools_vertical {
+	background-color: #EEF;
+}
+
 .shop-item-container > div{
 	display: inline-block;
 }
@@ -110,4 +119,16 @@
 
 .img-style {
 	margin-top: 20px;
+}
+
+.shop-header-cover {
+	width: 100%;
+	background-image: url('../images/shop_photo.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.shop-header-image {
+	visibility: hidden;
+	width: 100%;
 }

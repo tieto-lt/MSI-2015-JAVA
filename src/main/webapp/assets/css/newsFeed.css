@@ -8,7 +8,7 @@
 }
 
 .news-feed-content {
-	padding: 0 15px;
+	padding-left: 15px;
 	overflow: auto;
 	height: 83vh;
 }
