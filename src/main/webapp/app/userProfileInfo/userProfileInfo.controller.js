@@ -54,7 +54,7 @@
 					user.newPassword = '';
 					user.confirmPassword = '';
 					user.oldPassword = '';
-					vm.submitSuccess = 'Successfully updated password';
+					vm.submitSuccess = 'Successfully updated profile';
 					vm.submitError = '';
 					vm.editBlock = '';
 				}, function() {
