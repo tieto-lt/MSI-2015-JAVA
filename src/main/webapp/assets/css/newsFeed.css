@@ -9,8 +9,6 @@
 
 .news-feed-content {
 	padding-left: 15px;
-	overflow: auto;
-	height: 83vh;
 }
 .news-feed-header h2 {
     font-weight: normal;

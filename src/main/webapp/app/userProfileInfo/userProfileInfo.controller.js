@@ -37,6 +37,8 @@
 		
 		function goToGivingPoints() {
 			vm.givingPointsBlock.shown = true;
+			vm.responseMessages.success = '';
+			vm.responseMessages.error = '';
 		}
 		
 		function goToProfileBlock() {
@@ -78,18 +80,5 @@
 				submit(vm.user);
 			}
 		}
-		
-
-		
-		/*UsersFactory.getUserProfile(vm.profileId).then(function(response) {
-			vm.user = response.data;
-			if(response.data.image) {
-				vm.user.image = atob(response.data.image);
-			} else {
-				vm.user.image = 'assets/images/no-profile-pic.png';
-				vm.user.imageType = 'image/png';
-				vm.user.imageName = 'no-profile-pic.png';
-			}
-		});*/
 	}
 })();

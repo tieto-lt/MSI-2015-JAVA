@@ -12,13 +12,17 @@
 
 .user-profile-main-container a {
 	text-decoration: none;
-    color: #5e5e5e;
+    color: #888;
     cursor: pointer;
+}
+.user-profile-main-container a.current {
+	font-weight: bold;
+	color: #333;
 }
 
 .user-profile-main-container a:hover {
-	text-decoration: none;
-    color: #333;
+/* 	text-decoration: underline; */
+    color: #333; 
 }
 
 .user-profile{
@@ -87,10 +91,6 @@
 
 .user-profile-navigation {
 	color: #5E5E5E;
-}
-
-.user-profile-navigation:hover {
-	color: #F78D2D !important;
 }
 
 .edit-profile-name-label {
