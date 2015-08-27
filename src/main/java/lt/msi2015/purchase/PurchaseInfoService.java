@@ -22,16 +22,13 @@ public class PurchaseInfoService {
 	@Autowired
 	UserRepository userRepo;
 	
+	
 	public boolean buy(PurchaseInfoDto info) {
 		
 		User user = userRepo.findById(info.getUserId());
 		ShopItem item = shopRepo.findById(info.getShopItemId());
 		
-		if(item.getQuantity() == 0) {
-			return false;
-		}
-		
-		if(!subPoints(user, item)) {
+		if((item.getQuantity() == 0) || (!subPoints(user, item))) {
 			return false;
 		}
 		
@@ -47,6 +44,7 @@ public class PurchaseInfoService {
 		}
 	}
 	
+
 	public boolean togglePurchase(Long id){
 		List<PurchaseInfo> list = purchaseRepo.findById(id);
 		if(list.isEmpty()){

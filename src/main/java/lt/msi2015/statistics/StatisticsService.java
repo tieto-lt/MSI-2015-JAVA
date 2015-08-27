@@ -50,6 +50,19 @@ public class StatisticsService {
 		return stats;
 	}
 	
+	public UserStatisticsDto getUserStatistics(Long id) {
+		UserStatisticsDto stats =new UserStatisticsDto();
+		
+		stats.setItemsGotten(getUserItemsGotten(id));
+		stats.setTransfersMade(getUserTransfersMade(id));
+		stats.setTransfersGotten(getUserTransfersGotten(id));
+		stats.setPointsSent(getUserPointsSent(id));
+		stats.setPointsGotten(getUserPointsGotten(id));
+		
+		
+		return stats;
+	}
+	
 	/*
 	 * * * * * * * private methods * * * * * * * 	
 	 */
@@ -201,6 +214,34 @@ public class StatisticsService {
 		}
 		
 		return Collections.max(map.values());
+	}
+	
+	private Integer getUserItemsGotten(Long id){
+		return purchaseRepo.findAllByUserId(id).size();
+	}
+	
+	private Integer getUserTransfersMade(Long id){
+		return transferRepo.findByFromUserID(id).size();
+	}
+	
+	private Integer getUserTransfersGotten(Long id){
+		return transferRepo.findByToUserID(id).size();
+	}
+	
+	private Integer getUserPointsSent(Long id){
+		int total = 0;
+		for(PointsTransferInfo transfer : transferRepo.findByFromUserID(id)){
+			total += transfer.getPoints();
+		}
+		return total;
+	}
+	
+	private Integer getUserPointsGotten(Long id){
+		int total = 0;
+		for(PointsTransferInfo transfer : transferRepo.findByToUserID(id)){
+			total += transfer.getPoints();
+		}
+		return total;
 	}
 	
 }
