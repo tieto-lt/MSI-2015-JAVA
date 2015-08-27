@@ -155,5 +155,10 @@
 
 button.md-default-theme.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab {
     color: rgba(255,255,255,0.87);
+    background-color: #aaa !important;
+}
+
+button.md-default-theme.md-primary.md-raised:hover, .md-button.md-default-theme.md-primary.md-fab:hover {
     background-color: #ccc !important;
 }
+
