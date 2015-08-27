@@ -29,6 +29,7 @@
       'app.statistics',
       'app.tourDialog',
       'app.slideshow',
+      'app.achievements',
 
      
       /* angular ngMessages */

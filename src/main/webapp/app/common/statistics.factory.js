@@ -10,7 +10,8 @@
   function StatisticsFactory($http) {
 	  
     return {
-    	getStatistics: getStatistics
+    	getStatistics: getStatistics,
+    	getUserStatistics: getUserStatistics
     };
     
     
@@ -19,6 +20,11 @@
     	return $http
 	      .get('/statistics');
     }    
+	
+	function getUserStatistics(id) {
+		
+		return $http.get('api/statistics/' + id);
+	}
 	
   }
 
