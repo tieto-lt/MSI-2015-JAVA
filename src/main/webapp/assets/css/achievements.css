@@ -40,23 +40,23 @@
 }
 
 .achievements-content{
-	background-color: red;
+/* 	background-color: red; */
 	width: 100%;
 }
 /* achievement-entry */
 
 .achievement-entry{
 	width: 275px;
-	height: 275px;
-	background-color: orange;
-	margin: 25px 40px;
+	height: 350px;
+/* 	background-color: orange; */
+	margin: 25px 20px;
 	text-align: center;
 }
 
 .achievement-title{
 	position: relative;
 	width: 75%;
-	height: 16%;
+	height: 13%;
 	background: linear-gradient(#F78D2D, #FF4516) repeat scroll 0% 0% transparent; 
 	border-radius: 10px;
 	z-index: 1;
@@ -72,9 +72,9 @@
 .achievement-body {
 	position: relative;
 	top: -8%;	
-	height: 80%;
+	height: 65%;
 	width: 90%;
-	background-color: #FFF;
+/* 	background-color: green; */
 	border: 2px solid #BBB;
 }
 
@@ -94,6 +94,21 @@
 	font-weight: bold;
 	border: 2px solid white;
 	font-size: 20px;
+}
+
+.claim-button{
+	position: relative;
+	top: -12%;
+	height: 11%;
+	width: 75%;
+	background-color: green;
+	
+	padding-top: 10px;
+	display: inline-block;
+	color: white;
+	font-weight: bold;
+	font-size: 15px;
+	border-radius: 10px;
 }
 
 /* space */
