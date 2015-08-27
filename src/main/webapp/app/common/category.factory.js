@@ -34,7 +34,7 @@
 		}
 		
 		function deleteCategory(id) {
-			return $http.delete('api/category/' + id.toString());
+			return $http.delete('admin/category/' + id.toString());
 		}
 		
 		function getCategories() {

@@ -30,7 +30,7 @@
 			var data = {};
 			
 			data = $http({
-						url: 'api/shop/allPurchasedItems',
+						url: 'admin/shop/allPurchasedItems',
 						method: "GET"	
 			});
 			
@@ -39,7 +39,7 @@
 	  
 	  function toggleReceived(id){
 		  $http({
-			  url: 'api/togglepurchase/' + id.toString(),
+			  url: 'admin/togglepurchase/' + id.toString(),
 			  method: "POST"	
 		  });
 	  }

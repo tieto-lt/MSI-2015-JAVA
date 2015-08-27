@@ -58,7 +58,7 @@
 	    	    	value: transferInfo.oneTimePointsLimit
 	    	    }]
 		    return $http
-		    	.post('api/applicationSettings/save', transferObject);
+		    	.post('admin/applicationSettings/save', transferObject);
 	    }
 	}
 	
