@@ -136,3 +136,13 @@
 .profile-edit-form md-input-container textarea {
 	width: 100%;
 }
+
+.edit-success-block {
+    text-align: center;
+	color: green;
+}
+
+.edit-error-block {
+	text-align: center;
+	color: red;
+}
