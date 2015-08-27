@@ -17,6 +17,7 @@
     vm.currentPage = $state.current.name;
     vm.changePageWithParams = changePageWithParams;
     vm.changePageIfWithParams = changePageIfWithParams;
+    vm.profileId = $state.params.id;
 
 	function changePage(state) {
 	      vm.currentPage = state;
@@ -26,7 +27,7 @@
 	function changePageWithParams(state, params) {
 		vm.currentPage = state;
 	    $state.go(state, params);
-	    if(state=="userPage.profile.newsfeed") {
+	    if(vm.currentPage=="userPage.profile.newsfeed") {
 	    	vm.profileId = params.id;
 	    }
 	}
