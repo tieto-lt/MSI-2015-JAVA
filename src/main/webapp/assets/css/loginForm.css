@@ -88,3 +88,8 @@ footer button .button-image {
 	min-height: 42px;
 	margin-bottom: 120px;
 }
+
+#login-karma-logo {
+	height: 100px;
+	vertical-align: middle;
+}

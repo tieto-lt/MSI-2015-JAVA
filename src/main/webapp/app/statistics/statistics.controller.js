@@ -12,7 +12,6 @@
     
     StatisticsFactory.getStatistics().then(function(response) {
     	vm.statistics = response.data;
-    	console.log(vm.statistics);
     })
     
 	  
