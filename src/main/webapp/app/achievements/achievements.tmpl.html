@@ -1,4 +1,4 @@
-<div class="achievements-container" data-ng-controller="AchievementsController">
+<div class="achievements-container" data-ng-controller="AchievementsController as vm">
 	<div class="achievements-header">
 		<div class="achievements-icon">
 			<img id="cup" src="assets/images/cup.png">
@@ -12,7 +12,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="achievements-content">
+	<div class="achievements-content" >
 		
 		<div class="achievement-entry">
 			<div class="achievement-title">
@@ -24,12 +24,12 @@
 			<div class="achievement-points">
 				+50
 			</div>
-			<div ng-show="vm.claimTrasfersMade" class="claim-button bar-style">
+			<div ng-if="vm.claimTrasfersMade" class="claim-button bar-style">
 				CLAIM BUTTON
 			</div>
 			<div ng-if="!vm.claimTrasfersMade" class="progress-bar" >
 				<div class="full-bar"></div>
-				<div class="done-bar"></div>	
+				<div class="done-bar" style="width: {{vm.progressTrasfersMade}}%"></div>	
 			</div>
 		</div>
 		
