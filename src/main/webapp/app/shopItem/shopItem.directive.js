@@ -9,7 +9,7 @@
 	function shopItem() {
       
 	  return {
-		scope: {},
+		scope: true,
 		bindToController: {
 			item: '=',
 			type: '='
