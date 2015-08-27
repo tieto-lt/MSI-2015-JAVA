@@ -34,7 +34,7 @@
 
 #f1_container:hover #f1_card {
 	transform: rotateY(180deg);
-	box-shadow: -5px 5px 5px #aaa;
+	/* box-shadow: -5px 5px 5px #aaa; */
 }
 
 .face {
@@ -50,9 +50,9 @@
 	transform: rotateY(180deg);
 	box-sizing: border-box;
 	padding: 10px;
-	color: white;
+	color: #206AAA;
 	text-align: center;
-	background-color: #aaa;
+	background-color: #E4E4E4;
 	font-size: 35px;
 	
 	padding-top: 20px;
@@ -69,10 +69,10 @@
 }
 
 .face.front {
-	background-color: #206AAA;
+	background-color: rgba(32, 106, 170, 0.66);
 	padding-top: 20px;
 	font-size: 20px;
-	
+	color: white;
 	
    /* background: -webkit-gradient(linear, left top, left bottom, from(#62B4E6), to(rgb(153, 202, 235)));
    background: -webkit-linear-gradient(top, #CCEAFF, rgb(153, 202, 235));
@@ -84,6 +84,12 @@
 .statistics-image {
 	width: 100px;
 	height: 100px;
+}
+
+.statistics-image-karma {
+	width: 100px;
+	height: 105px;
+	padding-top: 5px;
 }
 
 .statistics-image-cart {
