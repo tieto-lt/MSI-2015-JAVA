@@ -39,6 +39,63 @@
 	height: 165px;
 }
 
-/* my footer */
+.achievements-content{
+	background-color: red;
+	width: 100%;
+}
+/* achievement-entry */
+
+.achievement-entry{
+	width: 275px;
+	height: 275px;
+	background-color: orange;
+	margin: 25px 40px;
+	text-align: center;
+}
+
+.achievement-title{
+	position: relative;
+	width: 75%;
+	height: 16%;
+	background: linear-gradient(#F78D2D, #FF4516) repeat scroll 0% 0% transparent; 
+	border-radius: 10px;
+	z-index: 1;
+	
+	padding-top: 10px;
+	display: inline-block;
+	color: white;
+	font-weight: bold;
+	border: 2px solid white;
+	font-size: 20px;
+}
+
+.achievement-body {
+	position: relative;
+	top: -8%;	
+	height: 80%;
+	width: 90%;
+	background-color: #FFF;
+	border: 2px solid #BBB;
+}
+
+.achievement-points {
+	position:relative;
+	top: -60px;
+	left: -35%;
+	height: 50px;
+	width: 90px;
+	right: 48%;
+	background: linear-gradient(#F78D2D, #FF4516) repeat scroll 0% 0% transparent; 
+	border-radius: 10px;
+	
+	padding-top: 10px;
+	display: inline-block;
+	color: white;
+	font-weight: bold;
+	border: 2px solid white;
+	font-size: 20px;
+}
+
+/* space */
 
 
