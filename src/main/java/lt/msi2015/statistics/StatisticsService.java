@@ -58,6 +58,7 @@ public class StatisticsService {
 		stats.setTransfersGotten(getUserTransfersGotten(id));
 		stats.setPointsSent(getUserPointsSent(id));
 		stats.setPointsGotten(getUserPointsGotten(id));
+		setAchievements(stats,id);
 		
 		
 		return stats;
@@ -67,6 +68,14 @@ public class StatisticsService {
 	 * * * * * * * private methods * * * * * * * 	
 	 */
 	
+	private void setAchievements(UserStatisticsDto stats, Long id) {
+		User user = userRepo.findById(id);
+		stats.setAchievement_1(user.getAchievement_1());
+		stats.setAchievement_2(user.getAchievement_2());
+		stats.setAchievement_3(user.getAchievement_3());
+		
+	}
+
 	private Date getMonthBefore() {  //for monthly statistics
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.DAY_OF_MONTH, 1);
@@ -186,7 +195,7 @@ public class StatisticsService {
 		    if (mostPopularItemId == null || entry.getValue() > max)
 		    {
 		    	mostPopularItemId = entry.getKey();
-		    	max = entry.getValue();
+		    	max = entry.getValue(); 
 		    }
 		}
 		

@@ -24,9 +24,12 @@
 			<div class="achievement-points">
 				+{{vm.firstAchievementReward}}
 			</div>
-			<div ng-if="vm.claimTrasfersMade" class="claim-button bar-style"
+			<div ng-if="vm.claimTrasfersMade && !vm.userStatistics.achievement_1" class="claim-button bar-style"
 					ng-click="vm.claim(1, vm.firstAchievementReward)">
 				CLAIM REWARD
+			</div>
+			<div class="claim-button bar-style awarded" ng-if="vm.userStatistics.achievement_1">
+				Awarded	
 			</div>
 			<div ng-if="!vm.claimTrasfersMade" class="progress-bar" >
 				<div class="full-bar"></div>
@@ -43,8 +46,12 @@
 			<div class="achievement-points">
 				+{{vm.secondAchievementReward}}
 			</div>
-			<div ng-if="vm.claimTrasfersGotten" class="claim-button bar-style">
+			<div ng-if="vm.claimTrasfersGotten && !vm.userStatistics.achievement_2" class="claim-button bar-style"
+					ng-click="vm.claim(2, vm.secondAchievementReward)">
 				CLAIM REWARD
+			</div>
+			<div class="claim-button bar-style awarded" ng-if="vm.userStatistics.achievement_2">
+				Awarded	
 			</div>
 			<div ng-if="!vm.claimTrasfersGotten" class="progress-bar" >
 				<div class="full-bar"></div>
@@ -62,8 +69,12 @@
 			<div class="achievement-points">
 				+{{vm.thirdAchievementReward}}
 			</div>
-			<div ng-if="vm.claimPointsGotten" class="claim-button bar-style">
+			<div ng-if="vm.claimPointsGotten && !vm.userStatistics.achievement_3" class="claim-button bar-style"
+					ng-click="vm.claim(3, vm.thirdAchievementReward)">
 				CLAIM REWARD
+			</div>
+			<div class="claim-button bar-style awarded" ng-if="vm.userStatistics.achievement_3">
+				Awarded	
 			</div>
 			<div ng-if="!vm.claimPointsGotten" class="progress-bar" >
 				<div class="full-bar"></div>

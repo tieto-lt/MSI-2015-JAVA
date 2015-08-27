@@ -9,6 +9,9 @@ public class UserStatisticsDto extends Dto {
 	private Integer transfersGotten;
 	private Integer pointsGotten; 
 	private Integer itemsGotten;
+	private Boolean achievement_1;
+	private Boolean achievement_2;
+	private Boolean achievement_3;
 	
 	public UserStatisticsDto() {
 		super();
@@ -53,7 +56,29 @@ public class UserStatisticsDto extends Dto {
 	public void setItemsGotten(Integer itemsGotten) {
 		this.itemsGotten = itemsGotten;
 	}
-	
-	
+
+	public Boolean getAchievement_1() {
+		return achievement_1;
+	}
+
+	public void setAchievement_1(Boolean achievement_1) {
+		this.achievement_1 = achievement_1;
+	}
+
+	public Boolean getAchievement_2() {
+		return achievement_2;
+	}
+
+	public void setAchievement_2(Boolean achievement_2) {
+		this.achievement_2 = achievement_2;
+	}
+
+	public Boolean getAchievement_3() {
+		return achievement_3;
+	}
+
+	public void setAchievement_3(Boolean achievement_3) {
+		this.achievement_3 = achievement_3;
+	}
 	
 }

@@ -64,9 +64,9 @@ public class User extends Dto {
 	public Role role = Role.USER;
 	
 	
-	private Boolean achievement_1;
-	private Boolean achievement_2;
-	private Boolean achievement_3;
+	private Boolean achievement_1 = false;
+	private Boolean achievement_2 = false;
+	private Boolean achievement_3 = false;
 	
 	/*
 	 * For mapping JSON -> Java

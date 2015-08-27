@@ -30,6 +30,8 @@
 			StatisticsFactory.getUserStatistics(vm.profileInfo.id).then(function(response) {
 				vm.userStatistics = response.data;
 				
+				console.log(vm.userStatistics.achievement_1);
+				
 				/*HARDCODED ACHIEVEMENTS*/
 				if(vm.userStatistics.transfersMade >= 5) {
 					vm.claimTrasfersMade = true;
@@ -59,6 +61,17 @@
 		function claim(achievementId, achievementReward) {
 			
 			AchievementsFactory.claim(vm.profileInfo.id, achievementId, achievementReward);
+			switch (achievementId) {
+			case 1:
+				vm.userStatistics.achievement_1 = true;
+				break;
+			case 2:
+				vm.userStatistics.achievement_2 = true;
+				break;
+			case 3:
+				vm.userStatistics.achievement_3 = true;
+				break;
+			}
 			
 		}
 		
