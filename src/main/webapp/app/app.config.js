@@ -125,6 +125,10 @@
 		    	url: "/userHome",
 		    	templateUrl: "app/userHome/userHome.tmpl.html"
 		    })
+		    .state('userPage.achievements', {
+		    	url: "/achievements",
+		    	templateUrl: "app/achievements/achievements.tmpl.html"
+		    })
 			.state('logout', {
 		    	url: "/logout",
 		    	templateUrl: "loginPage.tmpl.html"

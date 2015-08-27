@@ -53,9 +53,10 @@
 	</div>
 	<div class="profile-header-bottom header-navigation">
 	    <ul>
-            <li ng-class="{'current' : nav.currentPage == 'userPage.home'}" ng-click="nav.changePage('userPage.home')"><a >Home</a></li>
+            <li ng-class="{'current' : nav.currentPage == 'userPage.home'}" ng-click="nav.changePage('userPage.home')"><a>Home</a></li>
             <li ng-class="{'current' : nav.currentPage == 'userPage.shop'}" ng-click="nav.changePage('userPage.shop')"><a>Tieto Shop</a></li>
            	<li ng-class="{'current' : (nav.currentPage == 'userPage.profile.newsfeed' || nav.currentPage == 'userPage.profile.purchaseHistory') && nav.profileInfo.id == nav.profileId}" ng-click="nav.changePageWithParams('userPage.profile.newsfeed', {'id': vm.profileInfo.id})"><a>My profile</a></li>
+           	<li ng-class="{'current' : nav.currentPage == 'userPage.achievements'}" ng-click="nav.changePage('userPage.achievements')"><a>Achievements</a></li>
         </ul>
 	</div>
 </header>
