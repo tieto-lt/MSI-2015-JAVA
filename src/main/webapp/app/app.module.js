@@ -8,6 +8,7 @@
       
       /* modules */
       'ngMaterial',
+      'twygmbh.auto-height',
       'app.pointsTransferInfo',
       'app.registration',
       'app.leaderboard',
@@ -25,7 +26,8 @@
       'app.adminCategorySettings',
       'app.userPurchaseHistory',
       'app.adminPurchaseHistory',
-
+      'app.statistics',
+      
       
       /* angular ngMessages */
       'ngMessages',

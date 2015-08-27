@@ -38,9 +38,15 @@
 	background-image: url("../images/about-bg.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 2164px;
-	padding-top: 2015px;
+	/*height: 2164px;
+	padding-top: 2015px;*/
+	width: 100%;
 	text-align: center;
+}
+
+#about img {
+	width: 100%;
+	visibility: hidden;
 }
 
 
@@ -54,6 +60,7 @@ footer {
     text-align: center;
     padding: 10px;
     font-size: 18px;
+    z-index: 2;
 }
 
 footer button {
@@ -79,4 +86,5 @@ footer button .button-image {
 	font-size: 19px;
 	min-width: 235px;
 	min-height: 42px;
+	margin-bottom: 120px;
 }

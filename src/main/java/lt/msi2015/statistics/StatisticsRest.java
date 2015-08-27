@@ -11,10 +11,10 @@ public class StatisticsRest {
 	
 	@Autowired
 	StatisticsService statisticsService;
-
+	
 	@RequestMapping(value = "statistics", method = RequestMethod.GET)
 	StatisticsDto getStatistics() {
-		
+
 		return statisticsService.getStatistics();
 		
 	}

@@ -55,7 +55,7 @@
 	    <ul>
             <li ng-class="{'current' : nav.currentPage == 'userPage.home'}"><a ng-click="nav.changePage('userPage.home')">Home</a></li>
             <li ng-class="{'current' : nav.currentPage == 'userPage.shop'}"><a ng-click="nav.changePage('userPage.shop')">Tieto Shop</a></li>
-           	<li ng-class="{'current' : nav.currentPage == 'userPage.profile.newsfeed' && nav.profileInfo.id == nav.profileId}"><a ng-click="nav.changePageWithParams('userPage.profile.newsfeed', {'id': vm.profileInfo.id})">My profile</a></li>
+           	<li ng-class="{'current' : (nav.currentPage == 'userPage.profile.newsfeed' || nav.currentPage == 'userPage.profile.purchaseHistory') && nav.profileInfo.id == nav.profileId}"><a ng-click="nav.changePageWithParams('userPage.profile.newsfeed', {'id': vm.profileInfo.id})">My profile</a></li>
         </ul>
 	</div>
 </header>
