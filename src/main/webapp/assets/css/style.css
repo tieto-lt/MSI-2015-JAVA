@@ -293,3 +293,6 @@ md-select .md-select-value {
 	background-color: #9a9a9a;
 }*/
 
+.inline {
+	display: inline-block;
+}

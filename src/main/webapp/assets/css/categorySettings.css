@@ -5,14 +5,15 @@
  .admin-category-settings {
  	vertical-align: top;
  	display: inline-block;
-	width: 50%;
+	width: 450px;
+	float: right;
  }
 
 .settings-title {
-	text-align: center;
+/* 	text-align: center; */
 	font-size: 25px;
 	margin-bottom: 20px;
-	margin-top: 80px;
+	margin-top: 20px;
     font-weight: 900;
 }
 
@@ -22,7 +23,7 @@
 
 .new-category-field {
 	margin-bottom: 20px;
-	text-align: center;
+/* 	text-align: center; */
 }
 
 .category-input {
@@ -39,7 +40,7 @@
 }
 
 .category-entry {
-	text-align: center;
+/* 	text-align: center; */
 	margin-bottom: 10px;
 }
 
@@ -47,8 +48,8 @@
 .category-name{
 	background-color: white;
 	border: 1px solid #AAA;
-	box-shadow: 1px 1px 6px #AAA;
-	border-radius: 10px;
+/* 	box-shadow: 1px 1px 6px #AAA; */
+	border-radius: 4px;
 	padding: 5px 20px;
 	width: 300px;
 	text-align: center;
@@ -61,4 +62,9 @@
 	margin-left: 15px;
 	vertical-align: middle;
 	cursor: pointer;
+	color: #CCC;
+}
+
+.delete-button:hover {
+	color: #B11313;
 }
