@@ -145,10 +145,14 @@
 	transition: width 2s, height 2s, background-color 2s, transform 2s;
 }
 
-
-/* space */
-
 .awarded {
 	background-color: grey;
 	cursor: default;
+}
+
+.achievement-description {
+	width: 70%;
+	text-align: justify;
+	color: #444;
+	line-height: 150%;
 }

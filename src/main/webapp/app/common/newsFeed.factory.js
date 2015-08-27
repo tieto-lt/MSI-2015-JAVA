@@ -29,7 +29,10 @@
 			angular.forEach(response.data, function(record){
 	        	if(record.fromImage) {
 	        		record.fromImage = atob(record.fromImage);
-	        	} else {
+	        	} else if (record.category.name === 'Achievement') {
+	        		record.fromImage = 'assets/images/achievements/cup.png';
+	        	}
+	        	else {
 	        		record.fromImage = 'assets/images/no-profile-pic.png';
 	        	}
 	        	if(record.toImage) {

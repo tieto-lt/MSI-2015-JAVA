@@ -8,18 +8,18 @@
 			Achievements
 			</div>
 			<div class="achievements-header-small-text">
-			Do more get more zooooooooooooooooooooooooooooooodis
+				Do your best and get what you deserve.
 			</div>
 		</div>
 	</div>
-	<div class="achievements-content" >
+	<div class="achievements-content">
 		
 		<div class="achievement-entry">
 			<div class="achievement-title">
 				Karma Giver
 			</div>
 			<div class="achievement-body">
-				<img src="assets/images/achievements/hero.png">
+				<img src="assets/images/achievements/heart.png">
 			</div>
 			<div class="achievement-points">
 				+{{vm.firstAchievementReward}}
@@ -35,13 +35,16 @@
 				<div class="full-bar"></div>
 				<div class="done-bar" style="width: {{vm.progressTrasfersMade}}%"></div>	
 			</div>
+			<div class="achievement-description">
+				Thank your colleagues 5 times by sending karma points.
+			</div>
 		</div>
 		<div class="achievement-entry">
 			<div class="achievement-title">
 				Karma Receiver
 			</div>
 			<div class="achievement-body">
-				
+				<img src="assets/images/achievements/hero.png">
 			</div>
 			<div class="achievement-points">
 				+{{vm.secondAchievementReward}}
@@ -57,6 +60,9 @@
 				<div class="full-bar"></div>
 				<div class="done-bar" style="width: {{vm.progressTrasfersGotten}}%"></div>	
 			</div>
+			<div class="achievement-description">
+				Receive karma points from your colleagues 5 times.
+			</div>
 		</div>
 		
 		<div class="achievement-entry">
@@ -64,7 +70,7 @@
 				Points Receiver
 			</div>
 			<div class="achievement-body">
-				
+				<img src="assets/images/achievements/stats.png">
 			</div>
 			<div class="achievement-points">
 				+{{vm.thirdAchievementReward}}
@@ -79,6 +85,9 @@
 			<div ng-if="!vm.claimPointsGotten" class="progress-bar" >
 				<div class="full-bar"></div>
 				<div class="done-bar" style="width: {{vm.progressPointsGotten}}%"></div>	
+			</div>
+			<div class="achievement-description">
+				 Receive {{vm.getPointsAchievement}} points from your colleagues.
 			</div>
 		</div>
 	</div>
