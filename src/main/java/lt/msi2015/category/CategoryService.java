@@ -36,7 +36,9 @@ public class CategoryService {
 			return new Category(dto.name);
 		} else {
 			Category cat = duplicateList.get(0);
-			cat.toggleEnabled();
+			if (!dto.name.equals("Achievement")){
+				cat.toggleEnabled();
+			}
 			return cat;
 		}
 	}
