@@ -40,7 +40,7 @@
 }
 
 .achievements-content{
-	background-color: red;
+/* 	background-color: red; */
 	width: 100%;
 }
 /* achievement-entry */
@@ -48,7 +48,7 @@
 .achievement-entry{
 	width: 275px;
 	height: 350px;
-	background-color: orange;
+/* 	background-color: orange; */
 	margin: 25px 20px;
 	text-align: center;
 }
@@ -74,7 +74,7 @@
 	top: -8%;	
 	height: 65%;
 	width: 90%;
-	background-color: green;
+/* 	background-color: green; */
 	border: 2px solid #BBB;
 }
 
