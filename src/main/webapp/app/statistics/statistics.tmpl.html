@@ -5,10 +5,20 @@
 		<div id="f1_container">
 			<div id="f1_card" class="shadow">
 				<div class="front face">
-			    	Popular
+			    	<div>
+						Users
+					</div>
+			    	<div>
+			    		<img class="statistics-image" src="assets/images/comunity.png"/>
+			    	</div>
 			  	</div>
 			  	<div class="back face center">
-			    	{{vm.statistics.registeredUsersNumber}} registered users
+				  	<div>
+				  		{{vm.statistics.registeredUsersNumber}}
+				  	</div>
+				  	<div class="statistics-comment">
+				  		Registered users
+				  	</div>
 			  	</div>
 			</div>
 		</div>
@@ -16,10 +26,20 @@
 		<div id="f1_container">
 			<div id="f1_card" class="shadow">
 				<div class="front face">
-			    	Active
+					<div>
+						Points
+					</div>
+			    	<div>
+			    		<img class="statistics-image-karma" src="assets/images/karma_white.png"/>
+			    	</div>
 			  	</div>
 			  	<div class="back face center">
-			    	{{vm.statistics.totalKarmaPointsSent}} Karma points sent
+				  	<div>
+				  		{{vm.statistics.totalKarmaPointsSent}}
+				  	</div>
+				  	<div class="statistics-comment">
+				  		Karma points sent
+				  	</div>
 			  	</div>
 			</div>
 		</div>
@@ -27,10 +47,20 @@
 		<div id="f1_container">
 			<div id="f1_card" class="shadow">
 				<div class="front face">
-			    	Rewarding
+			    	<div>
+						Shop
+					</div>
+			    	<div>
+			    		<img class="statistics-image-cart" src="assets/images/cart.png"/>
+			    	</div>
 			  	</div>
 			  	<div class="back face center">
-			    	{{vm.statistics.totalItemsGiven}} shop items given away
+			  		<div>
+				  		{{vm.statistics.totalItemsGiven}}
+				  	</div>
+				  	<div class="statistics-comment">
+				  		Shop items given away
+				  	</div>
 			  	</div>
 			</div>
 		</div>
@@ -40,10 +70,17 @@
 		<div id="f1_container">
 			<div id="f1_card" class="shadow">
 				<div class="front face">
-			    	Popular
+			    	<div>
+						Category
+					</div>
+			    	<div>
+			    		<img class="statistics-image" src="assets/images/category.png"/>
+			    	</div>
 			  	</div>
 			  	<div class="back face center">
-			    	{{vm.statistics.registeredUsersNumber}} registered users
+			  		<div class="most-popular-category">
+			  			{{vm.statistics.mostPopularCategory}}
+			  		</div>
 			  	</div>
 			</div>
 		</div>
@@ -51,10 +88,20 @@
 		<div id="f1_container">
 			<div id="f1_card" class="shadow">
 				<div class="front face">
-			    	Active
+			    	<div>
+						Thanksgiving
+					</div>
+			    	<div>
+			    		<img class="statistics-image-handshake" src="assets/images/handshake.png"/>
+			    	</div>
 			  	</div>
 			  	<div class="back face center">
-			    	{{vm.statistics.totalKarmaPointsSent}} Karma points sent
+			  		<div>
+				  		{{vm.statistics.totalTransfers}}
+				  	</div>
+				  	<div class="statistics-comment">
+				  		Thanks made
+				  	</div>
 			  	</div>
 			</div>
 		</div>
@@ -62,10 +109,20 @@
 		<div id="f1_container">
 			<div id="f1_card" class="shadow">
 				<div class="front face">
-			    	Active
+			    	<div>
+						Motivation
+					</div>
+			    	<div>
+			    		<img class="statistics-image" src="assets/images/motivation.png"/>
+			    	</div>
 			  	</div>
 			  	<div class="back face center">
-			    	{{vm.statistics.totalKarmaPointsSent}} Karma points sent
+			  		<div>
+				  		100%
+				  	</div>
+				  	<div class="statistics-comment">
+				  		Happy users :)
+				  	</div>
 			  	</div>
 			</div>
 		</div>

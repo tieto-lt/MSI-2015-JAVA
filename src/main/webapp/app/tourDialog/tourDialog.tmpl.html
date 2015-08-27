@@ -1,0 +1,24 @@
+
+<md-dialog  class="md-actions-overflow">
+	<md-dialog-content>
+	<div class="md-actions-position">
+		<md-button class="md-icon-button md-primary" ng-click="vm.closeAction()">
+	     x
+	    </md-button>
+    </div>
+	<div  class="md-actions-overflow" ng-controller="SlideshowController as vm">
+		<div ng-switch on="vm.slide"  class="slider">
+		      <img class="slider-img" ng-switch-when="1" src="/assets/images/tour/001.png" />
+		      <img class="slider-img" ng-switch-when="2" src="/assets/images/tour/002.png" />
+		      <img class="slider-img" ng-switch-when="3" src="/assets/images/tour/003.png" />
+		      <img class="slider-img" ng-switch-when="4" src="/assets/images/tour/004.png" />
+		</div>
+		<div class="slider-buttons  md-actions-overflow">
+		      <md-button class="md-raised" ng-click="vm.slide = 1">Thanksgiving</md-button>
+		      <md-button class="md-raised" ng-click="vm.slide = 2">Leaderboard</md-button>
+		      <md-button class="md-raised" ng-click="vm.slide = 3">Shop</md-button>
+		      <md-button class="md-raised" ng-click="vm.slide = 4">Profile</md-button>
+		</div>
+	</div>
+	</md-dialog-content>
+</md-dialog>

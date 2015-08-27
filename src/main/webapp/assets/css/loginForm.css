@@ -35,7 +35,7 @@
 	font-size: 30px;
 }
 #about {
-	background-image: url("../images/about-bg.jpg");
+	background-image: url("../images/about-statistics.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	/*height: 2164px;
@@ -44,7 +44,7 @@
 	text-align: center;
 }
 
-#about img {
+#about > img {
 	width: 100%;
 	visibility: hidden;
 }

@@ -14,10 +14,11 @@
 			</div>
 		</div>
 	</div>
-	<div class ="statistics-block">
-		<data-ng-include src="'app/statistics/statistics.tmpl.html'"></data-ng-include>
-	</div>
+	
 	<div id="about" data-ng-controller="LoginController as vm">
+		<div class ="statistics-block">
+			<data-ng-include src="'app/statistics/statistics.tmpl.html'"></data-ng-include>
+		</div>
 		<img src="assets/images/about-bg.jpg" />
 		<md-button class="md-raised join-button" ng-click="vm.moveToRegisterPage()">
 			Join Karma Points
@@ -26,7 +27,7 @@
 	
 </div>
 <footer>
-	<div>
-		Learn what karma points can do for you <button><span>Take a tour</span><span><img class="button-image" src="assets/images/plane.png" /></span></button>
+	<div ng-controller="TourDialogController as tdc">
+		Learn what karma points can do for you <button ng-click="tdc.showTour($events)"><span>Take a tour</span><span><img class="button-image" src="assets/images/plane.png" /></span></button>
 	</div>
 </footer>

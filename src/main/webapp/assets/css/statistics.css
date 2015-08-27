@@ -1,7 +1,7 @@
 .statistics-block {
 	text-align: center;
 	height: 400px;
-	background-color: #D5F1FA;
+	/* background-color: rgb(153, 202, 235); */
 	padding-top: 15px;
 }
 
@@ -29,11 +29,12 @@
 	height: 100%;
 	transform-style: preserve-3d;
 	transition: all 0.5s linear;
+	border-radius: 10px;
 }
 
 #f1_container:hover #f1_card {
 	transform: rotateY(180deg);
-	box-shadow: -5px 5px 5px #aaa;
+	/* box-shadow: -5px 5px 5px #aaa; */
 }
 
 .face {
@@ -41,6 +42,7 @@
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
+	border-radius: 10px;
 }
 
 .face.back {
@@ -48,12 +50,65 @@
 	transform: rotateY(180deg);
 	box-sizing: border-box;
 	padding: 10px;
-	color: white;
+	color: #206AAA;
 	text-align: center;
-	background-color: #aaa;
-	font-size: 25px;
+	background-color: #E4E4E4;
+	font-size: 35px;
+	
+	padding-top: 20px;
+	
+	/* background: -webkit-gradient(linear, left top, left bottom, from(#aaa), to(#D2D2D2));
+   background: -webkit-linear-gradient(top, #aaa, #D2D2D2);
+   background: -moz-linear-gradient(top, #aaa, #D2D2D2);
+   background: -ms-linear-gradient(top, #aaa, #D2D2D2);
+   background: -o-linear-gradient(top, #aaa, #D2D2D2); */
+}
+
+.back > div {
+	word-wrap: break-word;
 }
 
 .face.front {
-	background-color: #A4B3DE;
+	background-color: rgba(32, 106, 170, 0.66);
+	padding-top: 20px;
+	font-size: 20px;
+	color: white;
+	
+   /* background: -webkit-gradient(linear, left top, left bottom, from(#62B4E6), to(rgb(153, 202, 235)));
+   background: -webkit-linear-gradient(top, #CCEAFF, rgb(153, 202, 235));
+   background: -moz-linear-gradient(top, #62B4E6, rgb(153, 202, 235));
+   background: -ms-linear-gradient(top, #62B4E6, rgb(153, 202, 235));
+   background: -o-linear-gradient(top, #62B4E6, rgb(153, 202, 235)); */
+}
+
+.statistics-image {
+	width: 100px;
+	height: 100px;
+}
+
+.statistics-image-karma {
+	width: 100px;
+	height: 105px;
+	padding-top: 5px;
+}
+
+.statistics-image-cart {
+	margin-top: 15px;
+	width: 75px;
+	height: 75px;
+}
+
+.statistics-image-handshake {
+	width: 100px;
+	height: 85px;
+	margin-top: 15px;
+}
+
+.statistics-comment {
+	font-size: 25px;
+}
+
+.most-popular-category {
+	padding-top: 20px;
+	font-size: 25px;
 }
