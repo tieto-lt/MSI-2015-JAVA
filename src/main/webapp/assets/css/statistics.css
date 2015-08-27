@@ -51,8 +51,9 @@
 	color: white;
 	text-align: center;
 	background-color: #aaa;
+	font-size: 25px;
 }
 
 .face.front {
-	background-color: pink;
+	background-color: #A4B3DE;
 }
