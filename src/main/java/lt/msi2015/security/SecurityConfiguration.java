@@ -57,13 +57,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     .and()
       .authorizeRequests()
         .antMatchers("/api/**").fullyAuthenticated()
+        .antMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
+        //.antMatchers("/admin/applicationSettings/save").hasAuthority("ROLE_ADMIN")
+        //.antMatchers("/admin/category/{id}").hasAuthority("ROLE_ADMIN")
+        //.antMatchers("/admin/togglepurchase/{id}").hasAuthority("ROLE_ADMIN")
+        //.antMatchers("/admin/shop/addItem").hasAuthority("ROLE_ADMIN")
+        //.antMatchers("/admin/shop/deleteItem/{id}").hasAuthority("ROLE_ADMIN")
+        //.antMatchers("/admin/shop/updateItem").hasAuthority("ROLE_ADMIN")
+        //.antMatchers("/admin/shop/allPurchasedItems").hasAuthority("ROLE_ADMIN")
         .anyRequest().permitAll()
         .and()
        .logout().logoutRequestMatcher(new AntPathRequestMatcher("/api/logout")).logoutSuccessUrl("/")
        .and()
       .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
       .csrf().csrfTokenRepository(csrfTokenRepository());
-	  
 	  
 	  //THIS WORKS
 	  /*http

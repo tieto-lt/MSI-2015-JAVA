@@ -88,12 +88,10 @@ public class UserRest {
 	}
 	
 	@RequestMapping(value = "api/user/profile", method = RequestMethod.POST) 
-	ResponseEntity<?> updateShopItem (@RequestBody UserProfileDto userProfile){
+	ResponseEntity<?> updateUserProfile (@RequestBody UserProfileDto userProfile){
 		if (userService.updateUserProfile(userProfile)) {
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		}
 		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 	}
-	
-
 }

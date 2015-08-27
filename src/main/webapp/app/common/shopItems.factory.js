@@ -31,7 +31,7 @@
 	    	}
 	    	
 		    return $http
-		    	.post('api/shop/addItem', transferObject);
+		    	.post('admin/shop/addItem', transferObject);
 	    }
 	
 	    function getShopItems(){
@@ -40,7 +40,7 @@
 	    }
 	    
 	    function deleteItem(id){
-	    	return $http.delete('api/shop/deleteItem/' + id.toString());
+	    	return $http.delete('admin/shop/deleteItem/' + id.toString());
 	    }
 	    
 	    function updateItem(transferInfo) {
@@ -55,7 +55,7 @@
 					value: transferInfo.price
 	    	}
 	    	
-		    return $http.post('api/shop/updateItem', transferObject);
+		    return $http.post('admin/shop/updateItem', transferObject);
 	    }
 	
 	    function getShopItem(id) {
