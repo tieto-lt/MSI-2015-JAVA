@@ -17,9 +17,7 @@ import lt.msi2015.util.Dto;
 @Entity
 public class User extends Dto {
 
-	/**
-	 * 
-	 */
+
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -192,4 +190,5 @@ public class User extends Dto {
 	public void setImageName(String imageName) {
 		this.imageName = imageName;
 	}
+	
 }
