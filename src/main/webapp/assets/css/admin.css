@@ -134,9 +134,10 @@ header.admin-header  {
  }
  
  .admin-application-settings-container {
- 	width: 350px;
+ 	width: 45%;
  	display: inline-block;
- 	margin-left: 50px
+ 	margin-left: 50px;
+ 	border-right: 1px solid #CCC;
  }
  
 .admin-application-settings-title h2,
