@@ -2,8 +2,15 @@
 	text-align: center;
 	height: 400px;
 	/* background-color: rgb(153, 202, 235); */
-	padding-top: 315px;
+	padding-top: 100px;
 	padding-left: 50px;
+}
+
+.statistics-block h2 {
+	margin-bottom: 30px;
+	font-size: 48px;
+	color: #eaf3fc;
+	font-weight: normal;
 }
 
 .statistics-info-cotainer > div {
