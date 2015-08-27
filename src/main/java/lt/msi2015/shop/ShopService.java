@@ -29,6 +29,7 @@ public class ShopService {
 	@Transactional
 	boolean save(ShopItem item) {
 		if (imageIsValid(item.getImageType())) {
+			item.setDescription(item.getDescription().trim().replaceAll("\n+", " "));
 			return shopRepository.save(item) != null;
 		}
 		
@@ -59,7 +60,7 @@ public class ShopService {
 		if (itemInDatabase != null) {
 			softDeleteItem(itemInDatabase.getId());
 			return save(new ShopItem(itemEdited.name,
-							  itemEdited.description,
+							  itemEdited.description.trim().replaceAll("\n+", " "),
 							  itemEdited.image,
 							  itemEdited.quantity,
 							  itemEdited.value,
