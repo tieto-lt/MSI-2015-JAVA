@@ -57,10 +57,11 @@ header.profile-header {
 }
 
 .header-profile-feald {
-	max-width: 300px;
+	max-width: 250px;
 	display: inline-block;
 	margin-top: 5px;
 	margin-left: 10px;
+	word-break: break-all;
 }
 
 .header-details-name {
@@ -79,7 +80,8 @@ header.profile-header {
 	vertical-align: bottom;
 }
 
-.profile-header .header-navigation li {
+.profile-header .header-navigation li, 
+.admin-header .navigation li {
 	margin-left: -3px;
     margin-top: 0px;
     box-sizing: border-box;
@@ -91,6 +93,7 @@ header.profile-header {
 	font-size: 18px;
 	border-radius: 3px 3px 0 0;
 	background-color: #428DBB;
+	cursor: pointer;
 }
 
 .profile-header ul {
@@ -145,9 +148,10 @@ header.profile-header {
 	vertical-align: bottom;
 	padding-bottom: 10px;
 	cursor: pointer;
+	float: right;
 }
 
-.profile-header .logout:hover {
+.profile-header .logout a:hover {
 	color: #ffbe85;
 }
 
@@ -165,7 +169,8 @@ header.profile-header {
 	border-bottom: 2px solid orange;
 }
 
-.profile-header .navigation a {
+.profile-header .navigation a
+ {
     display: inline-block;
     cursor: pointer;
     outline:0;

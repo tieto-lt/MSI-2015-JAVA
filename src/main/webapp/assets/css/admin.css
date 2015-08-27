@@ -1,45 +1,45 @@
-header.admin-header  {
-    background-color: #62B3E5;
-    padding: 10px;
-    font-size: 26px;
-    font-weight: bold;
-    height: 125px;
-    color: #ffffff;
-	text-align: left;
-}
+/* header.admin-header  { */
+/*     background-color: #62B3E5; */
+/*     padding: 10px; */
+/*     font-size: 26px; */
+/*     font-weight: bold; */
+/*     height: 125px; */
+/*     color: #ffffff; */
+/* 	text-align: left; */
+/* } */
 
-.admin-header h3 {
-    display: inline-block;
-    font-size: 26px;
-}
+/* .admin-header h3 { */
+/*     display: inline-block; */
+/*     font-size: 26px; */
+/* } */
 
-.admin-header .navigation {
-	vertical-align: bottom;
-}
+/* .admin-header .navigation { */
+/* 	vertical-align: bottom; */
+/* } */
 
-.admin-header .navigation li {
-    box-sizing: border-box;
-    display: inline-block;
-    vertical-align: bottom;
-    width: 100px;
-    text-align: center;
-	padding-bottom: 10px;
-}
+/* .admin-header .navigation li { */
+/*     box-sizing: border-box; */
+/*     display: inline-block; */
+/*     vertical-align: bottom; */
+/*     width: 100px; */
+/*     text-align: center; */
+/* 	padding-bottom: 10px; */
+/* } */
 
-.admin-header .navigation li.current {
-	color: orange;
-	border-bottom: 2px solid orange;
-}
+/* .admin-header .navigation li.current { */
+/* 	color: orange; */
+/* 	border-bottom: 2px solid orange; */
+/* } */
 
-.profile-header .navigation a {
-    display: inline-block;
-    cursor: pointer;
-    outline:0;
-}
+/* .profile-header .navigation a { */
+/*     display: inline-block; */
+/*     cursor: pointer; */
+/*     outline:0; */
+/* } */
 
-.profile-header .navigation a:hover {
-    display: inline-block;
-}
+/* .profile-header .navigation a:hover { */
+/*     display: inline-block; */
+/* } */
 
 .admin-h3 {
 	font-weight: normal;
@@ -49,33 +49,33 @@ header.admin-header  {
     font-weight: normal;
 }
 
-.admin-navigation-button-container {
-	width: 80%;
-	min-height: 40px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 60px;
-	text-align: center;
-	border-bottom: 1px solid black;
-	font-size: 16px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	display: table;
-	vertical-align: bottom;
-}
+/* .admin-navigation-button-container { */
+/* 	width: 80%; */
+/* 	min-height: 40px; */
+/* 	margin-left: auto; */
+/* 	margin-right: auto; */
+/* 	margin-bottom: 60px; */
+/* 	text-align: center; */
+/* 	border-bottom: 1px solid black; */
+/* 	font-size: 16px; */
+/* 	padding-top: 10px; */
+/* 	padding-bottom: 10px; */
+/* 	display: table; */
+/* 	vertical-align: bottom; */
+/* } */
 
-.admin-navigation-button {
-	color: black;
-	text-decoration: none;
-}
+/* .admin-navigation-button { */
+/* 	color: black; */
+/* 	text-decoration: none; */
+/* } */
 
-.admin-navigation-selected {
-	color: #d75f00;
-}
+/* .admin-navigation-selected { */
+/* 	color: #d75f00; */
+/* } */
 
-.admin-navigation-selected div.admin-navigation-button-container {
-	border-color: #d75f00;
-}
+/* .admin-navigation-selected div.admin-navigation-button-container { */
+/* 	border-color: #d75f00; */
+/* } */
 
 .admin-container-main-container {
 	width: 100%;
@@ -87,15 +87,15 @@ header.admin-header  {
  	padding: 20px 40px 0 40px;
  }
  
- .admin-navigation-header {
- 	height: 50px;
- 	margin-bottom: 30px; 
- 	text-align: center;
- 	width: 90%;
- 	margin-left: auto;
- 	margin-right: auto;
- 	display: table;
- }category
+/*  .admin-navigation-header { */
+/*  	height: 50px; */
+/*  	margin-bottom: 30px;  */
+/*  	text-align: center; */
+/*  	width: 90%; */
+/*  	margin-left: auto; */
+/*  	margin-right: auto; */
+/*  	display: table; */
+/*  }category */
  
  .admin-image {
  	float: left;
@@ -105,38 +105,39 @@ header.admin-header  {
  	margin-top: 10px;
  }
  
- .image-padding {
-/*  	padding-right: 30px; */
- 	width: 55px;
- 	height: 55px;
- }
+/*  .image-padding { */
+/* /*  	padding-right: 30px; */ */
+/*  	width: 55px; */
+/*  	height: 55px; */
+/*  } */
  
- .admin-header .logout {
- 	width: 100px;
- 	vertical-align: bottom;
- 	display: inline-block; 
- 	padding-bottom: 10px;
- 	float: right;	
- }
+/*  .logout { */
+/*  	width: 100px; */
+/*  	vertical-align: bottom; */
+/*  	display: inline-block;  */
+/*  	padding-bottom: 10px; */
+/*  	float: right;	 */
+/*  } */
  
  .karma-logo-container {
  	width: 300px;
  	display: inline-block;
  }
  
-.admin-header a {
- 	text-decoration: none;
- 	cursor: pointer;
- }
+/* .admin-header a { */
+/*  	text-decoration: none; */
+/*  	cursor: pointer; */
+/*  } */
  
  .add-new-item-button {
  	margin: 20px 0;
  }
  
  .admin-application-settings-container {
- 	width: 350px;
+ 	width: 45%;
  	display: inline-block;
- 	margin-left: 50px
+ 	margin-left: 50px;
+ 	border-right: 1px solid #CCC;
  }
  
 .admin-application-settings-title h2,

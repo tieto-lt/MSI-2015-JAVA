@@ -26,23 +26,18 @@
 .slider-img {
     width: 100%;
   	background:white;
-  	overflow:hidden;
   	position:absolute;
   	top:0;
  	left:0;
  	right:0;
   	bottom:0;
+  	margin-top: 70px;
 }
 
 .slider-buttons {
     text-align: center;
-}
+    margin-top: 15px;
 
-.slider {
-	height: 491px;
-	width: 932px;
-	overflow: hidden;
-	overflow-x: hidden;
 }
 
 .md-actions-overflow {
@@ -50,5 +45,22 @@
 }
 
 .md-actions-position {
-	height: 100px;
+	text-align: right;
+}
+
+@media screen and ( min-height: 300px ){
+
+	.slider {
+		height: 240px;
+		width: 477px;
+		overflow-x: hidden;
+	}
+}
+
+@media screen and ( min-height: 700px ){
+	.slider {
+		height: 491px;
+		width: 932px;
+		overflow-x: hidden;
+	}
 }
