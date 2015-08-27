@@ -6,15 +6,16 @@
 		.controller('UserProfileInfoController', UserProfileInfoController);
 	
 	UserProfileInfoController.$inject = ['UsersFactory', 'ProfileHeaderFactory', 'UserNewsFeedFactory',
-	                                     	'$state'];
+	                                     	'$state', '$scope'];
 	
 	function UserProfileInfoController(UsersFactory, ProfileHeaderFactory, UserNewsFeedFactory,
-			$state) {
+			$state, $scope) {
 
 		var vm = this;
 		var currUserData = ProfileHeaderFactory.getProfileInfo();
 		vm.currUserData = ProfileHeaderFactory.getProfileInfo();
 		vm.profileId = $state.params.id;
+		
 		vm.givingPointsBlock = UsersFactory.givingPointsBlock;
 		vm.responseMessages = UsersFactory.responseMessages;
 		vm.user = UsersFactory.userProfile;
@@ -27,12 +28,20 @@
 		UsersFactory.unsetGivingPointsBlock();
 		
 		vm.edit = edit;
+		vm.cancel = cancel;
 		vm.saveChanges = saveChanges;
 		vm.goToGivingPoints = goToGivingPoints;
 		vm.goToProfileBlock = goToProfileBlock;
 		
+		//for automatic photo update @ edit profile
+		vm.updatePicture = updatePicture;
+		
 		function edit() {
 			vm.editBlock = true;
+		}
+		
+		function cancel() {
+			vm.editBlock = false;
 		}
 		
 		function goToGivingPoints() {
@@ -79,6 +88,22 @@
 			} else {
 				submit(vm.user);
 			}
+		}
+		
+		//for automatic photo update @ edit profile
+		function updatePicture() {
+			var f = document.getElementById('edit-profile-photo').files[0];
+			var r = new FileReader();
+			
+			vm.user.imageName = f.name;
+			vm.user.imageType = f.type;
+			
+			r.onload = function(e) {
+				vm.user.image = e.target.result;
+				$scope.$apply();
+			}
+			
+			r.readAsDataURL(f);
 		}
 	}
 })();

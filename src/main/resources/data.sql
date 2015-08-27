@@ -12,7 +12,7 @@ insert into user(date_created, email, first_name, last_name, password, points_to
 insert into application_setting(property, value) values ('one_time_limit', 100);
 insert into application_setting(property, value) values ('monthly_limit', 1000);
 
-INSERT INTO category (enabled, name) VALUES (1, 'Achievement');
+INSERT INTO category (enabled, name) VALUES (0, 'Achievement');
 INSERT INTO category (enabled, name) VALUES (1, 'Hard Work');
 INSERT INTO category (enabled, name) VALUES (1, 'Friendliness');
 

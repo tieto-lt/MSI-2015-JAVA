@@ -61,12 +61,12 @@ public class PointsTransferInfoRest {
 			User toUser = userRepo.findById(transfer.toUserID);
 			Category category = transfer.getCategory();
 			NewsFeedDto entry = new NewsFeedDto(
-				fromUser.getId(),
+				fromUser == null ? 0 : fromUser.getId(),
 				toUser.getId(),
-				fromUser.getImage(),
+				fromUser == null ? "".getBytes() : fromUser.getImage(),
 				toUser.getImage(),
-				fromUser.getFirstName(),
-				fromUser.getLastName(),
+				fromUser == null ? "Achievement" : fromUser.getFirstName(),
+				fromUser == null ? "Heaven" : fromUser.getLastName(),
 				toUser.getFirstName(),
 				toUser.getLastName(),
 				transfer.getPoints(),

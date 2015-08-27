@@ -5,8 +5,8 @@ import java.util.Date;
 import lt.msi2015.category.CategoryDto;
 
 public class NewsFeedDto {
-	private Long fromUserID;
-	private Long toUserID;
+	public Long fromUserID;
+	public Long toUserID;
 	public byte[] fromImage;
 	public byte[] toImage;
 	public String fromFirstName;

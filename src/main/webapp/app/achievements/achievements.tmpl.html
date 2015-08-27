@@ -16,22 +16,59 @@
 		
 		<div class="achievement-entry">
 			<div class="achievement-title">
-				Karma Master
+				Karma Giver
 			</div>
 			<div class="achievement-body">
 				<img src="assets/images/achievements/hero.png">
 			</div>
 			<div class="achievement-points">
-				+50
+				+{{vm.firstAchievementReward}}
 			</div>
-			<div ng-if="vm.claimTrasfersMade" class="claim-button bar-style">
-				CLAIM BUTTON
+			<div ng-if="vm.claimTrasfersMade" class="claim-button bar-style"
+					ng-click="vm.claim(1, vm.firstAchievementReward)">
+				CLAIM REWARD
 			</div>
 			<div ng-if="!vm.claimTrasfersMade" class="progress-bar" >
 				<div class="full-bar"></div>
 				<div class="done-bar" style="width: {{vm.progressTrasfersMade}}%"></div>	
 			</div>
 		</div>
+		<div class="achievement-entry">
+			<div class="achievement-title">
+				Karma Receiver
+			</div>
+			<div class="achievement-body">
+				
+			</div>
+			<div class="achievement-points">
+				+{{vm.secondAchievementReward}}
+			</div>
+			<div ng-if="vm.claimTrasfersGotten" class="claim-button bar-style">
+				CLAIM REWARD
+			</div>
+			<div ng-if="!vm.claimTrasfersGotten" class="progress-bar" >
+				<div class="full-bar"></div>
+				<div class="done-bar" style="width: {{vm.progressTrasfersGotten}}%"></div>	
+			</div>
+		</div>
 		
+		<div class="achievement-entry">
+			<div class="achievement-title">
+				Points Receiver
+			</div>
+			<div class="achievement-body">
+				
+			</div>
+			<div class="achievement-points">
+				+{{vm.thirdAchievementReward}}
+			</div>
+			<div ng-if="vm.claimPointsGotten" class="claim-button bar-style">
+				CLAIM REWARD
+			</div>
+			<div ng-if="!vm.claimPointsGotten" class="progress-bar" >
+				<div class="full-bar"></div>
+				<div class="done-bar" style="width: {{vm.progressPointsGotten}}%"></div>	
+			</div>
+		</div>
 	</div>
 </div>
