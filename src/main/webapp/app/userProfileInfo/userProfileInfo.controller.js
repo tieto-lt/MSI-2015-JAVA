@@ -18,6 +18,8 @@
 		vm.givingPointsBlock = UsersFactory.givingPointsBlock;
 		vm.responseMessages = UsersFactory.responseMessages;
 		vm.user = UsersFactory.userProfile;
+		vm.submitError = '';
+		vm.submitSuccess = '';
 		
 		UsersFactory.refreshUserProfile(vm.profileId);
 		
@@ -42,33 +44,42 @@
 		}
 		
 		function saveChanges() {
-			vm.editBlock = '';
+			
 			var f = document.getElementById('edit-profile-photo').files[0];
+			
+			var submit = function (user) {
+				UsersFactory.updateUserProfile(vm.user).then(function() {
+					UserNewsFeedFactory.updateNewsFeed(currUserData.id);
+					ProfileHeaderFactory.loadUserInfo();
+					user.newPassword = '';
+					user.confirmPassword = '';
+					user.oldPassword = '';
+					vm.submitSuccess = 'Successfully updated profile';
+					vm.submitError = '';
+					vm.editBlock = '';
+				}, function() {
+					vm.submitError = 'Incorrect password';
+					vm.submitSuccess = '';
+					user.oldPassword = '';
+				});
+			}
+			
 			if (f) {
 				var r = new FileReader();
 				
 				vm.user.imageName = f.name;
 				vm.user.imageType = f.type;
-			
 				r.onload = function(e) {
 					vm.user.image = e.target.result;
-					// send you binary data via $http or $resource or do anything
-					// else with it
-					UsersFactory.updateUserProfile(vm.user).then(function() {
-						UserNewsFeedFactory.updateNewsFeed(currUserData.id);
-						ProfileHeaderFactory.loadUserInfo();
-					});
-	
+					submit(vm.user)
 				}
 				r.readAsDataURL(f);
 			} else {
-				UsersFactory.updateUserProfile(vm.user).then(function() {
-					UserNewsFeedFactory.updateNewsFeed(currUserData.id);
-					ProfileHeaderFactory.loadUserInfo();
-				});
+				submit(vm.user);
 			}
-			
 		}
+		
+
 		
 		/*UsersFactory.getUserProfile(vm.profileId).then(function(response) {
 			vm.user = response.data;
