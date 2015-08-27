@@ -16,7 +16,7 @@
 		  element.mCustomScrollbar({
 			  theme: '3d-dark',
 			  mouseWheel:{ 
-				  scrollAmount: 400,
+				  scrollAmount: 510,
 				  preventDefault: true
 			  },
 			  callbacks:{
