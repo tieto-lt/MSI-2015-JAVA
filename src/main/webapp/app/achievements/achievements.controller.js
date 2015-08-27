@@ -1,12 +1,14 @@
 (function(angular) {
 	'use strict';
 
-	angular.module('app.adminAppSettings').controller(
+	angular.module('app.achievements').controller(
 			'AchievementsController', AchievementsController);
 
-	AchievementsController.$inject = ['StatisticsFactory', 'ProfileHeaderFactory', 'AdminAppSettingsFactory'];
+	AchievementsController.$inject = ['StatisticsFactory', 'ProfileHeaderFactory',
+	                                  'AdminAppSettingsFactory', 'AchievementsFactory'];
 
-	function AchievementsController(StatisticsFactory, ProfileHeaderFactory, AdminAppSettingsFactory) {
+	function AchievementsController(StatisticsFactory, ProfileHeaderFactory, AdminAppSettingsFactory,
+					AchievementsFactory) {
 		var vm = this;
 		
 		vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
@@ -15,10 +17,15 @@
 		vm.claimTransfersGotten = false;
 		vm.claimPointsGotten = false;
 		
+		vm.claim = claim;
+		
 		AdminAppSettingsFactory.getMonthlyLimit().then(function(response) {
 			
 			vm.monthlylimit = response;
 			vm.getPointsAchievement = vm.monthlylimit * 0.25;
+			vm.firstAchievementReward = vm.monthlylimit * 0.05;
+			vm.secondAchievementReward = vm.monthlylimit * 0.05;
+			vm.thirdAchievementReward = vm.monthlylimit * 0.075;
 			
 			StatisticsFactory.getUserStatistics(vm.profileInfo.id).then(function(response) {
 				vm.userStatistics = response.data;
@@ -49,9 +56,11 @@
 			});
 		});
 		
-		
-		
-		
+		function claim(achievementId, achievementReward) {
+			
+			AchievementsFactory.claim(vm.profileInfo.id, achievementId, achievementReward);
+			
+		}
 		
 		
 	}
