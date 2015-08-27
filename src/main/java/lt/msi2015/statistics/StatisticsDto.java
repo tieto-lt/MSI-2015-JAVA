@@ -4,16 +4,16 @@ import lt.msi2015.util.Dto;
 
 public class StatisticsDto extends Dto {
 
-	private Integer registeredUsersNumber; //done
-	private Long totalKarmaPointsSent; //done
-	private Long pointsToSend; //done
-	private Long pointsSentThisMonth; //done
-	private Long totalItemsGiven; //done
-	private String mostPopularCategory; //done
+	private Integer registeredUsersNumber; 
+	private Long totalKarmaPointsSent; 
+	private Long pointsToSend; 
+	private Long pointsSentThisMonth; 
+	private Long totalItemsGiven; 
+	private String mostPopularCategory; 
 	private Integer mostTransfersByOnePerson; 
 	private String mostPopularItem; 
-	private Long totalTransfers; //done
-
+	private Long totalTransfers; 
+	
 	public StatisticsDto() {
 		super();
 	}

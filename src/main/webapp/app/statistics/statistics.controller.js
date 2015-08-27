@@ -5,12 +5,16 @@
     .module('app.statistics')
     .controller('StatisticsController', StatisticsController);
 
-  /*StatisticsController.$inject = [];*/
+  StatisticsController.$inject = ['StatisticsFactory'];
 
-  function StatisticsController() {
+  function StatisticsController(StatisticsFactory) {
     var vm = this;
     
-    vm.statistics = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    StatisticsFactory.getStatistics().then(function(response) {
+    	vm.statistics = response.data;
+    	console.log(vm.statistics);
+    })
+    
 	  
   }
 

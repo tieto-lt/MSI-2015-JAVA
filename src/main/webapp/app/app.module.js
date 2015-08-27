@@ -8,6 +8,7 @@
       
       /* modules */
       'ngMaterial',
+      'twygmbh.auto-height',
       'app.pointsTransferInfo',
       'app.registration',
       'app.leaderboard',

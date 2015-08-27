@@ -5,7 +5,7 @@ header.profile-header {
     font-weight: bold;
     /* height: 125px; */
     color: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     /*box-shadow: 0px 0px 10px #444;*/
     padding-top: 0px;
 }
@@ -80,6 +80,7 @@ header.profile-header {
 }
 
 .profile-header .header-navigation li {
+	margin-left: -3px;
     margin-top: 0px;
     box-sizing: border-box;
     display: inline-block;
@@ -93,7 +94,7 @@ header.profile-header {
 }
 
 .profile-header ul {
-	margin-top: 0px;
+	margin: 0px;
 	padding-left: 61px;
 }
 
