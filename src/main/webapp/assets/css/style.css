@@ -38,9 +38,6 @@ header.login-header {
 }
 
 #karma-logo {
-/*     position: absolute; */
-/*     left: 20px; */
-/*     top: 9px; */
     height: 80px;
     vertical-align: middle;
 }
@@ -60,7 +57,7 @@ body {
 }
 
 .header-low {
-	font-size: 16px;
+	font-size: 18px;
 }
 
 .response-block {
@@ -197,8 +194,8 @@ md-input-container .md-input {
   
 }
 header .title {
-	margin-bottom:10px;
-	font-size: 35px;
+	margin-bottom:7px;
+	font-size: 36px;
 }
 
 a.md-button.md-raised.button-dim,
