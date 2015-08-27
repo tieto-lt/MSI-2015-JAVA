@@ -1,14 +1,15 @@
-<div class="shop-item-container">
-	
-	<div class="shop-item-container-intro">
-		<div class="shop-item-container-title">
-			Tieto Shop
-		</div>
-		<div class="shop-item-container-sentence">
-			<!-- Karma has no menu. You get served what you deserve.-->
-			Where dreams come true.
-		</div>
+<div class="shop-item-container" scrollbar auto-height>
+	<div class="shop-header-cover">
+		<img src="assets/images/shop_photo.png" class="shop-header-image" />
 	</div>
+<!-- 	<div class="shop-item-container-intro"> -->
+<!-- 		<div class="shop-item-container-title"> -->
+<!-- 			Tieto Shop -->
+<!-- 		</div> -->
+<!-- 		<div class="shop-item-container-sentence"> -->
+<!-- 			Where dreams come true. -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 	<div class="shop-items" data-ng-controller="ShopItemController as vm">
 		<shop-item item="item" type="'shop-item'" ng-repeat="item in vm.shopItems | orderBy:'-dateAdded'"></shop-item>
 	</div>
