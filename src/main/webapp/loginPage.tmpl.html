@@ -14,10 +14,11 @@
 			</div>
 		</div>
 	</div>
-	<div class ="statistics-block">
-		<data-ng-include src="'app/statistics/statistics.tmpl.html'"></data-ng-include>
-	</div>
+	
 	<div id="about" data-ng-controller="LoginController as vm">
+		<div class ="statistics-block">
+			<data-ng-include src="'app/statistics/statistics.tmpl.html'"></data-ng-include>
+		</div>
 		<img src="assets/images/about-bg.jpg" />
 		<md-button class="md-raised join-button" ng-click="vm.moveToRegisterPage()">
 			Join Karma Points
