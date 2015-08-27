@@ -99,17 +99,44 @@
 .claim-button{
 	position: relative;
 	top: -12%;
-	height: 11%;
-	width: 75%;
 	background-color: green;
-	
 	padding-top: 10px;
-	display: inline-block;
 	color: white;
 	font-weight: bold;
 	font-size: 15px;
+	
+	height: 38px;
+	width: 75%;	
+	display: inline-block;
 	border-radius: 10px;
 }
+
+.progress-bar {
+	position: relative;
+	top: -12%;
+	height: 11%;
+	width: 75%;
+	text-align: left;
+}
+
+.full-bar{
+	position: relative;
+	height: 38px;
+	background-color: #444;
+	width: 100%;
+	border-radius: 10px;
+}
+
+.done-bar {
+	position: relative;
+	top: -38px;
+	height: 38px;
+	background-color: green;
+	width: 80%;
+	border-radius: 10px;
+	z-index: 1;
+}
+
 
 /* space */
 
