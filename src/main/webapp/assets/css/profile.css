@@ -93,6 +93,7 @@ header.profile-header {
 	font-size: 18px;
 	border-radius: 3px 3px 0 0;
 	background-color: #428DBB;
+	cursor: pointer;
 }
 
 .profile-header ul {
@@ -150,7 +151,7 @@ header.profile-header {
 	float: right;
 }
 
-.profile-header .logout:hover {
+.profile-header .logout a:hover {
 	color: #ffbe85;
 }
 
@@ -168,7 +169,8 @@ header.profile-header {
 	border-bottom: 2px solid orange;
 }
 
-.profile-header .navigation a {
+.profile-header .navigation a
+ {
     display: inline-block;
     cursor: pointer;
     outline:0;

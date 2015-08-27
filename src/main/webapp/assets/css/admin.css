@@ -124,10 +124,10 @@
  	display: inline-block;
  }
  
-.admin-header a {
- 	text-decoration: none;
- 	cursor: pointer;
- }
+/* .admin-header a { */
+/*  	text-decoration: none; */
+/*  	cursor: pointer; */
+/*  } */
  
  .add-new-item-button {
  	margin: 20px 0;
