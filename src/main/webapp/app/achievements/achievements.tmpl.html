@@ -16,7 +16,7 @@
 		
 		<div class="achievement-entry">
 			<div class="achievement-title">
-				Karma Giver
+				Generous Heart
 			</div>
 			<div class="achievement-body">
 				<img src="assets/images/achievements/heart.png">
@@ -24,16 +24,16 @@
 			<div class="achievement-points">
 				+{{vm.firstAchievementReward}}
 			</div>
-			<div ng-if="vm.claimTrasfersMade && !vm.userStatistics.achievement_1" class="claim-button bar-style"
+			<div ng-if="vm.claimTransfersMade && !vm.userStatistics.achievement_1" class="claim-button bar-style"
 					ng-click="vm.claim(1, vm.firstAchievementReward)">
 				CLAIM REWARD
 			</div>
 			<div class="claim-button bar-style awarded" ng-if="vm.userStatistics.achievement_1">
 				Awarded	
 			</div>
-			<div ng-if="!vm.claimTrasfersMade" class="progress-bar" >
+			<div ng-if="!vm.claimTransfersMade" class="progress-bar" >
 				<div class="full-bar"></div>
-				<div class="done-bar" style="width: {{vm.progressTrasfersMade}}%"></div>	
+				<div class="done-bar" style="width: {{vm.progressTransfersMade}}%"></div>	
 			</div>
 			<div class="achievement-description">
 				Thank your colleagues 5 times by sending karma points.
@@ -41,7 +41,7 @@
 		</div>
 		<div class="achievement-entry">
 			<div class="achievement-title">
-				Karma Receiver
+				Be A Super Hero
 			</div>
 			<div class="achievement-body">
 				<img src="assets/images/achievements/hero.png">
@@ -49,16 +49,16 @@
 			<div class="achievement-points">
 				+{{vm.secondAchievementReward}}
 			</div>
-			<div ng-if="vm.claimTrasfersGotten && !vm.userStatistics.achievement_2" class="claim-button bar-style"
+			<div ng-if="vm.claimTransfersGotten && !vm.userStatistics.achievement_2" class="claim-button bar-style"
 					ng-click="vm.claim(2, vm.secondAchievementReward)">
 				CLAIM REWARD
 			</div>
 			<div class="claim-button bar-style awarded" ng-if="vm.userStatistics.achievement_2">
 				Awarded	
 			</div>
-			<div ng-if="!vm.claimTrasfersGotten" class="progress-bar" >
+			<div ng-if="!vm.claimTransfersGotten" class="progress-bar" >
 				<div class="full-bar"></div>
-				<div class="done-bar" style="width: {{vm.progressTrasfersGotten}}%"></div>	
+				<div class="done-bar" style="width: {{vm.progressTransfersGotten}}%"></div>	
 			</div>
 			<div class="achievement-description">
 				Receive karma points from your colleagues 5 times.
@@ -67,7 +67,7 @@
 		
 		<div class="achievement-entry">
 			<div class="achievement-title">
-				Points Receiver
+				Karma Sensei
 			</div>
 			<div class="achievement-body">
 				<img src="assets/images/achievements/stats.png">
