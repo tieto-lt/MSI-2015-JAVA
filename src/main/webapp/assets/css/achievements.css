@@ -44,13 +44,19 @@
 	width: 100%;
 	text-align: center;
 }
+
+.achievements-content > div {
+	display: inline-block;
+	width: 325px;
+}
+
 /* achievement-entry */
 
 .achievement-entry{
 	width: 275px;
 	height: 350px;
 /* 	background-color: orange; */
-	margin: 25px 20px;
+	margin: 15px 20px 0 20px;
 	text-align: center;
 }
 
@@ -153,8 +159,9 @@
 }
 
 .achievement-description {
-	width: 70%;
+	width: 60%;
 	text-align: justify;
 	color: #444;
 	line-height: 150%;
+	font-size: 18px;
 }
