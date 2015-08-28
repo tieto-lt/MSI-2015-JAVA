@@ -1,4 +1,4 @@
-<div class="achievements-container" data-ng-controller="AchievementsController as vm">
+<div class="achievements-container" auto-height scrollbar data-ng-controller="AchievementsController as vm">
 	<div class="achievements-header">
 		<div class="achievements-icon">
 			<img id="cup" src="assets/images/achievements/cup.png">
@@ -13,81 +13,87 @@
 		</div>
 	</div>
 	<div class="achievements-content">
-		
-		<div class="achievement-entry">
-			<div class="achievement-title">
-				Generous Heart
-			</div>
-			<div class="achievement-body">
-				<img src="assets/images/achievements/heart.png">
-			</div>
-			<div class="achievement-points">
-				+{{vm.firstAchievementReward}}
-			</div>
-			<div ng-if="vm.claimTransfersMade && !vm.userStatistics.achievement_1" class="claim-button bar-style"
-					ng-click="vm.claim(1, vm.firstAchievementReward)">
-				CLAIM REWARD
-			</div>
-			<div class="claim-button bar-style awarded" ng-if="vm.userStatistics.achievement_1">
-				Awarded	
-			</div>
-			<div ng-if="!vm.claimTransfersMade" class="progress-bar" >
-				<div class="full-bar"></div>
-				<div class="done-bar" style="width: {{vm.progressTransfersMade}}%"></div>	
+		<div>
+			<div class="achievement-entry">
+				<div class="achievement-title">
+					Karma Giver
+				</div>
+				<div class="achievement-body">
+					<img src="assets/images/achievements/heart.png">
+				</div>
+				<div class="achievement-points">
+					+{{vm.firstAchievementReward}}
+				</div>
+				<div ng-if="vm.claimTransfersMade && !vm.userStatistics.achievement_1" class="claim-button bar-style"
+						ng-click="vm.claim(1, vm.firstAchievementReward)">
+					Claim Reward
+				</div>
+				<div class="claim-button bar-style awarded" ng-if="vm.userStatistics.achievement_1">
+					Awarded	
+				</div>
+				<div ng-if="!vm.claimTransfersMade" class="progress-bar" >
+					<div class="full-bar"></div>
+					<div class="done-bar" style="width: {{vm.progressTransfersMade}}%"></div>	
+				</div>
+				
 			</div>
 			<div class="achievement-description">
-				Thank your colleagues 5 times by sending karma points.
+				Thank your colleagues 5 times by sending karma points this month.
 			</div>
 		</div>
-		<div class="achievement-entry">
-			<div class="achievement-title">
-				Be A Super Hero
-			</div>
-			<div class="achievement-body">
-				<img src="assets/images/achievements/hero.png">
-			</div>
-			<div class="achievement-points">
-				+{{vm.secondAchievementReward}}
-			</div>
-			<div ng-if="vm.claimTransfersGotten && !vm.userStatistics.achievement_2" class="claim-button bar-style"
-					ng-click="vm.claim(2, vm.secondAchievementReward)">
-				CLAIM REWARD
-			</div>
-			<div class="claim-button bar-style awarded" ng-if="vm.userStatistics.achievement_2">
-				Awarded	
-			</div>
-			<div ng-if="!vm.claimTransfersGotten" class="progress-bar" >
-				<div class="full-bar"></div>
-				<div class="done-bar" style="width: {{vm.progressTransfersGotten}}%"></div>	
+		<div>
+			<div class="achievement-entry">
+				<div class="achievement-title">
+					Karma Receiver
+				</div>
+				<div class="achievement-body">
+					<img src="assets/images/achievements/hero.png">
+				</div>
+				<div class="achievement-points">
+					+{{vm.secondAchievementReward}}
+				</div>
+				<div ng-if="vm.claimTransfersGotten && !vm.userStatistics.achievement_2" class="claim-button bar-style"
+						ng-click="vm.claim(2, vm.secondAchievementReward)">
+					Claim Reward
+				</div>
+				<div class="claim-button bar-style awarded" ng-if="vm.userStatistics.achievement_2">
+					Awarded	
+				</div>
+				<div ng-if="!vm.claimTransfersGotten" class="progress-bar" >
+					<div class="full-bar"></div>
+					<div class="done-bar" style="width: {{vm.progressTransfersGotten}}%"></div>	
+				</div>
+				
 			</div>
 			<div class="achievement-description">
-				Receive karma points from your colleagues 5 times.
+				Receive karma points from your colleagues 5 times this month.
 			</div>
 		</div>
-		
-		<div class="achievement-entry">
-			<div class="achievement-title">
-				Karma Sensei
-			</div>
-			<div class="achievement-body">
-				<img src="assets/images/achievements/stats.png">
-			</div>
-			<div class="achievement-points">
-				+{{vm.thirdAchievementReward}}
-			</div>
-			<div ng-if="vm.claimPointsGotten && !vm.userStatistics.achievement_3" class="claim-button bar-style"
-					ng-click="vm.claim(3, vm.thirdAchievementReward)">
-				CLAIM REWARD
-			</div>
-			<div class="claim-button bar-style awarded" ng-if="vm.userStatistics.achievement_3">
-				Awarded	
-			</div>
-			<div ng-if="!vm.claimPointsGotten" class="progress-bar" >
-				<div class="full-bar"></div>
-				<div class="done-bar" style="width: {{vm.progressPointsGotten}}%"></div>	
+		<div>
+			<div class="achievement-entry">
+				<div class="achievement-title">
+					Points Receiver
+				</div>
+				<div class="achievement-body">
+					<img src="assets/images/achievements/stats.png">
+				</div>
+				<div class="achievement-points">
+					+{{vm.thirdAchievementReward}}
+				</div>
+				<div ng-if="vm.claimPointsGotten && !vm.userStatistics.achievement_3" class="claim-button bar-style"
+						ng-click="vm.claim(3, vm.thirdAchievementReward)">
+					Claim Reward
+				</div>
+				<div class="claim-button bar-style awarded" ng-if="vm.userStatistics.achievement_3">
+					Awarded	
+				</div>
+				<div ng-if="!vm.claimPointsGotten" class="progress-bar" >
+					<div class="full-bar"></div>
+					<div class="done-bar" style="width: {{vm.progressPointsGotten}}%"></div>	
+				</div>
 			</div>
 			<div class="achievement-description">
-				 Receive {{vm.getPointsAchievement}} points from your colleagues.
+				 Receive {{vm.getPointsAchievement}} points this month.
 			</div>
 		</div>
 	</div>

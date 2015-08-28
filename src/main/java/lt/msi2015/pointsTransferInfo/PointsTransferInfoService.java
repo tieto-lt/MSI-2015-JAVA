@@ -55,7 +55,7 @@ public class PointsTransferInfoService {
 		
 		Category category = categoryRepository.findById(info.categoryId);
 		if (category != null && category.isEnabled()) {
-			mailer.sendMail(info);
+			sendMail(info);
 			return pointsRepo.save(
 				new PointsTransferInfo(
 					userService.getCurrentUser().getId(),
@@ -92,4 +92,11 @@ public class PointsTransferInfoService {
 		return fromUser.pointsToGive >= info.points && userService.getCurrentUser().getId() != info.toUserID;
 	}
 	
+	private void sendMail(PointsTransferInfoDto info) {
+		(new Thread() {
+			  public void run() {
+				  mailer.sendMail(info);
+			  }
+		}).start();
+	}
 }

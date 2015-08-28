@@ -169,7 +169,10 @@ public class StatisticsService {
 		    }
 		}
 		
-		return mostPopularCategory.getName();
+		if (mostPopularCategory != null) {
+			return mostPopularCategory.getName();
+		}
+		return "Nothing here yet";
 	}
 	
 	private String getMostPopularItem(){
@@ -212,6 +215,10 @@ public class StatisticsService {
 		
 		List<PointsTransferInfo> allTransfers = transferRepo.findAll();
 		
+		if (allTransfers == null || allTransfers.size() == 0) {
+			return 0;
+		}
+		
 		for(PointsTransferInfo transfer : allTransfers ){
 			
 			if(map.containsKey(transfer.getFromUserID())){
@@ -234,7 +241,13 @@ public class StatisticsService {
 	}
 	
 	private Integer getUserTransfersGotten(Long id){
-		return transferRepo.findByToUserID(id).size();
+		int total = 0;
+		for (PointsTransferInfo transfer : transferRepo.findByToUserID(id)) {
+			if (transfer.fromUserID != null) {
+				total++;
+			}
+		}
+		return total;
 	}
 	
 	private Integer getUserPointsSent(Long id){
