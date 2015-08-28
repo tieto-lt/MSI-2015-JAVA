@@ -13,7 +13,7 @@
 		
 		vm.profileInfo = ProfileHeaderFactory.getProfileInfo();
 		
-		vm.claimTrasfersMade = false;
+		vm.claimTransfersMade = false;
 		vm.claimTransfersGotten = false;
 		vm.claimPointsGotten = false;
 		
@@ -30,13 +30,13 @@
 			StatisticsFactory.getUserStatistics(vm.profileInfo.id).then(function(response) {
 				vm.userStatistics = response.data;
 				
-				console.log(vm.userStatistics.achievement_1);
+//				console.log(vm.userStatistics);
 				
 				/*HARDCODED ACHIEVEMENTS*/
 				if(vm.userStatistics.transfersMade >= 5) {
-					vm.claimTrasfersMade = true;
+					vm.claimTransfersMade = true;
 				} else {
-					vm.progressTrasfersMade = vm.userStatistics.transfersMade / 5 * 100;
+					vm.progressTransfersMade = vm.userStatistics.transfersMade / 5 * 100;
 				}
 				
 				if(vm.userStatistics.transfersGotten >= 5) {
@@ -51,9 +51,9 @@
 					vm.progressPointsGotten = vm.userStatistics.pointsGotten / vm.getPointsAchievement * 100
 				}
 				
-				console.log("transfers made:", vm.userStatistics.transfersMade, vm.claimTrasfersMade);
-				console.log("transfers got:", vm.userStatistics.transfersGotten, vm.claimTransfersGotten);
-				console.log("points got:", vm.userStatistics.pointsGotten, vm.claimPointsGotten);
+//				console.log("transfers made:", vm.userStatistics.transfersMade, vm.claimTrasfersMade);
+//				console.log("transfers got:", vm.userStatistics.transfersGotten, vm.claimTransfersGotten);
+//				console.log("points got:", vm.userStatistics.pointsGotten, vm.claimPointsGotten);
 				
 			});
 		});
