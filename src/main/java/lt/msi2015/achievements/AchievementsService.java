@@ -1,6 +1,11 @@
 package lt.msi2015.achievements;
 
+import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import lt.msi2015.category.Category;
@@ -43,6 +48,19 @@ public class AchievementsService {
         
         PointsTransferInfo fakeTransfer = new PointsTransferInfo(null, dto.getUserId(), dto.getPoints(), "Claimed achievement", category);
         transfersRepo.save(fakeTransfer);
+	}
+	
+	@Scheduled(cron = "1 0 0 1 * *")
+	@Transactional
+	public void resetMonthlyAchievements() {
+		List<User> userList = userRepo.findAll();
+		
+		for (User u: userList) {
+			u.setAchievement_1(false);
+			u.setAchievement_2(false);
+			u.setAchievement_3(false);
+		}
+		userRepo.save(userList);
 	}
 
 }

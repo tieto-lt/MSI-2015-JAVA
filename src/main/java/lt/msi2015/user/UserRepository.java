@@ -2,9 +2,9 @@ package lt.msi2015.user;
 
 import java.util.List;
 
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends Repository<User, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
 
     List<User> findAll();
  
@@ -12,6 +12,4 @@ public interface UserRepository extends Repository<User, Long> {
     User findByEmail(String email);
     
     User findById(Long id);
-    
-    User save(User user);
 }
