@@ -234,7 +234,13 @@ public class StatisticsService {
 	}
 	
 	private Integer getUserTransfersGotten(Long id){
-		return transferRepo.findByToUserID(id).size();
+		int total = 0;
+		for (PointsTransferInfo transfer : transferRepo.findByToUserID(id)) {
+			if (transfer.fromUserID != null) {
+				total++;
+			}
+		}
+		return total;
 	}
 	
 	private Integer getUserPointsSent(Long id){
