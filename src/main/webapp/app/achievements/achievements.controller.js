@@ -22,7 +22,7 @@
 		AdminAppSettingsFactory.getMonthlyLimit().then(function(response) {
 			
 			vm.monthlylimit = response;
-			vm.getPointsAchievement = Math.floor(vm.monthlylimit * 0.25);
+			vm.getPointsAchievement = Math.floor(vm.monthlylimit);
 			vm.firstAchievementReward = Math.floor(vm.monthlylimit * 0.05);
 			vm.secondAchievementReward = Math.floor(vm.monthlylimit * 0.05);
 			vm.thirdAchievementReward = Math.floor(vm.monthlylimit * 0.075);
