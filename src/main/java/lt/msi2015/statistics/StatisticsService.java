@@ -169,7 +169,10 @@ public class StatisticsService {
 		    }
 		}
 		
-		return mostPopularCategory.getName();
+		if (mostPopularCategory != null) {
+			return mostPopularCategory.getName();
+		}
+		return "Nothing here yet";
 	}
 	
 	private String getMostPopularItem(){
@@ -211,6 +214,10 @@ public class StatisticsService {
 		Map<Long, Integer> map = new HashMap<>();
 		
 		List<PointsTransferInfo> allTransfers = transferRepo.findAll();
+		
+		if (allTransfers == null || allTransfers.size() == 0) {
+			return 0;
+		}
 		
 		for(PointsTransferInfo transfer : allTransfers ){
 			
