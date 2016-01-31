@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,12 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lt.msi2015.applicationSettings.ApplicationSettingsEnum;
 import lt.msi2015.applicationSettings.ApplicationSettingsService;
+import lt.msi2015.pointsTransferInfo.PointsTransferInfo;
 
 @RestController
 public class UserRest {
 
 	@Autowired
-	UserService service;
+	UserService userService;
 	
 	@Autowired
 	UserRepository repo;
@@ -27,11 +30,15 @@ public class UserRest {
 	
 	@RequestMapping(value = "/user/save", method = RequestMethod.POST)
 	@ResponseBody
-	User save(@RequestBody UserDto info) {
+	ResponseEntity<User> save(@RequestBody UserDto info) {
+		
+		if(userService.userExists()) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
 		
 		int monthlyLimit = appSettingsService.getSetting(ApplicationSettingsEnum.MONTHLY_LIMIT).getValue();
 		
-		return repo.save(new User(
+		repo.save(new User(
 			info.email,
 			info.firstName,
 			info.lastName,
@@ -39,6 +46,8 @@ public class UserRest {
 			monthlyLimit
 			)
 		);
+		
+		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/api/user/getAllUsersFullnames", method = RequestMethod.GET)
@@ -57,7 +66,7 @@ public class UserRest {
 	@RequestMapping(value = "/api/user/getCurrentUser", method = RequestMethod.GET)
 	public @ResponseBody LoggedUserDto getCurrentUser() {
 		
-		return service.getCurrentUser();
+		return userService.getCurrentUser();
 	}
 	
 //	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -69,7 +78,7 @@ public class UserRest {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public LoggedUserDto login() {
-		return service.getCurrentUser();
+		return userService.getCurrentUser();
 	}
 	
 }

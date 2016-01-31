@@ -1,6 +1,6 @@
 <div class="login-container" data-ng-controller="LoginController as vm">
 <!-- 	<img src="http://cdn2-b.examiner.com/sites/default/files/styles/image_content_width/hash/08/df/08dfdc7cda643581d957abb4538e93b7.jpg?itok=EPLVIxlZ"> -->
-	<form name="login-form" data-ng-submit="vm.submit()">
+	<form name="login-form">
 	
 		<div class="login-email-input" >
 			<md-input-container>
@@ -20,8 +20,8 @@
 		</div>
 		
 		<div class="login-buttons">
-			<md-button class="md-raised md-primary" type="submit">Log in</md-button>
-			<md-button class="md-raised md-primary" ng-click="vm.moveToRegister()">Register</md-button>
+			<md-button class="md-raised md-primary" ng-click="vm.submit()">Log in</md-button>
+			<md-button class="md-raised md-primary" ng-click="vm.moveToRegisterPage()">Register</md-button>
 		</div>
 		
 	</form>

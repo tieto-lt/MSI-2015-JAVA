@@ -18,25 +18,33 @@
      	passwordConfirm: ''
     };
 
-    vm.submit = submit;
+    vm.register = register;
 
     //////////////////////////////////
 
-    function submit() {
-      UsersFactory
-      	.addUser(vm.user)
-      	//.then(LoginFactory.login({email: vm.user.email, password: vm.user.password}))
-      	.then(function() {
-      		LoginFactory.login({email: vm.user.email, password: vm.user.password})
-      			.then(function(response) {
-      				console.log(response.data.role);
-  				  if(response.data.role == 'ADMIN'){
-  					  $state.go('adminPage');
-  				  } else {
-  					  $state.go('userPage'); 
-  				  } 
-  			});
-      });
+    function register() {
+    	vm.error = '';
+    	vm.registrationForm.$setPristine;
+	    UsersFactory
+	      	.addUser(vm.user)
+	      	.then(function success() {
+	      		loginUser();
+			}, function error() {
+	      		vm.error = "Such user already exists";
+			});
+    }
+    
+    function loginUser() {
+  		LoginFactory
+  			.login({email: vm.user.email, password: vm.user.password})
+  			.then(function(response) {
+				console.log(response.data.role);
+				  if(response.data.role == 'ADMIN'){
+					  $state.go('adminPage');
+				  } else {
+					  $state.go('userPage'); 
+				  } 
+			});
     }
   }
 

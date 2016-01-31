@@ -43,6 +43,10 @@ public class UserService {
 	     
 	     return loggedUser;
 	}
+
+	public boolean userExists() {
+		return true;
+	}
 	
 	
 	/*
