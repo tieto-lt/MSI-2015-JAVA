@@ -48,9 +48,9 @@ public class UserService {
 	/*
 	 * Quartz monthly points_to_give reset to application_settings value
 	 */
-	@Scheduled(cron = "0 * * * * MON-FRI")
+	@Scheduled(cron = "1 0 0 1 * *")
 	public void resetUserPointsToGiveEachMonth() {
-		System.out.println("Ivyko: " + new Date());
+		//System.out.println("Ivyko: " + new Date());
 	
 		final ApplicationSetting monthlyLimit = 
 				appSettingsRepo.findByProperty(ApplicationSettingsEnum.MONTHLY_LIMIT.toString());
@@ -59,7 +59,7 @@ public class UserService {
 		
 		for (User u: userList) {
 			u.setPointsToGive(monthlyLimit.getValue());
-			System.out.println(u.getPointsToGive());
+			//System.out.println(u.getPointsToGive());
 			repo.save(u);
 		}
 	}

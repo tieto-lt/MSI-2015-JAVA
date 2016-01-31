@@ -143,7 +143,7 @@ public class User extends Dto {
 	public Role getRole() {
 		return role;
 	}
-	
+
 	public Integer getPointsToGive() {
 		return pointsToGive;
 	}
@@ -162,22 +162,6 @@ public class User extends Dto {
 
 	public void setRole(Role role) {
 		this.role = role;
-	}
-
-	public Integer getPointsToGive() {
-		return pointsToGive;
-	}
-
-	public void setPointsToGive(Integer pointsToGive) {
-		this.pointsToGive = pointsToGive;
-	}
-
-	public Integer getUserPoints() {
-		return userPoints;
-	}
-
-	public void setUserPoints(Integer userPoints) {
-		this.userPoints = userPoints;
 	}
 
 //	public Boolean getIsAdmin() {
